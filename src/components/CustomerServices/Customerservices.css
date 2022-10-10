@@ -1,6 +1,7 @@
-.maindivservices{
-    border: 1px solid red;
+*{
+    box-sizing: border-box;
 }
+
 .mainheadCustomerServices{
     
     display: flex;
@@ -24,5 +25,25 @@
     outline: none;
 }
 .getbtn:hover{
-    background-color: gray;
+    background-color: rgb(32, 30, 30);
+}
+.serviceimg{
+ background-image: url(../../images/imgcustomer.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ height: 500px;
+}
+.sometext{
+    width: 700px;
+    height: 500px;
+    text-align: start;
+    font-size: 40px;
+    letter-spacing: 3px;
+    line-height: 64px;
+    color: rgba(255, 255, 255, 0.863);
+    font-weight: 700;
+    padding: 40px;
+    position: relative;
+    top: 6%;
+    left: 10%;
 }
