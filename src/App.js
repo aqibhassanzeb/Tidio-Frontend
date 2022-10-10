@@ -1,9 +1,10 @@
 import { Button } from 'react-bootstrap';
+import CustomerServices from './components/CustomerServices/CustomerServices';
 function App() {
   return (
-    <div className='text-center'>
-      <h1>Tidio Chat</h1>
-    </div>
+    <>
+      <CustomerServices/>
+    </>
   );
 }
 

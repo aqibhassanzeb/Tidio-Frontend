@@ -1,0 +1,28 @@
+.maindivservices{
+    border: 1px solid red;
+}
+.mainheadCustomerServices{
+    
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+}
+.btnget{
+    display: flex;
+    justify-content: center;
+}
+.getbtn{
+    font-size: 22px;
+    font-weight: 500;
+    background-color: rgb(19, 167, 216);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.getbtn:hover{
+    background-color: gray;
+}
