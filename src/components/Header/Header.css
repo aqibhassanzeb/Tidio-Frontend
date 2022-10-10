@@ -7,3 +7,6 @@
     display: flex;
     justify-content: end;
 }
+.logout{
+    text-decoration: none !important;
+}

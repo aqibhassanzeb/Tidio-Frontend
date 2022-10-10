@@ -7,7 +7,7 @@ import "../Header/Header.css"
 function Header() {
   return (
     <div className='container-fluid'>
-        <div className='row py-2'>
+        <div className='row py-4 '>
          <div className='col-sm-3  d-flex align-items-center'>
          <Navbar.Brand >logo</Navbar.Brand>
          </div>
@@ -39,8 +39,8 @@ function Header() {
           </Nav>
          </div>
         <div className='col-sm-3 register'>
-        <a className='d-flex align-items-center'>Logout</a> &nbsp;
-        <button className='btn btn-primary'>Register</button>
+        <a className='d-flex align-items-center logout'>Logout</a> &nbsp;
+        <button type="button" class="btn btn-light px-3">Register</button>
         </div>
         </div>
     </div>
