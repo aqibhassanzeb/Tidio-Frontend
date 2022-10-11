@@ -19,6 +19,8 @@ const Register = () => {
                                 <h2 className='createtext'>Create a free account</h2>
                                 <p className=''>Register using your email address:</p>
                                 <div className='inputdiv'>
+                                    <input type="text" className='inputfielddata' placeholder='Name' />
+                                    <input type="text" className='inputfielddata' placeholder='Surname' />
                                     <input type="email" className='inputfielddata' placeholder='Email' />
                                     <input type="password" className='inputfielddata' placeholder='Password' />
                                     <input type="text" className='inputfielddata' placeholder='Website' />

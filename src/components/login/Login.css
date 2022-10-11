@@ -10,3 +10,12 @@
     border: 1px solid lightgray;
     border-radius: 5px;
 }
+.logindiv{
+    margin: auto;
+}
+.wraper{
+    border: 1px solid red;
+    width: 430px;
+    margin: auto;
+    height: auto;
+}
