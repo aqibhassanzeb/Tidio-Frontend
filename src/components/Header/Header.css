@@ -1,0 +1,12 @@
+.home_link{
+    display: flex;
+    justify-content: center !important;
+
+}
+.register{
+    display: flex;
+    justify-content: end;
+}
+.logout{
+    text-decoration: none !important;
+}
