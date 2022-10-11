@@ -4,18 +4,143 @@
     width: 400px;
 
 }
+.logininputdiv h2{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 20px 0px;
+    color: rgb(18, 18, 102);
+}
 .inputlogin{
     padding: 10px;
-    margin: 10px;
+    margin: 10px 10px;
+    font-size: 18px;
     border: 1px solid lightgray;
-    border-radius: 5px;
+    border-radius: 10px;
+    height: 65px;
+}
+.loginmaindiv{
+    height: 100vh;
+    
 }
 .logindiv{
     margin: auto;
 }
+.logintext{
+    margin-left: 15px;
+    font-size: 18px;
+    color: blue;
+}
+.fbicon{
+    background-color: rgba(0, 0, 255, 0.658);
+    color: white;
+    font-size: 40px;
+    margin-right: 15px;
+}
+.logoicondiv{
+    height: 45px;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    width: 250px;
+    margin: auto; 
+    display: flex;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    z-index: 10;
+ 
+    align-items: center;overflow: hidden;
+}
+.backcolor{
+    width: 43px;
+    height: 45px;
+    border-radius: 5px;
+    position: absolute;
+    transition: 0.5s;
+    background-color: rgb(22, 22, 238);
+    z-index: -1;
+}
+.logoicondiv:hover .backcolor{
+    width: 248px;
+}
+.logoicondiv:hover span{
+    color: white;
+}
+.logoicondiv span{
+    color: blue;
+    z-index: 10;
+}
 .wraper{
-    border: 1px solid red;
+    height: 550px;
+    
     width: 430px;
-    margin: auto;
-    height: auto;
+    margin-top: 100px;
+    margin-left: 100px;
+    
+}
+.dot{
+    color: lightgray;
+    margin-top: -5px;
+    letter-spacing: 2px;
+}
+.btlog{
+    width: 95%;
+    height: 65px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.forget{
+    margin-top: 25px;
+    text-decoration: none;
+    color: gray;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+.loginsidetext{
+    
+    width: 230px;
+    position: relative;
+    top: 40%;
+    left: 20%;
+}
+.loginsidetext span{
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(17, 58, 136);
+}
+.btncreate{
+    border: 2px solid rgba(119, 136, 153, 0.514);
+    border-radius: 5px;
+    width: 170px;
+    height: 45px;
+    font-weight: bold;
+    color: rgba(11, 17, 97, 0.822);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+   
+}
+.createbtn{
+    width: 0px;
+    height: 45px;
+    background-color: cyan;
+    position: absolute;
+    left: 0%;
+    z-index: -1;
+    transition: 0.3s;
+}
+.btncreate:hover .createbtn{
+    width: 170px;
+    border-radius: 5px;
+}
+.btncreate:hover{
+    color: rgba(11, 17, 97, 0.822);
+    cursor: pointer;
+}
+.backgroundcol{
+    background-color: rgba(0, 0, 255, 0.041);
+    clip-path: circle(99.2% at 1% 46%);
+
 }

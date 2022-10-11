@@ -10,9 +10,9 @@ function App() {
     <>
     <div>
       <Header />
-      <CustomerServices/>
-      </div>
     <Routespath/>
+      
+      </div>
     </>
   );
 }
