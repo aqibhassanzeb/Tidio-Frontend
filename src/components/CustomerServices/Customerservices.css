@@ -98,9 +98,61 @@
     font-size: 15px;
 }
 .by_using{
-
     font-size: 24px;
     line-height: 40px;
     letter-spacing: -0.01em;
-
+}
+.card_shadow{
+    margin-left: 43px !important; 
+    padding: 22px !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+}
+.melisa{
+    height: 62px !important;
+    width: 29% !important;
+}
+.display_card{
+    display: flex;
+}
+.card_img{
+    width: 20%;
+}
+.display_img{
+    display: flex;
+}
+.name_card{
+    margin-left: 28px;
+    margin-top: 6px;
+}
+.service{
+    font-size: 21px;
+    font-weight: 500;
+}
+.tidio_heading{
+    margin-top: 6px;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.02em;
+}
+.chat_pic{
+    max-width: 33% !important;
+}
+.second_row{
+    margin-top: -84px;
+}
+.second_card{
+    margin-top: 35px;
+}
+.cards_row{
+    margin-top: 135px !important;
+}
+.A_power{
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 64px;
+    letter-spacing: -0.03em;
+}
+.one_p{
+    font-weight: 400;
+    font-size: x-large;
 }
