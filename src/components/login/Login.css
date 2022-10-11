@@ -7,15 +7,28 @@
 .inputlogin{
     padding: 10px;
     margin: 10px;
+    font-size: 18px;
     border: 1px solid lightgray;
-    border-radius: 5px;
+    border-radius: 10px;
+    height: 65px;
 }
 .logindiv{
     margin: auto;
 }
 .wraper{
-    border: 1px solid red;
     width: 430px;
     margin: auto;
     height: auto;
+}
+.btlog{
+    width: 95%;
+    height: 65px;
+}
+.forget{
+    margin-top: 10px;
+    text-decoration: none;
+    color: lightgray;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
 }
