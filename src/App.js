@@ -9,9 +9,6 @@ function App() {
   return (
     <>
     <div>
-    
-    <Login/>
-    <Register/>
       <Header />
       <CustomerServices/>
       </div>
