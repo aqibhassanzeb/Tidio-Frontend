@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
+
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -39,7 +39,7 @@ function Header() {
           </Nav>
          </div>
         <div className='col-sm-3 register'>
-        <a className='d-flex align-items-center logout'>Logout</a> &nbsp;
+        <a href='' className='d-flex align-items-center logout'>Logout</a> &nbsp;
         <button type="button" class="btn btn-light px-3">Register</button>
         </div>
         </div>
