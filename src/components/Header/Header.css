@@ -10,3 +10,26 @@
 .logout{
     text-decoration: none !important;
 }
+.sticky-nav{
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    background-color: white;
+}
+.home{
+    font-size: 18px !important;
+    line-height: 23px !important;
+    letter-spacing: -0.01em !important;
+    color: #080f1a !important;
+}
+.reg_padding{
+    padding: 8px 24px !important;
+    border: 2px solid #EFF2F6 !important;
+    background-color: white !important;
+}
+.reg_padding:hover{
+    background-color: #080f1a !important;
+    color: white !important;
+}
