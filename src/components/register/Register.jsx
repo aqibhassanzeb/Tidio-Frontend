@@ -1,5 +1,10 @@
 import React from 'react'
 import '../register/Register.css'
+import  {BsFacebook, BsInstagram} from "react-icons/bs"
+import  {FaWix} from "react-icons/fa"
+
+
+
 const Register = () => {
     return (
         <>
@@ -10,9 +15,9 @@ const Register = () => {
                     </div>
                     <div className='col-6 border maindivofregister d-flex justify-content-center'>
                         <div className='mainregisterdiv'>
-                            <div className=''>
-                                <h3 >Create Free Account</h3>
-                                <p>Register using your email address:</p>
+                            <div className=' inerdivreg'>
+                                <h2 className='createtext'>Create a free account</h2>
+                                <p className=''>Register using your email address:</p>
                                 <div className='inputdiv'>
                                     <input type="email" className='inputfielddata' placeholder='Email' />
                                     <input type="password" className='inputfielddata' placeholder='Password' />
@@ -21,8 +26,22 @@ const Register = () => {
                                         <input type="checkbox" className='agreetext' id="agree" name="agree" value="" />
                                         <label for="agree" className='agreetext2'> I agree to Tidio's <a href=''>Terms & Conditions</a> and <a href=''>Privacy Policy</a></label>
                                     </div>
-                                    <button className='btn btn-primary mt-4 btnreg'>Get Started</button>
+                                    <button className='btn btn-primary fs-5 mt-4 btnreg'>Get Started</button>
                                 </div>
+                                <div className='signupalso'>
+                                <p>You can also sign up with: </p>
+                                <div className='d-flex justify-content-between '>
+                                <div className='w-50 p-2 m-2 border d-flex icondiv justify-content-center'>
+                               <BsFacebook className='icon'/>
+                                </div>
+                                <div className='w-50 p-2 m-2 border d-flex icondiv justify-content-center'>
+                                <BsInstagram className='icon'/>
+                                </div>
+                                <div className='w-50 p-2 m-2 border d-flex icondiv justify-content-center'>
+                                <FaWix className='icon'/>
+                                </div>
+                                </div>
+                                    </div>
                             </div>
                         </div>
                     </div>
