@@ -18,8 +18,9 @@ function Header() {
           </Nav>
         </div>
         <div className='col-sm-3 register'>
-          <a className='d-flex align-items-center logout'>Logout</a> &nbsp;&nbsp;
-          <button type="button" class="btn reg_padding">Register</button>
+          <a className='d-flex align-items-center logout' href='/login'>LogIn</a> &nbsp;&nbsp;
+          <a className='d-flex align-items-center logout' href='/register'>Register</a> &nbsp;&nbsp;
+          <button  type="button" class="btn reg_padding">Register</button>
         </div>
       </div>
     </div>

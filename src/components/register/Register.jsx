@@ -2,16 +2,22 @@ import React from 'react'
 import '../register/Register.css'
 import  {BsFacebook, BsInstagram} from "react-icons/bs"
 import  {FaWix} from "react-icons/fa"
-
+import customerimg from '../../images/horse.jpg'
 
 
 const Register = () => {
     return (
         <>
-            <div className='container'>
+            <div className='container-fluid'>
                 <div className='row'>
                     <div className='col-6'>
-
+                            <div className='registersidediv d-flex'>
+                            <img src={customerimg} className=' horseimg img-fluid'/>
+                            <span>
+                            <span>Farzan A</span>
+                            <p>Website Designer</p>
+                            </span>
+                            </div>
                     </div>
                     <div className='col-6 border maindivofregister d-flex justify-content-center'>
                         <div className='mainregisterdiv'>
@@ -31,7 +37,7 @@ const Register = () => {
                                     <button className='btn btn-primary fs-5 mt-4 btnreg'>Get Started</button>
                                 </div>
                                 <div className='signupalso'>
-                                <p>You can also sign up with: </p>
+                                <p className='mt-3'>You can also sign up with: </p>
                                 <div className='d-flex justify-content-between '>
                                 <div className='w-50 p-2 m-2 border d-flex icondiv justify-content-center'>
                                <BsFacebook className='icon'/>
