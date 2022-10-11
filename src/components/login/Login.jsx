@@ -1,7 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../login/Login.css'
 import { IoLogoFacebook } from 'react-icons/io'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
+import { userLogin } from '../../apis/Auth-api';
+
+
 const Login = () => {
+  const navigate =useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [loader, setLoader] = useState(false)
+  const [error, setError] = useState(false)
+  const handleLogin =()=>{
+    if(!email && !password){
+      return toast.error("please fill the fields");
+  }
+  setLoader(true)
+  const payload={email,password}
+  userLogin(payload).then((res)=>{
+      localStorage.setItem("token",res.data.token)
+      localStorage.setItem("user",JSON.stringify(res.data.user))
+      navigate('/')
+     
+  }).catch(err=>{
+      if(err.response.data.error){
+      //    console.log(err.response.data.message) 
+         toast.error(err.response.data.error);
+      }
+      console.log(err)}
+  )
+  setLoader(false)
+  }
   return (
     <>
       <div className='container-fluid'>
