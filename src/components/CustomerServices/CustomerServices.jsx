@@ -1,6 +1,10 @@
 import React from 'react';
 import "./Customerservices.css"
 import backgroundview from "../../images/background-view.png"
+import bag from "../../images/bags.png"
+import horseimg from "../../images/horse.jpg"
+import { Carousel } from 'react-bootstrap';
+
 import melissa from "../../images/melissa-j.webp"
 import chat from "../../images/chat.gif"
 import livChat from "../../images/livechat.webp"
@@ -8,6 +12,7 @@ import Ai from "../../images/Ai.webp"
 import sales from "../../images/sales.webp"
 import messenger from "../../images/messenger.webp"
 import closed from "../../images/closed.webp"
+import DiscoverSlides from '../discoverSlides/DiscoverSlides';
 function CustomerServices() {
     return (
         <>
@@ -32,21 +37,85 @@ function CustomerServices() {
                         <img className='chat_pic' src={chat} />
                     </div>
                 </div>
-                <div className='row mt-4'>
-                    <div className='col-sm-4 offset-2 mt-4'>
-                        <img className='img img-fluid' src={backgroundview} />
-                        {/* <div className='bag'>
-                                <span className='bag_span'>
-                                <img className='bag_img' src={bag} />
-                                </span>
-                           
-                            </div> */}
-
+                <div className='row my-4'>
+                    <div className='col-sm-4 offset-2 mt-4 imgsldie'>
+                        <img className='imgview img-fluid' src={backgroundview} />
+                        
                     </div>
-                    <div className='col-sm-4 text-left mt-4'>
-                        <p className='wisker'>Wisiker bag</p>
-                        <p className='by_using'>By using the combination of Tidio live chat and chatbots, Whisker Bag managed to reduce response time,
-                            improve customer experience, and collect 4x more leads within two months of Tidio installation.</p>
+                    <div className='bg-transparent carouseldiv mt-4 '>
+                    
+                        <Carousel>
+                          <Carousel.Item>
+                          <div className='carouselinformationduv'>
+                          <div className='w-75 '>
+                          <p>Whisker Bag </p>
+                          <h3 className='w-50'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
+                            
+                          </div>
+                          <div className='d-flex'>
+                          <div className='line'></div>
+                          <div className='customerinfo p-2 ml-2 mt-2 '>
+                          <div className='d-flex ' >
+                              <img src={horseimg} className=' horseimgage img-fluid'  />
+                             <div className='p-2  h-50'>
+                             <h6 className='m-0'>jano le Rpoux</h6>
+                             <a href=''>whiskerbag.com</a></div>
+                             </div>
+                             <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
+                          </div>
+                          
+                          </div>
+                          </div>
+                         
+                          </Carousel.Item>
+                          <Carousel.Item>
+                          <div className='carouselinformationduv'>
+                          <div className='w-75 '>
+                          <p>Whisker Bag </p>
+                          <h3 className='w-50'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
+                            
+                          </div>
+                          <div className='d-flex'>
+                          <div className='line'></div>
+                          <div className='customerinfo p-2 ml-2 mt-2 '>
+                          <div className='d-flex ' >
+                              <img src={horseimg} className=' horseimgage img-fluid'  />
+                             <div className='p-2  h-50'>
+                             <h6 className='m-0'>jano le Rpoux</h6>
+                             <a href=''>whiskerbag.com</a></div>
+                             </div>
+                             <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
+                          </div>
+                          
+                          </div>
+                          </div>
+                           
+                          </Carousel.Item>
+                          <Carousel.Item>
+                          <div className='carouselinformationduv'>
+                          <div className='w-75 '>
+                          <p>Whisker Bag </p>
+                          <h3 className='w-50'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
+                            
+                          </div>
+                          <div className='d-flex'>
+                          <div className='line'></div>
+                          <div className='customerinfo p-2 ml-2 mt-2 '>
+                          <div className='d-flex ' >
+                              <img src={horseimg} className=' horseimgage img-fluid'  />
+                             <div className='p-2  h-50'>
+                             <h6 className='m-0'>jano le Rpoux</h6>
+                             <a href=''>whiskerbag.com</a></div>
+                             </div>
+                             <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
+                          </div>
+                          
+                          </div>
+                          </div>
+                            
+                          </Carousel.Item>
+                        </Carousel>
+                     
                     </div>
                 </div>
                 {/* card section */}
@@ -173,7 +242,8 @@ function CustomerServices() {
                         </div>
                     </div>
                     </div>
-
+                    
+                     <DiscoverSlides/>
 
                     {/* customer service section */}
                     <div className='row cards_row'>
