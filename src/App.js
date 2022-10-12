@@ -12,8 +12,8 @@ function App() {
     <>
     <Header />
     <Routespath/>
-    <ExcellenceConfirm/>
-    <DiscoverSlides/>
+    
+   
     </>
   );
 }
