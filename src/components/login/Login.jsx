@@ -10,7 +10,7 @@ import { FACEBOOK_APP_ID } from '../../config';
 
 
 const Login = () => {
-  const navigate =useNavigate()
+  const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loader, setLoader] = useState(false)
@@ -22,21 +22,22 @@ const Login = () => {
   const handleLogin =()=>{
     if(!email && !password){
       return toast.error("please fill the fields");
-  }
-  setLoader(true)
-  const payload={email,password}
-  userLogin(payload).then((res)=>{
-      localStorage.setItem("token",res.data.token)
-      localStorage.setItem("user",JSON.stringify(res.data.user))
+    }
+    setLoader(true)
+    const payload = { email, password }
+    userLogin(payload).then((res) => {
+      localStorage.setItem("token", res.data.token)
+      localStorage.setItem("user", JSON.stringify(res.data.user))
       navigate('/')
      
   }).catch(err=>{
       if(err.response.data.error){
          toast.error(err.response.data.error);
       }
-      console.log(err)}
-  )
-  setLoader(false)
+      console.log(err)
+    }
+    )
+    setLoader(false)
   }
 
   // Facebook Login 
@@ -59,18 +60,19 @@ const Login = () => {
 
   return (
     <>
+
       <div className='container-fluid'>
      < ToastContainer/>
         <div className='row loginmaindiv'>
-          <div className='col-6 backgroundcol'>
-              <div className='loginsidetext'>
-              <span>Don't have </span><br/>
+          <div className='col-7 backgroundcol'>
+            <div className='loginsidetext'>
+              <span>Don't have </span><br />
               <span>an account?</span>
-              <div className='btncreate'>
-              Create free account
-              <div className='createbtn'> </div>
+              <div type="button" className='btncreate' onClick={() => navigate('/register')}>
+                Create free account
+                <div className='createbtn'> </div>
               </div>
-              </div>
+            </div>
           </div>
           <div className='col-6 '>
             <div className='logindiv'>
@@ -114,11 +116,16 @@ const Login = () => {
                   <button className='btn btn-primary btlog fs-5' onClick={()=>handleLogin()}>Log In</button>
                   <a href='' className=' forget'>Forget Password?</a>
                 </div>
+                <input type="email" className='inputlogin' placeholder='Email' />
+                <input type="password" className='inputlogin' placeholder='Password' />
+                <button className='btn btn-primary btlog fs-5'>Log In</button>
+                <a href='' className=' forget'>Forget Password?</a>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </>
   )
 }
