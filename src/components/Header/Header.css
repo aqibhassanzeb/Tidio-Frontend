@@ -10,6 +10,9 @@
 .logout{
     text-decoration: none !important;
 }
+.logout:hover{
+    cursor: pointer;
+}
 .sticky-nav{
     position: sticky;
     top: 0;

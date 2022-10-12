@@ -116,3 +116,58 @@
     font-weight: 400;
     font-size: x-large;
 }
+.live_chat{
+    font-size: 40px;
+    line-height: 52px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+.half_of{
+    font-weight: 600;
+    margin-top: 28px;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+}
+.ul_padding{
+    padding-left: 20px !important;
+}
+.connect_li{
+    margin-top: 22px;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+}
+.discover_live{
+    font-size: larger;
+    text-decoration: none;
+    font-weight: 500;
+    min-width: auto;
+    height: auto;
+    color: #0566ff;
+    display: inline-block;
+}
+.discover_live:hover{
+    border-color: #0566ff;
+    font-weight: 500;
+    font-size: larger;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.live_chat_padding{
+    padding: 90px !important;
+}
+.img_live_chat_padd{
+    padding-top: 40px !important;
+
+}
+.liv_col{
+    padding-left: 50px;
+}
+.virtual_padd{
+    margin-top: 50px !important;
+}
+.more_sales{
+    margin-top: 81px !important;
+}

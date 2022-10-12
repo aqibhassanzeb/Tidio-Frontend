@@ -3,6 +3,11 @@ import "./Customerservices.css"
 import backgroundview from "../../images/background-view.png"
 import melissa from "../../images/melissa-j.webp"
 import chat from "../../images/chat.gif"
+import livChat from "../../images/livechat.webp"
+import Ai from "../../images/Ai.webp"
+import sales from "../../images/sales.webp"
+import messenger from "../../images/messenger.webp"
+import closed from "../../images/closed.webp"
 function CustomerServices() {
     return (
         <>
@@ -175,6 +180,92 @@ function CustomerServices() {
                         <div className='col-sm-12 text-center'>
                             <h2 className='A_power'>A powerful, all-in-one customer service tool</h2>
                             <p className='one_p'>One compact solution can delight your customers and fuel your sales.</p>
+                        </div>
+                    </div>
+                    <div className='container'>
+                        <div className='row live_chat_padding'>
+                            <div className='col-sm-12 col-md-6 liv_col'>
+                                <h3 className='live_chat'>Live Chat</h3>
+                                <p className='half_of'>Half of all online customers prefer live <br/> chat over any other communication<br/> channel.</p>
+                                <ul className='ul_padding'>
+                                    <li className='connect_li'>Connect Tidio to ALL websites and <br/> platforms via dedicated plugins, without<br/> coding</li>
+                                    <li className='connect_li'>The Tidio live chat widget adjusts to your<br/> customers’ screens, so they can write to<br/> you on mobile and tablet</li>
+                                    <li className='connect_li'>Our live chat widget is customizable: you <br/> can change its placement and color, so it <br/> fits with your website aesthetics</li>
+                                    <li className='connect_li'>You can adjust the positioning of the live <br/> chat button in a mobile version of the <br/> widget</li>
+                                </ul>
+                                <a className='discover_live'>Discover Tidio live chat</a><i className="bi bi-arrow-right-short"></i>
+                            </div>
+                            <div className='col-sm-12 col-md-6 img_live_chat_padd'>
+                                <img className='img img-fluid' src={livChat} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='col-sm-12 col-md-6 live_chat_padding'>
+                                <img className='img img-fluid' src={Ai} />
+                            </div>
+                            <div className='col-sm-12 col-md-6'>
+                                <h3 className='live_chat virtual_padd'>Your virtual AI <br/> supporter</h3>
+                                <p className='half_of'>Use one of our 20+ templates or easily <br/> build your own chatbot flow to  <br/>automate 40% of your customer  <br/>service conversations.</p>
+                                <ul className='ul_padding'>
+                                    <li className='connect_li'>Connect Tidio to ALL websites and <br/> platforms via dedicated plugins, without<br/> coding</li>
+                                    <li className='connect_li'>The Tidio live chat widget adjusts to your<br/> customers’ screens, so they can write to<br/> you on mobile and tablet</li>
+                                    <li className='connect_li'>Our live chat widget is customizable: you <br/> can change its placement and color, so it <br/> fits with your website aesthetics</li>
+                                </ul>
+                                <a className='discover_live'>Discover Tidio Chatbots</a><i className="bi bi-arrow-right-short"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='container'>
+                        <div className='row live_chat_padding'>
+                            <div className='col-sm-12 col-md-6 liv_col'>
+                                <h3 className='live_chat more_sales'>Generate more sales</h3>
+                                <p className='half_of'>Did you know that 3M businesses <br/> generated 20M leads and $400M in<br/> sales after they started using our <br/> chatbots?</p>
+                                <ul className='ul_padding'>
+                                    <li className='connect_li'>Stop 60% of your clients from abandoning <br/> their carts by offering a discount</li>
+                                    <li className='connect_li'>Automatically qualify leads and reach out<br/> to them at the right time</li>
+                                    <li className='connect_li'>Easily gather your visitors’ emails and <br/> phone numbers</li>
+                                </ul>
+                                <a className='discover_live'>Discover Tidio live chat</a><i className="bi bi-arrow-right-short"></i>
+                            </div>
+                            <div className='col-sm-12 col-md-6 img_live_chat_padd'>
+                                <img className='img img-fluid' src={sales} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='col-sm-12 col-md-6 live_chat_padding'>
+                                <img className='img img-fluid' src={messenger} />
+                            </div>
+                            <div className='col-sm-12 col-md-6'>
+                                <h3 className='live_chat virtual_padd'>Answer any channel <br/> from one place</h3>
+                                <p className='half_of'>As many as 75% of online customers<br/> said they expect help within five<br/> minutes. Connect all your channels to <br/>Tidio and answer your customers in an<br/> instant!</p>
+                                <ul className='ul_padding'>
+                                    <li className='connect_li'>Integrate your live chat, email inbox, <br/> Messenger, and Instagram into one <br/> multichannel communicator</li>
+                                    <li className='connect_li'>Talk to your customers on all devices: <br/> desktop, mobile, and tablet</li>
+                                    <li className='connect_li'>Never lose a potential customer because <br/> they contacted you on a channel you <br/> rarely use</li>
+                                </ul>
+                                <a className='discover_live'>Discover Tidio Chatbots</a><i className="bi bi-arrow-right-short"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='container'>
+                        <div className='row live_chat_padding'>
+                            <div className='col-sm-12 col-md-6 liv_col'>
+                                <h3 className='live_chat more_sales'>Generate more sales</h3>
+                                <p className='half_of'>Did you know that 3M businesses <br/> generated 20M leads and $400M in<br/> sales after they started using our <br/> chatbots?</p>
+                                <ul className='ul_padding'>
+                                    <li className='connect_li'>Stop 60% of your clients from abandoning <br/> their carts by offering a discount</li>
+                                    <li className='connect_li'>Automatically qualify leads and reach out<br/> to them at the right time</li>
+                                    <li className='connect_li'>Easily gather your visitors’ emails and <br/> phone numbers</li>
+                                </ul>
+                                <a className='discover_live'>try for free now!</a><i className="bi bi-arrow-right-short"></i>
+                            </div>
+                            <div className='col-sm-12 col-md-6 img_live_chat_padd'>
+                                <img className='img img-fluid' src={closed} />
+                            </div>
                         </div>
                     </div>
             </div>

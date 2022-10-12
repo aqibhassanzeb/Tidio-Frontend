@@ -41,7 +41,7 @@ const Login = () => {
               <div className='loginsidetext'>
               <span>Don't have </span><br/>
               <span>an account?</span>
-              <div className='btncreate'>
+              <div type="button" className='btncreate' onClick={()=>navigate('/register')}>
               Create free account
               <div className='createbtn'> </div>
               </div>
