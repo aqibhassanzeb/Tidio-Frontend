@@ -13,6 +13,7 @@ import sales from "../../images/sales.webp"
 import messenger from "../../images/messenger.webp"
 import closed from "../../images/closed.webp"
 import DiscoverSlides from '../discoverSlides/DiscoverSlides';
+import Footer from './../footer/Footer';
 function CustomerServices() {
     return (
         <>
@@ -242,7 +243,7 @@ function CustomerServices() {
                         </div>
                     </div>
                     </div>
-                    
+
                      <DiscoverSlides/>
 
                     {/* customer service section */}
@@ -338,6 +339,8 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
+
+                    <Footer/>
             </div>
 
         </>
