@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "../Header/Header.css"
 import { useNavigate } from "react-router-dom";
+import {Link } from 'react-router-dom'
 
 function Header() {
   const navigate =useNavigate()
@@ -21,9 +21,9 @@ function Header() {
           <Navbar.Brand >logo</Navbar.Brand>
         </div>
         <div className='col-sm-6 home_link'>
-          <Nav className="">
-            <Nav.Link href="#link" className='home'>Home</Nav.Link>
-            <Nav.Link href="#link" className='home' >Pricing</Nav.Link>
+          <Nav className="links">
+            <Link to="/" className='home'>Home</Link>
+            <Link to="/pricing" className='home' >Pricing</Link>
           </Nav>
         </div>
         <div className='col-sm-3 register'>

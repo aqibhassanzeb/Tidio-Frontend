@@ -1,0 +1,245 @@
+.firstText {
+  color: #080f1a;
+  line-height: 64px;
+  font-size: 52px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+}
+
+.nextText {
+  color: #080f1a;
+  line-height: 32px;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+.pricing-button {
+  text-align: center;
+}
+
+.pricing-button .btn-primary {
+  color: #ffffff;
+  line-height: 32px;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  border: none;
+  width: 20%;
+  outline: none;
+  padding: 20px;
+  background-color: #0566ff;
+  border-radius: 5px;
+}
+
+.pricing-button .btn-primary:hover {
+  background-color: #080f1a;
+}
+
+.container .pricing-tabs {
+  width: 20%;
+  text-align: center;
+  margin: auto;
+}
+
+.Tab {
+  display: inline-flex;
+  border-radius: 30px;
+  background: #ffffff;
+  height: 60px;
+  color: #647491;
+  box-shadow: 0 5px 30px -10pxrgb (1 38 97 / 18%);
+  padding: 6px;
+}
+
+.pricing-annuallyFree {
+  color: #080f1a;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+.pricing-cards {
+  background: #F5F7F9;
+  width: 100%;
+  padding: 30px
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 100vh;
+  margin: 1rem;
+  position: relative;
+  width: 95%;
+}
+
+.card-1 {
+  padding: 35px;
+}
+
+.first-cardText {
+  color: #080f1a;
+  line-height: 32px;
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+}
+
+.cardText2 {
+  color: #647491;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+.card-price {
+  color: #080f1a;
+  line-height: 64px;
+  font-size: 52px;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+
+.pricing-price {
+  color: #647491;
+  /* line-height: 16px; */
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.card-price .currency {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: #647491;
+  font-weight: 400;
+  position: absolute;
+  top: 137px;
+  padding-left: 6px;
+}
+
+.card-price .perMonth {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: #647491;
+  font-weight: 400;
+  position: relative;
+  top: -2px;
+  padding-left: 5px;
+}
+
+.trialButton {
+  text-align: center;
+  width: 100%;
+}
+
+.trialButton .card-trial-button {
+  outline: none;
+  font-style: normal;
+  font-weight: 500;
+  color: #080f1a;
+  line-height: 23px;
+  font-size: 18px;
+  padding: 10px;
+  background-color: #fff;
+  border: solid 2px #eff2f6;
+  width: 80%;
+  border-radius: 5px;
+}
+
+.trialButton .card-trial-button:hover {
+  background-color: #080f1a;
+  color: #e2e1e0;
+}
+
+.buttonBottom-text p {
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  color: #647491;
+  line-height: 18px;
+  text-align: center;
+}
+
+.secondLast-text ul li {
+  list-style: none;
+  border-bottom: 2px dotted #c4cfe2;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 18px;
+
+}
+
+#highlightText {
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 18px;
+
+}
+
+.secondLast-text ul li::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #f5f7f9;
+  background-image: url(/src/images/dodgerblue-check.svg);
+  -webkit-background-size: 14px 14px;
+  background-size: 14px 14px;
+  -webkit-background-position: 50%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 30px;
+}
+
+@media (min-width: 905px) {
+  .secondLast-text ul li:before {
+    width: 19px;
+    height: 19px;
+    -webkit-background-size: 12px 12px;
+    background-size: 12px 12px;
+  }
+}
+
+.trialButton .card-trial-button2 {
+  outline: none;
+  font-style: normal;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 23px;
+  font-size: 18px;
+  padding: 10px;
+  background-color: #0566ff;
+  border: solid 1px #eff2f6;
+  width: 80%;
+  border-radius: 5px;
+}
+
+.trialButton .card-trial-button2:hover {
+  background-color: #080f1a;
+  color: #e2e1e0;
+}
+
+.features p {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  color: #647491;
+  line-height: 18px;
+  font-size: 14px;
+}
