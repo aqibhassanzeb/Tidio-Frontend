@@ -86,7 +86,6 @@ const Register = () => {
                                         <input type="checkbox" className='agreetext' id="agree" name="agree" value="" />
                                         <label for="agree" className='agreetext2'> I agree to Tidio's <a href=''>Terms & Conditions</a> and <a href=''>Privacy Policy</a></label>
                                     </div>
-                                    <button disabled={loader} className='btn btn-primary fs-5 mt-2 btnreg' onClick={handleRegister}>{loader ? "loading.." : "Get Started"}</button>
                                 </div>
                                 <div className='signupalso mt-2'>
                                     <p className='mt-2'>You can also sign up with: </p>

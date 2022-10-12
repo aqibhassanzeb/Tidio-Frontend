@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <>
-
+  
       <div className='container-fluid'>
      < ToastContainer/>
         <div className='row loginmaindiv'>
@@ -116,10 +116,6 @@ const Login = () => {
                   <button className='btn btn-primary btlog fs-5' onClick={()=>handleLogin()}>Log In</button>
                   <a href='' className=' forget'>Forget Password?</a>
                 </div>
-                <input type="email" className='inputlogin' placeholder='Email' />
-                <input type="password" className='inputlogin' placeholder='Password' />
-                <button className='btn btn-primary btlog fs-5'>Log In</button>
-                <a href='' className=' forget'>Forget Password?</a>
               </div>
             </div>
           </div>
