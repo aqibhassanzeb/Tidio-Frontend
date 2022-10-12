@@ -57,6 +57,7 @@ const SocailLogin = () => {
   return (
     <div>
         <ToastContainer/>
+        <div className='d-flex'>
         <div>
 
        <GoogleLogin
@@ -71,23 +72,25 @@ const SocailLogin = () => {
                               <h1>Loading...</h1>
                             </div>
                           ) : (
-                            <h1
+                            <button
                               onClick={() => {
                                 setGoogleLoading(true);
                                 renderProps.onClick();
                               }}
                               src="/assets/bg/google.png"
                               className="auth_social"
-                              >Google</h1>
+                              >Google</button>
                               )}
                         </>
                       )}
                       /> 
         </div>
+     
                               {/* FaceBook Botton Portion */}
 
         <div>
         <ReactFacebookLogin
+        style={{width: "40px", height: "40px"}}
                       appId={FACEBOOK_APP_ID}
                       autoLoad={false}
                       callback={responseFacebook}
@@ -99,19 +102,20 @@ const SocailLogin = () => {
                               <h1>Loading...</h1>
                             </div>
                           ) : (
-                            <h1
+                            <button
                               src="/assets/bg/facebook.jpeg"
                               className="auth_social"
                               onClick={() => {
                                 setFacebookLoading(true);
                                 renderProps.onClick();
                               }}
-                            >Facebook Login</h1>
+                            >Facebook Login</button>
                           )}
                         </>
                       )}
                     />
 
+        </div>
         </div>
     </div>
   )
