@@ -7,6 +7,7 @@ import { userRegister } from '../../apis/Auth-api'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import SocailLogin from './SocailLogin'
 
 
 const Register = () => {
@@ -18,11 +19,14 @@ const Register = () => {
     const [websiteName, setWebsiteName] = useState("")
     const [loader, setLoader] = useState(false)
     const [error, setError] = useState(false)
+   
 
-    console.log(loader)
+    
+    
     // Register function 
-    const handleRegister = () => {
-        if (!email && !password) {
+
+    const handleRegister=()=>{
+        if(!email && !password){
             return toast.error("please fill the fields");
         }
         setLoader(true)
@@ -31,11 +35,10 @@ const Register = () => {
             localStorage.setItem("token", res.data.token)
             localStorage.setItem("user", JSON.stringify(res.data.user))
             navigate('/')
-
-        }).catch(err => {
-            if (err.response.data.message) {
-                //    console.log(err.response.data.message) 
-                toast.error(err.response.data.message);
+           
+        }).catch(err=>{
+            if(err.response.data.message){
+               toast.error(err.response.data.message);
             }
             console.log(err)
         }
@@ -83,7 +86,6 @@ const Register = () => {
                                         <input type="checkbox" className='agreetext' id="agree" name="agree" value="" />
                                         <label for="agree" className='agreetext2'> I agree to Tidio's <a href=''>Terms & Conditions</a> and <a href=''>Privacy Policy</a></label>
                                     </div>
-                                    <button disabled={loader} className='btn btn-primary fs-5 mt-2 btnreg' onClick={handleRegister}>{loader ? "loading.." : "Get Started"}</button>
                                 </div>
                                 <div className='signupalso mt-2'>
                                     <p className='mt-2'>You can also sign up with: </p>
@@ -98,14 +100,13 @@ const Register = () => {
                                             <FaWix className='icon' />
                                         </div>
                                     </div>
-                                    <div className='mt-2'>
-                                    <p>Already have an account? <a href=''>Log In</a></p>
-                                    </div>
-                                </div>
+                                    <SocailLogin/>
+                                    
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     )

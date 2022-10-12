@@ -4,7 +4,9 @@ import { IoLogoFacebook } from 'react-icons/io'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
-import { userLogin } from '../../apis/Auth-api';
+import { socailLogin, userLogin } from '../../apis/Auth-api';
+import ReactFacebookLogin from 'react-facebook-login';
+import { FACEBOOK_APP_ID } from '../../config';
 
 
 const Login = () => {
@@ -13,8 +15,12 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [loader, setLoader] = useState(false)
   const [error, setError] = useState(false)
-  const handleLogin = () => {
-    if (!email && !password) {
+  const [facebookLoading, setFacebookLoading] = useState(false);
+
+  // Manual Login 
+
+  const handleLogin =()=>{
+    if(!email && !password){
       return toast.error("please fill the fields");
     }
     setLoader(true)
@@ -23,21 +29,40 @@ const Login = () => {
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("user", JSON.stringify(res.data.user))
       navigate('/')
-
-    }).catch(err => {
-      if (err.response.data.error) {
-        //    console.log(err.response.data.message) 
-        toast.error(err.response.data.error);
+     
+  }).catch(err=>{
+      if(err.response.data.error){
+         toast.error(err.response.data.error);
       }
       console.log(err)
     }
     )
     setLoader(false)
   }
+
+  // Facebook Login 
+
+  const responseFacebook = async (response) => {
+    const { email,userID:socailLoginUserId, picture, name } = response;
+    console.log(response);
+    try {
+      const imageUrl = picture?.data?.url;
+      const res = await socailLogin({loginStatus:"facebook", socailLoginUserId, imageUrl, email, name});
+      localStorage.setItem("token",res.data.token)
+      localStorage.setItem("user",JSON.stringify(res.data.user))
+      navigate('/')
+    } catch (err) {
+        console.log(err)
+    } finally {
+      setFacebookLoading(false);
+    }
+  };
+
   return (
     <>
-
+  
       <div className='container-fluid'>
+     < ToastContainer/>
         <div className='row loginmaindiv'>
           <div className='col-7 backgroundcol'>
             <div className='loginsidetext'>
@@ -49,29 +74,52 @@ const Login = () => {
               </div>
             </div>
           </div>
-        
-        <div className='col-5 '>
-          <div className='logindiv'>
-            <div className='wraper '>
-              <div className='logininputdiv'>
-                <h2 >Log In</h2>
-                <div className=' logoicondiv'>
-                  <  IoLogoFacebook className='fbicon ' />
-                  <span >Log in with facebook</span>
-                  <div className='backcolor'></div>
+          <div className='col-6 '>
+            <div className='logindiv'>
+              <div className='wraper '>
+                <div className='logininputdiv'>
+                  <h2 >Log In</h2>
+                  <div className=' logoicondiv'>
+                  <ReactFacebookLogin
+                      appId={FACEBOOK_APP_ID}
+                      autoLoad={false}
+                      callback={responseFacebook}
+                      fields="name,email,picture"
+                      render={(renderProps) => (
+                        <>
+                          {facebookLoading ? (
+                            <div className="auth_social social_loader">
+                              <h1>Loading...</h1>
+                            </div>
+                          ) : (
+                            <h1
+                              src="/assets/bg/facebook.jpeg"
+                              className="auth_social"
+                              onClick={() => {
+                                setFacebookLoading(true);
+                                renderProps.onClick();
+                              }}
+                            >Facebook Login</h1>
+                          )}
+                        </>
+                      )}
+                    />
+                    {/* <  IoLogoFacebook className='fbicon ' />
+                    <span >Log in with facebook</span>
+                    <div className='backcolor'></div> */}
+                  </div>
+                  <div className='d-flex justify-content-center m-3'>
+                    <span className='dot'>.............</span>OR<span className='dot'>.............</span>
+                  </div>
+                  <input type="email" className='inputlogin' placeholder='Email' onChange={(e)=>setEmail(e.target.value)} value={email} />
+                  <input type="password" className='inputlogin' placeholder='Password'  onChange={(e)=>setPassword(e.target.value)} value={password} />
+                  <button className='btn btn-primary btlog fs-5' onClick={()=>handleLogin()}>Log In</button>
+                  <a href='' className=' forget'>Forget Password?</a>
                 </div>
-                <div className='d-flex justify-content-center m-3'>
-                  <span className='dot'>.............</span>OR<span className='dot'>.............</span>
-                </div>
-                <input type="email" className='inputlogin' placeholder='Email' />
-                <input type="password" className='inputlogin' placeholder='Password' />
-                <button className='btn btn-primary btlog fs-5'>Log In</button>
-                <a href='' className=' forget'>Forget Password?</a>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
 
     </>

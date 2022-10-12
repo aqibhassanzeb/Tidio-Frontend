@@ -13,7 +13,6 @@ function Header() {
     navigate('/userlogin')
   }
   const user = JSON.parse(localStorage.getItem("user"))
-  console.log("user :",user)
   return (
     <div className='container-fluid sticky-nav px-4'>
       <div className='row py-4 '>
@@ -22,7 +21,7 @@ function Header() {
         </div>
         <div className='col-sm-6 home_link'>
           <Nav className="">
-            <Nav.Link href="#link" className='home'>Home</Nav.Link>
+            <Nav.Link onClick={()=>navigate('/')} className='home'>Home</Nav.Link>
             <Nav.Link href="#link" className='home' >Pricing</Nav.Link>
           </Nav>
         </div>
