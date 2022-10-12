@@ -51,47 +51,7 @@
 .tidio_section_margin{
     margin-top: 130px !important;
 }
-/* .bag_img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    box-sizing: border-box;
-    padding: 0;
-    border: none;
-    margin: auto;
-    display: block;
-    width: 0;
-    height: 0;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
-}
-.bag{
-    display: block;
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    bottom: -70px;
-    left: -125px;
-    z-index: 1;
-}
-.bag_span{
-    box-sizing: border-box;
-    display: inline-block;
-    overflow: hidden;
-    width: 300px;
-    height: 300px;
-    background: none;
-    opacity: 1;
-    border: 0;
-    margin-top: 611px;
-    margin-left: 252px;
-    padding: 0;
-    position: relative;
-} */
+
 .wisker{
     padding: 137px;
     font-family: monospace;
@@ -155,4 +115,98 @@
 .one_p{
     font-weight: 400;
     font-size: x-large;
+}
+.live_chat{
+    font-size: 40px;
+    line-height: 52px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+.half_of{
+    font-weight: 600;
+    margin-top: 28px;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+}
+.ul_padding{
+    padding-left: 20px !important;
+}
+.connect_li{
+    margin-top: 22px;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+}
+.discover_live{
+    font-size: larger;
+    text-decoration: none;
+    font-weight: 500;
+    min-width: auto;
+    height: auto;
+    color: #0566ff;
+    display: inline-block;
+}
+.discover_live:hover{
+    border-color: #0566ff;
+    font-weight: 500;
+    font-size: larger;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.live_chat_padding{
+    padding: 90px !important;
+}
+.img_live_chat_padd{
+    padding-top: 40px !important;
+
+}
+.imgview{
+    position: relative;
+}
+.bag_img{
+    position: relative;
+    top: -32%;
+    left: -26%;
+}
+.imgsldie{
+   
+    height: 680px;
+}
+.line{
+    width: 2px;
+    border: 1px solid black;
+    height: 180px;
+    background-color: black;
+
+}
+.horseimgage{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.carouseldiv{
+    position: absolute;
+}
+.carouselinformationduv{
+    position: relative;
+    left: 50%;
+    padding: 80px;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    background-color: black;
+    
+}
+.carousel-indicators [data-bs-target]{
+    display: none;
+}
+.liv_col{
+    padding-left: 50px;
+}
+.virtual_padd{
+    margin-top: 50px !important;
+}
+.more_sales{
+    margin-top: 81px !important;
 }

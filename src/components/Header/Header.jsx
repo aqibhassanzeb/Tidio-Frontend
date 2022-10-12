@@ -13,7 +13,6 @@ function Header() {
     navigate('/userlogin')
   }
   const user = JSON.parse(localStorage.getItem("user"))
-  console.log("user :",user)
   return (
     <div className='container-fluid sticky-nav px-4'>
       <div className='row py-4 '>
