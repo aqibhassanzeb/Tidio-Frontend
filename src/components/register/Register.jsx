@@ -98,6 +98,9 @@ const Register = () => {
                                             <FaWix className='icon' />
                                         </div>
                                     </div>
+                                    <div className='mt-2'>
+                                    <p>Already have an account? <a href=''>Log In</a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

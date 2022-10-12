@@ -104,3 +104,42 @@
     letter-spacing: -0.01em;
 
 }
+.imgview{
+    position: relative;
+}
+.bag_img{
+    position: relative;
+    top: -32%;
+    left: -26%;
+}
+.imgsldie{
+   
+    height: 680px;
+}
+.line{
+    width: 2px;
+    border: 1px solid black;
+    height: 180px;
+    background-color: black;
+
+}
+.horseimgage{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.carouseldiv{
+    position: absolute;
+}
+.carouselinformationduv{
+    position: relative;
+    left: 50%;
+    padding: 80px;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    background-color: black;
+    
+}
+.carousel-indicators [data-bs-target]{
+    display: none;
+}
