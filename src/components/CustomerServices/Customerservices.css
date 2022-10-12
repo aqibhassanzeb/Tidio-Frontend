@@ -51,57 +51,115 @@
 .tidio_section_margin{
     margin-top: 130px !important;
 }
-/* .bag_img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    box-sizing: border-box;
-    padding: 0;
-    border: none;
-    margin: auto;
-    display: block;
-    width: 0;
-    height: 0;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
-}
-.bag{
-    display: block;
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    bottom: -70px;
-    left: -125px;
-    z-index: 1;
-}
-.bag_span{
-    box-sizing: border-box;
-    display: inline-block;
-    overflow: hidden;
-    width: 300px;
-    height: 300px;
-    background: none;
-    opacity: 1;
-    border: 0;
-    margin-top: 611px;
-    margin-left: 252px;
-    padding: 0;
-    position: relative;
-} */
+
 .wisker{
     padding: 137px;
     font-family: monospace;
     font-size: 15px;
 }
 .by_using{
-
     font-size: 24px;
     line-height: 40px;
     letter-spacing: -0.01em;
+}
+.card_shadow{
+    margin-left: 43px !important; 
+    padding: 22px !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+}
+.melisa{
+    height: 62px !important;
+    width: 29% !important;
+}
+.display_card{
+    display: flex;
+}
+.card_img{
+    width: 20%;
+}
+.display_img{
+    display: flex;
+}
+.name_card{
+    margin-left: 28px;
+    margin-top: 6px;
+}
+.service{
+    font-size: 21px;
+    font-weight: 500;
+}
+.tidio_heading{
+    margin-top: 6px;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.02em;
+}
+.chat_pic{
+    max-width: 33% !important;
+}
+.second_row{
+    margin-top: -84px;
+}
+.second_card{
+    margin-top: 35px;
+}
+.cards_row{
+    margin-top: 135px !important;
+}
+.A_power{
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 64px;
+    letter-spacing: -0.03em;
+}
+.one_p{
+    font-weight: 400;
+    font-size: x-large;
+}
+.live_chat{
+    font-size: 40px;
+    line-height: 52px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+.half_of{
+    font-weight: 600;
+    margin-top: 28px;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+}
+.ul_padding{
+    padding-left: 20px !important;
+}
+.connect_li{
+    margin-top: 22px;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+}
+.discover_live{
+    font-size: larger;
+    text-decoration: none;
+    font-weight: 500;
+    min-width: auto;
+    height: auto;
+    color: #0566ff;
+    display: inline-block;
+}
+.discover_live:hover{
+    border-color: #0566ff;
+    font-weight: 500;
+    font-size: larger;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.live_chat_padding{
+    padding: 90px !important;
+}
+.img_live_chat_padd{
+    padding-top: 40px !important;
 
 }
 .imgview{
@@ -142,4 +200,13 @@
 }
 .carousel-indicators [data-bs-target]{
     display: none;
+}
+.liv_col{
+    padding-left: 50px;
+}
+.virtual_padd{
+    margin-top: 50px !important;
+}
+.more_sales{
+    margin-top: 81px !important;
 }
