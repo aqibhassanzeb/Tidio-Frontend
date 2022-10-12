@@ -1,10 +1,10 @@
 import React from 'react';
 import "./Customerservices.css"
-import backgroundview from "../../images/background-view.jpg"
+import backgroundview from "../../images/background-view.png"
 import bag from "../../images/bags.png"
 import horseimg from "../../images/horse.jpg"
 import { Carousel } from 'react-bootstrap';
-import backgroundview from "../../images/background-view.png"
+
 import melissa from "../../images/melissa-j.webp"
 import chat from "../../images/chat.gif"
 import livChat from "../../images/livechat.webp"
@@ -12,6 +12,7 @@ import Ai from "../../images/Ai.webp"
 import sales from "../../images/sales.webp"
 import messenger from "../../images/messenger.webp"
 import closed from "../../images/closed.webp"
+import DiscoverSlides from '../discoverSlides/DiscoverSlides';
 function CustomerServices() {
     return (
         <>
@@ -39,7 +40,7 @@ function CustomerServices() {
                 <div className='row my-4'>
                     <div className='col-sm-4 offset-2 mt-4 imgsldie'>
                         <img className='imgview img-fluid' src={backgroundview} />
-                        <img className='bag_img' src={bag} />
+                        
                     </div>
                     <div className='bg-transparent carouseldiv mt-4 '>
                     
@@ -241,7 +242,8 @@ function CustomerServices() {
                         </div>
                     </div>
                     </div>
-
+                    
+                     <DiscoverSlides/>
 
                     {/* customer service section */}
                     <div className='row cards_row'>
