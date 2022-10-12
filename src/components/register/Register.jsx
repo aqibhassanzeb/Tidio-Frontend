@@ -7,6 +7,7 @@ import { userRegister } from '../../apis/Auth-api'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import SocailLogin from './SocailLogin'
 
 
 const Register = () => {
@@ -18,9 +19,12 @@ const Register = () => {
     const [websiteName, setWebsiteName] = useState("")
     const [loader, setLoader] = useState(false)
     const [error, setError] = useState(false)
+   
 
-    console.log(loader)
+    
+    
     // Register function 
+
     const handleRegister=()=>{
         if(!email && !password){
             return toast.error("please fill the fields");
@@ -34,7 +38,6 @@ const Register = () => {
            
         }).catch(err=>{
             if(err.response.data.message){
-            //    console.log(err.response.data.message) 
                toast.error(err.response.data.message);
             }
             console.log(err)}
@@ -87,6 +90,8 @@ const Register = () => {
                                 </div>
                                 </div>
                                     </div>
+                                    <SocailLogin/>
+                                    
                             </div>
                         </div>
                     </div>
