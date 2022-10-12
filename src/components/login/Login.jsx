@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <>
-  
+
       <div className='container-fluid'>
      < ToastContainer/>
         <div className='row loginmaindiv'>
@@ -74,7 +74,8 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className='col-6 '>
+         
+          <div className='col-5 '>
             <div className='logindiv'>
               <div className='wraper '>
                 <div className='logininputdiv'>
@@ -118,8 +119,9 @@ const Login = () => {
                 </div>
               </div>
             </div>
+            </div>
           </div>
-        </div>
+        
       </div>
 
     </>
