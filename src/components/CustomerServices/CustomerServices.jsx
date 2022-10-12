@@ -254,7 +254,7 @@ function CustomerServices() {
                     <div className='container'>
                         <div className='row live_chat_padding'>
                             <div className='col-sm-12 col-md-6 liv_col'>
-                                <h3 className='live_chat more_sales'>Generate more sales</h3>
+                                <h3 className='live_chat more_sales'>Empower your <br/> customer support <br/> team</h3>
                                 <p className='half_of'>Did you know that 3M businesses <br/> generated 20M leads and $400M in<br/> sales after they started using our <br/> chatbots?</p>
                                 <ul className='ul_padding'>
                                     <li className='connect_li'>Stop 60% of your clients from abandoning <br/> their carts by offering a discount</li>
