@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     font-weight: bold;
+    letter-spacing: 2px;
     margin: 20px 0px;
     color: rgb(18, 18, 102);
 }
@@ -20,7 +21,7 @@
     height: 65px;
 }
 .loginmaindiv{
-    height: 100vh;
+    height: 86vh;
     
 }
 .logindiv{
@@ -74,7 +75,7 @@
     height: 550px;
     
     width: 430px;
-    margin-top: 100px;
+    margin-top: 40px;
     margin-left: 100px;
     
 }
