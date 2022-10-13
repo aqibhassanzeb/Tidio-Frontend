@@ -39,7 +39,6 @@
 }
 
 .container .pricing-tabs {
-  width: 20%;
   text-align: center;
   margin: auto;
 }
@@ -50,7 +49,7 @@
   background: #ffffff;
   height: 60px;
   color: #647491;
-  box-shadow: 0 5px 30px -10pxrgb (1 38 97 / 18%);
+  box-shadow: 0 5px 30px -10px rgb (1 38 97 / 18%);
   padding: 6px;
 }
 
@@ -64,9 +63,9 @@
 }
 
 .pricing-cards {
-  background: #F5F7F9;
+  background: #f5f7f9;
   width: 100%;
-  padding: 30px
+  padding: 30px;
 }
 
 .card {
@@ -76,11 +75,12 @@
   height: 100vh;
   margin: 1rem;
   position: relative;
-  width: 95%;
+  width: 107%;
 }
 
 .card-1 {
-  padding: 35px;
+  padding: 45px;
+  border: solid red;
 }
 
 .first-cardText {
@@ -125,7 +125,7 @@
   color: #647491;
   font-weight: 400;
   position: absolute;
-  top: 137px;
+  top: 8.9rem;
   padding-left: 6px;
 }
 
@@ -180,7 +180,6 @@
   font-weight: 400;
   font-style: normal;
   line-height: 18px;
-
 }
 
 #highlightText {
@@ -188,7 +187,6 @@
   font-weight: 600;
   font-style: normal;
   line-height: 18px;
-
 }
 
 .secondLast-text ul li::before {
@@ -242,4 +240,66 @@
   color: #647491;
   line-height: 18px;
   font-size: 14px;
+}
+.questions-first {
+  font-size: 52px;
+  color: #080f1a;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 64px;
+  text-align: center;
+}
+
+.accordion-item {
+  border: none !important;
+}
+.accordion-body {
+  color: #080f1a !important;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+  font-style: normal;
+}
+.accordion-button {
+  color: #0566ff !important;
+  font-weight: 500;
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  margin: 0;
+  font-weight: 500;
+}
+.accordion-button:not(.collapsed)::after {
+  background-image: var();
+  transform: var(--bs-accordion-btn-icon-transform);
+  content: "";
+}
+.accordion-button::after {
+  flex-shrink: 0;
+  width: var(--bs-accordion-btn-icon-width);
+  height: var(--bs-accordion-btn-icon-width);
+  margin-left: auto;
+  content: "";
+  background-image: var();
+  background-repeat: no-repeat;
+  background-size: var(--bs-accordion-btn-icon-width);
+  transition: var(--bs-accordion-btn-icon-transition);
+}
+#cardsRow {
+  width: 98%;
+}
+.both {
+  position: absolute;
+  top: 49%;
+  left: 42%;
+}
+#firstContainer {
+  height: 40vh;
+}
+.tabs{
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  font-style: normal;
 }
