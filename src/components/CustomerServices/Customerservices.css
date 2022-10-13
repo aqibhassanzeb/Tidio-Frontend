@@ -252,6 +252,7 @@
     }
     .imgsldie{
         width: 470px !important;
+        display: none;
     }
     .carouselinformationduv {
         position: relative;
