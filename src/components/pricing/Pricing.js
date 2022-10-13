@@ -17,23 +17,21 @@ function Pricing() {
           <button className="btn-primary">Start your free trial</button>
         </div>
         <div className="both">
-
-        <div className="pricing-tabs mt-4 d-flex flex-direction-row">
-          <Tabs
-            defaultActiveKey=""
-            id="fill-tab-example"
-            className="mb-3 Tab"
-            fill
-          >
-            <Tab id="tabs" eventKey="monthly" title="Monthly"></Tab>
-            <Tab id="tabs" eventKey="annually" title="Annually"></Tab>
-          </Tabs>
+          <div className="pricing-tabs mt-4 d-flex flex-direction-row">
+            <Tabs
+              defaultActiveKey=""
+              id="fill-tab-example"
+              className="mb-3 Tab"
+              fill
+            >
+              <Tab id="tabs" eventKey="monthly" title="Monthly"></Tab>
+              <Tab id="tabs" eventKey="annually" title="Annually"></Tab>
+            </Tabs>
+          </div>
+          <div className="pricing-annuallyFree">
+            Annually you have 2 months free😍
+          </div>
         </div>
-        <div className="pricing-annuallyFree">
-          Annually you have 2 months free😍
-          </div>
-          </div>
-
       </div>
       <div className="container-fluid pricing-cards">
         <div className="row mt-5" id="cardsRow">
