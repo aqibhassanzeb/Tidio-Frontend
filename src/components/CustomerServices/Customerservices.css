@@ -189,10 +189,27 @@
 .carouseldiv{
     position: absolute;
 }
+.carolimagemain{
+    width: 500px;
+    height: 800px;
+    
+}
+.informationofcard{
+    margin-top: 30px;
+}
+.carousellineimagediv{
+   
+    position: relative;
+    margin-top: -15px;
+    width: 600px;
+}
 .carouselinformationduv{
     position: relative;
-    left: 50%;
-    padding: 80px;
+    left: 25%;
+    padding: 20px;
+    height: 600px;
+    
+    
 }
 .carousel-control-next-icon, .carousel-control-prev-icon{
     background-color: black;

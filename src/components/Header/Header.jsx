@@ -5,32 +5,36 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import "../Header/Header.css"
 import { useNavigate } from "react-router-dom";
 import {Link } from 'react-router-dom'
+import { Container } from 'react-bootstrap';
 
 function Header() {
-  const navigate =useNavigate()
-  const handleLogout=()=>{
+  const navigate = useNavigate()
+  const handleLogout = () => {
     localStorage.clear();
     navigate('/userlogin')
   }
   const user = JSON.parse(localStorage.getItem("user"))
   return (
-    <div className='container-fluid sticky-nav px-4'>
-      <div className='row py-4 '>
-        <div className='col-sm-3  d-flex align-items-center'>
-          <Navbar.Brand >logo</Navbar.Brand>
-        </div>
-        <div className='col-sm-6 home_link'>
-          <Nav className="links">
-            <Link to="/" className='home'>Home</Link>
-            <Link to="/pricing" className='home' >Pricing</Link>
-          </Nav>
-        </div>
-        <div className='col-sm-3 register'>
-          <a className='d-flex align-items-center logout' onClick={()=> user != null ? handleLogout():navigate('/userlogin')}>{user !=null ?"Logout":"Login"}</a> &nbsp;&nbsp;
-          <button type="button" class="btn reg_padding" onClick={()=>navigate('/register')}>Register</button>
-        </div>
-      </div>
-    </div>
+    <>
+      <Navbar bg="white" expand="lg">
+        <Container>
+          <Navbar.Brand onClick={() => navigate('/')}>Tidio Logo</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto navLinkdiv">
+              <div className='home_link '>
+                <Nav.Link onClick={() => navigate('/')} className='home'>Home</Nav.Link>
+                <Nav.Link  onClick={() => navigate('/pricing')} className='home' >Pricing</Nav.Link>
+              </div>
+              <div className='register '>
+                <Nav.Link className='d-flex align-items-center logout' onClick={() => user != null ? handleLogout() : navigate('/userlogin')}>{user != null ? "Logout" : "Login"}</Nav.Link> &nbsp;&nbsp;
+                <button type="button" class="btn reg_padding" onClick={() => navigate('/register')}>Sign Up</button>
+              </div>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
   )
 }
 

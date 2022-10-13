@@ -1,10 +1,11 @@
 .home_link{
     display: flex;
-    justify-content: center !important;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 
 }
-.home_link .links {
+.home_link .home {
 gap: 1rem;
 }
 .register{
@@ -34,10 +35,17 @@ gap: 1rem;
 }
 .reg_padding{
     padding: 8px 24px !important;
+    width: 110px;
     border: 2px solid #EFF2F6 !important;
     background-color: white !important;
 }
 .reg_padding:hover{
     background-color: #080f1a !important;
     color: white !important;
+}
+.navLinkdiv{
+
+    width: 100%;
+    display:  flex;
+    justify-content: space-between;
 }

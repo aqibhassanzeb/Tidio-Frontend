@@ -6,6 +6,7 @@ import { socailLogin } from '../../apis/Auth-api';
 import { FACEBOOK_APP_ID, GOOGLE_OAUTH } from '../../config';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {FaGoogle, FaFacebookF} from 'react-icons/fa'
 
 const SocailLogin = () => {
     const navigate =useNavigate()
@@ -57,6 +58,7 @@ const SocailLogin = () => {
   return (
     <div>
         <ToastContainer/>
+        <div className=' fbgobtn'>
         <div>
 
        <GoogleLogin
@@ -71,23 +73,25 @@ const SocailLogin = () => {
                               <h1>Loading...</h1>
                             </div>
                           ) : (
-                            <h1
+                            <button
                               onClick={() => {
                                 setGoogleLoading(true);
                                 renderProps.onClick();
                               }}
-                              src="/assets/bg/google.png"
+                             
                               className="auth_social"
-                              >Google</h1>
+                              >  Login Google</button>
                               )}
                         </>
                       )}
                       /> 
         </div>
+     
                               {/* FaceBook Botton Portion */}
 
         <div>
         <ReactFacebookLogin
+        style={{width: "40px", height: "40px"}}
                       appId={FACEBOOK_APP_ID}
                       autoLoad={false}
                       callback={responseFacebook}
@@ -99,19 +103,19 @@ const SocailLogin = () => {
                               <h1>Loading...</h1>
                             </div>
                           ) : (
-                            <h1
-                              src="/assets/bg/facebook.jpeg"
-                              className="auth_social"
+                            <button
+                              className="auth_social "
                               onClick={() => {
                                 setFacebookLoading(true);
                                 renderProps.onClick();
                               }}
-                            >Facebook Login</h1>
+                            >  Facebook Login</button>
                           )}
                         </>
                       )}
                     />
 
+        </div>
         </div>
     </div>
   )
