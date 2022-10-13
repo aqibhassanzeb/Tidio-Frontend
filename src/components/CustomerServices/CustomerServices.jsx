@@ -13,6 +13,7 @@ import sales from "../../images/sales.webp"
 import messenger from "../../images/messenger.webp"
 import closed from "../../images/closed.webp"
 import DiscoverSlides from '../discoverSlides/DiscoverSlides';
+import PricingModel from '../pricingmodel/PricingModel';
 function CustomerServices() {
     return (
         <>
@@ -226,7 +227,7 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
-                    <div className='co-sm-12 col-md-3 col-xs-4'>
+                    <div className='co-sm-12 col-md-3 col-xs-4 mb-4'>
                         <div className='card_shadow second_card'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
@@ -243,7 +244,7 @@ function CustomerServices() {
                     </div>
                     </div>
                     
-                     <DiscoverSlides/>
+                     <DiscoverSlides />
 
                     {/* customer service section */}
                     <div className='row cards_row'>
@@ -338,6 +339,8 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
+
+                    <PricingModel />
             </div>
 
         </>

@@ -7,7 +7,7 @@ import '../discoverSlides/DiscoverSlides.css'
 const DiscoverSlides = () => {
     return (
         <>
-            <div className='container-fluid'>
+            <div className='container-fluid mt-4'>
                 <div className='row'>
                     <div className='col '>
                         <div className='carouselBackgroundcolor'>
