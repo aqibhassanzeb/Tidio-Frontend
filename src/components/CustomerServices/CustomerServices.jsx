@@ -340,7 +340,7 @@ function CustomerServices() {
                         </div>
                     </div>
 
-                    <PricingModel />
+                    <Footer/>
             </div>
 
         </>
