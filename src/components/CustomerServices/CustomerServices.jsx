@@ -339,8 +339,7 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
-
-                    <Footer/>
+                    <PricingModel />
             </div>
 
         </>
