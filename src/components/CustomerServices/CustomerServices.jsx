@@ -15,6 +15,7 @@ import messenger from "../../images/messenger.webp"
 import closed from "../../images/closed.webp"
 import DiscoverSlides from '../discoverSlides/DiscoverSlides';
 import PricingModel from '../pricingmodel/PricingModel';
+import Footer from './../footer/Footer';
 function CustomerServices() {
     return (
         <>
@@ -353,7 +354,7 @@ function CustomerServices() {
                     </div>
                 </div>
 
-                <Footer />
+               
                     <div className='container'>
                         <div className='row'>
                             <div className='col-sm-12 col-md-6 live_chat_padding'>

@@ -87,7 +87,7 @@ const Register = () => {
                                         <label for="agree" className='agreetext2'> I agree to Tidio's <a href=''>Terms & Conditions</a> and <a href=''>Privacy Policy</a></label>
                                     </div>
                                     <div className='registerbtn '>
-                                    <button className='btn btn-primary w-75 my-2'>Register</button>
+                                    <button className='btn btn-primary w-75 my-2' onClick={()=> handleRegister()}>Register</button>
                                     </div>
                                 </div>
                                 <div className='signupalso mt-2'>
