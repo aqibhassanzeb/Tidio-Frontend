@@ -31,99 +31,102 @@ function CustomerServices() {
                     </div>
                 </div>
                 <div className='row tidio_section_margin  bg_tidio py-4'>
-                    <div className='col-sm-4 offset-2 '>
-                        <div className='container'>
-                            <p className='tidio_combines'>Tidio combines live chat and chatbot tools to help you provide superb customer service and generate more sales.</p>
+                    <div className=' col-md-6'>
+                        <div className=''>
+                            <p className='tidio_combines text-center'>Tidio combines live chat and chatbot tools to help you provide superb customer service and generate more sales.</p>
                         </div>
                     </div>
-                    <div className='col-sm-5 offset-1'>
+                    <div className=' col-md-6 chatimage'>
                         <img className='chat_pic' src={chat} />
                     </div>
                 </div>
                 <div className='row my-4'>
-                    <div className='col-sm-4 offset-2 mt-4 imgsldie'>
-                        <img className='imgview img-fluid' src={backgroundview} />
-
-                    </div>
+                   
                     <div className='bg-transparent carouseldiv mt-4 '>
 
                         <Carousel>
                             <Carousel.Item>
-                            <div className='carouselinformationduv d-flex '>
-                            <div className='carousellineimagediv'>
-                            <img src={Cimage} className='img-fluid carolimagemain' />
-                            </div>
-                            <div className='informationofcard'>
-                                    <div className='w-75 '>
-                                        <p>Whisker Bag </p>
-                                        <h3 className='w-50'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
-
+                                <div className='carouselinformationduv d-flex '>
+                                    <div className='carousellineimagediv'>
+                                        <img src={Cimage} className='img-fluid carolimagemain' />
                                     </div>
-                                    <div className='d-flex'>
-                                        <div className='line'></div>
-                                        <div className='customerinfo p-2 ml-2 mt-2 '>
-                                            <div className='d-flex ' >
-                                                <img src={horseimg} className=' horseimgage img-fluid' />
-                                                <div className='p-2  h-50'>
-                                                    <h6 className='m-0'>jano le Rpoux</h6>
-                                                    <a href=''>whiskerbag.com</a></div>
+                                    <div className='informationofcard'>
+                                        <div className="whiskerbagdiv">
+                                            <div className=' '>
+                                                <p>Whisker Bag </p>
+                                                <h3 className='textparagraph'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
+
                                             </div>
-                                            <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
-                                        </div>
+                                            <div className='d-flex'>
+                                                <div className='line'></div>
+                                                <div className='customerinfo p-2 ml-2 mt-2 '>
+                                                    <div className='d-flex ' >
+                                                        <img src={horseimg} className=' horseimgage img-fluid' />
+                                                        <div className='p-2  h-50'>
+                                                            <h6 className='m-0'>jano le Rpoux</h6>
+                                                            <a href=''>whiskerbag.com</a></div>
+                                                    </div>
+                                                    <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
                             </Carousel.Item>
                             <Carousel.Item>
-                            <div className='carouselinformationduv d-flex'>
-                            <div className='carousellineimagediv'>
-                            <img src={Cimage} className='img-fluid carolimagemain' />
-                            </div>
-                            <div className='informationofcard'>
-                                    <div className='w-75 '>
-                                        <p>Whisker Bag </p>
-                                        <h3 className='w-50'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
-
+                                <div className='carouselinformationduv d-flex'>
+                                    <div className='carousellineimagediv'>
+                                        <img src={Cimage} className='img-fluid carolimagemain' />
                                     </div>
-                                    <div className='d-flex'>
-                                        <div className='line'></div>
-                                        <div className='customerinfo p-2 ml-2 mt-2 '>
-                                            <div className='d-flex ' >
-                                                <img src={horseimg} className=' horseimgage img-fluid' />
-                                                <div className='p-2  h-50'>
-                                                    <h6 className='m-0'>jano le Rpoux</h6>
-                                                    <a href=''>whiskerbag.com</a></div>
+                                    <div className='informationofcard'>
+                                        <div className="whiskerbagdiv">
+                                            <div className=' '>
+                                                <p>Whisker Bag </p>
+                                                <h3 className='textparagraph'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
+
                                             </div>
-                                            <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
-                                        </div>
+                                            <div className='d-flex'>
+                                                <div className='line'></div>
+                                                <div className='customerinfo p-2 ml-2 mt-2 '>
+                                                    <div className='d-flex ' >
+                                                        <img src={horseimg} className=' horseimgage img-fluid' />
+                                                        <div className='p-2  h-50'>
+                                                            <h6 className='m-0'>jano le Rpoux</h6>
+                                                            <a href=''>whiskerbag.com</a></div>
+                                                    </div>
+                                                    <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
                             </Carousel.Item>
                             <Carousel.Item>
-                            <div className='carouselinformationduv d-flex'>
-                            <div className='carousellineimagediv'>
-                            <img src={Cimage} className='img-fluid carolimagemain' />
-                            </div>
-                            <div className='informationofcard'>
-                                    <div className='w-75 '>
-                                        <p>Whisker Bag </p>
-                                        <h3 className='w-50'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
-
+                                <div className='carouselinformationduv d-flex'>
+                                    <div className='carousellineimagediv'>
+                                        <img src={Cimage} className='img-fluid carolimagemain' />
                                     </div>
-                                    <div className='d-flex'>
-                                        <div className='line'></div>
-                                        <div className='customerinfo p-2 ml-2 mt-2 '>
-                                            <div className='d-flex ' >
-                                                <img src={horseimg} className=' horseimgage img-fluid' />
-                                                <div className='p-2  h-50'>
-                                                    <h6 className='m-0'>jano le Rpoux</h6>
-                                                    <a href=''>whiskerbag.com</a></div>
+                                    <div className='informationofcard'>
+                                        <div className="whiskerbagdiv">
+                                            <div className=' '>
+                                                <p>Whisker Bag </p>
+                                                <h3 className='textparagraph'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
+
                                             </div>
-                                            <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
-                                        </div>
+                                            <div className='d-flex'>
+                                                <div className='line'></div>
+                                                <div className='customerinfo p-2 ml-2 mt-2 '>
+                                                    <div className='d-flex ' >
+                                                        <img src={horseimg} className=' horseimgage img-fluid' />
+                                                        <div className='p-2  h-50'>
+                                                            <h6 className='m-0'>jano le Rpoux</h6>
+                                                            <a href=''>whiskerbag.com</a></div>
+                                                    </div>
+                                                    <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -132,6 +135,10 @@ function CustomerServices() {
                         </Carousel>
 
                     </div>
+                    <div className='col-sm-4 offset-2 mt-4 imgsldie'>
+                    <img className='imgview img-fluid' src={backgroundview} />
+
+                </div>
                 </div>
                 {/* card section */}
                 <div className='row px-4 cards_row'>
@@ -256,9 +263,9 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
-                    </div>
-                    
-                     <DiscoverSlides />
+                </div>
+
+                <DiscoverSlides />
 
                 {/* customer service section */}
                 <div className='row cards_row'>
@@ -354,42 +361,42 @@ function CustomerServices() {
                     </div>
                 </div>
 
-               
-                    <div className='container'>
-                        <div className='row'>
-                            <div className='col-sm-12 col-md-6 live_chat_padding'>
-                                <img className='img img-fluid' src={messenger} />
-                            </div>
-                            <div className='col-sm-12 col-md-6'>
-                                <h3 className='live_chat virtual_padd'>Answer any channel <br/> from one place</h3>
-                                <p className='half_of'>As many as 75% of online customers<br/> said they expect help within five<br/> minutes. Connect all your channels to <br/>Tidio and answer your customers in an<br/> instant!</p>
-                                <ul className='ul_padding'>
-                                    <li className='connect_li'>Integrate your live chat, email inbox, <br/> Messenger, and Instagram into one <br/> multichannel communicator</li>
-                                    <li className='connect_li'>Talk to your customers on all devices: <br/> desktop, mobile, and tablet</li>
-                                    <li className='connect_li'>Never lose a potential customer because <br/> they contacted you on a channel you <br/> rarely use</li>
-                                </ul>
-                                <a className='discover_live'>Discover Tidio Chatbots</a><i className="bi bi-arrow-right-short"></i>
-                            </div>
+
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col-sm-12 col-md-6 live_chat_padding'>
+                            <img className='img img-fluid' src={messenger} />
+                        </div>
+                        <div className='col-sm-12 col-md-6'>
+                            <h3 className='live_chat virtual_padd'>Answer any channel <br /> from one place</h3>
+                            <p className='half_of'>As many as 75% of online customers<br /> said they expect help within five<br /> minutes. Connect all your channels to <br />Tidio and answer your customers in an<br /> instant!</p>
+                            <ul className='ul_padding'>
+                                <li className='connect_li'>Integrate your live chat, email inbox, <br /> Messenger, and Instagram into one <br /> multichannel communicator</li>
+                                <li className='connect_li'>Talk to your customers on all devices: <br /> desktop, mobile, and tablet</li>
+                                <li className='connect_li'>Never lose a potential customer because <br /> they contacted you on a channel you <br /> rarely use</li>
+                            </ul>
+                            <a className='discover_live'>Discover Tidio Chatbots</a><i className="bi bi-arrow-right-short"></i>
                         </div>
                     </div>
-                    <div className='container'>
-                        <div className='row live_chat_padding'>
-                            <div className='col-sm-12 col-md-6 liv_col'>
-                                <h3 className='live_chat more_sales'>Empower your <br/> customer support <br/> team</h3>
-                                <p className='half_of'>Did you know that 3M businesses <br/> generated 20M leads and $400M in<br/> sales after they started using our <br/> chatbots?</p>
-                                <ul className='ul_padding'>
-                                    <li className='connect_li'>Stop 60% of your clients from abandoning <br/> their carts by offering a discount</li>
-                                    <li className='connect_li'>Automatically qualify leads and reach out<br/> to them at the right time</li>
-                                    <li className='connect_li'>Easily gather your visitors’ emails and <br/> phone numbers</li>
-                                </ul>
-                                <a className='discover_live'>try for free now!</a><i className="bi bi-arrow-right-short"></i>
-                            </div>
-                            <div className='col-sm-12 col-md-6 img_live_chat_padd'>
-                                <img className='img img-fluid' src={closed} />
-                            </div>
+                </div>
+                <div className='container'>
+                    <div className='row live_chat_padding'>
+                        <div className='col-sm-12 col-md-6 liv_col'>
+                            <h3 className='live_chat more_sales'>Empower your <br /> customer support <br /> team</h3>
+                            <p className='half_of'>Did you know that 3M businesses <br /> generated 20M leads and $400M in<br /> sales after they started using our <br /> chatbots?</p>
+                            <ul className='ul_padding'>
+                                <li className='connect_li'>Stop 60% of your clients from abandoning <br /> their carts by offering a discount</li>
+                                <li className='connect_li'>Automatically qualify leads and reach out<br /> to them at the right time</li>
+                                <li className='connect_li'>Easily gather your visitors’ emails and <br /> phone numbers</li>
+                            </ul>
+                            <a className='discover_live'>try for free now!</a><i className="bi bi-arrow-right-short"></i>
+                        </div>
+                        <div className='col-sm-12 col-md-6 img_live_chat_padd'>
+                            <img className='img img-fluid' src={closed} />
                         </div>
                     </div>
-                    <PricingModel />
+                </div>
+                <PricingModel />
             </div>
 
         </>

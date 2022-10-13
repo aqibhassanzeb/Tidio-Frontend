@@ -16,9 +16,9 @@ function Header() {
   const user = JSON.parse(localStorage.getItem("user"))
   return (
     <>
-      <Navbar bg="white" expand="lg">
+      <Navbar bg="white" expand="lg" sticky='top'>
         <Container>
-          <Navbar.Brand onClick={() => navigate('/')}>Tidio Logo</Navbar.Brand>
+          <Navbar.Brand onClick={() => navigate('/')} style={{cursor: "pointer"}} className="fw-bold text-primary">Tidio Logo</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto navLinkdiv">
