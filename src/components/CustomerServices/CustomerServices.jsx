@@ -14,7 +14,7 @@ import sales from "../../images/sales.webp"
 import messenger from "../../images/messenger.webp"
 import closed from "../../images/closed.webp"
 import DiscoverSlides from '../discoverSlides/DiscoverSlides';
-import Footer from './../footer/Footer';
+import PricingModel from '../pricingmodel/PricingModel';
 function CustomerServices() {
     return (
         <>
@@ -240,7 +240,7 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
-                    <div className='co-sm-12 col-md-3 col-xs-4'>
+                    <div className='co-sm-12 col-md-3 col-xs-4 mb-4'>
                         <div className='card_shadow second_card'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
@@ -255,9 +255,9 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <DiscoverSlides />
+                    </div>
+                    
+                     <DiscoverSlides />
 
                 {/* customer service section */}
                 <div className='row cards_row'>
@@ -354,6 +354,41 @@ function CustomerServices() {
                 </div>
 
                 <Footer />
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='col-sm-12 col-md-6 live_chat_padding'>
+                                <img className='img img-fluid' src={messenger} />
+                            </div>
+                            <div className='col-sm-12 col-md-6'>
+                                <h3 className='live_chat virtual_padd'>Answer any channel <br/> from one place</h3>
+                                <p className='half_of'>As many as 75% of online customers<br/> said they expect help within five<br/> minutes. Connect all your channels to <br/>Tidio and answer your customers in an<br/> instant!</p>
+                                <ul className='ul_padding'>
+                                    <li className='connect_li'>Integrate your live chat, email inbox, <br/> Messenger, and Instagram into one <br/> multichannel communicator</li>
+                                    <li className='connect_li'>Talk to your customers on all devices: <br/> desktop, mobile, and tablet</li>
+                                    <li className='connect_li'>Never lose a potential customer because <br/> they contacted you on a channel you <br/> rarely use</li>
+                                </ul>
+                                <a className='discover_live'>Discover Tidio Chatbots</a><i className="bi bi-arrow-right-short"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='container'>
+                        <div className='row live_chat_padding'>
+                            <div className='col-sm-12 col-md-6 liv_col'>
+                                <h3 className='live_chat more_sales'>Empower your <br/> customer support <br/> team</h3>
+                                <p className='half_of'>Did you know that 3M businesses <br/> generated 20M leads and $400M in<br/> sales after they started using our <br/> chatbots?</p>
+                                <ul className='ul_padding'>
+                                    <li className='connect_li'>Stop 60% of your clients from abandoning <br/> their carts by offering a discount</li>
+                                    <li className='connect_li'>Automatically qualify leads and reach out<br/> to them at the right time</li>
+                                    <li className='connect_li'>Easily gather your visitors’ emails and <br/> phone numbers</li>
+                                </ul>
+                                <a className='discover_live'>try for free now!</a><i className="bi bi-arrow-right-short"></i>
+                            </div>
+                            <div className='col-sm-12 col-md-6 img_live_chat_padd'>
+                                <img className='img img-fluid' src={closed} />
+                            </div>
+                        </div>
+                    </div>
+                    <PricingModel />
             </div>
 
         </>
