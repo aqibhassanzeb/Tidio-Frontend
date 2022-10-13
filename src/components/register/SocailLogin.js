@@ -6,6 +6,7 @@ import { socailLogin } from '../../apis/Auth-api';
 import { FACEBOOK_APP_ID, GOOGLE_OAUTH } from '../../config';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {FaGoogle, FaFacebookF} from 'react-icons/fa'
 
 const SocailLogin = () => {
     const navigate =useNavigate()
@@ -57,7 +58,7 @@ const SocailLogin = () => {
   return (
     <div>
         <ToastContainer/>
-        <div className='d-flex'>
+        <div className=' fbgobtn'>
         <div>
 
        <GoogleLogin
@@ -77,9 +78,9 @@ const SocailLogin = () => {
                                 setGoogleLoading(true);
                                 renderProps.onClick();
                               }}
-                              src="/assets/bg/google.png"
+                             
                               className="auth_social"
-                              >Google</button>
+                              >  Login Google</button>
                               )}
                         </>
                       )}
@@ -103,13 +104,12 @@ const SocailLogin = () => {
                             </div>
                           ) : (
                             <button
-                              src="/assets/bg/facebook.jpeg"
-                              className="auth_social"
+                              className="auth_social "
                               onClick={() => {
                                 setFacebookLoading(true);
                                 renderProps.onClick();
                               }}
-                            >Facebook Login</button>
+                            >  Facebook Login</button>
                           )}
                         </>
                       )}

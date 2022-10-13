@@ -64,7 +64,7 @@ const Login = () => {
       <div className='container-fluid'>
      < ToastContainer/>
         <div className='row loginmaindiv'>
-          <div className='col-7 backgroundcol'>
+          <div className='col-md-6 backgroundcol'>
             <div className='loginsidetext'>
               <span>Don't have </span><br />
               <span>an account?</span>
@@ -75,7 +75,7 @@ const Login = () => {
             </div>
           </div>
          
-          <div className='col-5 '>
+          <div className='col-md-6 '>
             <div className='logindiv'>
               <div className='wraper '>
                 <div className='logininputdiv'>
@@ -120,7 +120,7 @@ const Login = () => {
               </div>
             </div>
             </div>
-          </div>
+         </div>
         
       </div>
 

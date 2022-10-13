@@ -1,6 +1,7 @@
 .home_link{
     display: flex;
-    justify-content: center !important;
+    justify-content: center;
+    width: 100%;
 
 }
 .register{
@@ -29,10 +30,17 @@
 }
 .reg_padding{
     padding: 8px 24px !important;
+    width: 110px;
     border: 2px solid #EFF2F6 !important;
     background-color: white !important;
 }
 .reg_padding:hover{
     background-color: #080f1a !important;
     color: white !important;
+}
+.navLinkdiv{
+    
+    width: 100%;
+    display:  flex;
+    justify-content: space-between;
 }
