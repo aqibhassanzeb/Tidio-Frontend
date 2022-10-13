@@ -5,12 +5,18 @@ import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
+import { EarthoOneProvider } from '@eartho/one-client-react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <EarthoOneProvider
+    clientId="cX5d7Cb1EyiGob5jTrZK"
+  >
+
     <BrowserRouter>
     <App />
     </BrowserRouter>
+  </EarthoOneProvider>
   </React.StrictMode>
 );
 
