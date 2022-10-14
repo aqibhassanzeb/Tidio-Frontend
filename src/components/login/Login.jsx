@@ -20,10 +20,10 @@ const Login = () => {
   // Manual Login 
 
   const handleLogin =()=>{
+    setLoader(true)
     if(!email && !password){
       return toast.error("please fill the fields");
     }
-    setLoader(true)
     const payload = { email, password }
     userLogin(payload).then((res) => {
       localStorage.setItem("token", res.data.token)
@@ -35,9 +35,9 @@ const Login = () => {
          toast.error(err.response.data.error);
       }
       console.log(err)
+      setLoader(false)
     }
     )
-    setLoader(false)
   }
 
   // Facebook Login 
@@ -45,17 +45,17 @@ const Login = () => {
   const responseFacebook = async (response) => {
     const { email,userID:socailLoginUserId, picture, name } = response;
     console.log(response);
-    try {
-      const imageUrl = picture?.data?.url;
-      const res = await socailLogin({loginStatus:"facebook", socailLoginUserId, imageUrl, email, name});
-      localStorage.setItem("token",res.data.token)
-      localStorage.setItem("user",JSON.stringify(res.data.user))
-      navigate('/')
-    } catch (err) {
-        console.log(err)
-    } finally {
-      setFacebookLoading(false);
-    }
+    // try {
+    //   const imageUrl = picture?.data?.url;
+    //   const res = await socailLogin({loginStatus:"facebook", socailLoginUserId, imageUrl, email, name});
+    //   localStorage.setItem("token",res.data.token)
+    //   localStorage.setItem("user",JSON.stringify(res.data.user))
+    //   navigate('/')
+    // } catch (err) {
+    //     console.log(err)
+    // } finally {
+    //   setFacebookLoading(false);
+    // }
   };
 
   return (
@@ -76,12 +76,12 @@ const Login = () => {
           </div>
          
           <div className='col-md-6 '>
-            <div className='logindiv'>
-              <div className='wraper '>
-                <div className='logininputdiv'>
+            <div className='logindiv mt-5'>
+              <div className='wraper mt-5'>
+                <div className='logininputdiv mt-5'>
                   <h2 >Log In</h2>
-                  <div className=' logoicondiv'>
-                  <ReactFacebookLogin
+                  {/* <div className=' logoicondiv'> */}
+                  {/* <ReactFacebookLogin
                       appId={FACEBOOK_APP_ID}
                       autoLoad={false}
                       callback={responseFacebook}
@@ -104,17 +104,15 @@ const Login = () => {
                           )}
                         </>
                       )}
-                    />
-                    {/* <  IoLogoFacebook className='fbicon ' />
-                    <span >Log in with facebook</span>
-                    <div className='backcolor'></div> */}
-                  </div>
-                  <div className='d-flex justify-content-center m-3'>
+                    /> */}
+                    
+                  {/* </div> */}
+                  {/* <div className='d-flex justify-content-center m-3'>
                     <span className='dot'>.............</span>OR<span className='dot'>.............</span>
-                  </div>
+                  </div> */}
                   <input type="email" className='inputlogin' placeholder='Email' onChange={(e)=>setEmail(e.target.value)} value={email} />
                   <input type="password" className='inputlogin' placeholder='Password'  onChange={(e)=>setPassword(e.target.value)} value={password} />
-                  <button className='btn btn-primary btlog fs-5' onClick={()=>handleLogin()}>Log In</button>
+                 { loader ? <button className='btn btn-primary btlog fs-5' >Loading...</button>: <button className='btn btn-primary btlog fs-5' onClick={()=>handleLogin()}>Log In</button>}
                   <a href='' className=' forget'>Forget Password?</a>
                 </div>
               </div>
