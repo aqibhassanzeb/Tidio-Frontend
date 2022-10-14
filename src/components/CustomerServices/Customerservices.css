@@ -47,6 +47,11 @@
 .bg_tidio{
     background-color: #001b47;
     color: white;
+    height: auto;
+}
+.chatimage{
+    display: flex;
+    justify-content: center;
 }
 .tidio_section_margin{
     margin-top: 130px !important;
@@ -95,7 +100,8 @@
     letter-spacing: -0.02em;
 }
 .chat_pic{
-    max-width: 33% !important;
+    max-width: 45% !important;
+   
 }
 .second_row{
     margin-top: -84px;
@@ -171,7 +177,7 @@
     left: -26%;
 }
 .imgsldie{
-   
+   z-index: -1;
     height: 680px;
 }
 .line{
@@ -189,10 +195,36 @@
 .carouseldiv{
     position: absolute;
 }
+.carolimagemain{
+    width: 500px;
+    height: 800px;
+    
+}
+.informationofcard{
+    margin-top: 30px;
+   
+}
+/* .whiskerbagdiv{
+   
+    width: 90%;
+    padding: 20px;
+    margin-top: 60px;
+    margin-left: 60px;
+
+} */
+.carousellineimagediv{
+   
+    position: relative;
+    margin-top: -15px;
+    width: 600px;
+}
 .carouselinformationduv{
     position: relative;
-    left: 50%;
-    padding: 80px;
+    left: 25%;
+    padding: 20px;
+    height: 600px;
+    
+    
 }
 .carousel-control-next-icon, .carousel-control-prev-icon{
     background-color: black;
@@ -209,4 +241,42 @@
 }
 .more_sales{
     margin-top: 81px !important;
+}
+.textparagraph{
+    width: 40%;
+    
+}
+@media only screen and (max-width: 890px) and (min-width: 400px)  {
+    .carouseldiv{
+        position: relative;
+    }
+    .imgsldie{
+        width: 470px !important;
+    }
+    .carouselinformationduv {
+        position: relative;
+        left: 10%;
+        padding: 0px;
+        height: 470px;
+    }
+    .carousellineimagediv{
+        display: none;
+    }
+    .textparagraph{
+        width: 75%;
+        
+    }
+    .whiskerbagdiv{
+   
+        width: 90%;
+        padding: 20px;
+        margin-top: 60px;
+        margin-left: 60px;
+    
+    }
+    .informationofcard{
+        margin-top: 0px;
+        height: 470px;
+    }
+    .tidio_section_margin{}
 }

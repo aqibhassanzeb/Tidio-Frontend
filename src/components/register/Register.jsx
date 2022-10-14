@@ -51,7 +51,7 @@ const Register = () => {
             <div className='container-fluid'>
                 <ToastContainer />
                 <div className='row'>
-                    <div className='col-7 backgroundmain'>
+                    <div className='col-md-6 backgroundmain'>
                     <div className=' registersidebartext'>
                         <div className='registersidediv d-flex'>
                             <img src={customerimg} className=' horseimg img-fluid' />
@@ -71,7 +71,7 @@ const Register = () => {
                         </div>
                     </div>
                     </div>
-                    <div className='col-5  maindivofregister d-flex justify-content-center'>
+                    <div className='col-md-6  maindivofregister d-flex justify-content-center'>
                         <div className='mainregisterdiv'>
                             <div className=' inerdivreg'>
                                 <h2 className='createtext'>Create a free account</h2>
@@ -86,10 +86,13 @@ const Register = () => {
                                         <input type="checkbox" className='agreetext' id="agree" name="agree" value="" />
                                         <label for="agree" className='agreetext2'> I agree to Tidio's <a href=''>Terms & Conditions</a> and <a href=''>Privacy Policy</a></label>
                                     </div>
+                                    <div className='registerbtn '>
+                                    <button className='btn btn-primary w-75 my-2' onClick={()=> handleRegister()}>Register</button>
+                                    </div>
                                 </div>
                                 <div className='signupalso mt-2'>
                                     <p className='mt-2'>You can also sign up with: </p>
-                                    <div className='d-flex justify-content-between '>
+                                    {/* <div className='d-flex justify-content-between '>
                                         <div className='w-50 p-2  border d-flex icondiv justify-content-center'>
                                             <BsFacebook className='icon' />
                                         </div>
@@ -99,7 +102,7 @@ const Register = () => {
                                         <div className='w-50 p-2  border d-flex icondiv justify-content-center'>
                                             <FaWix className='icon' />
                                         </div>
-                                    </div>
+                                    </div> */}
                                     {/* <SocailLogin/> */}
                                     
                             </div>

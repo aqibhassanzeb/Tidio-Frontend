@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Routes, Route,} from "react-router-dom";
 import CustomerServices from '../components/CustomerServices/CustomerServices';
 import Login from '../components/login/Login';
+import Pricing from '../components/pricing/Pricing';
 import Register from '../components/register/Register';
 
 const Routespath = () => {
@@ -9,13 +10,15 @@ const Routespath = () => {
 
         const user = JSON.parse(localStorage.getItem("user"))
       },[Routespath])
- return( 
+ return(
     <Routes>
       <Route path="/" exact element={<CustomerServices/>} />
       <Route path="/userlogin" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
-      
+     <Route path="/login" element={<Login />} />
+     <Route path="/pricing" element={<Pricing />} />
+
+
     </Routes>
  )
 }
