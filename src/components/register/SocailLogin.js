@@ -137,7 +137,9 @@ const SocailLogin = () => {
     logout,
   } = useEarthoOne();
   const navigate =useNavigate()
-      const onSuccessGoogle = async () => {
+      
+  
+  const onSuccessGoogle = async () => {
         setLoader(true)
         const { email, photoURL:imageUrl, firstName:name } = user.user;
         // user.firstName
@@ -155,14 +157,16 @@ const SocailLogin = () => {
         // }
       };
 
-
-  
-  // controlFuc && onSuccessGoogle()
-  if (isConnected) {
-    console.log("user :",user)
-    
-    logout({ returnTo: window.location.origin })
-   navigate('/')
+      console.log("user detail :",user)
+  //  !isLoading && user && onSuccessGoogle() 
+      // controlFuc && onSuccessGoogle()
+      // logout({ returnTo: window.location.origin })
+      logout()
+      if (isConnected) {
+        
+        console.log("user :",user )
+        
+  //  navigate('/')
   }
    
     return(

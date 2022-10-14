@@ -100,7 +100,7 @@ const Register = () => {
                                             <FaWix className='icon' />
                                         </div>
                                     </div>
-                                    <SocailLogin/>
+                                    {/* <SocailLogin/> */}
                                     
                             </div>
                         </div>
