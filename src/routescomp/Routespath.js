@@ -24,8 +24,8 @@ const Routespath = () => {
         <Route path="/" exact element={<>   <Header />  <CustomerServices />  <Footer /> </>} />
         <Route path="/userlogin" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/reset-pass" element={<ResetPass />} />
+        <Route path="/pricing" element={<> <Header /> <Pricing /> <Footer /> </>} />
+        <Route path="/reset-pass" element={ <> <Header /> <ResetPass /> <Footer /> </>} />
        <Route path="/reset-pass/:token" element={<NewPassword />} />
       </Routes>
 
