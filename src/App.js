@@ -5,9 +5,7 @@ import Footer from './components/footer/Footer';
 function App() {
   return (
     <>
-    <Header />
     <Routespath/>
-    <Footer />
    
     </>
   );
