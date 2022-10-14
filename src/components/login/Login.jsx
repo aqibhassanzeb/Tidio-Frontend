@@ -3,7 +3,7 @@ import '../login/Login.css'
 import { IoLogoFacebook } from 'react-icons/io'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { socailLogin, userLogin } from '../../apis/Auth-api';
 import ReactFacebookLogin from 'react-facebook-login';
 import { FACEBOOK_APP_ID } from '../../config';
@@ -113,7 +113,7 @@ const Login = () => {
                   <input type="email" className='inputlogin' placeholder='Email' onChange={(e)=>setEmail(e.target.value)} value={email} />
                   <input type="password" className='inputlogin' placeholder='Password'  onChange={(e)=>setPassword(e.target.value)} value={password} />
                  { loader ? <button className='btn btn-primary btlog fs-5' >Loading...</button>: <button className='btn btn-primary btlog fs-5' onClick={()=>handleLogin()}>Log In</button>}
-                  <a href='' className=' forget'>Forget Password?</a>
+                  <Link to='/reset-pass'  className=' forget'>Forget Password?</Link>
                 </div>
               </div>
             </div>
