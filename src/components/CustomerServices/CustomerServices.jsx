@@ -16,7 +16,10 @@ import closed from "../../images/closed.webp"
 import DiscoverSlides from '../discoverSlides/DiscoverSlides';
 import PricingModel from '../pricingmodel/PricingModel';
 import Footer from './../footer/Footer';
+import { useNavigate } from 'react-router-dom';
 function CustomerServices() {
+
+const navigate=useNavigate()
     return (
         <>
             <div className='container-fluid'>
@@ -27,7 +30,7 @@ function CustomerServices() {
                 </div>
                 <div className='row mb-3'>
                     <div className='col-sm-12 mt-3 text-center'>
-                        <button className='btn btn-primary btn-lg get_started'>Sign Up</button>
+                        <button className='btn btn-primary btn-lg get_started' onClick={()=>navigate("/register")} >Sign Up</button>
                     </div>
                 </div>
                 <div className='row tidio_section_margin  bg_tidio py-4'>

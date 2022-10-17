@@ -28,7 +28,7 @@ const Login = () => {
     userLogin(payload).then((res) => {
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("user", JSON.stringify(res.data.user))
-      navigate('/')
+      navigate('/chat')
      
   }).catch(err=>{
       if(err.response.data.error){
