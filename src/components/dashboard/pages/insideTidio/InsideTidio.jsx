@@ -3,6 +3,7 @@ import '../insideTidio/InsideTidio.css'
 import employeeima from '../../../../images/employeepanel.jpg'
 import laodim from '../../../../images/laoding.png'
 import { IoReorderTwoOutline } from 'react-icons/io'
+import  {BsGraphUp} from 'react-icons/bs'
 const InsideTidio = () => {
     return (
         <>
@@ -19,7 +20,7 @@ const InsideTidio = () => {
 
                     </div>
                     <div className='col-3 '>
-                        <img src={employeeima} className='img-fluid tidiopanel' />
+                        <img src={employeeima} className=' tidiopanel' />
                     </div>
                 </div>
 
@@ -37,27 +38,40 @@ const InsideTidio = () => {
                         </div>
                     </div>
                     <div className='col-4  mt-3 chatbotmaindiv'>
-                    <div>
-                        <div className=' chatbot'>
-                            <span>Chatbots</span>
-                            <span>monthly limit</span>
+                        <div>
+                            <div className=' chatbot'>
+                                <span>Chatbots</span>
+                                <span>monthly limit</span>
+                            </div>
+                            <span className='m-0 visitortext'>(visitor reached)</span>
                         </div>
-                        <span className='m-0 visitortext'>(visitor reached)</span>
+                        <img src={laodim} className='img-fluid loadingimg' />
                     </div>
-                    <img src={laodim} className='img-fluid loadingimg' />
-                    </div>
-                    
+
                     <div className='col-4  chatbotmaindiv mt-3'>
-                    <div>
-                    <div className='d-flex justify-content-center'>
-                    <span>
-                            <div className='oneline'></div>
-                            <div className='oneline2'></div>
-                            </span>
+                        <div>
+                            <div className='d-flex justify-content-center'>
+                                <span>
+                                    <div className='oneline'></div>
+                                    <div className='oneline2'></div>
+                                </span>
                             </div>
                             <p className='mt-3'>Visitors on your page right now</p>
                             <a href='' className='text-center text-decoration-none'>Install Tidio widget to see this</a>
-                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='row border'>
+                <div className='col-9  graphcol'>
+                    <div className='graphdata2'>
+                        <span className='fw-bold'>Your insights will be available soon</span>
+                        <p>We are still gathering conversion data for you. Come back in a few days to start tracking conversions on your website. We’ll show you actionable insights, so you'll see what’s working and what’s not.</p>
+                    </div>
+                </div>
+                <div className='col-3 '>
+                <div className='graphdata '>
+                    <BsGraphUp className=''/>
+                    </div>
                     </div>
                 </div>
             </div>

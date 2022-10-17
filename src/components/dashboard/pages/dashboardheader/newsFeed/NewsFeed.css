@@ -1,0 +1,17 @@
+
+
+.cardimage{
+    width: 18rem;
+    height: 200px;
+    margin: auto;
+}
+.ticketing{
+    border-top: 1px solid lightgray;
+}
+.mainCardOpendiv{
+    padding: 0px 15px;
+}
+.imageouter{
+   
+    width: 300px;
+}
