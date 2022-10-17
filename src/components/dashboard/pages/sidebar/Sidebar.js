@@ -8,7 +8,6 @@ import '../sidebar/Sidebar.css'
 
 function Sidebar({children}) {
     const[isOpen ,setIsOpen] = useState(false);
-    console.log("is open", isOpen);
     const toggle = () => setIsOpen(!isOpen);
     const menuItems = [
         {

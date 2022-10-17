@@ -12,29 +12,31 @@ import { NewPassword } from '../components/newpassword/NewPassword';
 import Pricing from '../components/pricing/Pricing';
 import Register from '../components/register/Register';
 import ResetPass from '../components/resetpassword/ResetPass';
+import ProtectedRoute from './ProtectedRoute';
 
 const Routespath = () => {
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"))
+    let user = JSON.parse(localStorage.getItem("user"))
   }, [Routespath])
   return (
     <>
+     <Routes>
 
-      {true ? <Routes>
+            <Route element={<ProtectedRoute />}>
+            <Route path="/chat" element={ <>  <Sidebar><Chat /></Sidebar> </>}  />
+            <Route path="/contact" element={ <>  <Sidebar><Contact /></Sidebar> </>  } />
+            </Route>
         <Route path="/" exact element={<>   <Header />  <CustomerServices />  <Footer /> </>} />
         <Route path="/userlogin" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/pricing" element={<> <Header /> <Pricing /> <Footer /> </>} />
         <Route path="/reset-pass" element={ <> <Header /> <ResetPass /> <Footer /> </>} />
        <Route path="/reset-pass/:token" element={<NewPassword />} />
-      </Routes>
+    
 
-        : <Sidebar>
-          <Routes>
-            <Route path="/chat" element={ <> <DashboardHeader /><Chat /> </>}  />
-            <Route path="/contact" element={ <> <DashboardHeader /><Contact /> </>} />
           </Routes>
-        </Sidebar>}
+
+
     </>
   )
 }
