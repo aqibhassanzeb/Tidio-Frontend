@@ -11,3 +11,45 @@
     height: 90px;
     width: 400px;
 }
+.totolLead h1{
+    color: rgb(9, 9, 128);
+}
+.insognt{
+    color: rgb(9, 9, 128);
+}
+.totolLead p{
+   font-size: 20px;
+}
+.chatbot{
+    display: flex;
+    flex-direction: column;
+}
+.visitortext{
+    font-size: 14px;
+    color: gray;
+}
+.chatbotmaindiv{
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.loadingimg{
+    width: 90px;
+    height: 90px;
+    margin-left: 10px;
+}
+.oneline{
+    width: 60px;
+    height: 8px;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+.oneline2{
+    width: 40px;
+    height: 8px;
+    border-radius: 10px;
+    margin-top: 5px;
+    background-color: lightgray;
+}
