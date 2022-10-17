@@ -9,9 +9,7 @@ function App() {
   return (
     <>
     <Routespath/>
-   <DashboardHeader/>
-   <InsideTidio/>
-   <NewsFeed/>
+   
     </>
   );
 }
