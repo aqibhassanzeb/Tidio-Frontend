@@ -1,3 +1,13 @@
 .user_img{
-    width: 33px;
+    width: 28px;
+}
+.statsicon{
+    font-weight: bold;
+    font-size: 25px;
+}
+.naviconbar{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

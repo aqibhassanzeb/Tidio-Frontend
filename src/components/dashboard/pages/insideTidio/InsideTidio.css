@@ -1,0 +1,13 @@
+.feeltext p{
+    font-weight: bold;
+    color: rgb(9, 9, 128);
+    font-size: 16px;
+}
+.unfinishedtext{
+    font-size: 14px;
+}
+
+.tidiopanel{
+    height: 90px;
+    width: 400px;
+}
