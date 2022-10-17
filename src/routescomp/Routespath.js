@@ -13,10 +13,16 @@ import Pricing from '../components/pricing/Pricing';
 import Register from '../components/register/Register';
 import ResetPass from '../components/resetpassword/ResetPass';
 import ProtectedRoute from './ProtectedRoute';
+import {useDispatch} from 'react-redux'
+import { setActiveUser } from '../redux/features/UserSlice';
+
 
 const Routespath = () => {
+
+  const dispatch=useDispatch()
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem("user"))
+    user && dispatch(setActiveUser(user))
   }, [Routespath])
   return (
     <>
