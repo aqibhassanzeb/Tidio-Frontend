@@ -22,19 +22,19 @@ const Routespath = () => {
     <>
      <Routes>
 
-            <Route element={<ProtectedRoute />}>
-            <Route path="/chat" element={ <>  <Sidebar><Chat /></Sidebar> </>}  />
-            <Route path="/contact" element={ <>  <Sidebar><Contact /></Sidebar> </>  } />
-            </Route>
+         <Route element={<ProtectedRoute />}>
+         <Route path="/chat" element={ <>  <Sidebar><Chat /></Sidebar> </>}  />
+         <Route path="/contact" element={ <>  <Sidebar><Contact /></Sidebar> </>  } />
+         </Route>
+        
+        
         <Route path="/" exact element={<>   <Header />  <CustomerServices />  <Footer /> </>} />
-        <Route path="/userlogin" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/userlogin" element={ <>   <Header /> <Login />  <Footer /> </>} />
+        <Route path="/register" element={<>   <Header /> <Register />  <Footer /> </> } />
         <Route path="/pricing" element={<> <Header /> <Pricing /> <Footer /> </>} />
         <Route path="/reset-pass" element={ <> <Header /> <ResetPass /> <Footer /> </>} />
        <Route path="/reset-pass/:token" element={<NewPassword />} />
-    
-
-          </Routes>
+        </Routes>
 
 
     </>
