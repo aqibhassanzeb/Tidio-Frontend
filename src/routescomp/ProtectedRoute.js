@@ -8,7 +8,6 @@ const authFunc=()=>{
     return user && usertoken
 }
 const ProtectedRoute = () => {
-    console.log("authFunc",authFunc())
     const isAuthentic=authFunc();
     return isAuthentic ? <Outlet/> : <Navigate to="/userlogin" />
 }

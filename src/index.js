@@ -6,17 +6,23 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import { EarthoOneProvider } from '@eartho/one-client-react';
+import { store } from './redux/store'
+import { Provider } from 'react-redux'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
+
     <EarthoOneProvider
     clientId="cX5d7Cb1EyiGob5jTrZK"
-  >
+    >
 
     <BrowserRouter>
     <App />
     </BrowserRouter>
   </EarthoOneProvider>
+    </Provider>
   </React.StrictMode>
 );
 
