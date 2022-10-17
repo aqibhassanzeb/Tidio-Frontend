@@ -1,0 +1,54 @@
+import React, {useState} from 'react'
+import { BsFillChatRightFill } from 'react-icons/bs';
+import { MdOutlinePermContactCalendar } from 'react-icons/md';
+import { HiHome } from 'react-icons/hi';
+import { FaBars } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
+import '../sidebar/Sidebar.css'
+
+function Sidebar({children}) {
+    const[isOpen ,setIsOpen] = useState(false);
+    console.log("is open", isOpen);
+    const toggle = () => setIsOpen(!isOpen);
+    const menuItems = [
+        {
+            path: '',
+            name: 'dashboard',
+            icon: <HiHome />
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            icon: <MdOutlinePermContactCalendar />
+        },
+        {
+            path: '/chat',
+            name: 'chat',
+            icon: <BsFillChatRightFill />
+            
+        }
+    ]
+    return (
+        <>
+            <div className='custom_container'>
+                <div style={{width: isOpen ? "300px" : "50px"}} className='sidebar'>
+                    <div className='top_section'>
+                            <h1 style={{display: isOpen ? "block" : "none"}} className='logo'>Logo</h1>
+                        <div style={{marginLeft: isOpen ? "150px" : "0px"}} className='bars'>
+                            <FaBars onClick={toggle} />
+                        </div>
+                    </div>
+                    {menuItems.map((item, index)=>(
+                        <NavLink to={item.path} key={index} className="link" activeClassName="active" >
+                            <div className='icon'>{item.icon}</div>
+                            <div className='link_text'>{item.name}</div>
+                        </NavLink>
+                    ))}
+                </div>
+                <main>{children}</main>
+            </div>
+        </>
+    )
+}
+
+export default Sidebar

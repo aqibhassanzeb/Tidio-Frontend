@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "../Header/Header.css"
 import { useNavigate } from "react-router-dom";
+import {Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap';
 
 function Header() {
@@ -24,7 +24,7 @@ function Header() {
             <Nav className="me-auto navLinkdiv">
               <div className='home_link '>
                 <Nav.Link onClick={() => navigate('/')} className='home'>Home</Nav.Link>
-                <Nav.Link href="#link" className='home' >Pricing</Nav.Link>
+                <Nav.Link  onClick={() => navigate('/pricing')} className='home' >Pricing</Nav.Link>
               </div>
               <div className='register '>
                 <Nav.Link className='d-flex align-items-center logout' onClick={() => user != null ? handleLogout() : navigate('/userlogin')}>{user != null ? "Logout" : "Login"}</Nav.Link> &nbsp;&nbsp;

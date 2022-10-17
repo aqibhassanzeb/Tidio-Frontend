@@ -1,8 +1,12 @@
 .home_link{
     display: flex;
+    align-items: center;
     justify-content: center;
     width: 100%;
 
+}
+.home_link .home {
+gap: 1rem;
 }
 .register{
     display: flex;
@@ -27,6 +31,7 @@
     line-height: 23px !important;
     letter-spacing: -0.01em !important;
     color: #080f1a !important;
+    text-decoration: none;
 }
 .reg_padding{
     padding: 8px 24px !important;
@@ -39,7 +44,7 @@
     color: white !important;
 }
 .navLinkdiv{
-    
+
     width: 100%;
     display:  flex;
     justify-content: space-between;

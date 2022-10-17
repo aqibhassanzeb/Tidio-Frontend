@@ -16,4 +16,12 @@ export const socailLogin=async(reqParam) => {
         const response  = await apiURL.post("socailLogin", reqParam);
         return response;
       }
+export const resetPassword=async(reqParam) => {
+        const response  = await apiURL.post("reset-password", reqParam);
+        return response;
+      }
+export const newPassword=async(reqParam) => {
+        const response  = await apiURL.post("new-password", reqParam);
+        return response;
+      }
 
