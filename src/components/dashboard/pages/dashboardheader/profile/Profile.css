@@ -4,7 +4,7 @@
     background-color: rgb(5, 5, 53);
     position: absolute;
     left: 80%;
-    top: 10%;
+    top: 100%;
     z-index: 10;
     border-radius: 5px;
 }
@@ -19,6 +19,7 @@
 .profileimagediv{
     display: block;
     margin: auto;
+
 }
 .profileimage{
     width:150px;
@@ -73,4 +74,10 @@
     justify-content: center;
    
     width: 80px;
+}
+.logprosupbtn{
+    margin: 40px 20px;
+}
+.textdata{
+    color: rgba(255, 255, 255, 0.884);
 }

@@ -4,17 +4,19 @@ import { AiOutlineClose, AiOutlineUser } from 'react-icons/ai';
 import userimag from '../../../../../images/horse.jpg'
 import { BsPlus } from 'react-icons/bs';
 import { MdLogout, MdSupport } from 'react-icons/md';
-const Profile = () => {
+const Profile = ({setToggle}) => {
     return (
         <>
             <div className='profile-maindiv'>
                 <div className=' p-2 d-flex justify-content-end'>
-                    <AiOutlineClose className=' crossicon' />
+                    <AiOutlineClose className=' crossicon'  onClick={()=>setToggle(false)}/>
                 </div>
+                <div className='my-4'>
                 <div className='profileimagediv'>
                     <img src={userimag} className=' profileimage' />
-                    <h5 className='text-white text-center mt-2'>UserName</h5>
-                    <p className='text-white text-center'>Trial Account (0 days left)</p>
+                    <h5 className='textdata text-center mt-2'>UserName</h5>
+                    <p className='textdata text-center'>Trial Account (0 days left)</p>
+                </div>
                 </div>
                 <div>
                     <select name="cars" className="selectedata">
@@ -40,7 +42,7 @@ const Profile = () => {
                         <a href='' className='text-white text-decoration-none'>Add an operator</a>
                     </div>
                 </div>
-                <div className='my-4 d-flex justify-content-around '>
+                <div className='logprosupbtn d-flex justify-content-around '>
                     <div className='userProfiletext'>
                         <AiOutlineUser className='usericon2' />
                         <a href='' className='text-white text-center'>Profile</a>
