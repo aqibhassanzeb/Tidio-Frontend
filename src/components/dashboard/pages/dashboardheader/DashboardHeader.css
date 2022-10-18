@@ -1,5 +1,6 @@
 .user_img{
     width: 28px;
+    cursor: pointer;
 }
 .statsicon{
     font-weight: bold;

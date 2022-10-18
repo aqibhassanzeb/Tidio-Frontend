@@ -1,0 +1,83 @@
+.profile-maindiv{
+    width: 300px;
+    height: 90vh;
+    background-color: rgb(5, 5, 53);
+    position: absolute;
+    left: 80%;
+    top: 100%;
+    z-index: 10;
+    border-radius: 5px;
+}
+.crossicon{
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.profileimagediv{
+    display: block;
+    margin: auto;
+
+}
+.profileimage{
+    width:150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+}
+.selectedata{
+    width: 140px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    margin: auto;
+    color: white;
+    background-color: rgba(8, 8, 78, 0.144);
+}
+.selectedata2{
+    width: 140px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 5px;
+    
+    color: white;
+    background-color: rgba(8, 8, 78, 0.144);
+}
+.usericonTExt{
+    display: flex;
+    color: white;
+    margin-top: 15px;
+    justify-content: space-between;
+   
+    align-items: center;
+    width: 160px;
+    margin: auto;
+}
+.usericon{
+    font-size: 25px;
+    
+}
+.usericon2{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.userProfiletext{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    width: 80px;
+}
+.logprosupbtn{
+    margin: 40px 20px;
+}
+.textdata{
+    color: rgba(255, 255, 255, 0.884);
+}

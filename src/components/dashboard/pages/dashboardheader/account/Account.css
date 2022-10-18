@@ -1,0 +1,32 @@
+.accountmaindiv{
+    padding: 20px 30px;
+}
+
+.userAccounticon{
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+.inputtextfield{
+    margin-left: 40px;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 5px;
+    width: 230px;
+}
+.inputtextfield3{
+    margin-left: 40px;
+   
+    padding: 5px;
+    border-radius: 5px;
+    width: 230px;
+}
+.inputtextimg{
+    margin-left: 40px;
+    
+    padding: 5px;
+    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+}
