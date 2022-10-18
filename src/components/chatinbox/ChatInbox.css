@@ -1,0 +1,41 @@
+
+.chat_icon{
+    width: 29px;
+}
+.chat_row{
+    display: flex;
+}
+.chat_name{
+    font-size: 15px;
+    padding-left: 15px;
+}
+.chat_time{
+    font-size: 11px;
+    padding-left: 30px;
+    padding-top: 2px;
+}
+.chat_text{
+    margin-left: 43px;
+    margin-top: -10px;
+}
+.chat_end_text{
+    margin-right: 43px;
+    margin-top: -10px;
+}
+.chat_end_row{
+    display: inline-flex;
+
+}
+.chat_end_icon{
+    width: 29px;
+}
+.chat_end_name{
+    font-size: 15px;
+    padding-left: 0px;
+    padding-right: 15px;
+}
+.chat_end_time{
+    font-size: 11px;
+    padding-right: 30px;
+    padding-top: 2px;
+}

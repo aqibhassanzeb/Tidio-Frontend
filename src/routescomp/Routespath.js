@@ -15,6 +15,7 @@ import ResetPass from '../components/resetpassword/ResetPass';
 import ProtectedRoute from './ProtectedRoute';
 import {useDispatch} from 'react-redux'
 import { setActiveUser } from '../redux/features/UserSlice';
+import InsideTidio from '../components/dashboard/pages/insideTidio/InsideTidio';
 
 
 const Routespath = () => {
@@ -30,6 +31,7 @@ const Routespath = () => {
 
          <Route element={<ProtectedRoute />}>
          <Route path="/chat" element={ <>  <Sidebar><Chat /></Sidebar> </>}  />
+         <Route path="/insidetidio" element={ <>  <Sidebar><InsideTidio /></Sidebar> </>}  />
          <Route path="/contact" element={ <>  <Sidebar><Contact /></Sidebar> </>  } />
          </Route>
         
