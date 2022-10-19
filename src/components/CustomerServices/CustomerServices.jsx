@@ -19,7 +19,7 @@ import Footer from './../footer/Footer';
 import { useNavigate } from 'react-router-dom';
 function CustomerServices() {
 
-const navigate=useNavigate()
+    const navigate = useNavigate()
     return (
         <>
             <div className='container-fluid'>
@@ -30,7 +30,7 @@ const navigate=useNavigate()
                 </div>
                 <div className='row mb-3'>
                     <div className='col-sm-12 mt-3 text-center'>
-                        <button className='btn btn-primary btn-lg get_started' onClick={()=>navigate("/register")} >Sign Up</button>
+                        <button className='btn btn-primary btn-lg get_started' onClick={() => navigate("/register")} >Sign Up</button>
                     </div>
                 </div>
                 <div className='row tidio_section_margin  bg_tidio py-4'>
@@ -44,7 +44,7 @@ const navigate=useNavigate()
                     </div>
                 </div>
                 <div className='row my-4'>
-                   
+
                     <div className='bg-transparent carouseldiv mt-4 '>
 
                         <Carousel>
@@ -56,11 +56,11 @@ const navigate=useNavigate()
                                     <div className='informationofcard'>
                                         <div className="whiskerbagdiv">
                                             <div className=' '>
-                                                <p>Whisker Bag </p>
+                                                <p className='whiskerName'>Whisker Bag </p>
                                                 <h3 className='textparagraph'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
 
                                             </div>
-                                            <div className='d-flex'>
+                                            <div className='d-flex cardlinetextdiv'>
                                                 <div className='line'></div>
                                                 <div className='customerinfo p-2 ml-2 mt-2 '>
                                                     <div className='d-flex ' >
@@ -69,7 +69,7 @@ const navigate=useNavigate()
                                                             <h6 className='m-0'>jano le Rpoux</h6>
                                                             <a href=''>whiskerbag.com</a></div>
                                                     </div>
-                                                    <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
+                                                    <p className='fs-5 m-2 w-75'>“Tidio changed everything changed everything about the way we  about the way we collect leads”</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,11 +85,11 @@ const navigate=useNavigate()
                                     <div className='informationofcard'>
                                         <div className="whiskerbagdiv">
                                             <div className=' '>
-                                                <p>Whisker Bag </p>
+                                                <p className='whiskerName'>Whisker Bag </p>
                                                 <h3 className='textparagraph'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
 
                                             </div>
-                                            <div className='d-flex'>
+                                            <div className='d-flex cardlinetextdiv'>
                                                 <div className='line'></div>
                                                 <div className='customerinfo p-2 ml-2 mt-2 '>
                                                     <div className='d-flex ' >
@@ -98,7 +98,7 @@ const navigate=useNavigate()
                                                             <h6 className='m-0'>jano le Rpoux</h6>
                                                             <a href=''>whiskerbag.com</a></div>
                                                     </div>
-                                                    <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
+                                                    <p className='fs-5 m-2 w-75'>“Tidio changed everything changed everything about the way we  about the way we collect leads”</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,11 +114,11 @@ const navigate=useNavigate()
                                     <div className='informationofcard'>
                                         <div className="whiskerbagdiv">
                                             <div className=' '>
-                                                <p>Whisker Bag </p>
+                                                <p className='whiskerName'>Whisker Bag </p>
                                                 <h3 className='textparagraph'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
 
                                             </div>
-                                            <div className='d-flex'>
+                                            <div className='d-flex cardlinetextdiv'>
                                                 <div className='line'></div>
                                                 <div className='customerinfo p-2 ml-2 mt-2 '>
                                                     <div className='d-flex ' >
@@ -127,7 +127,8 @@ const navigate=useNavigate()
                                                             <h6 className='m-0'>jano le Rpoux</h6>
                                                             <a href=''>whiskerbag.com</a></div>
                                                     </div>
-                                                    <p className='fs-5 m-2 w-50'>“Tidio changed everything about the way we collect leads”</p>
+                                                    <p className='fs-5 m-2 w-75'>“Tidio changed everything about the changed everything about the way we  way we collect leads”</p>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -138,10 +139,10 @@ const navigate=useNavigate()
                         </Carousel>
 
                     </div>
-                    <div className='col-sm-4 offset-2 mt-4 imgsldie'>
-                    <img className='imgview img-fluid' src={backgroundview} />
+                    <div className='col-sm-4  mt-4 imgsldie'>
+                        <img className='imgview img-fluid' src={backgroundview} />
 
-                </div>
+                    </div>
                 </div>
                 {/* card section */}
                 <div className='row px-4 cards_row'>

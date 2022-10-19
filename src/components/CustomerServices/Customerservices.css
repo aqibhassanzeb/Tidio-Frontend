@@ -170,6 +170,7 @@
 }
 .imgview{
     position: relative;
+    left: 30%;
 }
 .bag_img{
     position: relative;
@@ -246,9 +247,12 @@
     width: 40%;
     
 }
-@media only screen and (max-width: 890px) and (min-width: 400px)  {
+@media only screen and (max-width: 890px) and (min-width: 350px)  {
     .carouseldiv{
         position: relative;
+    }
+    .live_chat_padding{
+        padding: 0px !important;
     }
     .imgsldie{
         width: 470px !important;
@@ -264,16 +268,22 @@
         display: none;
     }
     .textparagraph{
-        width: 75%;
+        width: 85%;
         
+    }
+    .cardlinetextdiv{
+       margin-left: 20px;
     }
     .whiskerbagdiv{
    
-        width: 90%;
-        padding: 20px;
+        width: 100%;
+        padding: 5px;
         margin-top: 60px;
-        margin-left: 60px;
+        margin-left: 0px;
     
+    }
+    .whiskerName{
+        letter-spacing: 5px;
     }
     .informationofcard{
         margin-top: 0px;
