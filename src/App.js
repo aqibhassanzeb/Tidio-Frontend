@@ -13,8 +13,7 @@ import ChatInbox from './components/chatinbox/ChatInbox';
 function App() {
   return (
     <>
-    {/* <Routespath/> */}
-  <ChatInbox />
+    <Routespath/>
     </>
   );
 }
