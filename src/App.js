@@ -9,11 +9,11 @@ import Profile from './components/dashboard/pages/dashboardheader/profile/Profil
 import Account from './components/dashboard/pages/dashboardheader/account/Account';
 import Inbox from './components/dashboard/pages/dashboardheader/inbox/Inbox';
 import ChatCard from './components/dashboard/pages/dashboardheader/chatCard/ChatCard';
+import ChatInbox from './components/chatinbox/ChatInbox';
 function App() {
   return (
     <>
     <Routespath/>
-  
     </>
   );
 }
