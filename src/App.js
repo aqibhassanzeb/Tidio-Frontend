@@ -13,9 +13,8 @@ import ChatInbox from './components/chatinbox/ChatInbox';
 function App() {
   return (
     <>
-    {/* <Routespath/> */}
-   {/* <ChatCard/> */}
-   <ChatInbox />
+    <Routespath/>
+  
     </>
   );
 }

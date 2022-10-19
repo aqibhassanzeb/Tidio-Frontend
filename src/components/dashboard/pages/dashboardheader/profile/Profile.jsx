@@ -4,7 +4,9 @@ import { AiOutlineClose, AiOutlineUser } from 'react-icons/ai';
 import userimag from '../../../../../images/horse.jpg'
 import { BsPlus } from 'react-icons/bs';
 import { MdLogout, MdSupport } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 const Profile = ({setToggle}) => {
+    const navigate=useNavigate()
     return (
         <>
             <div className='profile-maindiv'>
@@ -13,7 +15,7 @@ const Profile = ({setToggle}) => {
                 </div>
                 <div className='my-4'>
                 <div className='profileimagediv'>
-                    <img src={userimag} className=' profileimage' />
+                    <img src={userimag} className=' profileimage' onClick={()=>navigate("/acount")}  style={{cursor:"pointer"}}/>
                     <h5 className='textdata text-center mt-2'>UserName</h5>
                     <p className='textdata text-center'>Trial Account (0 days left)</p>
                 </div>
@@ -35,25 +37,25 @@ const Profile = ({setToggle}) => {
                 <div className='my-4'>
                     <div className='usericonTExt'>
                         <AiOutlineUser className='usericon' />
-                        <a href='' className='text-white text-decoration-none'>Hamzafarooq925</a>
+                        <p href='' className='text-white text-decoration-none'>Hamzafarooq925</p>
                     </div>
                     <div className='usericonTExt mt-1'>
                         <BsPlus className='usericon' />
-                        <a href='' className='text-white text-decoration-none'>Add an operator</a>
+                        <p href='' className='text-white text-decoration-none'>Add an operator</p>
                     </div>
                 </div>
                 <div className='logprosupbtn d-flex justify-content-around '>
                     <div className='userProfiletext'>
                         <AiOutlineUser className='usericon2' />
-                        <a href='' className='text-white text-center'>Profile</a>
+                        <p href='' className='text-white text-center'>Profile</p>
                     </div>
                     <div className='userProfiletext'>
                         <MdLogout className='usericon2' />
-                        <a href='' className='text-white  text-center'>Logout</a>
+                        <p href='' className='text-white  text-center'>Logout</p>
                     </div>
                     <div className='userProfiletext'>
                         <MdSupport className='usericon2' />
-                        <a href='' className='text-white text-center'>Support</a>
+                        <p href='' className='text-white text-center'>Support</p>
                     </div>
                 </div>
             </div>

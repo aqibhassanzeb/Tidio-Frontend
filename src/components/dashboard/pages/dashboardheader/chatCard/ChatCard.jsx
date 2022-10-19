@@ -4,6 +4,8 @@ import chatcardimg from '../../../../../images/horse.jpg'
 import { MdWavingHand } from 'react-icons/md'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { RiArrowDropDownLine } from 'react-icons/ri'
+import { IoMdSend } from 'react-icons/io'
+import { AiOutlineSmile } from 'react-icons/ai'
 const ChatCard = () => {
     return (
         <>
@@ -32,6 +34,22 @@ const ChatCard = () => {
                         <span className='online'>we reply immediately</span>
                     </div>
                 </div>
+                <div className='messagestext '>
+                    <div className=''>
+                        <p className=' textparadiv m-2'>this is the text of a user component this is only dummy text you can read it only</p>
+                    </div>
+                    <div className='spanreplymain'>
+                        <span className='spanreply '>Yeah Sure</span>
+                    </div>
+                </div>
+                <div className='d-flex'>
+                    <input type="text" placeholder='Enter Your message here...' className='textyourmessage' />
+                    <IoMdSend className='sendmessageicon'/>
+                </div>
+                <div>
+                    <AiOutlineSmile className='smileicon' />
+                </div>
+
             </div>
         </>
     )

@@ -16,7 +16,8 @@ import ProtectedRoute from './ProtectedRoute';
 import {useDispatch} from 'react-redux'
 import { setActiveUser } from '../redux/features/UserSlice';
 import InsideTidio from '../components/dashboard/pages/insideTidio/InsideTidio';
-
+import Inbox from "../components/dashboard/pages/dashboardheader/inbox/Inbox"
+import Account from '../components/dashboard/pages/dashboardheader/account/Account';
 
 const Routespath = () => {
 
@@ -29,16 +30,19 @@ const Routespath = () => {
     <>
      <Routes>
 
+          
          <Route element={<ProtectedRoute />}>
-         <Route path="/chat" element={ <>  <Sidebar><Chat /></Sidebar> </>}  />
-         <Route path="/insidetidio" element={ <>  <Sidebar><InsideTidio /></Sidebar> </>}  />
-         <Route path="/contact" element={ <>  <Sidebar><Contact /></Sidebar> </>  } />
+         <Route path="/chat" element={ <> <DashboardHeader/> <Sidebar><Chat /></Sidebar> </>}  />
+         <Route path="/insidetidio" element={ <> <DashboardHeader/> <Sidebar><InsideTidio /></Sidebar> </>}  />
+         <Route path="/contact" element={ <> <DashboardHeader/> <Sidebar><Contact /></Sidebar> </>  } />
+         <Route path="/inbox" element={ <><DashboardHeader/> <Sidebar><Inbox /></Sidebar> </>  } />
+         <Route path="/acount" element={ <><DashboardHeader/> <Sidebar><Account /></Sidebar> </>  } />
          </Route>
         
         
         <Route path="/" exact element={<>   <Header />  <CustomerServices />  <Footer /> </>} />
-        <Route path="/userlogin" element={ <>   <Header /> <Login />  <Footer /> </>} />
-        <Route path="/register" element={<>   <Header /> <Register />  <Footer /> </> } />
+        <Route path="/userlogin" element={ <>    <Login />  </>} />
+        <Route path="/register" element={<>    <Register /> </> } />
         <Route path="/pricing" element={<> <Header /> <Pricing /> <Footer /> </>} />
         <Route path="/reset-pass" element={ <> <Header /> <ResetPass /> <Footer /> </>} />
        <Route path="/reset-pass/:token" element={<NewPassword />} />

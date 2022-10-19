@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { BsFillChatRightFill } from 'react-icons/bs';
+import { BsFillChatRightFill, BsFillInboxFill } from 'react-icons/bs';
 import { MdOutlinePermContactCalendar } from 'react-icons/md';
 import { HiHome } from 'react-icons/hi';
 import { FaBars } from 'react-icons/fa';
@@ -10,6 +10,12 @@ function Sidebar({children}) {
     const[isOpen ,setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     const menuItems = [
+        {
+            path: '/inbox',
+            name: 'Inbox',
+            icon: <BsFillInboxFill />
+            
+        },
         {
             path: '',
             name: 'dashboard',
@@ -39,7 +45,7 @@ function Sidebar({children}) {
                     </div>
                     {menuItems.map((item, index)=>(
                         <NavLink to={item.path} key={index} className="link" activeClassName="active" >
-                            <div className='icon'>{item.icon}</div>
+                            <div className='icon icon_showtext'>{item.icon}</div>
                             <div className='link_text'>{item.name}</div>
                         </NavLink>
                     ))}
