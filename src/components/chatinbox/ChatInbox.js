@@ -44,7 +44,7 @@ function ChatInbox() {
                     </div>
                     <div className='col-sm-12 text-end'>
                         <input type='file' />
-                    <button className='btn btn-primary'>Send</button>
+                    <button className='btn btn-primary'>Reply</button>
                     </div>
                 </div>
             </div>
