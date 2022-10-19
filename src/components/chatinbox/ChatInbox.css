@@ -4,6 +4,7 @@
 }
 .chat_row{
     display: flex;
+    margin-top: 9px !important;
 }
 .chat_name{
     font-size: 15px;
@@ -38,4 +39,32 @@
     font-size: 11px;
     padding-right: 30px;
     padding-top: 2px;
+}
+.position_textarea {
+    position: fixed;
+    width: 60%;
+    bottom: 0;
+}
+.custom_text_area{
+    height: 140px;
+    margin-bottom: 9px;
+}
+/* .text_area_padding{
+    padding-left: 29px !important;
+} */
+.custom_fluid{
+    width: 60% !important;
+}
+.header_chat{
+    margin-top: 5px !important;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgb(208, 208, 224);
+}
+.display_header{
+    display: flex;
+}
+.online{
+    margin-left: 8px;
+    margin-bottom: 0px !important;
+    padding: 0px;
 }

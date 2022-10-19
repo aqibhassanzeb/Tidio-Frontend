@@ -1,10 +1,18 @@
 import React from 'react'
-import "../components/Inbox.css"
-import melissa from '../images/melissa-j.webp'
+import "../chatinbox/ChatInbox.css"
+import melissa from '../../images/melissa-j.webp'
 function ChatInbox() {
     return (
         <>
-            <div className='container-fluid'>
+            <div className='container-fluid custom_fluid'>
+                <div className='row mt-4'>
+                    <div className='col-sm-12 header_chat'>
+                   <div className='display_header'>
+                   <img className='chat_icon' src={melissa} /> 
+                    <p className='online'>Online</p>
+                   </div>
+                    </div>
+                </div>
                 <div className='row'>
                     <div className='col-sm-12 text-left p-2'>
                         <div className='chat_row'>
@@ -27,6 +35,16 @@ function ChatInbox() {
                         <div className='chat_end_text'>
                             <p>hey jhon hows you</p>
                         </div>
+                    </div>
+                </div>
+                <div className='row pb-4  position_textarea'>
+                    <div className='col-sm-12 text_area_padding'>
+                        <textarea className='form-control custom_text_area'>
+                        </textarea>
+                    </div>
+                    <div className='col-sm-12 text-end'>
+                        <input type='file' />
+                    <button className='btn btn-primary'>Send</button>
                     </div>
                 </div>
             </div>
