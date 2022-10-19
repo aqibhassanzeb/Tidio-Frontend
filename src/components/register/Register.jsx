@@ -19,14 +19,14 @@ const Register = () => {
     const [websiteName, setWebsiteName] = useState("")
     const [loader, setLoader] = useState(false)
     const [error, setError] = useState(false)
-   
 
-    
-    
+
+
+
     // Register function 
 
-    const handleRegister=()=>{
-        if(!email && !password){
+    const handleRegister = () => {
+        if (!email && !password) {
             return toast.error("please fill the fields");
         }
         setLoader(true)
@@ -35,10 +35,10 @@ const Register = () => {
             localStorage.setItem("token", res.data.token)
             localStorage.setItem("user", JSON.stringify(res.data.user))
             navigate('/chat')
-           
-        }).catch(err=>{
-            if(err.response.data.message){
-               toast.error(err.response.data.message);
+
+        }).catch(err => {
+            if (err.response.data.message) {
+                toast.error(err.response.data.message);
             }
             console.log(err)
             setLoader(false)
@@ -52,24 +52,24 @@ const Register = () => {
                 <ToastContainer />
                 <div className='row'>
                     <div className='col-md-6 backgroundmain'>
-                    <div className=' registersidebartext'>
-                        <div className='registersidediv d-flex'>
-                            <img src={customerimg} className=' horseimg img-fluid' />
-                            <div className=' mx-2'>
-                                <span>Farzan A</span>
-                                <p>Website Designer</p>
+                        <div className=' registersidebartext'>
+                            <div className='registersidediv d-flex'>
+                                <img src={customerimg} className=' horseimg img-fluid' />
+                                <div className=' mx-2'>
+                                    <span>Farzan A</span>
+                                    <p>Website Designer</p>
+                                </div>
+                            </div>
+                            <div className=' w-50 mt-2'>
+                                <h4 className='my-3'>One of the best chatbot development platforms</h4>
+                                <p>Tidio has a user-friendly UI/UX. It is very easy to
+                                    understand and use. The design and animation of the
+                                    chat widget are also very good. It also has a good
+                                    chatbot flow builder. The analytics part of the
+                                    dashboard is very useful. It helps to generate insights
+                                    into the chatbot.</p>
                             </div>
                         </div>
-                        <div className=' w-50 mt-2'>
-                        <h4 className='my-3'>One of the best chatbot development platforms</h4>
-                        <p>Tidio has a user-friendly UI/UX. It is very easy to 
-                        understand and use. The design and animation of the 
-                        chat widget are also very good. It also has a good 
-                        chatbot flow builder. The analytics part of the 
-                        dashboard is very useful. It helps to generate insights 
-                        into the chatbot.</p>
-                        </div>
-                    </div>
                     </div>
                     <div className='col-md-6  maindivofregister d-flex justify-content-center'>
                         <div className='mainregisterdiv'>
@@ -87,7 +87,7 @@ const Register = () => {
                                         <label for="agree" className='agreetext2'> I agree to Tidio's <a href=''>Terms & Conditions</a> and <a href=''>Privacy Policy</a></label>
                                     </div>
                                     <div className='registerbtn '>
-                               {loader ? <button className='btn btn-primary w-75 my-2'>Loading..</button>:<button className='btn btn-primary w-75 my-2' onClick={()=> handleRegister()}>Register</button>}
+                                        {loader ? <button className='btn btn-primary w-75 my-2'>Loading..</button> : <button className='btn btn-primary w-75 my-2' onClick={() => handleRegister()}>Register</button>}
                                     </div>
                                 </div>
                                 <div className='signupalso mt-2'>
@@ -104,12 +104,12 @@ const Register = () => {
                                         </div>
                                     </div> */}
                                     {/* <SocailLogin/> */}
-                                    
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </>
     )

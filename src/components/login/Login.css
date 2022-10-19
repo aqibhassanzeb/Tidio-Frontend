@@ -165,5 +165,12 @@
     .backgroundcol{
         display: none;
     }
+    .wraper{
+        width: 360px;
+       
+    }
+    .logininputdiv{
+        width: 100%;
+    }
     
 }
