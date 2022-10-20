@@ -14,7 +14,7 @@ import Register from '../components/register/Register';
 import ResetPass from '../components/resetpassword/ResetPass';
 import ProtectedRoute from './ProtectedRoute';
 import {useDispatch} from 'react-redux'
-import { setActiveUser } from '../redux/features/UserSlice';
+import { setActiveToken, setActiveUser } from '../redux/features/UserSlice';
 import InsideTidio from '../components/dashboard/pages/insideTidio/InsideTidio';
 import Inbox from "../components/dashboard/pages/dashboardheader/inbox/Inbox"
 import Account from '../components/dashboard/pages/dashboardheader/account/Account';
@@ -24,7 +24,9 @@ const Routespath = () => {
   const dispatch=useDispatch()
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem("user"))
+    let usertoken = localStorage.getItem("token")
     user && dispatch(setActiveUser(user))
+    usertoken && dispatch(setActiveToken(usertoken))
   }, [Routespath])
   return (
     <>
