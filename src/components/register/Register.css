@@ -139,5 +139,8 @@ input.agreetext{
     .backgroundmain{
         display: none;
     }
+    .inputdiv{
+        width: 100%;
+    }
     
 }

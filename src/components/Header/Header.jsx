@@ -16,7 +16,7 @@ function Header() {
   const user = JSON.parse(localStorage.getItem("user"))
   return (
     <>
-      <Navbar bg="white" expand="lg" sticky='top'>
+      <Navbar bg="white" expand="lg" sticky='top' className='py-3'>
         <Container>
           <Navbar.Brand onClick={() => navigate('/')} style={{cursor: "pointer"}} className="fw-bold text-primary">Tidio Logo</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,7 +27,7 @@ function Header() {
                 <Nav.Link  onClick={() => navigate('/pricing')} className='home' >Pricing</Nav.Link>
               </div>
               <div className='register '>
-                <Nav.Link className='d-flex align-items-center logout' onClick={() => user != null ? handleLogout() : navigate('/userlogin')}>{user != null ? "Logout" : "Login"}</Nav.Link> &nbsp;&nbsp;
+                <button className='d-flex align-items-center logout' onClick={() => user != null ? handleLogout() : navigate('/userlogin')}>{user != null ? "Logout" : "Log In"}</button> &nbsp;&nbsp;
                 <button type="button" class="btn reg_padding" onClick={() => navigate('/register')}>Sign Up</button>
               </div>
             </Nav>

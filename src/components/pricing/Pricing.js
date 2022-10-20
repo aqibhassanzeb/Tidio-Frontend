@@ -24,8 +24,8 @@ function Pricing() {
               className="mb-3 Tab"
               fill
             >
-              <Tab id="tabs" eventKey="monthly" title="Monthly"></Tab>
-              <Tab id="tabs" eventKey="annually" title="Annually"></Tab>
+              <Tab id="tabs"  eventKey="monthly" title="Monthly"></Tab>
+              <Tab id="tabs"  eventKey="annually" title="Annually"></Tab>
             </Tabs>
           </div>
           <div className="pricing-annuallyFree">

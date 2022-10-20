@@ -67,11 +67,7 @@
     line-height: 40px;
     letter-spacing: -0.01em;
 }
-.card_shadow{
-    margin-left: 43px !important; 
-    padding: 22px !important;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
-}
+
 .melisa{
     height: 62px !important;
     width: 29% !important;
@@ -111,6 +107,8 @@
 }
 .cards_row{
     margin-top: 135px !important;
+    display: flex;
+    justify-content: start;
 }
 .A_power{
     font-weight: 600;
@@ -170,6 +168,7 @@
 }
 .imgview{
     position: relative;
+    left: 30%;
 }
 .bag_img{
     position: relative;
@@ -246,9 +245,31 @@
     width: 40%;
     
 }
-@media only screen and (max-width: 890px) and (min-width: 400px)  {
+.card_shadow{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+    padding: 10px;
+}
+.cardmaindivmarque{
+    margin: 10px;
+    width: 300px !important;
+    
+    background-color: white;
+}
+@media only screen and (max-width: 890px) and (min-width: 350px)  {
     .carouseldiv{
         position: relative;
+    }
+    .live_chat_padding{
+        padding: 0px !important;
+    }
+    .cardmaindivmarque{
+        
+        width: 350px !important;
+        
+    }
+    .cards_row{
+        justify-content: center;
+       
     }
     .imgsldie{
         width: 470px !important;
@@ -264,20 +285,26 @@
         display: none;
     }
     .textparagraph{
-        width: 75%;
+        width: 85%;
         
+    }
+    .cardlinetextdiv{
+       margin-left: 20px;
     }
     .whiskerbagdiv{
    
-        width: 90%;
-        padding: 20px;
+        width: 100%;
+        padding: 5px;
         margin-top: 60px;
-        margin-left: 60px;
+        margin-left: 0px;
     
+    }
+    .whiskerName{
+        letter-spacing: 5px;
     }
     .informationofcard{
         margin-top: 0px;
         height: 470px;
     }
-    .tidio_section_margin{}
+    
 }
