@@ -14,9 +14,9 @@ import Widget from './components/dashboard/pages/widget/Widget';
 function App() {
   return (
     <>
-    {/* <Routespath/> */}
+    <Routespath/>
     {/* <ChatInbox /> */}
-    <Widget />
+    {/* <Widget /> */}
     </>
   );
 }
