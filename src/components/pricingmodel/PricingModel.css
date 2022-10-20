@@ -1,8 +1,8 @@
 .trans_head{
     line-height: 64px !important;
     letter-spacing: -0.03em;  
-    font-size: 54px !important;
-    font-weight: 800 !important;
+    font-size: 40px !important;
+    font-weight: bold !important;
 }
 .shadow_trans{
     border-radius: 2%;

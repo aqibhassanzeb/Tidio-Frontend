@@ -35,12 +35,16 @@
     
 
 }
-@media only screen and (max-width: 890px) and (min-width: 350px)  {
+@media only screen and (max-width: 890px) and (min-width: 325px)  {
     .textcaroli{
         display: flex;
         flex-direction: column;
         text-align: center;
         margin-top: 10px;
+        left: 5%;
+    }
+    .textcarolinfo{
+        width: 340px; 
     }
     .imagecarolinnderdiv{
         margin-left: 0px;

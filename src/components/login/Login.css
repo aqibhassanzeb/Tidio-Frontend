@@ -21,7 +21,7 @@
     height: 65px;
 }
 .loginmaindiv{
-    height: 86vh;
+    height: 100vh;
     
 }
 .logindiv{
@@ -79,8 +79,21 @@
     
     width: 430px;
     margin-top: 40px;
+}
+.tidiologinheader{
+    text-decoration: none;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    top: 3%;
     
-    
+}
+.tidiologinheader .backlink{
+   color: rgb(25, 25, 255);
 }
 .dot{
     color: lightgray;
@@ -100,6 +113,29 @@
     font-size: 18px;
     display: flex;
     justify-content: center;
+}
+.or{
+    color: gray;
+    margin-top: 10px;
+    line-height: 20px;
+    letter-spacing: 8px;
+   display: none;
+    
+}
+.ordta{
+  color: gray;
+  text-align: center;
+  margin: 0px 8px;
+  display: none;
+}
+.create{
+    text-decoration: none;
+    color: rgba(0, 0, 255, 0.678);
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    display: none;
 }
 .loginsidetext{
     
@@ -172,5 +208,16 @@
     .logininputdiv{
         width: 100%;
     }
-    
+    .create{
+        display: block;
+        text-align: center;
+    }
+    .or{
+        display: block;
+        text-align: center;
+    }
+    .ordta{
+        display: block;
+        font-size: 20px;
+    }
 }

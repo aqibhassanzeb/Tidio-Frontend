@@ -1,5 +1,5 @@
 import React from 'react'
-import trans from "../../images/trans.webp"
+import trans from "../../images/custo.png"
 import transs from "../../images/trans2.webp"
 import "../pricingmodel/PricingModel.css"
 export default function PricingModel() {
@@ -8,7 +8,7 @@ export default function PricingModel() {
             <div className='container'>
                 <div className='row'>
                     <div className='col-sm-12 text-center'>
-                        <h2 className='trans_head'>A transparent pricing model</h2>
+                        <p className='trans_head'>A transparent pricing model</p>
                     </div>
                     <div className='row mainrowtranparantdiv d-flex justify-content-center'>
                         

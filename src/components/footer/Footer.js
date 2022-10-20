@@ -7,7 +7,7 @@ export default function Footer() {
         <div className='row '>
           <div className='col-md-4 col-sm-12 text-center'>
             <div className='footerinfo'>
-              <h4>Tidio</h4>
+              <h4 className='text-primary'>Tidio Logo</h4>
               <p>Tidio 2022. All rights reserved.</p>
             </div>
             <p className='mt-2'>support@tidio.net</p>
