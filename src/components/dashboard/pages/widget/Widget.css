@@ -1,0 +1,70 @@
+
+.accordion-button:focus{
+    box-shadow: none !important;
+}
+.accordion-button{
+    margin-top: 4px !important;
+    padding-bottom: 8px !important;
+}
+.margin_hr{
+    margin: 0px !important;
+}
+.widget_header{
+    color: black !important;
+    margin-bottom: 0px;
+}
+.display_widget{
+    color: #080f1a;
+    font-family: euclidcircularb,sans-serif;
+    font-size: 14px;
+    line-height: 1.28571429;
+}
+.check_custom{
+    margin-top: -5px !important;
+    margin-left: 65px !important;
+}
+.check_chat{
+    padding-left: 85px !important;
+}
+.display_chat{
+    color: #080f1a;
+    font-family: euclidcircularb,sans-serif;
+    font-size: 14px;
+    line-height: 1.28571429;
+}
+.select_device{
+    margin-left: 109px !important;
+    border-radius: 0px !important;
+}
+.hide_screen{
+    margin-left: 164px;
+    margin-top: 0px;
+    font-size: small;
+    color: #0566ff !important;
+}
+.color_small{
+    color: #0566ff !important;
+}
+.form-switch{
+    width: 100%;
+}
+.status_p{
+    color: #080f1a;
+    font-family: euclidcircularb,sans-serif;
+    font-size: 14px;
+    line-height: 1.28571429;
+}
+.custom_form_control{
+    margin-top: -20px !important;
+}
+.status_p_label{
+    margin-top: 69px;
+    color: #080f1a;
+    font-family: euclidcircularb,sans-serif;
+    font-size: 14px;
+    line-height: 1.28571429;
+}
+.check_background{
+    margin-top: -5px !important;
+    margin-left: 0px !important;
+}
