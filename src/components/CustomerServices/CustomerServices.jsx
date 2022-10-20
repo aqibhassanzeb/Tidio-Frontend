@@ -25,7 +25,7 @@ function CustomerServices() {
             <div className='container-fluid'>
                 <div className='row mt-4 pb-4'>
                     <div className='col-sm-12 text-center mt-4'>
-                        <h1 className='customer_service'>Customer service is great, but it's even better when <br /> it's combined with higher sales</h1>
+                        <h1 className='customer_service'>Customer service is great, but it's even better when  it's combined with higher sales</h1>
                     </div>
                 </div>
                 <div className='row mb-3'>
@@ -150,7 +150,7 @@ function CustomerServices() {
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
+                                <p className='name_card '>Shervin K <br/> CEO</p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -314,12 +314,12 @@ function CustomerServices() {
                     <div className='row live_chat_padding'>
                         <div className='col-sm-12 col-md-6 liv_col'>
                             <h3 className='live_chat'>Live Chat</h3>
-                            <p className='half_of'>Half of all online customers prefer live <br /> chat over any other communication<br /> channel.</p>
+                            <p className='half_of'>Half of all online customers prefer live  chat over any other communicationchannel.</p>
                             <ul className='ul_padding'>
-                                <li className='connect_li'>Connect Tidio to ALL websites and <br /> platforms via dedicated plugins, without<br /> coding</li>
-                                <li className='connect_li'>The Tidio live chat widget adjusts to your<br /> customers’ screens, so they can write to<br /> you on mobile and tablet</li>
-                                <li className='connect_li'>Our live chat widget is customizable: you <br /> can change its placement and color, so it <br /> fits with your website aesthetics</li>
-                                <li className='connect_li'>You can adjust the positioning of the live <br /> chat button in a mobile version of the <br /> widget</li>
+                                <li className='connect_li'>Connect Tidio to ALL websites and platforms via dedicated plugins, withoutcoding</li>
+                                <li className='connect_li'>The Tidio live chat widget adjusts to yourcustomers’ screens, so they can write toyou on mobile and tablet</li>
+                                <li className='connect_li'>Our live chat widget is customizable: you can change its placement and color, so it fits with your website aesthetics</li>
+                                <li className='connect_li'>You can adjust the positioning of the live chat button in a mobile version of the widget</li>
                             </ul>
                             <a className='discover_live'>Discover Tidio live chat</a><i className="bi bi-arrow-right-short"></i>
                         </div>
@@ -334,12 +334,12 @@ function CustomerServices() {
                             <img className='img img-fluid' src={Ai} />
                         </div>
                         <div className='col-sm-12 col-md-6'>
-                            <h3 className='live_chat virtual_padd'>Your virtual AI <br /> supporter</h3>
-                            <p className='half_of'>Use one of our 20+ templates or easily <br /> build your own chatbot flow to  <br />automate 40% of your customer  <br />service conversations.</p>
+                            <h3 className='live_chat virtual_padd'>Your virtual AI  supporter</h3>
+                            <p className='half_of'>Use one of our 20+ templates or easily  build your own chatbot flow to  automate 40% of your customer  service conversations.</p>
                             <ul className='ul_padding'>
-                                <li className='connect_li'>Connect Tidio to ALL websites and <br /> platforms via dedicated plugins, without<br /> coding</li>
-                                <li className='connect_li'>The Tidio live chat widget adjusts to your<br /> customers’ screens, so they can write to<br /> you on mobile and tablet</li>
-                                <li className='connect_li'>Our live chat widget is customizable: you <br /> can change its placement and color, so it <br /> fits with your website aesthetics</li>
+                                <li className='connect_li'>Connect Tidio to ALL websites and  platforms via dedicated plugins, without coding</li>
+                                <li className='connect_li'>The Tidio live chat widget adjusts to your customers’ screens, so they can write to you on mobile and tablet</li>
+                                <li className='connect_li'>Our live chat widget is customizable: you  can change its placement and color, so it  fits with your website aesthetics</li>
                             </ul>
                             <a className='discover_live'>Discover Tidio Chatbots</a><i className="bi bi-arrow-right-short"></i>
                         </div>
@@ -349,11 +349,11 @@ function CustomerServices() {
                     <div className='row live_chat_padding'>
                         <div className='col-sm-12 col-md-6 liv_col'>
                             <h3 className='live_chat more_sales'>Generate more sales</h3>
-                            <p className='half_of'>Did you know that 3M businesses <br /> generated 20M leads and $400M in<br /> sales after they started using our <br /> chatbots?</p>
+                            <p className='half_of'>Did you know that 3M businesses  generated 20M leads and $400M in sales after they started using our  chatbots?</p>
                             <ul className='ul_padding'>
-                                <li className='connect_li'>Stop 60% of your clients from abandoning <br /> their carts by offering a discount</li>
-                                <li className='connect_li'>Automatically qualify leads and reach out<br /> to them at the right time</li>
-                                <li className='connect_li'>Easily gather your visitors’ emails and <br /> phone numbers</li>
+                                <li className='connect_li'>Stop 60% of your clients from abandoning  their carts by offering a discount</li>
+                                <li className='connect_li'>Automatically qualify leads and reach out to them at the right time</li>
+                                <li className='connect_li'>Easily gather your visitors’ emails and  phone numbers</li>
                             </ul>
                             <a className='discover_live'>Discover Tidio live chat</a><i className="bi bi-arrow-right-short"></i>
                         </div>
@@ -368,12 +368,12 @@ function CustomerServices() {
                             <img className='img img-fluid' src={messenger} />
                         </div>
                         <div className='col-sm-12 col-md-6'>
-                            <h3 className='live_chat virtual_padd'>Answer any channel <br /> from one place</h3>
-                            <p className='half_of'>As many as 75% of online customers<br /> said they expect help within five<br /> minutes. Connect all your channels to <br />Tidio and answer your customers in an<br /> instant!</p>
+                            <h3 className='live_chat virtual_padd'>Answer any channel  from one place</h3>
+                            <p className='half_of'>As many as 75% of online customers said they expect help within five minutes. Connect all your channels to Tidio and answer your customers in an instant!</p>
                             <ul className='ul_padding'>
-                                <li className='connect_li'>Integrate your live chat, email inbox, <br /> Messenger, and Instagram into one <br /> multichannel communicator</li>
-                                <li className='connect_li'>Talk to your customers on all devices: <br /> desktop, mobile, and tablet</li>
-                                <li className='connect_li'>Never lose a potential customer because <br /> they contacted you on a channel you <br /> rarely use</li>
+                                <li className='connect_li'>Integrate your live chat, email inbox,  Messenger, and Instagram into one  multichannel communicator</li>
+                                <li className='connect_li'>Talk to your customers on all devices:  desktop, mobile, and tablet</li>
+                                <li className='connect_li'>Never lose a potential customer because  they contacted you on a channel you  rarely use</li>
                             </ul>
                             <a className='discover_live'>Discover Tidio Chatbots</a><i className="bi bi-arrow-right-short"></i>
                         </div>
@@ -383,11 +383,11 @@ function CustomerServices() {
                     <div className='row live_chat_padding'>
                         <div className='col-sm-12 col-md-6 liv_col'>
                             <h3 className='live_chat more_sales'>Generate more sales</h3>
-                            <p className='half_of'>Did you know that 3M businesses <br /> generated 20M leads and $400M in<br /> sales after they started using our <br /> chatbots?</p>
+                            <p className='half_of'>Did you know that 3M businesses  generated 20M leads and $400M in sales after they started using our  chatbots?</p>
                             <ul className='ul_padding'>
-                                <li className='connect_li'>Stop 60% of your clients from abandoning <br /> their carts by offering a discount</li>
-                                <li className='connect_li'>Automatically qualify leads and reach out<br /> to them at the right time</li>
-                                <li className='connect_li'>Easily gather your visitors’ emails and <br /> phone numbers</li>
+                                <li className='connect_li'>Stop 60% of your clients from abandoning  their carts by offering a discount</li>
+                                <li className='connect_li'>Automatically qualify leads and reach out to them at the right time</li>
+                                <li className='connect_li'>Easily gather your visitors’ emails and  phone numbers</li>
                             </ul>
                             <a className='discover_live'>try for free now!</a><i className="bi bi-arrow-right-short"></i>
                         </div>
@@ -404,12 +404,12 @@ function CustomerServices() {
                             <img className='img img-fluid' src={messenger} />
                         </div>
                         <div className='col-sm-12 col-md-6'>
-                            <h3 className='live_chat virtual_padd'>Answer any channel <br /> from one place</h3>
-                            <p className='half_of'>As many as 75% of online customers<br /> said they expect help within five<br /> minutes. Connect all your channels to <br />Tidio and answer your customers in an<br /> instant!</p>
+                            <h3 className='live_chat virtual_padd'>Answer any channel  from one place</h3>
+                            <p className='half_of'>As many as 75% of online customers said they expect help within five minutes. Connect all your channels to Tidio and answer your customers in an instant!</p>
                             <ul className='ul_padding'>
-                                <li className='connect_li'>Integrate your live chat, email inbox, <br /> Messenger, and Instagram into one <br /> multichannel communicator</li>
-                                <li className='connect_li'>Talk to your customers on all devices: <br /> desktop, mobile, and tablet</li>
-                                <li className='connect_li'>Never lose a potential customer because <br /> they contacted you on a channel you <br /> rarely use</li>
+                                <li className='connect_li'>Integrate your live chat, email inbox,  Messenger, and Instagram into one  multichannel communicator</li>
+                                <li className='connect_li'>Talk to your customers on all devices:  desktop, mobile, and tablet</li>
+                                <li className='connect_li'>Never lose a potential customer because  they contacted you on a channel you  rarely use</li>
                             </ul>
                             <a className='discover_live'>Discover Tidio Chatbots</a><i className="bi bi-arrow-right-short"></i>
                         </div>
@@ -418,12 +418,12 @@ function CustomerServices() {
                 <div className='container'>
                     <div className='row live_chat_padding'>
                         <div className='col-sm-12 col-md-6 liv_col'>
-                            <h3 className='live_chat more_sales'>Empower your <br /> customer support <br /> team</h3>
-                            <p className='half_of'>Did you know that 3M businesses <br /> generated 20M leads and $400M in<br /> sales after they started using our <br /> chatbots?</p>
+                            <h3 className='live_chat more_sales'>Empower your  customer support  team</h3>
+                            <p className='half_of'>Did you know that 3M businesses  generated 20M leads and $400M in sales after they started using our  chatbots?</p>
                             <ul className='ul_padding'>
-                                <li className='connect_li'>Stop 60% of your clients from abandoning <br /> their carts by offering a discount</li>
-                                <li className='connect_li'>Automatically qualify leads and reach out<br /> to them at the right time</li>
-                                <li className='connect_li'>Easily gather your visitors’ emails and <br /> phone numbers</li>
+                                <li className='connect_li'>Stop 60% of your clients from abandoning  their carts by offering a discount</li>
+                                <li className='connect_li'>Automatically qualify leads and reach out to them at the right time</li>
+                                <li className='connect_li'>Easily gather your visitors’ emails and  phone numbers</li>
                             </ul>
                             <a className='discover_live'>try for free now!</a><i className="bi bi-arrow-right-short"></i>
                         </div>
