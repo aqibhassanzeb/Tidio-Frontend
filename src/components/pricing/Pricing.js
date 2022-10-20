@@ -4,6 +4,11 @@ import Tabs from "react-bootstrap/Tabs";
 import { Accordion } from "react-bootstrap";
 import "./pricing.css";
 function Pricing() {
+  const [activeTab, setActiveTab] = useState(1);
+  
+  const handleActive = (ind) => {
+    setActiveTab(ind);
+  }
   return (
     <Fragment>
       <div className="container" id="firstContainer">
@@ -18,15 +23,10 @@ function Pricing() {
         </div>
         <div className="both">
           <div className="pricing-tabs mt-4 d-flex flex-direction-row">
-            <Tabs
-              defaultActiveKey=""
-              id="fill-tab-example"
-              className="mb-3 Tab"
-              fill
-            >
-              <Tab id="tabs"  eventKey="monthly" title="Monthly"></Tab>
-              <Tab id="tabs"  eventKey="annually" title="Annually"></Tab>
-            </Tabs>
+            
+              <span className={activeTab === 1 ? "tabsmon tabsmon-active" : "tabsmon"} onClick={() => handleActive(1)}  >Monthly</span>
+              <span className={activeTab === 2 ? "tabsmon tabsmon-active" : "tabsmon"} onClick={() => handleActive(2)} >Annually</span>
+            
           </div>
           <div className="pricing-annuallyFree">
             Annually you have 2 months free😍
@@ -35,8 +35,8 @@ function Pricing() {
       </div>
       <div className="container-fluid pricing-cards">
         <div className="row mt-5" id="cardsRow">
-          <div className="col-md-4">
-            <div class="card card-1" style={{ height: "130vh" }}>
+          <div className="col-md-6 col-lg-4 col-sm-12 d-flex justify-content-center">
+            <div class="card card-1" >
               <p className="first-cardText">Free</p>
               <div className="cardText2">
                 <p>
@@ -67,8 +67,8 @@ function Pricing() {
               </div>
             </div>
           </div>
-          <div className="col-md-4">
-            <div class="card card-1" style={{ height: "130vh" }}>
+          <div className="col-md-6 col-lg-4 col-sm-12  d-flex justify-content-center">
+            <div class="card card-1" >
               <p className="first-cardText">Communicator</p>
               <div className="cardText2">
                 <p>
@@ -101,8 +101,8 @@ function Pricing() {
               </div>
             </div>
           </div>
-          <div className="col-md-4">
-            <div class="card card-1" style={{ height: "130vh" }}>
+          <div className="col-md-6 col-lg-4 col-sm-12  d-flex justify-content-center">
+            <div class="card card-1" >
               <p className="first-cardText">Tidio+</p>
               <div className="cardText2">
                 <p>
@@ -167,7 +167,7 @@ function Pricing() {
           </div>
         </div>
       </div>
-      <div className="container mt-4" style={{ height: "100vh", width: "50%" }}>
+      <div className="container mt-4 frequentlymaindiv">
         <div className="questions-first">Frequently Asked Questions</div>
         <div className="accordion mt-5">
           <Accordion style={{ border: "none" }}>

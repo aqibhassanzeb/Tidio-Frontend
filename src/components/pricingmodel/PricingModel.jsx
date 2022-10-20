@@ -1,5 +1,5 @@
 import React from 'react'
-import trans from "../../images/trans.webp"
+import trans from "../../images/custo.png"
 import transs from "../../images/trans2.webp"
 import "../pricingmodel/PricingModel.css"
 export default function PricingModel() {
