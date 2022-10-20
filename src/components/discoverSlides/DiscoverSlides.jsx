@@ -17,7 +17,7 @@ const DiscoverSlides = () => {
                             <Carousel >
                                 <Carousel.Item>
                                     <div className='textcarol d-flex '>
-                                        <div className=' textcaroli d-flex'>
+                                        <div className=' textcaroli'>
                                             <div className='textcarolinfo'>
                                                 <h1 className='text-white'>1. Cart Saver</h1>
                                                 <p className='text-white '>Stop 60% of customers from abandoning

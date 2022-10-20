@@ -128,7 +128,7 @@ function CustomerServices() {
                                                             <a href=''>whiskerbag.com</a></div>
                                                     </div>
                                                     <p className='fs-5 m-2 w-75'>“Tidio changed everything about the changed everything about the way we  way we collect leads”</p>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -146,7 +146,7 @@ function CustomerServices() {
                 </div>
                 {/* card section */}
                 <div className='row px-4 cards_row'>
-                    <div className='co-sm-12 col-md-3 col-xs-4'>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
@@ -161,7 +161,7 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
-                    <div className='co-sm-12 col-md-3 col-xs-4'>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
@@ -171,12 +171,13 @@ function CustomerServices() {
                                 <p className='service'> Excellent service and product</p>
                             </div>
                             <div>
-                                <p>Tidio always notifies me when a new customer enters my online store, that way, when a customer has any questions im already there and ready to answer. I also find really useful that they also have an app, so i can answer both from my phone and laptop. I could continue explaining the benefits for a long time, but to sum it all app,
-                                    i just think that Tidio is the best software for you to generate more sales on your store, and have a great customer service</p>
+                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
+                                I've not   I've not used it yet with shopping carts but I can really imagineused it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
+                                
                             </div>
                         </div>
                     </div>
-                    <div className='co-sm-12 col-md-3 col-xs-4'>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
@@ -191,7 +192,7 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
-                    <div className='co-sm-12 col-md-3 col-xs-4'>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
@@ -201,72 +202,103 @@ function CustomerServices() {
                                 <p className='service'> Excellent service and product</p>
                             </div>
                             <div>
-                                <p>Tidio always notifies me when a new customer enters my online store, that way, when a customer has any questions im already there and ready to answer. I also find really useful that they also have an app, so i can answer both from my phone and laptop. I could continue explaining the benefits for a long time, but to sum it all app,
-                                    i just think that Tidio is the best software for you to generate more sales on your store, and have a great customer service</p>
+                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
+                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
+                        <div className='card_shadow'>
+                            <div className='display_img'>
+                                <img className='card_img' src={melissa} />
+                                <p className='name_card '>Shervin K <br />CEO</p>
+                            </div>
+                            <div className='text-left mt-2'>
+                                <p className='service'> Excellent service and product</p>
+                            </div>
+                            <div>
+                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
+                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
+                        <div className='card_shadow'>
+                            <div className='display_img'>
+                                <img className='card_img' src={melissa} />
+                                <p className='name_card '>Shervin K <br />CEO</p>
+                            </div>
+                            <div className='text-left mt-2'>
+                                <p className='service'> Excellent service and product</p>
+                            </div>
+                            <div>
+                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
+                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
+                        <div className='card_shadow'>
+                            <div className='display_img'>
+                                <img className='card_img' src={melissa} />
+                                <p className='name_card '>Shervin K <br />CEO</p>
+                            </div>
+                            <div className='text-left mt-2'>
+                                <p className='service'> Excellent service and product</p>
+                            </div>
+                            <div>
+                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
+                                    I've not used it yet with shopping carts but I can really imagine it being a
+                                    t used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
+                        <div className='card_shadow'>
+                            <div className='display_img'>
+                                <img className='card_img' src={melissa} />
+                                <p className='name_card '>Shervin K <br />CEO</p>
+                            </div>
+                            <div className='text-left mt-2'>
+                                <p className='service'> Excellent service and product</p>
+                            </div>
+                            <div>
+                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
+                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
+                        <div className='card_shadow'>
+                            <div className='display_img'>
+                                <img className='card_img' src={melissa} />
+                                <p className='name_card '>Shervin K <br />CEO</p>
+                            </div>
+                            <div className='text-left mt-2'>
+                                <p className='service'> Excellent service and product</p>
+                            </div>
+                            <div>
+                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
+                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
+                        <div className='card_shadow'>
+                            <div className='display_img'>
+                                <img className='card_img' src={melissa} />
+                                <p className='name_card '>Shervin K <br />CEO</p>
+                            </div>
+                            <div className='text-left mt-2'>
+                                <p className='service'> Excellent service and product</p>
+                            </div>
+                            <div>
+                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
+                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className='co-sm-12 col-md-3 col-xs-4'>
-                        <div className='card_shadow second_row'>
-                            <div className='display_img'>
-                                <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
-                            </div>
-                            <div className='text-left mt-2'>
-                                <p className='service'> Excellent service and product</p>
-                            </div>
-                            <div>
-                                <p>Tidio always notifies me when a new customer enters my online store, that way, when a customer has any questions im already there and ready to answer. I also find really useful that they also have an app, so i can answer both from my phone and laptop. I could continue explaining the benefits for a long time
-                                    , but to sum it all app, i just think that Tidio is the best software for you to generate more sales on your store, and have a great customer service</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='co-sm-12 col-md-3 col-xs-4'>
-                        <div className='card_shadow second_card'>
-                            <div className='display_img'>
-                                <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
-                            </div>
-                            <div className='text-left mt-2'>
-                                <p className='service'> Excellent service and product</p>
-                            </div>
-                            <div>
-                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
-                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='co-sm-12 col-md-3 col-xs-4'>
-                        <div className='card_shadow second_row'>
-                            <div className='display_img'>
-                                <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
-                            </div>
-                            <div className='text-left mt-2'>
-                                <p className='service'> Excellent service and product</p>
-                            </div>
-                            <div>
-                                <p>Tidio always notifies me when a new customer enters my online store, that way, when a customer has any questions im already there and ready to answer. I also find really useful that they also have an app, so i can answer both from my phone and laptop. I could continue explaining the benefits for a long time, but to sum it all app,
-                                    i just think that Tidio is the best software for you to generate more sales on your store, and have a great customer service</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='co-sm-12 col-md-3 col-xs-4 mb-4'>
-                        <div className='card_shadow second_card'>
-                            <div className='display_img'>
-                                <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
-                            </div>
-                            <div className='text-left mt-2'>
-                                <p className='service'> Excellent service and product</p>
-                            </div>
-                            <div>
-                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
-                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <DiscoverSlides />
