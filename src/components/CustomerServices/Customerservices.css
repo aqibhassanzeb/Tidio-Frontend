@@ -306,5 +306,13 @@
         margin-top: 0px;
         height: 470px;
     }
-    
+    .customer_service{
+        font-size: 40px;
+    }
+    .A_power{
+        font-size: 40px;
+    }
+    .live_chat{
+        font-size: 34px;
+    }
 }

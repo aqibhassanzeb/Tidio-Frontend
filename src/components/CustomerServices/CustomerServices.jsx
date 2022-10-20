@@ -150,7 +150,7 @@ function CustomerServices() {
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br/> CEO</p>
+                                <p className='name_card '>Shervin K <br /> CEO</p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -172,8 +172,8 @@ function CustomerServices() {
                             </div>
                             <div>
                                 <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
-                                I've not   I've not used it yet with shopping carts but I can really imagineused it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
-                                
+                                    I've not   I've not used it yet with shopping carts but I can really imagineused it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
+
                             </div>
                         </div>
                     </div>

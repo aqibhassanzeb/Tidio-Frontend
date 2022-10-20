@@ -70,6 +70,8 @@
   background: #f5f7f9;
   width: 100%;
   padding: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .card {
@@ -365,7 +367,7 @@
 @media only screen and (max-width: 500px) and ( min-width: 325px ) {
   .firstText{
     line-height: 40px;
-    font-size: 30px;
+    font-size: 41px;
   }
   .pricing-button .btn-primary{
     width: 70%;
@@ -374,7 +376,7 @@
     font-size: 18px;
   }
   .both{
-    left: 28%;
+    left: 24%;
   }
   .card-1 {
     padding: 45px;
@@ -385,5 +387,8 @@
     width: 100%;
     min-height: 100vh;
     
+  }
+  .questions-first{
+    font-size: 40px;
   }
 }

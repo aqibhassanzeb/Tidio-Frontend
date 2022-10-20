@@ -78,9 +78,20 @@ function Pricing() {
               </div>
               <div></div>
               <div className="card-price mt-4">
-                <span className="price">
-                  15<sup>.83</sup>
-                </span>
+                
+                {
+                  activeTab === 1? (
+                    <span className="price">
+                    15<sup>.83</sup>
+                    </span>
+                  ): activeTab === 1? (
+                    ""
+                  ): 
+                  <span className="price">
+                    19
+                    </span>
+                }
+                 
                 <span className="currency">USD</span>
                 <span className="perMonth">/mo.</span>
               </div>
@@ -116,9 +127,20 @@ function Pricing() {
 
               </div> */}
               <div className="card-price mt-4">
+              {
+                activeTab === 2? (
+                  <span className="price">
+                   289
+                  </span>
+                ): activeTab === 2? (
+                  ""
+                ): 
                 <span className="price">
-                  240<sup>.84</sup>
-                </span>
+                240<sup>.84</sup>
+                  </span>
+              }
+               
+                
                 <span className="currency">USD</span>
                 <span className="perMonth">/mo.</span>
               </div>
