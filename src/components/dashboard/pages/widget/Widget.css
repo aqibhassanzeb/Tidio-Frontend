@@ -68,3 +68,88 @@
     margin-top: -5px !important;
     margin-left: 0px !important;
 }
+.img_icon{
+    width: 24px;
+    text-align: end;
+}
+.display_buttons{
+    display: flex;
+}
+.left_btn_size{
+    width: 180px;
+    background-color: #f7f8fc !important;
+
+}
+.left_btn_size:focus{
+    border-bottom: 1px solid blue !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+.btn_group_lg{
+    border: 1px solid rgba(107, 98, 98, 0.356);
+    border-radius: 0px;
+}
+.btn_position_size{
+    color: #080f1a;
+    font-family: euclidcircularb,sans-serif;
+    font-size: 14px;
+    line-height: 1.28571429;
+}
+.form-range{
+    width: 60% !important;
+}
+.medium{
+    margin-left: 94px !important;
+}
+.range_area{
+    width: 66% !important;
+    display: flex;
+    justify-content: space-between;
+}
+.large{
+    margin-right: 29px !important;
+}
+.display_display{
+    display: flex;
+}
+.question_mark{
+    margin-top: -7px;
+}
+.email{
+    margin-bottom: 0px !important;
+    font-size: 14px !important;
+}
+.bg_email{
+    background-color: #f7f8fc !important;
+}
+.email_control{
+    padding-left: 12px !important;
+    margin-left: 5px !important;
+    padding-top: 9px !important;
+    width: 366px !important;
+}
+.permission{
+    font-size: 13px !important;
+}
+.checkbox_icon{
+    font-size: 14px !important;
+    margin-top: 12px !important;
+}
+.delete_btn{
+    padding-left: 12px !important;
+    margin-left: 5px !important;
+}
+.delete_padding{
+    padding-left: 17px !important;
+}
+.width_add{
+    width: 70% !important;
+}
+.custom_add{
+    margin-left: 12px !important;
+    font-size: 11px !important;
+}
+.custom_width{
+    width: 74.666667% !important;
+
+}
