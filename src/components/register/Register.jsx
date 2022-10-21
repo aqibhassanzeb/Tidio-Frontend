@@ -6,7 +6,7 @@ import customerimg from '../../images/horse.jpg'
 import { userRegister } from '../../apis/Auth-api'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocailLogin from './SocailLogin'
 
 
@@ -52,6 +52,9 @@ const Register = () => {
                 <ToastContainer />
                 <div className='row'>
                     <div className='col-md-6 backgroundmain'>
+                        <div className='tidiologinheader'>
+                            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Tidio Logo</Link>
+                        </div>
                         <div className=' registersidebartext'>
                             <div className='registersidediv d-flex'>
                                 <img src={customerimg} className=' horseimg img-fluid' />
@@ -91,8 +94,8 @@ const Register = () => {
                                     </div>
                                 </div>
                                 <div className='signupalso mt-2'>
-                                    <p className='mt-2'>You can also sign up with: </p>
-                                    {/* <div className='d-flex justify-content-between '>
+                                    {/* <p className='mt-2'>You can also sign up with: </p>
+                                     <div className='d-flex justify-content-between '>
                                         <div className='w-50 p-2  border d-flex icondiv justify-content-center'>
                                             <BsFacebook className='icon' />
                                         </div>

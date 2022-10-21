@@ -1,0 +1,113 @@
+.ProfileChatMaindiv{
+    width: 270px;
+    height: 86vh;
+    border: 1px solid lightgray;
+    background-color: rgb(239, 242, 246);
+}
+.imageofuser{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.subdetial{
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+}
+.subinnerdiv{
+    background-color: white;
+   position: absolute;
+   left: 15px;
+}
+.subscribetext{
+    position: relative;
+      text-align: center;
+      font-size: 14px;
+      margin-right: 43px;
+  }
+.subscribetext  span{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+.useraddname{
+    font-size: 12px;
+    color: rgb(0, 0, 255);
+}
+.addressofuser{
+    font-size: 13px;
+    color: gray;
+    padding: 0px 5px 0px 0px;
+}
+.profileicon{
+    padding: 3px 0px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+.profileicon span:hover{
+   color: rgb(0, 0, 255);
+}
+.profmainicondiv{
+    margin: 0px 10px 10px 10px ;
+    
+}
+.profBoxdta{
+    margin: 8px 0px;
+    color: gray;
+}
+.profBoxdta span:hover{
+    
+    color: blue;
+}
+.profBoxdta2{
+    margin: 5px 0px;
+    background-color: white;
+    border-radius: 4px;
+    height: 270px;
+    padding: 5px;
+    font-size: 18px;
+}
+.profBoxdta3{
+    margin: 5px 0px;
+    background-color: white;
+    border-radius: 4px;
+    height: 160px;
+    padding: 5px;
+    font-size: 18px;
+}
+.profBoxdta p {
+    font-size: 12px;
+}
+.te{
+    font-size: 14px;
+}
+.useremail{
+    font-size: 14px;
+}
+.lastvieweddiv{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.see{
+    font-size: 12px;
+    border: 1px solid lightgray;
+    padding: 3px;
+    border-radius: 5px;
+    color: gray;
+}
+.lastviw{
+    font-size: 16px;
+}
+.personlineicon{
+    color: gray;
+}
+.personlinkshareicon{
+    font-size: 30px;
+    color: gray;
+}
+.listviewlnk{
+    font-size: 14px;
+    padding: 5px;
+}

@@ -65,6 +65,9 @@ const Login = () => {
      < ToastContainer/>
         <div className='row loginmaindiv'>
           <div className='col-md-6 backgroundcol'>
+          <div className='tidiologinheader'>
+            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Tidio Logo</Link>
+          </div>
             <div className='loginsidetext'>
               <span>Don't have </span><br />
               <span>an account?</span>
@@ -114,6 +117,8 @@ const Login = () => {
                   <input type="password" className='inputlogin' placeholder='Password'  onChange={(e)=>setPassword(e.target.value)} value={password} />
                  { loader ? <button className='btn btn-primary btlog fs-5' >Loading...</button>: <button className='btn btn-primary btlog fs-5' onClick={()=>handleLogin()}>Log In</button>}
                   <Link to='/reset-pass'  className=' forget'>Forget Password?</Link>
+                  <p className=' text-center'> <span className='ordta'>or</span></p>
+                  <Link to='/register'  className=' create'>Create new account</Link>
                 </div>
               </div>
             </div>

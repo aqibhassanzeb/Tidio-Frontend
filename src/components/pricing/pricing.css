@@ -38,14 +38,16 @@
   background-color: #080f1a;
 }
 
-.container .pricing-tabs {
+.pricing-tabs {
  
-  border: 1px solid lightgray;
+  border: 1px solid rgba(211, 211, 211, 0.623);
   background-color: white;
   border-radius: 30px;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
  
 }
 .nav-fill .nav-item, .nav-fill>.nav-link{
@@ -53,15 +55,7 @@
   
   margin-top: 10px;
 }
-/* .Tab {
-  display: inline-flex;
-  border-radius: 30px;
-  background: #ffffff;
-  height: 60px;
-  color: #647491;
-  box-shadow: 0 5px 30px -10px rgb (1 38 97 / 18%);
-  padding: 6px;
-} */
+
 
 .pricing-annuallyFree {
   color: #080f1a;
@@ -76,6 +70,8 @@
   background: #f5f7f9;
   width: 100%;
   padding: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .card {
@@ -85,12 +81,12 @@
   height: 100vh;
   margin: 1rem;
   position: relative;
-  width: 107%;
+  width: 100%;
 }
 
 .card-1 {
   padding: 45px;
-  border: solid red;
+ height: 130vh !important; 
 }
 
 .first-cardText {
@@ -259,6 +255,10 @@
   line-height: 64px;
   text-align: center;
 }
+.frequentlymaindiv{
+  width: 50%;
+  min-height: 100vh;
+}
 
 .accordion-item {
   border: none !important;
@@ -298,6 +298,8 @@
 }
 #cardsRow {
   width: 98%;
+  display: flex;
+  justify-content: space-around;
 }
 .both {
   position: absolute;
@@ -312,4 +314,81 @@
   font-weight: 600;
   line-height: 20px;
   font-style: normal;
+}
+.tabsmon{
+  border: 1px solid lightblue;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+}
+.tabsmon-active{
+  border: 1px solid lightblue;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: rgba(33, 33, 179, 0.897);
+  color: white;
+}
+@media only screen and (max-width: 890px) and ( min-width: 500px ) {
+  .firstText{
+    line-height: 50px;
+    font-size: 45px;
+  }
+  .pricing-button .btn-primary{
+    width: 40%;
+    line-height: 24px;
+    padding: 13px;
+  }
+  .both{
+    left: 34%;
+  }
+  .card-1 {
+    padding: 45px;
+    overflow-y: scroll;
+   height: 100vh !important; 
+  }
+}
+@media only screen and (max-width: 1024px) and ( min-width: 890px ) {
+  .firstText{
+    line-height: 50px;
+    font-size: 52px;
+  }
+  .pricing-button .btn-primary{
+    width: 40%;
+    line-height: 24px;
+    padding: 13px;
+  }
+  .both{
+    left: 40%;
+  }
+}
+@media only screen and (max-width: 500px) and ( min-width: 325px ) {
+  .firstText{
+    line-height: 40px;
+    font-size: 41px;
+  }
+  .pricing-button .btn-primary{
+    width: 70%;
+    line-height: 24px;
+    padding: 13px;
+    font-size: 18px;
+  }
+  .both{
+    left: 24%;
+  }
+  .card-1 {
+    padding: 45px;
+    overflow-y: scroll;
+   height: 100vh !important; 
+  }
+  .frequentlymaindiv{
+    width: 100%;
+    min-height: 100vh;
+    
+  }
+  .questions-first{
+    font-size: 40px;
+  }
 }
