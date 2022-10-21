@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     selectedUser: null,
+    notification:[]
 }
 
 const ChatSlice = createSlice({
@@ -11,6 +12,9 @@ const ChatSlice = createSlice({
         setSelectUser: (state, action) => {
             state.selectedUser = action.payload
         },
+        setNotification: (state, action) => {
+            state.notification = [...state, action.payload]
+        },
        
        
 
@@ -18,6 +22,6 @@ const ChatSlice = createSlice({
     }
 });
 
-export const { setSelectUser } = ChatSlice.actions
+export const { setSelectUser ,setNotification} = ChatSlice.actions
 
 export default ChatSlice.reducer

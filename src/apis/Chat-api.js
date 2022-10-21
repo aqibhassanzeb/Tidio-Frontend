@@ -18,17 +18,24 @@ const config2={
 
 
 export const getAllUser=async(reqParam) => {
-    console.log("req param :",reqParam)
     const response  = await apiURL.get(`alluser?search=${reqParam}`,config2);
-    console.log("req param 2 :",reqParam)
         return response
       }
+      
+      
+      
 export const selectUser=async(reqParam) => {
-    console.log("req param :",reqParam)
     const response  = await apiURL.post('chat',reqParam,config);
-    console.log("req param 2 :",reqParam)
         return response
       }
-
+      
+export const sendMessage=async(reqParam) => {
+      const response  = await apiURL.post('messages',reqParam,config);
+          return response
+               }
+export const fetchMessages=async(reqParam) => {
+      const response  = await apiURL.get(`messages/${reqParam}`,config);
+          return response
+               }
 
 

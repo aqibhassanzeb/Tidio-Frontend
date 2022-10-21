@@ -18,6 +18,7 @@ import { setActiveToken, setActiveUser } from '../redux/features/UserSlice';
 import InsideTidio from '../components/dashboard/pages/insideTidio/InsideTidio';
 import Inbox from "../components/dashboard/pages/dashboardheader/inbox/Inbox"
 import Account from '../components/dashboard/pages/dashboardheader/account/Account';
+import ChatInbox from '../components/chatinbox/ChatInbox';
 
 const Routespath = () => {
 
@@ -37,7 +38,7 @@ const Routespath = () => {
          <Route path="/chat" element={ <> <DashboardHeader/> <Sidebar><Chat /></Sidebar> </>}  />
          <Route path="/insidetidio" element={ <> <DashboardHeader/> <Sidebar><InsideTidio /></Sidebar> </>}  />
          <Route path="/contact" element={ <> <DashboardHeader/> <Sidebar><Contact /></Sidebar> </>  } />
-         <Route path="/inbox" element={ <><DashboardHeader/> <Sidebar><Inbox /></Sidebar> </>  } />
+         <Route path="/inbox" element={ <><DashboardHeader/> <Sidebar><Inbox/></Sidebar> </>  } />
          <Route path="/acount" element={ <><DashboardHeader/> <Sidebar><Account /></Sidebar> </>  } />
          </Route>
         
