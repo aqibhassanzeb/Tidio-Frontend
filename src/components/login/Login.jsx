@@ -26,11 +26,13 @@ const Login = () => {
     }
     const payload = { email, password }
     userLogin(payload).then((res) => {
+      console.log("responce :",res)
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("user", JSON.stringify(res.data.user))
       navigate('/chat')
      
   }).catch(err=>{
+    console.log("error portion :",err)
       if(err.response.data.error){
          toast.error(err.response.data.error);
       }
