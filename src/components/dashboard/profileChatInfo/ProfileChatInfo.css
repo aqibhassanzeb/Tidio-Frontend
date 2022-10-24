@@ -53,6 +53,30 @@
 .profBoxdta{
     margin: 8px 0px;
     color: gray;
+    
+}
+
+.crossdata{
+    margin-left: 20px;
+  
+}
+.questionicon{
+    font-size: 80px;
+    color: rgba(187, 5, 5, 0.623);
+    margin: 10px 0px;
+}
+.maindivofcrossmodal{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.crossdataphon{
+    margin-left: 70px;
+  cursor: pointer;
+}
+.crossdata:hover{
+    color: blue;
+    cursor: pointer;
 }
 .profBoxdta span:hover{
     
@@ -65,6 +89,22 @@
     height: 270px;
     padding: 5px;
     font-size: 18px;
+}
+.firstnamemodal{
+    padding: 5px;
+    margin: 10px;
+}
+.firstnamemodal label{
+   
+    margin-right: 10px;
+}
+.secondnamemodal label{
+   
+    margin-right: 10px;
+}
+.secondnamemodal{
+    padding: 5px;
+    margin: 10px;
 }
 .profBoxdta3{
     margin: 5px 0px;

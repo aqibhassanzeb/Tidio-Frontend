@@ -12,9 +12,11 @@ import ChatCard from './components/dashboard/pages/dashboardheader/chatCard/Chat
 import ChatInbox from './components/chatinbox/ChatInbox';
 import Widget from './components/dashboard/pages/widget/Widget';
 import ProfileChatInfo from './components/dashboard/profileChatInfo/ProfileChatInfo';
+import ProfileModal from './components/modals/profileModal/ProfileModal';
 function App() {
   return (
     <>
+    
     <Routespath/>
     
     {/* <ChatInbox /> */}
