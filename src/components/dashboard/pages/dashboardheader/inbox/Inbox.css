@@ -1,10 +1,10 @@
 .inbox-maindiv{
-    margin-left: -20px;
-    margin-top: -5px;
-        width: 300px;
-        height: 90vh;
-        background-color: rgb(5, 5, 53);
-        border-radius: 5px;
+    background-color: #1c2b45 !important;
+    height: 100vh !important;
+    margin-left: -8px !important;
+    margin-top: -5px !important;
+    border-radius: 0px !important;
+    width: 300px !important;
 }
 .uppersearch{
     /* border: 1px solid lightblue; */

@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import '../profileChatInfo/ProfileChatInfo.css'
 import profimageem from '../../../images/horse.jpg'
-import { FaUserAlt } from 'react-icons/fa';
+import { FaCross, FaUserAlt } from 'react-icons/fa';
 import { BsFillTelephoneFill, BsPersonLinesFill, BsThreeDotsVertical } from 'react-icons/bs';
 import { MdForwardToInbox, MdLaptopChromebook } from 'react-icons/md';
 import { BiCurrentLocation } from 'react-icons/bi';
 import { RiUserShared2Line } from 'react-icons/ri';
-import { IoMdArrowDropdown } from 'react-icons/io';
+import { IoMdArrowDropdown, IoMdClose } from 'react-icons/io';
+import ProfileModal from '../../modals/profileModal/ProfileModal';
+import CrossModal from '../../modals/CrossModal/CrossModal';
 const ProfileChatInfo = () => {
     const [toggleDiv, setToggleDiv] = useState(false);
+    const [show, setShow] = useState(false);
+    const [cross , setCross] = useState(false);
     return (
         <>
 
@@ -19,7 +23,7 @@ const ProfileChatInfo = () => {
                     </span>
                     <span className='m-1'>
                         <span className='useremail fw-bold'>hamzafarooq925@gmail.com</span>
-                        <p className='useraddname p-0 m-0'>Add Name</p>
+                        <p className='useraddname p-0 m-0' onClick={()=>{setShow(true)}}>Add Name</p>
 
                         <div className='d-flex justify-content-between addressofuser '>
                             <span>Kasur,Pakistan</span>
@@ -34,8 +38,12 @@ const ProfileChatInfo = () => {
                     </div>
                     <div className='profBoxdta2'>
                         <div className='profBoxdta'>
+                       
                             <span className='p-2'><MdForwardToInbox /></span>
                             <span className='te'>hamzakhan@gmail.com</span>
+                            <IoMdClose className='crossdata' onClick={() =>{ setCross(true)}}/>
+                           
+                             
                             <div className='subscribetext '>
                                 <span className=' text-center  text-success' style={{ cursor: "pointer", padding: "2px", fontSize: "12px" }} onClick={() => setToggleDiv(!toggleDiv)}>Subscribe <IoMdArrowDropdown />  </span>
                                 {
@@ -56,7 +64,7 @@ const ProfileChatInfo = () => {
                         <div className='profBoxdta'>
                             <span className='p-2'><BsFillTelephoneFill /></span>
                             <span className='te'>Phone Number</span>
-
+                            <span><IoMdClose className='crossdataphon' onClick={() =>{setCross(true)}}/></span>
                         </div>
                         <div className='profBoxdta'>
                             <span className='p-2'><MdLaptopChromebook /></span>
@@ -82,6 +90,8 @@ const ProfileChatInfo = () => {
                         </span>
                     </div>
                 </div>
+                <ProfileModal setShow={setShow} show={show}/>
+                <CrossModal  setCross={setCross} cross={cross} />
             </div>
 
         </>

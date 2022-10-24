@@ -115,7 +115,7 @@ function ChatInbox({ senderUser }) {
     return (
         <>
             <div className='container-fluid custom_fluid'>
-                <div className='row mt-4'>
+                <div className='row '>
                     <div className='col-sm-12 header_chat'>
                         <div className='display_header'>
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
