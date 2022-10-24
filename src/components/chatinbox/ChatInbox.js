@@ -94,6 +94,7 @@ useEffect(() => {
 
 
     useEffect(() => {
+        console.log("use effect ...");
      socket.on("message recieved",(newMessageRecieved)=>{
         if(!selectedChatCompare || selectedChatCompare._id !== newMessageRecieved.chat._id){
             console.log("if portion ,;;")
