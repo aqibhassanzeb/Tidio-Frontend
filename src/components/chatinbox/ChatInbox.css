@@ -40,10 +40,15 @@
     padding-right: 30px;
     padding-top: 2px;
 }
+.chat-area{
+    border: blue solid 2px;
+height: 50vh;
+overflow-y: scroll;
+}
 .position_textarea {
-    position: fixed;
-    width: 60%;
-    bottom: 0;
+    /* position: fixed; */
+    
+    /* bottom: 0; */
 }
 .custom_text_area{
     height: 140px;

@@ -2,11 +2,13 @@ import React from 'react'
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { Accordion } from "react-bootstrap";
-import { AiFillHome, AiFillEye } from 'react-icons/ai';
+import { AiFillHome, AiFillEye, AiOutlineDelete } from 'react-icons/ai';
+import { BsFillQuestionCircleFill } from 'react-icons/bs';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import EmojiPicker from 'emoji-picker-react';
 import "../widget/Widget.css"
+import EmojiIcon from "../../../../images/icon.jpg"
 export default function Widget() {
     return (
         <div className='container-fluid'>
@@ -66,17 +68,17 @@ export default function Widget() {
                             <Accordion.Body>
                                 <div className='row'>
                                     <div className='col-sm-2'>
-                                        <label className='status_p'>Status:</label> <br/>
+                                        <label className='status_p'>Status:</label> <br />
                                         <label className='status_p mt-5'>message:</label><br />
-                                        <label className='status_p_label'>Background:</label> <br/>
+                                        <label className='status_p_label'>Background:</label> <br />
                                     </div>
                                     <div className='col-sm-10'>
                                         <div className="form-check ">
-                                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="2" placeholder='Enter your status here'></textarea> <br/>
-                                        <textarea className="form-control custom_form_control" id="exampleFormControlTextarea1" rows="2" placeholder='enter Your message here'></textarea> <br/>
-                                        <div class="form-check form-switch check_background">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
-                                        </div>
+                                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="2" placeholder='Enter your status here'></textarea> <img className='img_icon' src={EmojiIcon} /> <br />
+                                            <textarea className="form-control custom_form_control" id="exampleFormControlTextarea1" rows="2" placeholder='enter Your message here'></textarea> <br />
+                                            <div className="form-check form-switch check_background">
+                                                <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -84,27 +86,102 @@ export default function Widget() {
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
                             <Accordion.Header>
-                            <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Mobile Widget</h5>
+                                <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Mobile Widget</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
-                                You and your operators can send unlimited live chat messages,
-                                but the number of people you can contact depends on your plan.
-                                You can talk to 50 unique visitors on the free plan and an
-                                unlimited number of visitors on the Communicator plan.
+                                <div className='row'>
+                                    <div className='col-sm-12 display_buttons'>
+                                        <div className='col-sm-3'>
+                                            <label className='btn_position_size'>Button Position:</label>
+                                        </div>
+                                        <div className='col-sm-8 offset-1'>
+                                            <div class="btn-group btn-group-lg btn_group_lg" role="group" aria-label="...">
+                                                <button type="button" className="btn btn-lg left_btn_size py-0 px-5">Left</button>
+                                                <button type="button" className="btn btn-lg left_btn_size py-0 px-5">Right</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-sm-12 display_buttons'>
+                                        <div className='col-sm-3 mt-3'>
+                                            <label className='btn_position_size'>Button Size:</label>
+                                        </div>
+                                        <div className='col-sm-8 offset-1 mt-3'>
+                                            <input type="range" className="form-range" id="customRange1" /> <br />
+                                            <div className='range_area px-2'>
+                                                <label className='btn_position_size'>small</label><label className=' btn_position_size'>Medium</label><label className=' btn_position_size large'>Large</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="3">
                             <Accordion.Header>
-                            <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Free-chat Survey</h5>
+                                <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Free-chat Survey</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
-                                Yes. As a free plan subscriber, you can add chatbot templates to
-                                your account and use our chatbot builder to build as many
-                                chatbots as you want. Although your chatbots can have an
-                                unlimited number of chats, they are limited to talking only to
-                                100 unique visitors per month.
+                                <div className='row'>
+                                    <div className='col-sm-12 display_display'>
+                                        <div className='col-sm-2'>
+                                            <label className='btn_position_size'>Display :</label>
+                                        </div>
+                                        <div className='col-sm-10 mt-2'>
+                                            <div class="form-check form-switch ">
+                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" /> <BsFillQuestionCircleFill className='question_mark' />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-sm-12 display_display'>
+                                        <div className='col-sm-2'>
+                                            <label className='btn_position_size'>Message :</label>
+                                        </div>
+                                        <div className='col-sm-10 mt-4'>
+                                            <textarea className="form-control custom_form_control" id="exampleFormControlTextarea1" rows="2" placeholder='enter Your email...'></textarea> <br />
+                                        </div>
+                                    </div>
+                                    <div className='col-sm-12 display_display'>
+                                        <div className='col-sm-2'>
+                                            <label className='btn_position_size'>Survey Fields:</label>
+                                        </div>
+                                        <div className='col-sm-10 d-flex'>
+                                            <div className='row'>
+                                                <div className=' display_display'>
+                                                    <div className='col-sm-2 text-center bg_email'>
+                                                        <p className='email py-4 px-2'>Email</p>
+                                                    </div>
+                                                    <div className='col-sm-8 px-2 email_control bg_email'>
+                                                        <textarea className="form-control " id="exampleFormControlTextarea1" rows="1"></textarea>
+                                                        <div class="form-check">
+                                                            <input className="form-check-input checkbox_icon" type="checkbox" value="" id="flexCheckDefault" />
+                                                            <label className="form-check-label permission" for="flexCheckDefault">
+                                                                Ask your visitor for newsletter permission
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div className='col-sm-2 bg_email delete_btn'>
+                                                        <p className='email py-4 delete_padding'><AiOutlineDelete /></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col-sm-12 width_add d-flex mt-3'>
+                                        <div className='col-sm-8 offset-3 custom_width'>
+                                            <Form.Select aria-label="Default select example" className=" px-2 py-1">
+                                                <option>select</option>
+                                                <option value="1">Email</option>
+                                                <option value="2">Name</option>
+                                                <option value="3">Phone Number</option>
+                                            </Form.Select>
+                                        </div>
+                                        <div className='col-sm-1'>
+                                            <button className='btn btn-primary custom_add'>Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
