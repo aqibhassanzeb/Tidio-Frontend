@@ -255,13 +255,13 @@
     background-color: white;
    
 }
-.cardmaindivmarque:hover{
+/* .cardmaindivmarque:hover{
    
     
     background-color: white;
     animation: cardmove 15s linear infinite;
     transition: 1s;
-}
+} */
 
 @keyframes cardmove {
     0%{
