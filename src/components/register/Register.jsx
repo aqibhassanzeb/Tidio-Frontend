@@ -34,7 +34,7 @@ const Register = () => {
         userRegister(payload).then((res) => {
             localStorage.setItem("token", res.data.token)
             localStorage.setItem("user", JSON.stringify(res.data.user))
-            navigate('/chat')
+            navigate('/userlogin')
 
         }).catch(err => {
             if (err.response.data.message) {

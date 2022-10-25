@@ -95,10 +95,10 @@ export default function Widget() {
                                         <div className='col-sm-3'>
                                             <label className='btn_position_size'>Button Position:</label>
                                         </div>
-                                        <div className='col-sm-8 offset-1'>
-                                            <div class="btn-group btn-group-lg btn_group_lg" role="group" aria-label="...">
-                                                <button type="button" className="btn btn-lg left_btn_size py-0 px-5">Left</button>
-                                                <button type="button" className="btn btn-lg left_btn_size py-0 px-5">Right</button>
+                                        <div className='col-sm-8 offset-1 groupbtndata'>
+                                            <div className="btn-group " role="group" aria-label="...">
+                                                <button type="button" className="btn btn-lg left_btn_size ">Left</button>
+                                                <button type="button" className="btn btn-lg left_btn_size ">Right</button>
                                             </div>
                                         </div>
                                     </div>
@@ -141,28 +141,32 @@ export default function Widget() {
                                             <textarea className="form-control custom_form_control" id="exampleFormControlTextarea1" rows="2" placeholder='enter Your email...'></textarea> <br />
                                         </div>
                                     </div>
-                                    <div className='col-sm-12 display_display'>
-                                        <div className='col-sm-2'>
+                                    <div className='col-sm-12 display_display bg_email'>
+                                        <div>
                                             <label className='btn_position_size'>Survey Fields:</label>
                                         </div>
                                         <div className='col-sm-10 d-flex'>
                                             <div className='row'>
                                                 <div className=' display_display'>
-                                                    <div className='col-sm-2 text-center bg_email'>
-                                                        <p className='email py-4 px-2'>Email</p>
+                                                    <div className='col-sm-2 text-center '>
+                                                        <p className='email  px-2'>Email</p>
                                                     </div>
-                                                    <div className='col-sm-8 px-2 email_control bg_email'>
-                                                        <textarea className="form-control " id="exampleFormControlTextarea1" rows="1"></textarea>
-                                                        <div class="form-check">
-                                                            <input className="form-check-input checkbox_icon" type="checkbox" value="" id="flexCheckDefault" />
-                                                            <label className="form-check-label permission" for="flexCheckDefault">
-                                                                Ask your visitor for newsletter permission
-                                                            </label>
-                                                        </div>
+                                                    <div className='col-sm-8  px-2 email_control d-flex '>
+                                                        <div className=''>
+                                                        <span className='d-flex'>
+                                                            <textarea ></textarea>
+                                                            <p className=' deleteiconwiget'><AiOutlineDelete /></p>
+                                                            </span>
+                                                            <div className="form-check mt-2">
+                                                                <input className="form-check-input checkbox_icon" type="checkbox" value="" id="flexCheckDefault" />
+                                                                <label className="form-check-label permission" for="flexCheckDefault">
+                                                                    Ask your visitor for newsletter permission
+                                                                </label>
+                                                            </div>
+                                                            </div>
+                                                           
                                                     </div>
-                                                    <div className='col-sm-2 bg_email delete_btn'>
-                                                        <p className='email py-4 delete_padding'><AiOutlineDelete /></p>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>

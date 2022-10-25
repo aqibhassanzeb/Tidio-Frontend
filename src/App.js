@@ -18,9 +18,9 @@ function App() {
     <>
     
     <Routespath/>
-    
+  
     {/* <ChatInbox /> */}
-    {/* <Widget /> */}
+     
     
     </>
   );

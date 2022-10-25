@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { BsFillChatRightFill, BsFillInboxFill } from 'react-icons/bs';
-import { MdOutlinePermContactCalendar } from 'react-icons/md';
+import { MdOutlinePermContactCalendar, MdSettings } from 'react-icons/md';
 import { HiHome } from 'react-icons/hi';
 import { FaBars } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
@@ -30,6 +30,12 @@ function Sidebar({children}) {
             path: '/chat',
             name: 'chat',
             icon: <BsFillChatRightFill />
+            
+        },
+        {
+            path: '/setting',
+            name: 'setting',
+            icon: <MdSettings />
             
         }
     ]

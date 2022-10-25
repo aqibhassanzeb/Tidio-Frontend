@@ -1,11 +1,30 @@
 .inbox-maindiv{
-    margin-left: -20px;
+    margin-left: -9px;
     margin-top: -5px;
         width: 300px;
         height: 90vh;
         background-color: rgb(5, 5, 53);
         border-radius: 5px;
 }
+.inboxprofdiv{
+    height: 80vh;
+    overflow-y: scroll;
+}
+.inboxprofdiv::-webkit-scrollbar{
+    display: block;
+    width: 3px ;
+    border-radius: 3px;
+}
+.inboxprofdiv::-webkit-scrollbar-thumb{
+    width: 3px;
+    color: black;
+    background-color: rgb(0, 255, 200) ;
+}
+.inboxprofdiv::-webkit-scrollbar-track{
+    width: 3px ;
+    background-color: rgba(220, 220, 220, 0.521) ;
+}
+
 .uppersearch{
     /* border: 1px solid lightblue; */
     margin-bottom: 10px;

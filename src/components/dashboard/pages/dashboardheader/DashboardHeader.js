@@ -18,9 +18,9 @@ function DashboardHeader() {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end pr-4">
                     <Navbar.Text className='naviconbar '>
-                        <MdOutlineContactSupport className='statsicon' />
+                      {/*  <MdOutlineContactSupport className='statsicon' />
                         <RiContactsBook2Line className='statsicon' />
-                        <GiMatterStates className='statsicon ' />
+    <GiMatterStates className='statsicon ' /> */}
                         <button className='btn btn-outline-danger'>Upgrade</button>
                         <img className='user_img' src={UserImage}  onClick={()=>setToggle(!toggle)}/>
                        {toggle && <Profile setToggle={setToggle}/>}

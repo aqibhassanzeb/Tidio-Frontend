@@ -250,11 +250,30 @@
     padding: 10px;
 }
 .cardmaindivmarque{
-    margin: 10px;
-    width: 300px !important;
+    margin: 10px 0px;
+    width: 350px !important;
+    background-color: white;
+   
+}
+.cardmaindivmarque:hover{
+   
     
     background-color: white;
+    animation: cardmove 15s linear infinite;
+    transition: 1s;
 }
+
+@keyframes cardmove {
+    0%{
+        transform: rotate(10deg);
+       transition: 1s;
+    }
+    100%{
+        transform: rotate3d(60deg, 30deg);
+      transition: 1s;
+    }
+}
+
 @media only screen and (max-width: 890px) and (min-width: 350px)  {
     .carouseldiv{
         position: relative;

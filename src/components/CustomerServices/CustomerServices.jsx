@@ -17,6 +17,7 @@ import DiscoverSlides from '../discoverSlides/DiscoverSlides';
 import PricingModel from '../pricingmodel/PricingModel';
 import Footer from './../footer/Footer';
 import { useNavigate } from 'react-router-dom';
+
 function CustomerServices() {
 
     const navigate = useNavigate()
@@ -268,37 +269,9 @@ function CustomerServices() {
                             </div>
                         </div>
                     </div>
-                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
-                        <div className='card_shadow'>
-                            <div className='display_img'>
-                                <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
-                            </div>
-                            <div className='text-left mt-2'>
-                                <p className='service'> Excellent service and product</p>
-                            </div>
-                            <div>
-                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
-                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
-                        <div className='card_shadow'>
-                            <div className='display_img'>
-                                <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
-                            </div>
-                            <div className='text-left mt-2'>
-                                <p className='service'> Excellent service and product</p>
-                            </div>
-                            <div>
-                                <p>The automation - hands down. I use Tidio all the time and suggest it to my clients for its ease of use and excellent support.
-                                    I've not used it yet with shopping carts but I can really imagine it being awesome - will definately test it</p>
-                            </div>
-                        </div>
-                    </div>
-
+                   
+                  
+                       
                 </div>
 
                 <DiscoverSlides />

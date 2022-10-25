@@ -75,7 +75,7 @@ const Inbox = () => {
                     {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} /> */}
                     <BsSearch className='searchiocon ' onClick={handleShow} />
                 </div>
-              <div  style={{height:"90vh",overflow:'scroll'}}>
+              <div  className='inboxprofdiv'>
 
               
                         <div  className='inboxUserdetail d-flex mt-2' >
