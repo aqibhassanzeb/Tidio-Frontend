@@ -26,7 +26,6 @@ function ChatInbox({ senderUser }) {
     const notification = useSelector(state => state.SelectedUser.notification)
     const dispatch = useDispatch()
 
-    // console.log("messages :",messages);
 
     const sendMessageHandle = (e) => {
         const content = newmessage
@@ -92,9 +91,6 @@ function ChatInbox({ senderUser }) {
         selectedUser != null && fetchMessageshandle();
         selectedChatCompare = selectedUser ? selectedUser :null
     },[selectedUser])
-
-
-
 
 
     useEffect(() => {
