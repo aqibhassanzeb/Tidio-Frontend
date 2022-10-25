@@ -2,7 +2,9 @@ import React from 'react'
 import '../account/Account.css'
 import { FaUserAlt } from 'react-icons/fa'
 import acountimage from '../../../../../images/horse.jpg'
+import { useSelector } from 'react-redux'
 const Account = () => {
+    const loginUser = useSelector(state => state.User.activeUser)
     return (
         <>
             <div className=''>
@@ -18,21 +20,21 @@ const Account = () => {
                         <label >Name:</label>
                         </div>
                         
-                        <input type="text" className='inputtextfield' placeholder='Enter your name' />
+                        <input type="text" value={loginUser?.name} className='inputtextfield' placeholder='Enter your name' />
                         
                     </div>
                     <div className='d-flex  mt-2 align-items-center'>
                     <div className='col-2 '>
                     <label >Your Picture:</label>
                     </div>
-                        <img src={acountimage} className='inputtextimg' />
+                        <img src={loginUser?.imageUrl} className='inputtextimg' />
                         <input type="file" className='inputtextfield3' />
                     </div>
                     <div className='d-flex  mt-2 align-items-center'>
                     <div className='col-2 '>
                     <label >Email:</label>
                     </div>
-                        <input type="Email" className='inputtextfield' placeholder='Enter your email' />
+                        <input type="Email" value={loginUser?.email} className='inputtextfield' placeholder='Enter your email' />
                     </div>
                     <div className='d-flex  mt-2 align-items-center'>
                     <div className='col-2 '>
