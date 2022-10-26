@@ -7,10 +7,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { socailLogin, userLogin } from '../../apis/Auth-api';
 import ReactFacebookLogin from 'react-facebook-login';
 import { FACEBOOK_APP_ID } from '../../config';
+import { setActiveToken, setActiveUser } from '../../redux/features/UserSlice';
+import { useDispatch } from 'react-redux';
 
 
 const Login = () => {
   const navigate = useNavigate()
+  const dispatch=useDispatch()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loader, setLoader] = useState(false)
@@ -29,6 +32,8 @@ const Login = () => {
       console.log("responce :",res)
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("user", JSON.stringify(res.data.user))
+      dispatch(setActiveUser(res.data.user))
+      dispatch(setActiveToken(res.data.token))
       navigate('/chat')
      
   }).catch(err=>{

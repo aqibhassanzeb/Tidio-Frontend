@@ -1,11 +1,37 @@
 .inbox-maindiv{
-    background-color: #1c2b45 !important;
-    height: 100vh !important;
-    margin-left: -8px !important;
-    margin-top: -5px !important;
-    border-radius: 0px !important;
-    width: 300px !important;
+    margin-left: -9px;
+    margin-top: -5px;
+        width: 300px;
+        height: 90vh;
+        background-color: rgb(5, 5, 53);
+        border-radius: 5px;
 }
+.inboxprofdiv{
+    height: 80vh;
+    overflow-y: scroll;
+}
+.searchinput{
+    border: 1px solid lightgray;
+    outline: none;
+    padding: 10px;
+    border-radius: 7px;
+    width: 90%;
+}
+.inboxprofdiv::-webkit-scrollbar{
+    display: block;
+    width: 3px ;
+    border-radius: 3px;
+}
+.inboxprofdiv::-webkit-scrollbar-thumb{
+    width: 3px;
+    color: black;
+    background-color: rgb(0, 255, 200) ;
+}
+.inboxprofdiv::-webkit-scrollbar-track{
+    width: 3px ;
+    background-color: rgba(220, 220, 220, 0.521) ;
+}
+
 .uppersearch{
     /* border: 1px solid lightblue; */
     margin-bottom: 10px;

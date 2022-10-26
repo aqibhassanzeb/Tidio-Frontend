@@ -9,8 +9,13 @@ import { RiContactsBook2Line } from 'react-icons/ri';
 import { MdOutlineContactSupport } from 'react-icons/md';
 import UserImage from '../../../../images/user.webp'
 import Profile from './profile/Profile';
-function DashboardHeader() {
+import { useSelector } from 'react-redux';
+function DashboardHeader() { 
+    const loginUser = useSelector(state => state.User.activeUser)
     const [toggle , setToggle]=useState(false)
+    const [value, setValue] = useState("ONLINE")
+    const [onlineMode, setOnlineMode] = useState(true)
+    console.log("online mode :",onlineMode)
     return (
         <>
             <Navbar className='border'>
@@ -18,12 +23,13 @@ function DashboardHeader() {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end pr-4">
                     <Navbar.Text className='naviconbar '>
-                        <MdOutlineContactSupport className='statsicon' />
+                      {/*  <MdOutlineContactSupport className='statsicon' />
                         <RiContactsBook2Line className='statsicon' />
-                        <GiMatterStates className='statsicon ' />
+    <GiMatterStates className='statsicon ' /> */}
                         <button className='btn btn-outline-danger'>Upgrade</button>
-                        <img className='user_img' src={UserImage}  onClick={()=>setToggle(!toggle)}/>
-                       {toggle && <Profile setToggle={setToggle}/>}
+                        <img className='user_img' src={loginUser?.imageUrl}  onClick={()=>setToggle(!toggle)}/>
+                        <p>{value}</p>
+                       {toggle && <Profile setToggle={setToggle} value={value} setValue={setValue}/>}
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Navbar>

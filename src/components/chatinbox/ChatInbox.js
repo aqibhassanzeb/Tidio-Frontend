@@ -26,7 +26,6 @@ function ChatInbox({ senderUser }) {
     const notification = useSelector(state => state.SelectedUser.notification)
     const dispatch = useDispatch()
 
-    // console.log("messages :",messages);
 
     const sendMessageHandle = (e) => {
         const content = newmessage
@@ -63,7 +62,7 @@ function ChatInbox({ senderUser }) {
         socket.on("connected", () => setSocketConnected(true))
         // socket.on("typing", () => setIsTyping(true))
         // socket.on("stop typing", () => setIsTyping(false))
-    })
+    },[loginUser])
     // useEffect(() => {
     // })
     
@@ -92,9 +91,6 @@ function ChatInbox({ senderUser }) {
         selectedUser != null && fetchMessageshandle();
         selectedChatCompare = selectedUser ? selectedUser :null
     },[selectedUser])
-
-
-
 
 
     useEffect(() => {
