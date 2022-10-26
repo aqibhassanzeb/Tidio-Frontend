@@ -6,7 +6,15 @@
 .textcarol{
     width: 100%;
     height: auto;
-   
+   animation: textcarolanim 1s linear;
+}
+@keyframes textcarolanim {
+    0%{
+        padding-left: 8rem;
+    }
+    100%{
+        padding-left: 0px;
+    }
 }
 .textcaroli{
     display: flex;
