@@ -10,6 +10,13 @@
     height: 80vh;
     overflow-y: scroll;
 }
+.searchinput{
+    border: 1px solid lightgray;
+    outline: none;
+    padding: 10px;
+    border-radius: 7px;
+    width: 90%;
+}
 .inboxprofdiv::-webkit-scrollbar{
     display: block;
     width: 3px ;

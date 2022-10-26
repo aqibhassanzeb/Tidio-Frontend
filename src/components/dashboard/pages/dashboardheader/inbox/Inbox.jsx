@@ -96,7 +96,7 @@ const Inbox = () => {
                     <Modal.Title>Search user for chat</Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ height: "40vh", overflow: 'scroll' }}>
-                    <input placeholder='Search here min 2 word..' c value={search} onChange={(e) => searchHandle(e)} />
+                    <input className='searchinput' placeholder='Search here min 2 word..' c value={search} onChange={(e) => searchHandle(e)} />
                     {
                         loading || selectloading ?
                             <p>loading..</p> :
