@@ -72,7 +72,7 @@ const Inbox = () => {
         <>
             <div className='row'>
 
-                <div className='inbox-maindiv col-3'  >
+                <div className='inbox-maindiv col-sm-3'  >
                     <div className='uppersearch  d-flex justify-content-end pt-1'>
                         {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} /> */}
                         <BsSearch className='searchiocon ' onClick={handleShow} />
@@ -92,7 +92,7 @@ const Inbox = () => {
                 </div>
 
                 {/* Chat portion  */}
-                <div className='col-9'>
+                <div className='col-sm-9'>
 
                     <ChatInbox senderUser={senderUser} />
 

@@ -17,10 +17,10 @@ function App() {
   return (
     <>
     
-    <Routespath/>
+    {/* <Routespath/> */}
     
     {/* <ChatInbox /> */}
-    {/* <Widget /> */}
+    <Widget />
     
     </>
   );
