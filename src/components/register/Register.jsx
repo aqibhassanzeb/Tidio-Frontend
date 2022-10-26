@@ -53,7 +53,7 @@ const Register = () => {
                 <div className='row'>
                     <div className='col-md-6 backgroundmain'>
                         <div className='tidiologinheader'>
-                            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Tidio Logo</Link>
+                            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Antartical CorSps</Link>
                         </div>
                         <div className=' registersidebartext'>
                             <div className='registersidediv d-flex'>

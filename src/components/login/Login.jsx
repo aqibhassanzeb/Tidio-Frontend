@@ -73,7 +73,7 @@ const Login = () => {
         <div className='row loginmaindiv'>
           <div className='col-md-6 backgroundcol'>
           <div className='tidiologinheader'>
-            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Tidio Logo</Link>
+            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Antartical Corps</Link>
           </div>
             <div className='loginsidetext'>
               <span>Don't have </span><br />

@@ -12,3 +12,23 @@
     justify-content: space-between;
     align-items: center;
 }
+.upgradebtn{
+    background-color: white;
+    border: 1px solid #dc3545;
+    border-radius: 7px;
+    padding: 4px;
+ }
+ .upgradebtn:hover{
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    color: white;
+    border-radius: 7px;
+    padding: 4px;
+ }
+ .textvalue{
+     font-size: 12px;
+     margin-right: 10px;
+ }
+ .dashbdicon{
+     margin-right: 5px;
+ }

@@ -18,7 +18,7 @@ function Header() {
     <>
       <Navbar bg="white" expand="lg" sticky='top' className='py-3'>
         <Container>
-          <Navbar.Brand onClick={() => navigate('/')} style={{cursor: "pointer"}} className="fw-bold text-primary">Tidio Logo</Navbar.Brand>
+          <Navbar.Brand onClick={() => navigate('/')} style={{cursor: "pointer"}} className="fw-bold text-primary">Antartical Corps</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto navLinkdiv">
