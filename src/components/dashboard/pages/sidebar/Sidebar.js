@@ -33,7 +33,7 @@ function Sidebar({children}) {
             
         },
         {
-            path: '/setting',
+            path: '#/setting',
             name: 'setting',
             icon: <MdSettings />
             
