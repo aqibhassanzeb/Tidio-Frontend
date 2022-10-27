@@ -42,7 +42,16 @@
     line-height: 64px;
     letter-spacing: -0.02em;
     font-weight: 500;
+    animation: tidoiconbine 1s linear;
     font-family: euclidcircularb,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+@keyframes tidoiconbine {
+    0%{
+        padding-right: 4rem;
+    }
+    100%{
+        padding-right: 0px;
+    }
 }
 .bg_tidio{
     background-color: #001b47;
@@ -203,14 +212,17 @@
     margin-top: 30px;
    
 }
-/* .whiskerbagdiv{
-   
-    width: 90%;
-    padding: 20px;
-    margin-top: 60px;
-    margin-left: 60px;
-
-} */
+.whiskerbagdiv{
+   animation: whiskerbaganim 1s linear;
+}
+@keyframes whiskerbaganim {
+    0%{
+        padding-left: 8rem;
+    }
+    100%{
+        padding-left: 0px;
+    }
+}
 .carousellineimagediv{
    
     position: relative;
