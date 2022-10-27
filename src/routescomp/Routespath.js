@@ -20,6 +20,7 @@ import Inbox from "../components/dashboard/pages/dashboardheader/inbox/Inbox"
 import Account from '../components/dashboard/pages/dashboardheader/account/Account';
 import ChatInbox from '../components/chatinbox/ChatInbox';
 import ChatCard from '../components/dashboard/pages/dashboardheader/chatCard/ChatCard';
+import ChatbotCreate from "../components/dashboard/pages/chatbotcreate/ChatbotCreate"
 
 const Routespath = () => {
 

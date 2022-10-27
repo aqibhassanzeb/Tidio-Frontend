@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
+import { useLocation } from 'react-router-dom';
+import Chatbot from "../../../chatbot/Chatbot"
 import "../chatbotcreate/ChatbotCreate.css"
 function ChatbotCreate() {
+    const location =useLocation()
     const [show, setShow] = useState(false);
+    const [copied, setCopied] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    var URL=window.location.href
+
     return (
         <>
             <div className='container-fluid'>
                 <div className='row text-end mt-2'>
                     <div className='col-sm-12'>
                         <button className='btn btn-primary' onClick={handleShow}>Create ChatBot</button>
+                        <p>{URL}</p>
+                        {/* <button onClick={copy}>{!copied ? "Copy link" : "Copied!"}</button> */}
                     </div>
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
@@ -69,6 +77,7 @@ function ChatbotCreate() {
                     </div>
                 </div>
             </div>
+    <Chatbot />
         </>
     )
 }
