@@ -19,6 +19,7 @@ import InsideTidio from '../components/dashboard/pages/insideTidio/InsideTidio';
 import Inbox from "../components/dashboard/pages/dashboardheader/inbox/Inbox"
 import Account from '../components/dashboard/pages/dashboardheader/account/Account';
 import ChatInbox from '../components/chatinbox/ChatInbox';
+import ChatCard from '../components/dashboard/pages/dashboardheader/chatCard/ChatCard';
 
 const Routespath = () => {
 
@@ -40,6 +41,7 @@ const Routespath = () => {
          <Route path="/contact" element={ <> <DashboardHeader/> <Sidebar><Contact /></Sidebar> </>  } />
          <Route path="/inbox" element={ <><DashboardHeader/> <Sidebar><Inbox/></Sidebar> </>  } />
          <Route path="/acount" element={ <><DashboardHeader/> <Sidebar><Account /></Sidebar> </>  } />
+         <Route path="/chatcard" element={ <><DashboardHeader/> <Sidebar><ChatCard /></Sidebar> </>  } />
          </Route>
         
         
