@@ -15,10 +15,7 @@ const Inbox = () => {
     const [selectloading, setSelectLoading] = useState(false)
     const [searchUsers, setSearchUsers] = useState([])
     const [senderUser, setSenderUser] = useState('')
-
-
     // for modal control 
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

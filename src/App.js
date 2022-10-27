@@ -13,14 +13,18 @@ import ChatInbox from './components/chatinbox/ChatInbox';
 import Widget from './components/dashboard/pages/widget/Widget';
 import ProfileChatInfo from './components/dashboard/profileChatInfo/ProfileChatInfo';
 import ProfileModal from './components/modals/profileModal/ProfileModal';
+import Chatbot from './components/chatbot/Chatbot';
+import Embed from 'react-embed';
 function App() {
+  function Iframe(props) {
+    return (<div dangerouslySetInnerHTML={ {__html:  props.iframe?props.iframe:""}} />);
+  }
+
   return (
     <>
     
-    {/* <Routespath/> */}
-    
-    {/* <ChatInbox /> */}
-    <Widget />
+    <Routespath/>
+    {/* <Chatbot /> */}
     
     </>
   );

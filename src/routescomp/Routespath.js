@@ -20,6 +20,7 @@ import Inbox from "../components/dashboard/pages/dashboardheader/inbox/Inbox"
 import Account from '../components/dashboard/pages/dashboardheader/account/Account';
 import ChatInbox from '../components/chatinbox/ChatInbox';
 import Widget from '../components/dashboard/pages/widget/Widget';
+import ChatbotCreate from '../components/dashboard/pages/chatbotcreate/ChatbotCreate';
 
 const Routespath = () => {
 
@@ -40,6 +41,7 @@ const Routespath = () => {
          <Route path="/insidetidio" element={ <> <DashboardHeader/> <Sidebar><InsideTidio /></Sidebar> </>}  />
          <Route path="/contact" element={ <> <DashboardHeader/> <Sidebar><Contact /></Sidebar> </>  } />
          <Route path="/inbox" element={ <><DashboardHeader/> <Sidebar><Inbox/></Sidebar> </>  } />
+         <Route path="/ChatbotCreate" element={ <><DashboardHeader/> <Sidebar><ChatbotCreate /></Sidebar> </>  } />
          <Route path="/acount" element={ <><DashboardHeader/> <Sidebar><Account /></Sidebar> </>  } />
          <Route path="/setting" element={ <><DashboardHeader/> <Sidebar><Widget /></Sidebar> </>  } />
          </Route>
