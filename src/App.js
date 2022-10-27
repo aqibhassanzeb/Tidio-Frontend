@@ -16,10 +16,6 @@ import ProfileModal from './components/modals/profileModal/ProfileModal';
 import Chatbot from './components/chatbot/Chatbot';
 import Embed from 'react-embed';
 function App() {
-  function Iframe(props) {
-    return (<div dangerouslySetInnerHTML={ {__html:  props.iframe?props.iframe:""}} />);
-  }
-
   return (
     <>
     
