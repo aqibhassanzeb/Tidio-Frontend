@@ -1,0 +1,9 @@
+.name_padd{
+    padding-left: 12px;
+}
+.status_padd{
+    padding-right: 12px;
+}
+.background{
+    background-color: #e2e8ef !important;
+}
