@@ -37,6 +37,12 @@ function Sidebar({children}) {
             name: 'setting',
             icon: <MdSettings />
             
+        },
+        {
+            path: '/ChatbotCreate',
+            name: 'Chatbot',
+            icon: <MdSettings />
+            
         }
     ]
     return (

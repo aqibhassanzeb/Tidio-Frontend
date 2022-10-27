@@ -14,15 +14,18 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
+    "react-embed": "^3.6.0",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.2.2",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "react-simple-chatbot": "^0.6.1",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.0.8",
     "socket.io-client": "^4.5.3",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

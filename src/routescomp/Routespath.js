@@ -40,6 +40,7 @@ const Routespath = () => {
          <Route path="/insidetidio" element={ <> <DashboardHeader/> <Sidebar><InsideTidio /></Sidebar> </>}  />
          <Route path="/contact" element={ <> <DashboardHeader/> <Sidebar><Contact /></Sidebar> </>  } />
          <Route path="/inbox" element={ <><DashboardHeader/> <Sidebar><Inbox/></Sidebar> </>  } />
+         <Route path="/ChatbotCreate" element={ <><DashboardHeader/> <Sidebar><ChatbotCreate /></Sidebar> </>  } />
          <Route path="/acount" element={ <><DashboardHeader/> <Sidebar><Account /></Sidebar> </>  } />
          <Route path="/chatcard" element={ <><DashboardHeader/> <Sidebar><ChatCard /></Sidebar> </>  } />
          </Route>
