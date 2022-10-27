@@ -37,5 +37,13 @@ export const fetchMessages = async (reqParam) => {
     const response = await apiURL.get(`messages/${reqParam}`, config);
     return response
 }
+export const newChatbotCreate = async (reqParam) => {
+    const response = await apiURL.post(`newusercreate`, reqParam, config);
+    return response
+}
+export const Chatbotfetch = async (reqParam) => {
+    const response = await apiURL.post(`/subuserfetch/${reqParam}`, config);
+    return response
+}
 
 
