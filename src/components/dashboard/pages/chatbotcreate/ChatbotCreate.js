@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from 'react-redux';
-import { Chatbotfetch, newChatbotCreate } from '../../../../apis/Chat-api';
+import { Chatbotdelete, Chatbotfetch, newChatbotCreate } from '../../../../apis/Chat-api';
 import Table from 'react-bootstrap/Table';
 import "../chatbotcreate/ChatbotCreate.css"
 function ChatbotCreate() {
 
-    const loginUser = useSelector(state => state.User.activeUser)
+    const loginUser = JSON.parse(localStorage.getItem("user"))
     const [show, setShow] = useState(false);
     const [Error, setError] = useState(false)
     const [loader, setLoader] = useState(false)
-    const handleClose = () => {
-        setError("") 
-         setShow(false)
-        }
+    const [fetchControl, setfetchControl] = useState(false)
+    const [ChatbotData, setChatbotData] = useState([])
     const handleShow = () => setShow(true);
     const [name, setName] = useState("")
+    const handleClose = () => {
+        setError("") 
+        setShow(false)
+    }
+    var serialNo=0;
+
+    // new chat bot create 
 
     const handleCreate=()=>{
         if(!name){
@@ -29,20 +34,42 @@ function ChatbotCreate() {
             toast.success(result.data.message)
             setLoader(false)
             setName("")
+            setfetchControl(!fetchControl)
             handleClose()
         }).catch(err=>{
             setLoader(false)
             console.log(err)})
     }
+
+    // fetch created chat bot 
+
     const handlefetch=()=>{
-        Chatbotfetch().then(res=>{
-        console.log("result :",res)
-        }).catch(err=>console.log(err))
+        const _id=loginUser._id
+        setfetchControl(true)
+        Chatbotfetch(_id).then(res=>{
+            setChatbotData(res?.data?.saveUser)
+            setfetchControl(!fetchControl)
+        setfetchControl(false)
+        }).catch(err=>{
+            setfetchControl(false)
+            console.log(err)})
     }
+
+    // Delete chatbot function 
+
+    const handleDelete=(_id)=>{
+        Chatbotdelete(_id).then(result=>{
+            setfetchControl(!fetchControl)
+            toast.success(result.data.message)
+
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+
     useEffect(() => {
-        handlefetch()
-    }, [])
-    
+          handlefetch()
+    }, [fetchControl])    
 
     return (
         <>
@@ -85,30 +112,29 @@ function ChatbotCreate() {
                             <Table striped>
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
+                                        <th>S/No</th>
+                                        <th>Name</th>
+                                        <th>Embeded Link</th>
+                                        <th>Embeded Link</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                {ChatbotData && ChatbotData.map(elm=>{
+                                    return(
+                                        <>
+                                        <tr key={elm._id}>
+                                        <td>{serialNo = serialNo + 1}</td>
+                                        <td>{elm.name}</td>
+                                        <td>{elm._id}</td>
+                                        <td> <button className="btn btn-danger" onClick={()=>handleDelete(elm._id)}>
+                                            Delete
+                                            </button></td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td colSpan={2}>Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                        </>
+                                        )
+                                    })  
+                                 }  
                                 </tbody>
                             </Table>
                         </div>

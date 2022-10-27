@@ -42,7 +42,11 @@ export const newChatbotCreate = async (reqParam) => {
     return response
 }
 export const Chatbotfetch = async (reqParam) => {
-    const response = await apiURL.post(`/subuserfetch/${reqParam}`, config);
+    const response = await apiURL.get(`/subuserfetch/${reqParam}`, config);
+    return response
+}
+export const Chatbotdelete = async (reqParam) => {
+    const response = await apiURL.delete(`/subuserdelete/${reqParam}`, config);
     return response
 }
 
