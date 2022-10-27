@@ -16,12 +16,14 @@ import ProfileModal from './components/modals/profileModal/ProfileModal';
 import Chatbot from './components/chatbot/Chatbot';
 import Embed from 'react-embed';
 function App() {
- 
   return (
     <>
     
     <Routespath/>
-    {/* <Chatbot /> */}
+    
+    
+    {/* <ChatInbox /> */}
+     
     
     </>
   );
