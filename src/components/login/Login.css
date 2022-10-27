@@ -27,6 +27,7 @@
 .logindiv{
     display: flex;
     justify-content: center;
+   
 }
 .logintext{
     margin-left: 15px;
@@ -76,13 +77,21 @@
 }
 .wraper{
     height: 550px;
-    
     width: 430px;
     margin-top: 40px;
+    animation: wraperscroll 1s linear;
+}
+@keyframes wraperscroll {
+    0%{
+    padding-top: 40px;
+    }
+    100%{
+        padding-top: 0px;
+    }
 }
 .tidiologinheader{
     text-decoration: none;
-    width: 120px;
+    width: 160px;
     display: flex;
     justify-content: center;
     text-decoration: none;

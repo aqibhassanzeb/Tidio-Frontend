@@ -19,16 +19,16 @@ function DashboardHeader() {
     return (
         <>
             <Navbar className='border'>
-                <Navbar.Brand href="#home" className=''><HiHome /> Dashboard</Navbar.Brand>
+                <Navbar.Brand href="#home" className=' d-flex justify-content-center align-items-center'><HiHome className='dashbdicon'/> Dashboard</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end pr-4">
                     <Navbar.Text className='naviconbar '>
-                        <MdOutlineContactSupport className='statsicon' />
+                      {/*  <MdOutlineContactSupport className='statsicon' />
                         <RiContactsBook2Line className='statsicon' />
-                        <GiMatterStates className='statsicon ' />
-                        <button className='btn btn-outline-danger'>Upgrade</button>
+    <GiMatterStates className='statsicon ' /> */}
+                        <button className=' upgradebtn'>Upgrade</button>
                         <img className='user_img' src={loginUser?.imageUrl}  onClick={()=>setToggle(!toggle)}/>
-                        <p>{value}</p>
+                        <span className="textvalue" >{value}</span>
                        {toggle && <Profile setToggle={setToggle} value={value} setValue={setValue}/>}
                     </Navbar.Text>
                 </Navbar.Collapse>

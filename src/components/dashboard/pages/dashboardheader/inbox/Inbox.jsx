@@ -72,21 +72,12 @@ const Inbox = () => {
         <>
             <div className='row'>
 
-                <div className='inbox-maindiv col-3'  >
-                    <div className='uppersearch  d-flex justify-content-end pt-1'>
-                        {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} /> */}
-                        <BsSearch className='searchiocon ' onClick={handleShow} />
-                    </div>
-                    <div style={{ height: "90vh", overflow: 'scroll' }}>
-                        <div className='inboxUserdetail d-flex mt-2' >
-                            <div>
-                                <img src={useimage} className='userimage' />
-                            </div>
-                            <div className='usercardinfo'>
-                                <span className=' text-white usernametext'>ali</span>
-                                <span className='text-center text-white userpara'>alikhan@gmail.com</span>
-                            </div>
-                        </div>
+            <div className='inbox-maindiv col-3'  >
+                <div className='uppersearch  d-flex justify-content-end pt-1'>
+                    {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} /> */}
+                    <BsSearch className='searchiocon ' onClick={handleShow} />
+                </div>
+              <div  className='inboxprofdiv'>
 
                     </div>
                 </div>
@@ -105,7 +96,7 @@ const Inbox = () => {
                     <Modal.Title>Search user for chat</Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ height: "40vh", overflow: 'scroll' }}>
-                    <input placeholder='Search here min 2 word..' c value={search} onChange={(e) => searchHandle(e)} />
+                    <input className='searchinput' placeholder='Search here min 2 word..' c value={search} onChange={(e) => searchHandle(e)} />
                     {
                         loading || selectloading ?
                             <p>loading..</p> :

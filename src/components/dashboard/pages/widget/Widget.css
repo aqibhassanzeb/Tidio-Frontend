@@ -76,7 +76,7 @@
     display: flex;
 }
 .left_btn_size{
-    width: 180px;
+    width: 120px;
     background-color: #f7f8fc !important;
 
 }
@@ -111,6 +111,7 @@
 }
 .display_display{
     display: flex;
+    flex-direction: column;
 }
 .question_mark{
     margin-top: -7px;
@@ -126,14 +127,21 @@
     padding-left: 12px !important;
     margin-left: 5px !important;
     padding-top: 9px !important;
-    width: 366px !important;
+    width: 280px !important;
 }
 .permission{
     font-size: 13px !important;
+   
+    width: 280px;
+}
+.deleteiconwiget{
+    font-size: 25px;
+    margin-left: 10px;
+    color: gray;
 }
 .checkbox_icon{
     font-size: 14px !important;
-    margin-top: 12px !important;
+   
 }
 .delete_btn{
     padding-left: 12px !important;
@@ -151,5 +159,7 @@
 }
 .custom_width{
     width: 74.666667% !important;
-
+}
+.groupbtndata{
+    width: 240px;
 }

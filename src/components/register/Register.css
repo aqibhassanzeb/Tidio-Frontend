@@ -3,8 +3,16 @@
 }
 .inerdivreg{
     width: 100%;
-        margin-top: 15px;
-    
+        margin-top: 25px;
+    animation: inerscroll 1s linear;
+}
+@keyframes inerscroll {
+    0%{
+      margin-top: -3rem;  
+    }
+    100%{
+        margin-top: -0px;
+    }
 }
 .inerdivreg p{
     display: flex;
