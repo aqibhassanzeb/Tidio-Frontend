@@ -5,6 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from 'react-redux';
 import { Chatbotdelete, Chatbotfetch, newChatbotCreate } from '../../../../apis/Chat-api';
 import Table from 'react-bootstrap/Table';
+import { useLocation } from 'react-router-dom';
+import Chatbot from "../../../chatbot/Chatbot"
 import "../chatbotcreate/ChatbotCreate.css"
 function ChatbotCreate() {
 
@@ -45,13 +47,9 @@ function ChatbotCreate() {
 
     const handlefetch=()=>{
         const _id=loginUser._id
-        setfetchControl(true)
         Chatbotfetch(_id).then(res=>{
             setChatbotData(res?.data?.saveUser)
-            setfetchControl(!fetchControl)
-        setfetchControl(false)
         }).catch(err=>{
-            setfetchControl(false)
             console.log(err)})
     }
 
@@ -70,7 +68,8 @@ function ChatbotCreate() {
     useEffect(() => {
           handlefetch()
     }, [fetchControl])    
-
+    var framlink=`<iframe src=${window.location.href} ></iframe>`
+console.log(window.location.href)
     return (
         <>
         <ToastContainer />
@@ -78,6 +77,9 @@ function ChatbotCreate() {
                 <div className='row text-end mt-2'>
                     <div className='col-sm-12'>
                         <button className='btn btn-primary' onClick={handleShow}>Create ChatBot</button>
+                        {/* <p>{window.location.href}</p> */}
+                        <p>{framlink}</p>
+                        {/* <button onClick={copy}>{!copied ? "Copy link" : "Copied!"}</button> */}
                     </div>
                    
                 </div>

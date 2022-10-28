@@ -6,6 +6,13 @@
         background-color: rgb(5, 5, 53);
         border-radius: 5px;
 }
+.inbox-maindivforwarddiv{
+    margin-left: -20px;
+    margin-top: -5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+}
 .inboxprofdiv{
     height: 80vh;
     overflow-y: scroll;
@@ -47,6 +54,14 @@
 .searchiocon{
     color: white;
     font-size: 25px;
+    padding: 2px;
+    cursor: pointer;
+}
+.searchioconforward{
+    color: white;
+    background-color: rgb(5, 5, 90);
+    font-size: 25px;
+    border-radius: 5px;
     padding: 2px;
     cursor: pointer;
 }
