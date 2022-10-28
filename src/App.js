@@ -23,7 +23,8 @@ function App() {
     
     
     {/* <ChatInbox /> */}
-     
+    {/* <Chatbot /> */}
+    {/* <ChatCard /> */}
     
     </>
   );
