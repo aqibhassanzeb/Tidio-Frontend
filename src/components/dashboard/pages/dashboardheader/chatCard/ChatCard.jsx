@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../chatCard/ChatCard.css"
 import chatcardimg from '../../../../../images/horse.jpg'
 import { MdWavingHand } from 'react-icons/md'
@@ -6,7 +6,26 @@ import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { RiArrowDropDownLine } from 'react-icons/ri'
 import { IoMdSend } from 'react-icons/io'
 import { AiOutlineSmile } from 'react-icons/ai'
+import { createChat } from '../../../../../apis/Chat-api'
 const ChatCard = () => {
+
+var createdby="634543ff090124ecb0c39a6b"
+var _id="635a3355fc74227ac06ddd5a"
+   
+const handleCreateChat=()=>{
+        const paylaod={createdby,_id}
+        createChat(paylaod).then(result=>{
+            console.log("result :",result)
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+    useEffect(() => {
+        handleCreateChat()
+    }, [])
+    
+
+
     return (
         <>
             <div className='chatcardmaindiv'>
@@ -44,7 +63,7 @@ const ChatCard = () => {
                 </div>
                 <div className='d-flex'>
                     <input type="text" placeholder='Enter Your message here...' className='textyourmessage' />
-                    <IoMdSend className='sendmessageicon'/>
+                    <IoMdSend style={{cursor:"pointer"}} className='sendmessageicon'/>
                 </div>
                 <div>
                     <AiOutlineSmile className='smileicon' />
