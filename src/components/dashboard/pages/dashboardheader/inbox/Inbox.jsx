@@ -30,7 +30,7 @@ const Inbox = () => {
     const notification = useSelector(state => state.SelectedUser.notification)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-  
+
 
     // Search function 
     const searchHandle = (e) => {
@@ -70,29 +70,29 @@ const Inbox = () => {
 
     return (
         <>
-            <div className='row'>
-        {
-            hide ?( <div className='inbox-maindiv col-3'  >
-            <div className='uppersearch  d-flex justify-content-end pt-1'>
-                {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} /> */}
-               {/* <BsSearch className='searchiocon ' onClick={handleShow} /> */}
-                <IoMdArrowBack className='searchiocon ' onClick={handleShow} /> 
-            </div>
-          <div  className='inboxprofdiv'>
+            <div className='row '>
+                {
+                    hide ? (<div className='inbox-maindiv col-sm-12 col-md-3'  >
+                        <div className='uppersearch  d-flex justify-content-end pt-1'>
+                            {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} /> */}
+                            {/* <BsSearch className='searchiocon ' onClick={handleShow} /> */}
+                            <IoMdArrowBack className='searchiocon ' onClick={handleShow} />
+                        </div>
+                        <div className='inboxprofdiv'>
 
-                </div>
-            </div>):(
-                <div className='inbox-maindivforwarddiv col-3'  >
-            
-               <IoMdArrowForward className='searchioconforward ' onClick={handleShowforward} />          
-            </div>
-                
-            )
-        }
-           
+                        </div>
+                    </div>) : (
+                        <div className='inbox-maindivforwarddiv col-sm-12 col-md-3'  >
+
+                            <IoMdArrowForward className='searchioconforward ' onClick={handleShowforward} />
+                        </div>
+
+                    )
+                }
+
 
                 {/* Chat portion  */}
-                <div className='col-sm-9'>
+                <div className='col-sm-12 col-md-9 inboxCahtsys '>
 
                     <ChatInbox senderUser={senderUser} />
 

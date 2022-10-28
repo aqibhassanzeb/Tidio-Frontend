@@ -110,7 +110,7 @@ console.log(window.location.href)
                     <h1>Your list</h1>
                 </div>
                     <div className='col-sm-12 mt-3'>
-                        <div className='col-sm-8 border  offset-2 d-flex background p-4'>
+                        <div className='col-sm-12   background p-4'>
                             <Table striped>
                                 <thead>
                                     <tr>
