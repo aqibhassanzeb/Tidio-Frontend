@@ -1,9 +1,17 @@
 .inbox-maindiv{
     margin-left: -9px;
     margin-top: -5px;
-        width: 300px;
+        width: 300px ;
         height: 90vh;
         background-color: rgb(5, 5, 53);
+        border-radius: 5px;
+}
+
+.inbox-maindivforwarddiv{
+    margin-left: -20px;
+    margin-top: -5px;
+        width: 40px;
+        height: 40px;
         border-radius: 5px;
 }
 .inboxprofdiv{
@@ -49,6 +57,16 @@
     font-size: 25px;
     padding: 2px;
     cursor: pointer;
+    z-index: 50;
+}
+.searchioconforward{
+    color: white;
+    background-color: rgb(5, 5, 90);
+    font-size: 25px;
+    border-radius: 5px;
+    padding: 2px;
+    cursor: pointer;
+    z-index: 50;
 }
 .inboxUserdetail{
    
@@ -74,4 +92,16 @@
 }
 .userpara{
     font-size: 12px;
+}
+@media only screen and (min-width : 370px) and (max-width : 767px) {
+    .inbox-maindiv{
+        position: absolute;
+        width: 86% !important;
+        z-index: 1;
+        height: 100vh;
+    }
+    .chatbottextare{
+        z-index: 10;
+    }
+    
 }

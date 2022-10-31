@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { Button, Modal } from 'react-bootstrap'
 import ChatInbox from '../../../../chatinbox/ChatInbox'
 import { getSender, getSenderFull } from '../../../../../apisfun/separateUser'
+import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io'
 const Inbox = () => {
     const [search, setSearch] = useState('')
     const [loading, setLoading] = useState(false)
@@ -17,9 +18,11 @@ const Inbox = () => {
     const [senderUser, setSenderUser] = useState('')
     // for modal control 
     const [show, setShow] = useState(false);
+    const [hide, setHide] = useState(true);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+    // const handleShow = () => setShow(true);
+    const handleShow = () => setHide(false);
+    const handleShowforward = () => setHide(true)
     // another hooks 
 
     const selectedUser = useSelector(state => state.SelectedUser.selectedUser)
@@ -27,7 +30,7 @@ const Inbox = () => {
     const notification = useSelector(state => state.SelectedUser.notification)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-  
+
 
     // Search function 
     const searchHandle = (e) => {
@@ -67,20 +70,29 @@ const Inbox = () => {
 
     return (
         <>
-            <div className='row'>
+            <div className='row '>
+                {
+                    hide ? (<div className='inbox-maindiv col-sm-12 col-md-3'  >
+                        <div className='uppersearch  d-flex justify-content-end pt-1'>
+                            {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} /> */}
+                            {/* <BsSearch className='searchiocon ' onClick={handleShow} /> */}
+                            <IoMdArrowBack className='searchiocon ' onClick={handleShow} />
+                        </div>
+                        <div className='inboxprofdiv'>
 
-            <div className='inbox-maindiv col-3'  >
-                <div className='uppersearch  d-flex justify-content-end pt-1'>
-                    {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} /> */}
-                    <BsSearch className='searchiocon ' onClick={handleShow} />
-                </div>
-              <div  className='inboxprofdiv'>
+                        </div>
+                    </div>) : (
+                        <div className='inbox-maindivforwarddiv col-sm-12 col-md-3'  >
 
-                    </div>
-                </div>
+                            <IoMdArrowForward className='searchioconforward ' onClick={handleShowforward} />
+                        </div>
+
+                    )
+                }
+
 
                 {/* Chat portion  */}
-                <div className='col-sm-9'>
+                <div className='col-sm-12 col-md-9 inboxCahtsys '>
 
                     <ChatInbox senderUser={senderUser} />
 
