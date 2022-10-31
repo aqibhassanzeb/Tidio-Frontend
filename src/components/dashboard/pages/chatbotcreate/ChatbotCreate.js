@@ -112,15 +112,15 @@ console.log(window.location.href)
                     <div className='col-sm-12 mt-3'>
                         <div className='col-sm-12   background p-4'>
                             <Table striped>
-                                <thead>
-                                    <tr>
-                                        <th>S/No</th>
-                                        <th>Name</th>
-                                        <th>Embeded Link</th>
-                                        <th>Embeded Link</th>
+                                <div>
+                                    <div className='tablehead'>
+                                        <div className='fw-bold'>S/No</div>
+                                        <div className='fw-bold'>Name</div>
+                                        <div className='fw-bold'>Embeded Link</div>
+                                        <div className='fw-bold'>Embeded Link</div>
                                         
-                                    </tr>
-                                </thead>
+                                    </div>
+                                </div>
                                 <tbody>
                                 {ChatbotData && ChatbotData.map(elm=>{
                                     return(
