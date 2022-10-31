@@ -8,71 +8,79 @@ import Table from 'react-bootstrap/Table';
 import { useLocation } from 'react-router-dom';
 import Chatbot from "../../../chatbot/Chatbot"
 import "../chatbotcreate/ChatbotCreate.css"
+import Profilepic from '../../../../images/profile.jpg'
+import { AiOutlineSend } from 'react-icons/ai';
+import { FiMessageSquare } from 'react-icons/fi';
+
 function ChatbotCreate() {
 
     const loginUser = JSON.parse(localStorage.getItem("user"))
     const [show, setShow] = useState(false);
+    const [showChatbot, setshowChatbot] = useState(false);
     const [Error, setError] = useState(false)
     const [loader, setLoader] = useState(false)
     const [fetchControl, setfetchControl] = useState(false)
     const [ChatbotData, setChatbotData] = useState([])
     const handleShow = () => setShow(true);
-    const [name, setName] = useState("")
+    const [name, setName] = useState("");
+
     const handleClose = () => {
-        setError("") 
+        setError("")
         setShow(false)
     }
-    var serialNo=0;
+    var serialNo = 0;
 
     // new chat bot create 
 
-    const handleCreate=()=>{
-        if(!name){
+    const handleCreate = () => {
+        if (!name) {
             return setError(true)
         }
-        const payload={name,createdby:loginUser?._id}
+        const payload = { name, createdby: loginUser?._id }
         setLoader(true)
-        newChatbotCreate(payload).then(result=>{
+        newChatbotCreate(payload).then(result => {
             toast.success(result.data.message)
             setLoader(false)
             setName("")
             setfetchControl(!fetchControl)
             handleClose()
-        }).catch(err=>{
+        }).catch(err => {
             setLoader(false)
-            console.log(err)})
+            console.log(err)
+        })
     }
 
     // fetch created chat bot 
 
-    const handlefetch=()=>{
-        const _id=loginUser._id
-        Chatbotfetch(_id).then(res=>{
+    const handlefetch = () => {
+        const _id = loginUser._id
+        Chatbotfetch(_id).then(res => {
             setChatbotData(res?.data?.saveUser)
-        }).catch(err=>{
-            console.log(err)})
+        }).catch(err => {
+            console.log(err)
+        })
     }
 
     // Delete chatbot function 
 
-    const handleDelete=(_id)=>{
-        Chatbotdelete(_id).then(result=>{
+    const handleDelete = (_id) => {
+        Chatbotdelete(_id).then(result => {
             setfetchControl(!fetchControl)
             toast.success(result.data.message)
 
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
         })
     }
 
     useEffect(() => {
-          handlefetch()
-    }, [fetchControl])    
-    var framlink=`<iframe src=${window.location.href} ></iframe>`
-console.log(window.location.href)
+        handlefetch()
+    }, [fetchControl])
+    var framlink = `<iframe src=${window.location.href} ></iframe>`
+    console.log(window.location.href)
     return (
         <>
-        <ToastContainer />
+            <ToastContainer />
             <div className='container-fluid'>
                 <div className='row text-end mt-2'>
                     <div className='col-sm-12'>
@@ -81,68 +89,112 @@ console.log(window.location.href)
                         <p>{framlink}</p>
                         {/* <button onClick={copy}>{!copied ? "Copy link" : "Copied!"}</button> */}
                     </div>
-                   
+
                 </div>
             </div>
 
             <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Create ChatBot</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <input className="form-control" placeholder="enter your chatbotname"
-                            onChange={(e)=>{setName(e.target.value);setError(false)}}
-                            ></input>
-                       {Error &&   <p style={{color:"red"}}>please fill the name</p>}
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <button className='btn btn-danger' onClick={handleClose}>
-                                Close
-                            </button>
-                            <button className='btn btn-primary' onClick={handleCreate}>
-                                Save Changes
-                            </button>
-                        </Modal.Footer>
-                    </Modal>
-                
-                <div className='row'>
+                <Modal.Header closeButton>
+                    <Modal.Title>Create ChatBot</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <input className="form-control" placeholder="enter your chatbotname"
+                        onChange={(e) => { setName(e.target.value); setError(false) }}
+                    ></input>
+                    {Error && <p style={{ color: "red" }}>please fill the name</p>}
+                </Modal.Body>
+                <Modal.Footer>
+                    <button className='btn btn-danger' onClick={handleClose}>
+                        Close
+                    </button>
+                    <button className='btn btn-primary' onClick={handleCreate}>
+                        Save Changes
+                    </button>
+                </Modal.Footer>
+            </Modal>
+
+            <div className='row'>
                 <div className='text-center'>
                     <h1>Your list</h1>
                 </div>
-                    <div className='col-sm-12 mt-3'>
-                        <div className='col-sm-8 border  offset-2 d-flex background p-4'>
-                            <Table striped>
-                                <thead>
-                                    <tr>
-                                        <th>S/No</th>
-                                        <th>Name</th>
-                                        <th>Embeded Link</th>
-                                        <th>Embeded Link</th>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                {ChatbotData && ChatbotData.map(elm=>{
-                                    return(
+                <div className='col-sm-12 mt-3'>
+                    <div className='col-sm-8 border  offset-2 d-flex background p-4'>
+                        <Table striped>
+                            <thead>
+                                <tr>
+                                    <th>S/No</th>
+                                    <th>Name</th>
+                                    <th>Embeded Link</th>
+                                    <th>Embeded Link</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {ChatbotData && ChatbotData.map(elm => {
+                                    return (
                                         <>
-                                        <tr key={elm._id}>
-                                        <td>{serialNo = serialNo + 1}</td>
-                                        <td>{elm.name}</td>
-                                        <td>{elm._id}</td>
-                                        <td> <button className="btn btn-danger" onClick={()=>handleDelete(elm._id)}>
-                                            Delete
-                                            </button></td>
-                                    </tr>
+                                            <tr key={elm._id}>
+                                                <td>{serialNo = serialNo + 1}</td>
+                                                <td>{elm.name}</td>
+                                                <td>{elm._id}</td>
+                                                <td> <button className="btn btn-danger" onClick={() => handleDelete(elm._id)}>
+                                                    Delete
+                                                </button></td>
+                                            </tr>
                                         </>
-                                        )
-                                    })  
-                                 }  
-                                </tbody>
-                            </Table>
+                                    )
+                                })
+                                }
+                            </tbody>
+                        </Table>
+                    </div>
+                </div>
+            </div>
+            {showChatbot && 
+            <div className='container-fluid'>
+                <div className='row mt-3'>
+                    <div className='col-sm-3 offset-9 '>
+                        <div className='col-sm-12 text-center chatbot_header'>
+                            <p className='pt-2 text-light'>Chatbot</p>
+                        </div>
+                        <div className='col-sm-12 p-2 bg-light'>
+                            <div className='d-flex'>
+                                <div className='col-sm-1'>
+                                    <img src={Profilepic} className="img img-fluid img_profile" />
+                                </div>
+                                <div className='col-sm-11 border border-top-0 p-3 custom_rebot_chat space_box'>
+                                    <p>Hi shehzad shah How are You !1</p>
+                                    <time className=''>12:00 am</time>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-sm-12  bg-light'>
+                            <div className='d-flex custom_rtl'>
+                                <div className='col-sm-1'>
+                                    <img src={Profilepic} className="img img-fluid img_profile" />
+                                </div>
+                                <div className='col-sm-11 border border-top-0 p-3 custom_rebot_chat space_box_user '>
+                                    <p>i am fine thanks</p>
+                                    <time className=''>now</time>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-sm-12'>
+                            <div className="input-group">
+                                <textarea className="form-control message_area" aria-label="With textarea"></textarea>
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            
+            </div>
+             }
+             <div className='row'>
+                <div className='sticky_bton'><button className='btn custom_position' onClick={()=>{setshowChatbot(!showChatbot)}}><FiMessageSquare className='fi_message' /></button></div>
+                </div>
+
         </>
     )
 }

@@ -7,3 +7,72 @@
 .background{
     background-color: #e2e8ef !important;
 }
+.chatbot_header{
+    background-color: #962180;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    padding: 4px !important;
+}
+.img_profile{
+    width: 36px;
+    border-radius: 50%;
+}
+.custom_rebot_chat{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    width: fit-content !important;
+}
+.custom_rtl{
+    direction: rtl !important;
+    padding: 9px !important;
+}
+.space_box{
+    margin-left: 4px !important;
+}
+.space_box_user{
+    margin-right: 4px !important;
+}
+.text_send{
+    height: 62px !important;
+    border-radius: 0px !important;
+}
+.snd_icon{
+    font-size: 29px !important;
+    color: #962180 !important;
+}
+.custom_send{
+    border: 0px !important;
+}
+.message_area:focus{
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    border-color: #962180 !important;
+}
+.heart{
+    color: red !important;
+}
+
+.custom_position{
+    position: fixed;
+    position: -webkit-sticky;
+    bottom: 47px;
+    right: 39px;
+    padding-bottom: 3px !important;
+    color: white !important;
+    font-size: 20px !important;
+    border-radius: 100% !important;
+    padding: 10px !important;
+    background-color: #962180 !important;
+}
+.sticky_bton{
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    bottom: 0;
+}
+.fi_message{
+    font-size: 31px !important;
+}
