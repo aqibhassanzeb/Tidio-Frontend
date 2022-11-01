@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { BsFillChatRightFill, BsFillInboxFill } from 'react-icons/bs';
+import { SiChatbot} from 'react-icons/si';
 import { MdOutlinePermContactCalendar, MdSettings } from 'react-icons/md';
 import { HiHome } from 'react-icons/hi';
 import { FaBars } from 'react-icons/fa';
@@ -41,7 +42,7 @@ function Sidebar({children}) {
         {
             path: '/ChatbotCreate',
             name: 'Chatbot',
-            icon: <MdSettings />
+            icon: <SiChatbot />
             
         }
     ]
