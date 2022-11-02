@@ -40,7 +40,7 @@ function Sidebar({children}) {
             
         },
         {
-            path: '/chatcard',
+            path: '/ChatbotCreate',
             name: 'Chatbot',
             icon: <SiChatbot />
             
