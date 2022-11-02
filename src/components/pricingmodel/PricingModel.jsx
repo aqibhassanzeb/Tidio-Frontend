@@ -1,11 +1,15 @@
 import React from 'react'
 import trans from "../../images/custo.png"
 import transs from "../../images/trans2.webp"
+import  {BsArrowRight} from 'react-icons/bs'
 import "../pricingmodel/PricingModel.css"
+import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 export default function PricingModel() {
+    const navigate = useNavigate();
     return (
         <>
-            <div className='container'>
+            <div className='container my-4'>
                 <div className='row'>
                     <div className='col-sm-12 text-center'>
                         <p className='trans_head'>A transparent pricing model</p>
@@ -31,7 +35,20 @@ export default function PricingModel() {
                                 <div>
                                     <img src={transs} className='imgtransparent ' />
                                 </div>
+                                </div>
+                                <div className='text-center my-2'>
+                                    <p className='anchorfullpri' onClick={() => navigate("/pricing")}> View full pricing <span> <BsArrowRight className='aroico'/> </span>  </p>
+                                </div>
+                                <div className='text-center my-2'>
+                                <p className='seventrail' o>A 7-day trial to test features from our free and paid plan. After the trial <br/> ends, free features are available forever. No credit card required. </p>
                             </div>
+
+                            <div className='dicoverbackdown my-2'>
+                                <div >
+                                    <p className='dicovertiodio'>Discover what Tidio can do for you</p>
+                                   <div className='discovermaindic'> <button className='startdebtn ' onClick={()=> navigate("/login")} >Get Started</button></div>
+                                </div>
+                                </div>
                         </div>
                     </div>
                 

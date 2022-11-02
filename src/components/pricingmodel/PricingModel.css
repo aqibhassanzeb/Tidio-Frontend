@@ -79,6 +79,60 @@
 .spantexttrans{
     padding: 25px;
 }
+.anchorfullpri{
+    font-size: 20px;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: bold;
+    color: rgb(4, 126, 240);
+    width: 200px;
+    margin: auto;
+}
+.anchorfullpri:hover .aroico{
+    margin-left: 10px;
+    transition: .5s;
+}
+.aroico{
+    transition: .5s;
+    font-weight: bold;
+}
+.seventrail{
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+.dicovertiodio{
+    color: rgba(245, 245, 245, 0.733);
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+.dicoverbackdown{
+    background-color: rgb(6, 6, 87);
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.startdebtn{
+    background-color: rgba(14, 14, 255, 0.733);
+    color: whitesmoke;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: none;
+    width: 190px;
+    margin-bottom: 30px;
+   }
+   .startdebtn:hover{
+    background-color: rgba(255, 174, 0, 0.959);
+   
+   }
+  
+.discovermaindic{
+    
+    display: flex;
+    justify-content: center;
+}
 @media only screen and (max-width: 1024px) and (min-width: 701px)  {
     .image-end{
         display: none;
