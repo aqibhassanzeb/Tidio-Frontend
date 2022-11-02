@@ -17,7 +17,6 @@ root.render(
     <EarthoOneProvider
     clientId="cX5d7Cb1EyiGob5jTrZK"
     >
-
     <BrowserRouter>
     <App />
     </BrowserRouter>

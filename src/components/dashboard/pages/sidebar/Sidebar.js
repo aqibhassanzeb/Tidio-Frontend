@@ -18,7 +18,7 @@ function Sidebar({children}) {
             
         },
         {
-            path: '',
+            path: '#/',
             name: 'dashboard',
             icon: <HiHome />
         },

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import "../chatinbox/ChatInbox.css"
 import melissa from '../../images/melissa-j.webp'
-import { fetchMessages, sendMessage } from '../../apis/Chat-api'
+import { fetchMessages, sendMessage, sendMessage2 } from '../../apis/Chat-api'
 import { useDispatch, useSelector } from 'react-redux'
 import  io  from 'socket.io-client'
 import { setNotification } from '../../redux/features/ChatSlice'
 
 
-var ENDPOINT =  process.env.REACT_APP_SOCKET_LINK
-var socket =io() 
-var selectedChatCompare
+// var ENDPOINT =  process.env.REACT_APP_SOCKET_LINK
+// var socket =io() 
+// var selectedChatCompare
 
 
 function ChatInbox({ senderUser }) {
@@ -23,7 +23,7 @@ function ChatInbox({ senderUser }) {
 
     const selectedUser = useSelector(state => state.SelectedUser.selectedUser)
     const loginUser = useSelector(state => state.User.activeUser)
-    const notification = useSelector(state => state.SelectedUser.notification)
+    // const notification = useSelector(state => state.SelectedUser.notification)
     const dispatch = useDispatch()
 
 
@@ -33,13 +33,13 @@ function ChatInbox({ senderUser }) {
         const chatId = selectedUser._id
         const payload = { content, chatId }
         setLoading(true)
-        sendMessage(payload).then((res) => {
+        sendMessage2(payload).then((res) => {
             console.log(res.data)
             const data = res.data
             setMessages([...messages, data])
             setNewmessage("")
             setLoading(false)
-            socket.emit("new message", data && data)
+            // socket.emit("new message", data && data)
         }).catch((err) => {
             setLoading(false)
             console.log(err)
@@ -50,62 +50,62 @@ function ChatInbox({ senderUser }) {
         const chatId = selectedUser._id
         fetchMessages(chatId).then((res) => {
             setMessages(res.data)
-            socket.emit("join chat", chatId && chatId)
+            // socket.emit("join chat", chatId && chatId)
         }).catch(err => { console.log(err); })
     }
 
 
-    useEffect(() => {
-        // socket.on("connected", () => setSocketConnected(true))
-        socket = io(ENDPOINT)
-        socket.emit("setup", loginUser !== null && loginUser);
-        socket.on("connected", () => setSocketConnected(true))
-        // socket.on("typing", () => setIsTyping(true))
-        // socket.on("stop typing", () => setIsTyping(false))
-    },[loginUser])
     // useEffect(() => {
-    // })
+    //     // socket.on("connected", () => setSocketConnected(true))
+    //     socket = io(ENDPOINT)
+    //     socket.emit("setup", loginUser !== null && loginUser);
+    //     socket.on("connected", () => setSocketConnected(true))
+    //     // socket.on("typing", () => setIsTyping(true))
+    //     // socket.on("stop typing", () => setIsTyping(false))
+    // },[loginUser])
+    // // useEffect(() => {
+    // // })
     
 
-    const handleChange = () => {
-        socket.emit("typing", selectedUser && selectedUser._id)
-        if (!socketConnected) return;
-        if (!typing) {
-            setTyping(true)
-        }
-        let lastTypingTime = new Date().getTime();
-        var timerlength = 3000;
-        setTimeout(() => {
-            var timeNow = new Date().getTime();
-            var timeDiff = timeNow - lastTypingTime
-            if (timeDiff >= timerlength && typing) {
-                socket.emit("stop typing", selectedUser && selectedUser._id)
-                setTyping(false)
-            }
-        }, timerlength);
-    }
+    // const handleChange = () => {
+    //     socket.emit("typing", selectedUser && selectedUser._id)
+    //     if (!socketConnected) return;
+    //     if (!typing) {
+    //         setTyping(true)
+    //     }
+    //     let lastTypingTime = new Date().getTime();
+    //     var timerlength = 3000;
+    //     setTimeout(() => {
+    //         var timeNow = new Date().getTime();
+    //         var timeDiff = timeNow - lastTypingTime
+    //         if (timeDiff >= timerlength && typing) {
+    //             socket.emit("stop typing", selectedUser && selectedUser._id)
+    //             setTyping(false)
+    //         }
+    //     }, timerlength);
+    // }
 
 
 
     useEffect(() => {
         selectedUser != null && fetchMessageshandle();
-        selectedChatCompare = selectedUser ? selectedUser :null
+        // selectedChatCompare = selectedUser ? selectedUser :null
     },[selectedUser])
 
 
-    useEffect(() => {
-        socket.on("messagerecieved", (newMessageRecieved) => {
-            if (!selectedChatCompare || selectedChatCompare._id !== newMessageRecieved.chat._id) {
-                console.log("if portion ,;;")
-                // if(!notification.includes(newMessageRecieved)){
+    // useEffect(() => {
+    //     socket.on("messagerecieved", (newMessageRecieved) => {
+    //         if (!selectedChatCompare || selectedChatCompare._id !== newMessageRecieved.chat._id) {
+    //             console.log("if portion ,;;")
+    //             // if(!notification.includes(newMessageRecieved)){
 
-                //     dispatch(setNotification(newMessageRecieved))
-                // }
-            } else {
-                setMessages([...messages, newMessageRecieved])
-            }
-        })
-    })
+    //             //     dispatch(setNotification(newMessageRecieved))
+    //             // }
+    //         } else {
+    //             setMessages([...messages, newMessageRecieved])
+    //         }
+    //     })
+    // })
 
 
     return (
@@ -126,9 +126,8 @@ function ChatInbox({ senderUser }) {
 
                             return (
 
-                                elm.sender._id !== loginUser._id ? <div className='col-sm-12 text-left p-2'>
+                                elm.sender == "subUser" ? <div className='col-sm-12 text-left p-2'>
                                     <div className='chat_row'>
-                                        <img className='chat_icon' src={elm.imageUrl} />
                                         <h5 className='chat_name'>{elm.name}</h5>
                                         <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
 
@@ -141,7 +140,6 @@ function ChatInbox({ senderUser }) {
                                         <div className='chat_end_row'>
                                             <time className='chat_end_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
                                             <h5 className='chat_end_name'>{elm.name}</h5>
-                                            <img className='chat_end_icon' src={elm.imageUrl} />
                                         </div>
                                         <div className='chat_end_text'>
                                             <p>{elm.content}</p>

@@ -37,6 +37,9 @@ export const fetchMessages = async (reqParam) => {
     const response = await apiURL.get(`messages/${reqParam}`, config);
     return response
 }
+
+// chat for second time for user to subuser
+
 export const newChatbotCreate = async (reqParam) => {
     const response = await apiURL.post(`newusercreate`, reqParam, config);
     return response
@@ -49,5 +52,29 @@ export const Chatbotdelete = async (reqParam) => {
     const response = await apiURL.delete(`/subuserdelete/${reqParam}`, config);
     return response
 }
+
+export const createChat = async (reqParam) => {
+    const response = await apiURL.post('chat2', reqParam);
+    return response
+}
+export const sendMessage2 = async (reqParam) => {
+    const response = await apiURL.post('messages2', reqParam);
+    return response
+}
+export const fetchMessages2 = async (reqParam) => {
+    const response = await apiURL.get(`messages/${reqParam}`);
+    return response
+}
+export const fetchChat2 = async (reqParam) => {
+    const response = await apiURL.get(`chat2?Admin=${reqParam}`, config);
+    return response
+}
+export const selectUser2 = async (reqParam) => {
+//   console.log("req param :",reqParam)
+    const response = await apiURL.post('chat2', reqParam, config);
+    return response
+}
+
+
 
 

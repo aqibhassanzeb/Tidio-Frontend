@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import "../inbox/Inbox.css"
 import useimage from "../../../../../images/horse.jpg"
-import { getAllUser, selectUser } from '../../../../../apis/Chat-api'
+import { fetchChat2, getAllUser, selectUser, selectUser2 } from '../../../../../apis/Chat-api'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSelectUser } from '../../../../../redux/features/ChatSlice'
 import { useNavigate } from 'react-router-dom'
@@ -15,16 +15,17 @@ const Inbox = () => {
     const [loading, setLoading] = useState(false)
     const [selectloading, setSelectLoading] = useState(false)
     const [searchUsers, setSearchUsers] = useState([])
+    const [chatUser, setChatUser] = useState([])
     const [senderUser, setSenderUser] = useState('')
     // for modal control 
     const [show, setShow] = useState(false);
-    const [hide, setHide] = useState(true);
+    const [hide, setHide] = useState(false);
     const handleClose = () => setShow(false);
     // const handleShow = () => setShow(true);
     const handleShow = () => setHide(false);
     const handleShowforward = () => setHide(true)
     // another hooks 
-
+    const fetchControl = useRef(false);
     const selectedUser = useSelector(state => state.SelectedUser.selectedUser)
     const activeUser = useSelector(state => state.User.activeUser)
     const notification = useSelector(state => state.SelectedUser.notification)
@@ -49,15 +50,33 @@ const Inbox = () => {
         }
     }
 
+//  fetch chat user
+    
+const fetchChatUser = () => {
+    const _id = activeUser && activeUser._id
+            setLoading(true)
+            fetchChat2(_id).then((res) => {
+                setChatUser(res.data)
+                setLoading(false)
+            }
+            ).catch(err => {
+                setLoading(false)
+                console.log(err)
+            })
+
+        
+    }
+
     // Select User for Chat func
 
     const handleSelect = (value) => {
-        const userId = value
+        const _id = value
         setSelectLoading(true)
-        selectUser({ userId }).then(res => {
-            dispatch(setSelectUser(res.data))
-            var result = getSenderFull(activeUser, res.data.users)
-            setSenderUser(result)
+        selectUser2({ _id }).then(res => {
+            dispatch(setSelectUser(res.data.FullChat))
+          console.log("access chat :",res)
+            // var result = getSenderFull(activeUser, res.data.FullChat.subUser)
+            // setSenderUser(res.data.FullChat.subUser)
             setSelectLoading(false)
         }).catch(err => {
 
@@ -66,30 +85,48 @@ const Inbox = () => {
         })
     }
 
+useEffect(() => {
+    if (fetchControl.current) return
+    fetchControl.current = true
+    fetchChatUser()
+}, [])
+
 
 
     return (
         <>
-            <div className='row '>
-                {
-                    hide ? (<div className='inbox-maindiv col-sm-12 col-md-3'  >
-                        <div className='uppersearch  d-flex justify-content-end pt-1'>
-                            {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} /> */}
-                            {/* <BsSearch className='searchiocon ' onClick={handleShow} /> */}
-                            <IoMdArrowBack className='searchiocon ' onClick={handleShow} />
-                        </div>
-                        <div className='inboxprofdiv'>
-
-                        </div>
-                    </div>) : (
-                        <div className='inbox-maindivforwarddiv col-sm-12 col-md-3'  >
-
-                            <IoMdArrowForward className='searchioconforward ' onClick={handleShowforward} />
-                        </div>
-
-                    )
-                }
-
+            <div className='row'>
+        {
+            hide ?( <div className='inbox-maindiv col-3'  >
+            <div className='uppersearch  d-flex justify-content-end pt-1'>
+                {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} />
+               <BsSearch className='searchiocon ' onClick={handleShow} /> */}
+                <IoMdArrowBack className='searchiocon ' onClick={handleShow} /> 
+            </div>
+            {
+                            chatUser &&
+                            chatUser.map((elm, index) => {
+                                return (
+                                    <>
+                                        <div key={elm._id} className='inboxUserdetail d-flex mt-2' onClick={() => { handleSelect(elm._id) }} style={{ cursor: "pointer" }}>
+                                           
+                                            <div style={{color:"white"}}>
+                                                <p>{elm?.subUser.email}</p>
+                                            </div>
+                                        </div>
+                                    </>
+                                )
+                            })
+                    }
+            </div>):(
+                <div className='inbox-maindivforwarddiv col-3'  >
+            
+               <IoMdArrowForward className='searchioconforward ' onClick={handleShowforward} />          
+            </div>
+                
+            )
+        }
+           
 
                 {/* Chat portion  */}
                 <div className='col-sm-12 col-md-9 inboxCahtsys '>
@@ -100,7 +137,7 @@ const Inbox = () => {
             </div>
             {/* Modal for user search  */}
 
-            <Modal show={show} onHide={handleClose}>
+            {/* <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Search user for chat</Modal.Title>
                 </Modal.Header>
@@ -136,7 +173,7 @@ const Inbox = () => {
                         Save Changes
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
 
 
         </>
