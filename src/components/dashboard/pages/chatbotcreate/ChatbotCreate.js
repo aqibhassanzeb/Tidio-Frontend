@@ -150,50 +150,50 @@ function ChatbotCreate() {
                     </div>
                 </div>
             </div>
-            {showChatbot && 
-            <div className='container-fluid'>
-                <div className='row mt-3'>
-                    <div className='col-sm-3 offset-9 '>
-                        <div className='col-sm-12 text-center chatbot_header'>
-                            <p className='pt-2 text-light'>Chatbot</p>
-                        </div>
-                        <div className='col-sm-12 p-2 bg-light'>
-                            <div className='d-flex'>
-                                <div className='col-sm-1'>
-                                    <img src={Profilepic} className="img img-fluid img_profile" />
-                                </div>
-                                <div className='col-sm-11 border border-top-0 p-3 custom_rebot_chat space_box'>
-                                    <p>Hi shehzad shah How are You !1</p>
-                                    <time className=''>12:00 am</time>
+            {showChatbot &&
+                <div className='container-fluid'>
+                    <div className='row mt-3'>
+                        <div className='col-sm-3 offset-9 '>
+                            <div className='col-sm-12 text-center chatbot_header'>
+                                <p className='pt-2 text-light'>Chatbot</p>
+                            </div>
+                            <div className='col-sm-12 p-2 bg-light'>
+                                <div className='d-flex'>
+                                    <div className='col-sm-1'>
+                                        <img src={Profilepic} className="img img-fluid img_profile" />
+                                    </div>
+                                    <div className='col-sm-11 border border-top-0 p-3 custom_rebot_chat space_box'>
+                                        <p>Hi shehzad shah How are You !1</p>
+                                        <time className=''>12:00 am</time>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className='col-sm-12  bg-light'>
-                            <div className='d-flex custom_rtl'>
-                                <div className='col-sm-1'>
-                                    <img src={Profilepic} className="img img-fluid img_profile" />
-                                </div>
-                                <div className='col-sm-11 border border-top-0 p-3 custom_rebot_chat space_box_user '>
-                                    <p>i am fine thanks</p>
-                                    <time className=''>now</time>
+                            <div className='col-sm-12  bg-light'>
+                                <div className='d-flex custom_rtl'>
+                                    <div className='col-sm-1'>
+                                        <img src={Profilepic} className="img img-fluid img_profile" />
+                                    </div>
+                                    <div className='col-sm-11 border border-top-0 p-3 custom_rebot_chat space_box_user '>
+                                        <p>i am fine thanks</p>
+                                        <time className=''>now</time>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className='col-sm-12'>
-                            <div className="input-group">
-                                <textarea className="form-control message_area" aria-label="With textarea"></textarea>
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
+                            <div className='col-sm-12'>
+                                <div className="input-group">
+                                    <textarea className="form-control message_area" aria-label="With textarea"></textarea>
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            }
+            <div className='row'>
+                <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot) }}><FiMessageSquare className='fi_message' /></button></div>
             </div>
-             }
-             <div className='row'>
-                <div className='sticky_bton'><button className='btn custom_position' onClick={()=>{setshowChatbot(!showChatbot)}}><FiMessageSquare className='fi_message' /></button></div>
-                </div>
 
         </>
     )

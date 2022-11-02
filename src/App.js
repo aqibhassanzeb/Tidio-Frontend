@@ -10,7 +10,6 @@ import Account from './components/dashboard/pages/dashboardheader/account/Accoun
 import Inbox from './components/dashboard/pages/dashboardheader/inbox/Inbox';
 import ChatCard from './components/dashboard/pages/dashboardheader/chatCard/ChatCard';
 import ChatInbox from './components/chatinbox/ChatInbox';
-import Widget from './components/dashboard/pages/widget/Widget';
 import ProfileChatInfo from './components/dashboard/profileChatInfo/ProfileChatInfo';
 import ProfileModal from './components/modals/profileModal/ProfileModal';
 import Chatbot from './components/chatbot/Chatbot';
