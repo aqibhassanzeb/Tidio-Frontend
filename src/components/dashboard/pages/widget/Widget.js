@@ -12,7 +12,8 @@ import EmojiPicker from 'emoji-picker-react';
 import { FiMessageSquare } from 'react-icons/fi';
 import "../widget/Widget.css"
 import EmojiIcon from "../../../../images/icon.jpg"
-import Chatbackground from '../../../../images/chat_back.jpg'
+import Chatbackground from '../../../../images/chat_back.jpg';
+import User_png from '../../../../images/user.png'
 export default function Widget() {
     const [showChatbot, setshowChatbot] = useState(false);
     const [getStarted, setgetStarted] = useState({
@@ -212,12 +213,17 @@ export default function Widget() {
                      
                        <div className='img_color'>
                        <div className='hitheretext p-4 pt-5 mt-4'>
-                                <h2>hi There check</h2>
-                                <p className='text-light'>Welcome to our website. Ask us anything </p>
+                                <h2>{getStarted.status}</h2>
+                                <p className='text-light'>{getStarted.message}</p>
                             </div>
-                            <div className='iconmainduv'>
+                            <div className='Create_right'>
+                            <div className='iconmainduv  pt-5 mt-4'>
                                 <span className='threedoticoon'> <BsThreeDotsVertical/> </span> &nbsp;
-                                <span className='threedoticoon'> <RiArrowDropDownLine/> </span>
+                                <span className='threedoticoon'> <RiArrowDropDownLine/> </span> <br/>
+                            </div>
+                            <div className='user_png'>
+                                <img src={User_png} className="user_width" />
+                            </div>
                             </div>
                        </div>
                     </div>
