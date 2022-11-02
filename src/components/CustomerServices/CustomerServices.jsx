@@ -17,6 +17,7 @@ import DiscoverSlides from '../discoverSlides/DiscoverSlides';
 import PricingModel from '../pricingmodel/PricingModel';
 import Footer from './../footer/Footer';
 import { useNavigate } from 'react-router-dom';
+import SimpleInstallation from '../simpleInstalation/SimpleInstallation';
 
 function CustomerServices() {
 
@@ -405,6 +406,7 @@ function CustomerServices() {
                         </div>
                     </div>
                 </div>
+                <SimpleInstallation/>
                 <PricingModel />
             </div>
 

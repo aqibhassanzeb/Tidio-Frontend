@@ -31,7 +31,7 @@ const Inbox = () => {
     const notification = useSelector(state => state.SelectedUser.notification)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-  
+
 
     // Search function 
     const searchHandle = (e) => {
@@ -129,7 +129,7 @@ useEffect(() => {
            
 
                 {/* Chat portion  */}
-                <div className='col-sm-9'>
+                <div className='col-sm-12 col-md-9 inboxCahtsys '>
 
                     <ChatInbox senderUser={senderUser} />
 

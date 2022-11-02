@@ -1,18 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { Accordion } from "react-bootstrap";
 import { AiFillHome, AiFillEye, AiOutlineDelete } from 'react-icons/ai';
-import { BsFillQuestionCircleFill } from 'react-icons/bs';
+import { BsFillQuestionCircleFill, BsThreeDotsVertical } from 'react-icons/bs';
+import { RiArrowDropDownLine } from 'react-icons/ri';
+import { AiOutlineSend } from 'react-icons/ai';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
 import EmojiPicker from 'emoji-picker-react';
+import { FiMessageSquare } from 'react-icons/fi';
 import "../widget/Widget.css"
 import EmojiIcon from "../../../../images/icon.jpg"
+import Chatbackground from '../../../../images/chat_back.jpg'
 export default function Widget() {
+    const [showChatbot, setshowChatbot] = useState(false);
+    const [getStarted, setgetStarted] = useState({
+    });
+    console.log(getStarted)
+    const inputEvent = (event, name) => {
+        setgetStarted({ ...getStarted, [name]: event.target.value })
+    }
+
     return (
-        <div className='container-fluid'>
-            <div className='col-sm-6'>
+        <div className='container d-flex widget_div mt-4'>
+            <div className='col-sm-7'>
                 <div className="accordion mt-5">
                     <Accordion style={{ border: "none" }}>
                         <Accordion.Item eventKey="0">
@@ -74,8 +86,8 @@ export default function Widget() {
                                     </div>
                                     <div className='col-sm-10'>
                                         <div className="form-check ">
-                                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="2" placeholder='Enter your status here'></textarea> <img className='img_icon' src={EmojiIcon} /> <br />
-                                            <textarea className="form-control custom_form_control" id="exampleFormControlTextarea1" rows="2" placeholder='enter Your message here'></textarea> <br />
+                                            <textarea className="form-control" name='status' rows="2" placeholder='Enter your status here' onChange={(e) => { inputEvent(e, "status") }}></textarea> <img className='img_icon' src={EmojiIcon} /> <br />
+                                            <textarea className="form-control custom_form_control" name='message' rows="2" placeholder='enter Your message here' onChange={(e) => { inputEvent(e, "message") }} ></textarea> <br />
                                             <div className="form-check form-switch check_background">
                                                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
                                             </div>
@@ -153,20 +165,18 @@ export default function Widget() {
                                                     </div>
                                                     <div className='col-sm-8  px-2 email_control d-flex '>
                                                         <div className=''>
-                                                        <span className='d-flex'>
-                                                            <textarea ></textarea>
-                                                            <p className=' deleteiconwiget'><AiOutlineDelete /></p>
+                                                            <span className='d-flex'>
+                                                                <textarea ></textarea>
+                                                                <p className=' deleteiconwiget'><AiOutlineDelete /></p>
                                                             </span>
                                                             <div className="form-check mt-2">
-                                                                <input className="form-check-input checkbox_icon" type="checkbox" value="" id="flexCheckDefault" />
+                                                                <input className="form-check-input checkbox_icon" type="checkbox" id="flexCheckDefault" />
                                                                 <label className="form-check-label permission" for="flexCheckDefault">
                                                                     Ask your visitor for newsletter permission
                                                                 </label>
                                                             </div>
-                                                            </div>
-                                                           
+                                                        </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -185,15 +195,34 @@ export default function Widget() {
                                         </div>
                                     </div>
                                 </div>
-
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
                 </div>
             </div>
-            <div className='col-sm-4'>
-
-            </div>
+            <div className='col-sm-3 offset-1 '>
+                <div className='row mt-4'>
+                    <div className='col-sm-12 text-center'>
+                        <h3>Preview</h3>
+                    </div>
+                </div>
+               
+                    
+                       <div className=' background_img'>
+                     
+                       <div className='img_color'>
+                       <div className='hitheretext p-4 pt-5 mt-4'>
+                                <h2>hi There check</h2>
+                                <p className='text-light'>Welcome to our website. Ask us anything </p>
+                            </div>
+                            <div className='iconmainduv'>
+                                <span className='threedoticoon'> <BsThreeDotsVertical/> </span> &nbsp;
+                                <span className='threedoticoon'> <RiArrowDropDownLine/> </span>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+         
         </div>
     )
 }
