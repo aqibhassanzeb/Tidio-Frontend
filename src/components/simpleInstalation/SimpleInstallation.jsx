@@ -2,6 +2,8 @@ import React from 'react'
 import '../simpleInstalation/SimpleInstallation.css'
 import loginimg from '../../../src/images/loginlink.webp'
 import { useState } from 'react';
+import { FaFacebookF, FaShopify, FaTwitter, FaTwitterSquare, FaWix, FaWordpressSimple } from 'react-icons/fa';
+import { BsInstagram } from 'react-icons/bs';
 const SimpleInstallation = () => {
 
     const [show, setShow] = useState(1);
@@ -9,7 +11,7 @@ const SimpleInstallation = () => {
 
     return (
         <>
-            <div className='container-fluid'>
+            <div className='container-fluid my-4'>
                 <div className='row'>
                     <div>
                         <h1 className='text-center'>Simple installation within 5 minutes</h1>
@@ -58,6 +60,34 @@ const SimpleInstallation = () => {
                     }
 
 
+                </div>
+            </div>
+            <div className='container-fluid my-4'>
+                <div className='row iconrowdiv'>
+                    <div className='tiodiointhead'>
+                        <h1 className='text-center'>Tidio's Integration</h1>
+                        <p className='connectpara'>Connect Tidio to ALL industry-leading websites and platforms via dedicated integrations</p>
+                    </div>
+                    <div className='d-flex'>
+                        <div className='iconmaindiv'>
+                            <div className='integrationIcon'><FaWix className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaShopify className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaFacebookF className='besticonshp' /></div>
+                            <div className='integrationIcon'><BsInstagram className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaWordpressSimple className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaFacebookF className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaWix className='besticonshp' /></div>
+                        </div>
+                        <div className='iconmaindiv2 d-flex'>
+                            <div className='integrationIcon'><FaTwitterSquare className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaShopify className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaFacebookF className='besticonshp' /></div>
+                            <div className='integrationIcon'><BsInstagram className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaWordpressSimple className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaFacebookF className='besticonshp' /></div>
+                            <div className='integrationIcon'><FaWix className='besticonshp' /></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

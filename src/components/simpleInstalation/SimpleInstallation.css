@@ -7,9 +7,9 @@
 .anchortextul{
     font-size: 20px;
     width: 430px;
-    font-weight: bold;
+    font-weight: 500;
     background-color: white;
-    height: 435px;
+    height: 483px;
     margin-right: 30px;
 }
 .maindvloginimg{
@@ -17,7 +17,6 @@
     justify-content: space-evenly;
     align-items: center;
   background-color: rgba(255, 174, 0, 0.774);
-  clip-path: inset(0 15% 0 0);
 }
 .anchortextul ul li{
     padding: 12px;
@@ -56,13 +55,82 @@
     display: flex;
     justify-content: center;
 }
+.besticonshp{
+    margin: 0px 10px;
+}
+.iconmaindiv{
+    display: flex;
+    justify-content: space-between;
+    animation: lefttoright 30s infinite;
+}
+@keyframes lefttoright {
+    from {
+       position: relative;
+        left: 0%;
+      }
+      to {
+         position: relative;
+        left: -100%;
+      }
+    }
+.iconmaindiv2{
+    animation: righttoleft 30s infinite;
+}
+@keyframes righttoleft {
+    from {
+       position: relative;
+        left:  0%;
+      }
+      to {
+         position: relative;
+        left: -100%;
+      }
+    }
+    
+.integrationIcon{
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    font-size: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 3px 3px 40px 3px #b4b3b38f;
+    margin: 0px 30px;
+}
+.iconrowdiv{
+    height: 80vh;
+    background-color: rgba(101, 173, 214, 0.233);
+    overflow: hidden;
+    box-shadow:10px 0px 40px #fdfcfc inset;
+}
+.connectpara{
+    text-align: center;
+    font-size: 25px;
+}
+.tiodiointhead{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.tiodiointhead h1{
+    font-weight: bold;
+}
 @media only screen and (max-width: 600px) and (min-width: 370px)  {
     .maindvloginimg{
         flex-direction: column;
         clip-path: inset(0 0% 0 0);
+        /* clip-path: circle(50% at 50% 50%); */
     }
     .imageofanchortext{
      margin: auto;
      width: 400px;
+    }
+    .anchortextul{
+        padding: 0px 25px;
+        border: 3px wheat ;
+        margin-right: 0px;
     }
 }
