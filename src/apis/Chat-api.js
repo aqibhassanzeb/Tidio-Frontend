@@ -54,6 +54,23 @@ export const Chatbotdelete = async (reqParam) => {
 }
 
 export const createChat = async (reqParam) => {
+    const response = await apiURL.post('chat2', reqParam);
+    return response
+}
+export const sendMessage2 = async (reqParam) => {
+    const response = await apiURL.post('messages2', reqParam);
+    return response
+}
+export const fetchMessages2 = async (reqParam) => {
+    const response = await apiURL.get(`messages/${reqParam}`);
+    return response
+}
+export const fetchChat2 = async (reqParam) => {
+    const response = await apiURL.get(`chat2?Admin=${reqParam}`, config);
+    return response
+}
+export const selectUser2 = async (reqParam) => {
+//   console.log("req param :",reqParam)
     const response = await apiURL.post('chat2', reqParam, config);
     return response
 }

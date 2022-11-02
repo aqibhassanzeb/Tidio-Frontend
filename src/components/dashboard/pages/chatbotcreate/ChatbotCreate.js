@@ -69,7 +69,6 @@ function ChatbotCreate() {
           handlefetch()
     }, [fetchControl])    
     var framlink=`<iframe src=${window.location.href} ></iframe>`
-console.log(window.location.href)
     return (
         <>
         <ToastContainer />

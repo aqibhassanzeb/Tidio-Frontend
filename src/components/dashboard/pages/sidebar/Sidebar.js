@@ -17,7 +17,7 @@ function Sidebar({children}) {
             
         },
         {
-            path: '',
+            path: '#/',
             name: 'dashboard',
             icon: <HiHome />
         },
@@ -33,13 +33,13 @@ function Sidebar({children}) {
             
         },
         {
-            path: '#/setting',
-            name: 'setting',
+            path: '/ChatbotCreate',
+            name: 'list',
             icon: <MdSettings />
             
         },
         {
-            path: '/ChatbotCreate',
+            path: '/chatcard',
             name: 'Chatbot',
             icon: <MdSettings />
             
