@@ -7,6 +7,8 @@ import { BsFillQuestionCircleFill, BsThreeDotsVertical } from 'react-icons/bs';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
 import { GrFormClose } from 'react-icons/gr';
+import { FiArrowDownRight } from 'react-icons/fi';
+
 import { AiOutlineSend } from 'react-icons/ai';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
@@ -153,7 +155,7 @@ export default function Widget() {
                                             <label className='btn_position_size'>Message :</label>
                                         </div>
                                         <div className='col-sm-7  messgaein'>
-                                            <input type="text" className='inputsurvey1 w-100' placeholder='Enter your text...' />
+                                            <input type="text" className='inputsurvey1 w-100' name='user_message' placeholder='Enter your text...' onChange={(e) => { inputEvent(e, "user_message") }} />
                                         </div>
                                     </div>
                                     <div className='col-sm-12 display_display mt-2 '>
@@ -163,13 +165,17 @@ export default function Widget() {
                                         <div className='bg_email d-flex justify-content-between col-sm-7'>
                                             <div className='emailtext '>Email</div>
                                             <div className='p-2'>
-                                                <span className=''> <input type="email" className='inputsurvey w-100' placeholder='Enter your email...' /></span><br />
+                                                <span className=''> <input type="email" className='inputsurvey w-100' name='enter_phone' placeholder='Enter yourphone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
                                                 <span><input type="checkbox" placeholder='Enter your text' /></span>
                                                 <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
                                             </div>
                                             <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
                                         </div>
+                                        <div className=''>
+                                        
+                                        </div>
+
                                     </div>
                                     <div className='col-sm-12 width_add d-flex mt-3'>
                                         <div className='col-sm-8 offset-3 custom_width'>
@@ -198,43 +204,69 @@ export default function Widget() {
                     </div>
                 </div>
                 <div className='backdivofacard'>
-                <div className=' background_img'>
-                    <div className='img_color'>
-                        <div className='d-flex'>
-                            <div className='hitheretext p-4 mt-4'>
-                                <h2>{getStarted.status}</h2>
-                                <p className='text-light messagetextcard'>{getStarted.message}</p>
+                    <div className=' background_img'>
+                        <div className='img_color'>
+                            <div className='d-flex'>
+                                <div className='hitheretext p-4 mt-4'>
+                                    <h2>{getStarted.status}</h2>
+                                    <p className='text-light messagetextcard'>{getStarted.message}</p>
+                                </div>
+                                <div className='iconmainduv'>
+                                    <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
+                                    <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
+                                </div>
                             </div>
-                            <div className='iconmainduv'>
-                                <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
-                                <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
+                            <div className=' p-2 maindivofaimme  d-flex align-items-center'>
+                                <div className='doticononline'></div>
+                                <div className='weimmediatex'>We reply immediately</div>
                             </div>
-                        </div>
-                        <div className=' p-2 maindivofaimme  d-flex align-items-center'>
-                            <div className='doticononline'></div>
-                            <div className='weimmediatex'>We reply immediately</div>
                         </div>
                     </div>
+
+                    <div className='sometextmessages'></div>
+                    <div className='indiv d-flex'>
+                        <input type="text" placeholder='Enter your message... ' className='' />
+
+                        <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
+                    </div>
+
                 </div>
                
-                <div className='sometextmessages'></div>
-                <div className='indiv d-flex'>
-                    <input type="text" placeholder='Enter your message... ' className='' />
-                    
-                    <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
-                    </div>
-                                    
-                </div>
-                {/* free Chat servy */}
-                <div className='mt-5 bg-light'>
+            </div>
+            {/* free Chat servy */}
+            {/*<div className='mt-5 bg-light'>
                     <div className='row mt-2 '>
                         <div className='col-sm-12 text-end'>
                             <GrFormClose />
                         </div>
+                        <div className='col-sm-12 text-center mt-5'>
+                            <img className='chat_setting_profile' src={User_png} />
+                            <h4 className='mt-2'>{getStarted.user_message}</h4>
+                            <div className='p-4'>
+                                <div className="input-group">
+                                    <div className="input-group-prepend">
+                                        <div className="input-group-text arrow"><FiArrowDownRight /></div>
+                                    </div>
+                                    <input type="text" class="form-control custom_control" placeholder="userName" aria-label="Input group example" />
+                                </div>
+                                <div className="input-group mt-2">
+                                    <div className="input-group-prepend">
+                                        <div className="input-group-text arrow"><FiArrowDownRight /></div>
+                                    </div>
+                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
+                                </div>
+                                    <div className="mt-2 mb-5">
+                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label check_label" for="flexCheckDefault">
+                                            <small>Agree Privacy policy</small>
+                                        </label>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block block_btn">Send</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
+    </div> */}
             </div>
 
-        </div>
     )
 }

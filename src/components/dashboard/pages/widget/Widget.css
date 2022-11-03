@@ -111,7 +111,10 @@
 }
 .display_display{
     display: flex;
-    /* flex-direction: column; */
+}
+.rowtocolumn{
+    display: flex;
+    flex-direction: column;
 }
 .question_mark{
     margin-top: -7px;
@@ -273,4 +276,26 @@
 .user_width{
     width: 96px !important;
     border-radius: 20%;
+}
+.chat_setting_profile{
+    width: 90px !important;
+}
+.arrow{
+    padding: 12px !important;
+    border-radius: 0px !important;
+}
+.custom_control:focus{
+    box-shadow: none !important;
+    border-color: gainsboro !important;
+}
+.check_label{
+    padding-left: 12px;
+}
+.block_btn{
+    width: 100% !important;
+    background-color: #952080 !important;
+    border: none !important;
+    border-radius: 0px !important;
+    font-size: initial !important;
+
 }
