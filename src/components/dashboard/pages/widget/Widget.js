@@ -6,6 +6,7 @@ import { AiFillHome, AiFillEye, AiOutlineDelete } from 'react-icons/ai';
 import { BsFillQuestionCircleFill, BsThreeDotsVertical } from 'react-icons/bs';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
+import { GrFormClose } from 'react-icons/gr';
 import { AiOutlineSend } from 'react-icons/ai';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
@@ -190,25 +191,31 @@ export default function Widget() {
                 </div>
             </div>
             <div className='col-sm-3 offset-1 '>
-                <div className='row mt-4'>
+                {/* Get Started Ui */}
+                {/* <div className='row mt-4'>
                     <div className='col-sm-12 text-center'>
                         <h3>Preview</h3>
                     </div>
                 </div>
-
-
                 <div className=' background_img'>
-
                     <div className='img_color'>
                         <div className='hitheretext p-4 pt-5 mt-4'>
-                            <h2>hi There check</h2>
-                            <p className='text-light'>Welcome to our website. Ask us anything </p>
+                            <h2>{getStarted.status}</h2>
+                            <p className='text-light'>{getStarted.message}</p>
                         </div>
                         <div className='iconmainduv'>
                             <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
                             <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
                         </div>
                     </div>
+                </div> */}
+                {/* free Chat servy */}
+                <div className='mt-5 bg-light'>
+                <div className='row mt-2 '>
+                    <div className='col-sm-12 text-end'>
+                        <GrFormClose />
+                    </div>
+                </div>
                 </div>
             </div>
 
