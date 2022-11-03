@@ -153,7 +153,7 @@ export default function Widget() {
                                             <label className='btn_position_size'>Message :</label>
                                         </div>
                                         <div className='col-sm-7  messgaein'>
-                                        <input type="text" className='inputsurvey1 w-100' placeholder='Enter your text...' />   
+                                            <input type="text" className='inputsurvey1 w-100' placeholder='Enter your text...' />
                                         </div>
                                     </div>
                                     <div className='col-sm-12 display_display mt-2 '>
@@ -168,7 +168,7 @@ export default function Widget() {
                                                 <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
                                             </div>
-                                            <div className='d-flex align-items-center p-3'> <AiFillDelete  /> </div>
+                                            <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
                                         </div>
                                     </div>
                                     <div className='col-sm-12 width_add d-flex mt-3'>
@@ -192,30 +192,46 @@ export default function Widget() {
             </div>
             <div className='col-sm-3 offset-1 '>
                 {/* Get Started Ui */}
-                {/* <div className='row mt-4'>
+                <div className='row mt-4'>
                     <div className='col-sm-12 text-center'>
                         <h3>Preview</h3>
                     </div>
                 </div>
+                <div className='backdivofacard'>
                 <div className=' background_img'>
                     <div className='img_color'>
-                        <div className='hitheretext p-4 pt-5 mt-4'>
-                            <h2>{getStarted.status}</h2>
-                            <p className='text-light'>{getStarted.message}</p>
+                        <div className='d-flex'>
+                            <div className='hitheretext p-4 mt-4'>
+                                <h2>{getStarted.status}</h2>
+                                <p className='text-light messagetextcard'>{getStarted.message}</p>
+                            </div>
+                            <div className='iconmainduv'>
+                                <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
+                                <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
+                            </div>
                         </div>
-                        <div className='iconmainduv'>
-                            <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
-                            <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
+                        <div className=' p-2 maindivofaimme  d-flex align-items-center'>
+                            <div className='doticononline'></div>
+                            <div className='weimmediatex'>We reply immediately</div>
                         </div>
-                    </div>
-                </div> */}
-                {/* free Chat servy */}
-                <div className='mt-5 bg-light'>
-                <div className='row mt-2 '>
-                    <div className='col-sm-12 text-end'>
-                        <GrFormClose />
                     </div>
                 </div>
+               
+                <div className='sometextmessages'></div>
+                <div className='indiv d-flex'>
+                    <input type="text" placeholder='Enter your message... ' className='' />
+                    
+                    <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
+                    </div>
+                                    
+                </div>
+                {/* free Chat servy */}
+                <div className='mt-5 bg-light'>
+                    <div className='row mt-2 '>
+                        <div className='col-sm-12 text-end'>
+                            <GrFormClose />
+                        </div>
+                    </div>
                 </div>
             </div>
 
