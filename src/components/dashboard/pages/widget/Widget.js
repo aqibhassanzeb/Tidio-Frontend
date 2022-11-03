@@ -162,18 +162,33 @@ export default function Widget() {
                                         <div className='d-flex align-items-center col-sm-2'>
                                             <label className='btn_position_size'>Survey Fields:</label>
                                         </div>
-                                        <div className='bg_email d-flex justify-content-between col-sm-7'>
+                                        <div className='bg_email  col-sm-7'>
+                                        <div className='d-flex justify-content-between'>
                                             <div className='emailtext '>Email</div>
                                             <div className='p-2'>
-                                                <span className=''> <input type="email" className='inputsurvey w-100' name='enter_phone' placeholder='Enter yourphone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                                <span className=''> <input type="email" className='inputsurvey w-100' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
                                                 <span><input type="checkbox" placeholder='Enter your text' /></span>
                                                 <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
                                             </div>
                                             <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
                                         </div>
-                                        <div className=''>
-                                        
+                                        <div className='d-flex justify-content-between'>
+                                            <div className='emailtext '>Phone Number</div>
+                                            <div className='p-2'>
+                                                <span className=''> <input type="number" className='inputsurvey w-100' name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+
+                                            </div>
+                                            <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
+                                        </div>
+                                        <div className='d-flex justify-content-between'>
+                                            <div className='emailtext '>Name</div>
+                                            <div className='p-2'>
+                                                <span className=''> <input type="text" className='inputsurvey w-100' name='enter_name' placeholder='Enter yourphone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+
+                                            </div>
+                                            <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
+                                        </div>
                                         </div>
 
                                     </div>
