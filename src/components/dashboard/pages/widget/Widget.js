@@ -13,7 +13,8 @@ import EmojiPicker from 'emoji-picker-react';
 import { FiMessageSquare } from 'react-icons/fi';
 import "../widget/Widget.css"
 import EmojiIcon from "../../../../images/icon.jpg"
-import Chatbackground from '../../../../images/chat_back.jpg'
+import Chatbackground from '../../../../images/chat_back.jpg';
+import User_png from '../../../../images/user.png'
 export default function Widget() {
     const [showChatbot, setshowChatbot] = useState(false);
     const [getStarted, setgetStarted] = useState({

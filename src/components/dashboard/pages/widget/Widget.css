@@ -182,7 +182,7 @@
  .img_color{
     background-color: rgba(150, 33, 128, 0.664);
     width: 100%;
-    height: 200px;
+    height: 100%;
    display: flex;
     top: 0;
     border: 1px solid red;
@@ -192,19 +192,17 @@
     font-weight: 400;
     font-size: 22px;
     color: white;
-    line-height: 50px;
+    line-height: 30px;
     overflow-wrap: break-word;
     white-space: pre-line;
     -webkit-text-stroke: 0.4px;
     display: flex;
     align-items: center;
-    border: 1px solid red;
 }
 .iconmainduv{
-    padding-left: 29px;
+    padding-left: 20px;
     color: white;
     display: flex;
-    align-items: center;
     font-size: 30px;
     border: 1px solid red;
 }
@@ -229,4 +227,11 @@
         display: flex;
         flex-direction: column;
     }
+}
+.Create_right{
+    flex-direction: column;
+}
+.user_width{
+    width: 96px !important;
+    border-radius: 20%;
 }
