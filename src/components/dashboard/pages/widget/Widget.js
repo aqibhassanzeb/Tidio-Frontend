@@ -196,8 +196,8 @@ export default function Widget() {
                     </Accordion>
                 </div>
             </div>
-            <div className='col-sm-3 offset-1 '>
-                {/* Get Started Ui */}
+            {/* <div className='col-sm-3 offset-2 '>
+                Get Started Ui 
                 <div className='row mt-4'>
                     <div className='col-sm-12 text-center'>
                         <h3>Preview</h3>
@@ -232,9 +232,9 @@ export default function Widget() {
 
                 </div>
                
-            </div>
+            </div> */}
             {/* free Chat servy */}
-            {/*<div className='mt-5 bg-light'>
+            <div className='mt-5 bg-light offset-1'>
                     <div className='row mt-2 '>
                         <div className='col-sm-12 text-end'>
                             <GrFormClose />
@@ -265,7 +265,7 @@ export default function Widget() {
                             </div>
                         </div>
                     </div>
-    </div> */}
+    </div>
             </div>
 
     )
