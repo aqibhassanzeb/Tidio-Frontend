@@ -151,23 +151,23 @@ export default function Widget() {
                                         <div className='col-sm-2'>
                                             <label className='btn_position_size'>Message :</label>
                                         </div>
-                                        <div className='col-sm-10 mt-4'>
-                                            <textarea className="form-control custom_form_control" id="exampleFormControlTextarea1" rows="2" placeholder='enter Your email...'></textarea> <br />
+                                        <div className='col-sm-7  messgaein'>
+                                        <input type="text" className='inputsurvey1 w-100' placeholder='Enter your text...' />   
                                         </div>
                                     </div>
-                                    <div className='col-sm-12 display_display '>
-                                        <div className='d-flex align-items-center'>
+                                    <div className='col-sm-12 display_display mt-2 '>
+                                        <div className='d-flex align-items-center col-sm-2'>
                                             <label className='btn_position_size'>Survey Fields:</label>
                                         </div>
-                                        <div className='bg_email d-flex'>
+                                        <div className='bg_email d-flex justify-content-between col-sm-7'>
                                             <div className='emailtext '>Email</div>
                                             <div className='p-2'>
-                                                <span> <input type="email" className='inputsurvey' placeholder='Enter your email...' /></span><br />
+                                                <span className=''> <input type="email" className='inputsurvey w-100' placeholder='Enter your email...' /></span><br />
                                                 <span><input type="checkbox" placeholder='Enter your text' /></span>
                                                 <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
                                             </div>
-                                            <div className='d-flex align-items-center'> <AiFillDelete /> </div>
+                                            <div className='d-flex align-items-center p-3'> <AiFillDelete  /> </div>
                                         </div>
                                     </div>
                                     <div className='col-sm-12 width_add d-flex mt-3'>

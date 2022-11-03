@@ -213,13 +213,22 @@
     padding: 5px;
 }
 .askvisitor{
-    font-size: 16px;
+    font-size: 12px;
 }
 .inputsurvey{
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid lightgray;
     outline: 1px solid lightblue;
+    height: 35px;
+    font-size: 16px;
+}
+.inputsurvey1{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    outline: 1px solid lightblue;
+    height: 35px;
     font-size: 16px;
 }
 @media only screen and (min-width: 370px) and (max-width: 600px) {
