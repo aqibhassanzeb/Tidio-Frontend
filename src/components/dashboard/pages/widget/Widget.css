@@ -111,7 +111,7 @@
 }
 .display_display{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 .question_mark{
     margin-top: -7px;
@@ -122,6 +122,7 @@
 }
 .bg_email{
     background-color: #f7f8fc !important;
+    padding: 10px;
 }
 .email_control{
     padding-left: 12px !important;
@@ -206,4 +207,26 @@
     align-items: center;
     font-size: 30px;
     border: 1px solid red;
+}
+.emailtext{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 5px;
+}
+.askvisitor{
+    font-size: 16px;
+}
+.inputsurvey{
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    outline: 1px solid lightblue;
+    font-size: 16px;
+}
+@media only screen and (min-width: 370px) and (max-width: 600px) {
+    .display_display{
+        display: flex;
+        flex-direction: column;
+    }
 }

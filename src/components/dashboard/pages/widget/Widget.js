@@ -5,6 +5,7 @@ import { Accordion } from "react-bootstrap";
 import { AiFillHome, AiFillEye, AiOutlineDelete } from 'react-icons/ai';
 import { BsFillQuestionCircleFill, BsThreeDotsVertical } from 'react-icons/bs';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import { AiFillDelete } from 'react-icons/ai';
 import { AiOutlineSend } from 'react-icons/ai';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
@@ -153,32 +154,19 @@ export default function Widget() {
                                             <textarea className="form-control custom_form_control" id="exampleFormControlTextarea1" rows="2" placeholder='enter Your email...'></textarea> <br />
                                         </div>
                                     </div>
-                                    <div className='col-sm-12 display_display bg_email'>
-                                        <div>
+                                    <div className='col-sm-12 display_display '>
+                                        <div className='d-flex align-items-center'>
                                             <label className='btn_position_size'>Survey Fields:</label>
                                         </div>
-                                        <div className='col-sm-10 d-flex'>
-                                            <div className='row'>
-                                                <div className=' display_display'>
-                                                    <div className='col-sm-2 text-center '>
-                                                        <p className='email  px-2'>Email</p>
-                                                    </div>
-                                                    <div className='col-sm-8  px-2 email_control d-flex '>
-                                                        <div className=''>
-                                                            <span className='d-flex'>
-                                                                <textarea ></textarea>
-                                                                <p className=' deleteiconwiget'><AiOutlineDelete /></p>
-                                                            </span>
-                                                            <div className="form-check mt-2">
-                                                                <input className="form-check-input checkbox_icon" type="checkbox" id="flexCheckDefault" />
-                                                                <label className="form-check-label permission" for="flexCheckDefault">
-                                                                    Ask your visitor for newsletter permission
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        <div className='bg_email d-flex'>
+                                            <div className='emailtext '>Email</div>
+                                            <div className='p-2'>
+                                                <span> <input type="email" className='inputsurvey' placeholder='Enter your email...' /></span><br />
+                                                <span><input type="checkbox" placeholder='Enter your text' /></span>
+                                                <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
+
                                             </div>
+                                            <div className='d-flex align-items-center'> <AiFillDelete /> </div>
                                         </div>
                                     </div>
                                     <div className='col-sm-12 width_add d-flex mt-3'>
@@ -206,23 +194,23 @@ export default function Widget() {
                         <h3>Preview</h3>
                     </div>
                 </div>
-               
-                    
-                       <div className=' background_img'>
-                     
-                       <div className='img_color'>
-                       <div className='hitheretext p-4 pt-5 mt-4'>
-                                <h2>hi There check</h2>
-                                <p className='text-light'>Welcome to our website. Ask us anything </p>
-                            </div>
-                            <div className='iconmainduv'>
-                                <span className='threedoticoon'> <BsThreeDotsVertical/> </span> &nbsp;
-                                <span className='threedoticoon'> <RiArrowDropDownLine/> </span>
-                            </div>
-                       </div>
+
+
+                <div className=' background_img'>
+
+                    <div className='img_color'>
+                        <div className='hitheretext p-4 pt-5 mt-4'>
+                            <h2>hi There check</h2>
+                            <p className='text-light'>Welcome to our website. Ask us anything </p>
+                        </div>
+                        <div className='iconmainduv'>
+                            <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
+                            <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
+                        </div>
                     </div>
                 </div>
-         
+            </div>
+
         </div>
     )
 }
