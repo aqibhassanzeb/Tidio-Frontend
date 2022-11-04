@@ -298,5 +298,7 @@
     border: none !important;
     border-radius: 0px !important;
     font-size: initial !important;
-
+}
+.back_image{
+    width: 76px !important;
 }

@@ -18,11 +18,22 @@ import "../widget/Widget.css"
 import EmojiIcon from "../../../../images/icon.jpg"
 import Chatbackground from '../../../../images/chat_back.jpg';
 import User_png from '../../../../images/user.png'
+import { useEffect } from 'react';
 export default function Widget() {
     const [showChatbot, setshowChatbot] = useState(false);
-    const [getStarted, setgetStarted] = useState({
-    });
-    console.log(getStarted)
+    const [getStarted, setgetStarted] = useState({});
+    const [Images, setImages] = useState([]);
+    const [imagesUrl, setImagesUrl] = useState([]);
+    useEffect (()=> {
+        if (Images.length <1) return;
+        const newImageUrl = [];
+        Images.forEach(image => newImageUrl.push(URL.createObjectURL(image)) );
+        setImagesUrl(newImageUrl);
+
+    },[Images]);
+    const imageUpload = (e) => {
+        setImages([...e.target.files]);
+    }
     const inputEvent = (event, name) => {
         setgetStarted({ ...getStarted, [name]: event.target.value })
     }
@@ -95,6 +106,9 @@ export default function Widget() {
                                             <textarea className="form-control custom_form_control" name='message' rows="2" placeholder='enter Your message here' onChange={(e) => { inputEvent(e, "message") }} ></textarea> <br />
                                             <div className="form-check form-switch check_background">
                                                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                                {imagesUrl.map(imageSrc => <img src={imageSrc} className='back_image' />)}
+                                                <input type="file" onChange={imageUpload}></input>
+                                              
                                             </div>
                                         </div>
                                     </div>
@@ -166,7 +180,7 @@ export default function Widget() {
                                         <div className='d-flex justify-content-between'>
                                             <div className='emailtext '>Email</div>
                                             <div className='p-2'>
-                                                <span className=''> <input type="email" className='inputsurvey w-100' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                                <span className=''> <input type="email" className='inputsurvey w-100' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_email") }} /></span><br />
                                                 <span><input type="checkbox" placeholder='Enter your text' /></span>
                                                 <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
@@ -184,7 +198,7 @@ export default function Widget() {
                                         <div className='d-flex justify-content-between'>
                                             <div className='emailtext '>Name</div>
                                             <div className='p-2'>
-                                                <span className=''> <input type="text" className='inputsurvey w-100' name='enter_name' placeholder='Enter yourphone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                                <span className=''> <input type="text" className='inputsurvey w-100' name='privacy' placeholder='Enter yourphone' onChange={(e) => { inputEvent(e, "privacy") }} /></span><br />
 
                                             </div>
                                             <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
@@ -262,7 +276,7 @@ export default function Widget() {
                                     <div className="input-group-prepend">
                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                     </div>
-                                    <input type="text" class="form-control custom_control" placeholder="userName" aria-label="Input group example" />
+                                    <input type="text" class="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
                                 </div>
                                 <div className="input-group mt-2">
                                     <div className="input-group-prepend">
@@ -273,7 +287,7 @@ export default function Widget() {
                                     <div className="mt-2 mb-5">
                                         <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                         <label className="form-check-label check_label" for="flexCheckDefault">
-                                            <small>Agree Privacy policy</small>
+                                            <small>{getStarted.privacy}</small>
                                         </label>
                                     </div>
                                     <button type="button" class="btn btn-primary btn-lg btn-block block_btn">Send</button>
