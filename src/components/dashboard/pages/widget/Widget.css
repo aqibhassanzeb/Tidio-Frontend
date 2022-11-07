@@ -65,19 +65,15 @@
     line-height: 1.28571429;
 }
 .custom_form_control{
-    margin-top: -20px !important;
+   
 }
 .status_p_label{
-    margin-top: 69px;
     color: #080f1a;
     font-family: euclidcircularb,sans-serif;
     font-size: 14px;
     line-height: 1.28571429;
 }
-.check_background{
-    margin-top: -5px !important;
-    margin-left: 0px !important;
-}
+
 .img_icon{
     width: 24px;
     text-align: end;
@@ -192,7 +188,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-   clip-path: ellipse(98% 95% at 34% 5%);
+   clip-path: ellipse(98% 95% at 42% 5%);
 
 }
  .img_color{
@@ -331,6 +327,9 @@
     }
     .widget_div{
         flex-direction: column;
+    }
+    .width_add{
+        width: 100% !important;
     }
 }
 .back_image{

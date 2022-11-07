@@ -176,6 +176,21 @@
     padding-top: 40px !important;
 
 }
+.excellenceicon{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.excetext{
+    font-size: 50px;
+    font-weight: bold;
+}
+.icondif{
+    font-size: 25px;
+    margin: 20px 10px;
+    font-weight: bold;
+}
 .imgview{
     position: relative;
     left: 30%;
@@ -350,5 +365,11 @@
     }
     .live_chat{
         font-size: 34px;
+    }
+    .rowreverse{
+        flex-direction: column-reverse;
+    }
+    .excellenceicon{
+        justify-content: space-around;
     }
 }
