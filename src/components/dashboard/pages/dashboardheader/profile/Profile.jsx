@@ -52,9 +52,9 @@ const Profile = ({setToggle,setValue,value}) => {
                     </div>
                 </div>
                 <div className='logprosupbtn d-flex justify-content-around '>
-                    <div className='userProfiletext'>
+                    <div className='userProfiletext'  onClick={()=>navigate("/acount")}>
                         <AiOutlineUser className='usericon2' />
-                        <p href='' className='text-white text-center'  onClick={()=>navigate("/acount")}>Profile</p>
+                        <p href='' className='text-white text-center'  >Profile</p>
                     </div>
                     <div className='userProfiletext'>
                         <MdLogout className='usericon2' style={{cursor:"pointer"}} onClick={() =>handleLogout()} />

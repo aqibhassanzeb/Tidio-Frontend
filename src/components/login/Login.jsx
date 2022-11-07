@@ -34,7 +34,7 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(res.data.user))
       dispatch(setActiveUser(res.data.user))
       dispatch(setActiveToken(res.data.token))
-      navigate('/chat')
+      navigate('/')
      
   }).catch(err=>{
     console.log("error portion :",err)

@@ -28,7 +28,12 @@ function Header() {
               </div>
               <div className='register '>
                 <button className='d-flex align-items-center logout' onClick={() => user != null ? handleLogout() : navigate('/userlogin')}>{user != null ? "Logout" : "Log In"}</button> &nbsp;&nbsp;
+                {user != null ?
+                <button className='btn btn-dark go_to_app' onClick={() => navigate('/ChatbotCreate')}>Go To App</button>
+                  :                
                 <button type="button" class="btn reg_padding" onClick={() => navigate('/register')}>Sign Up</button>
+                }
+
               </div>
             </Nav>
           </Navbar.Collapse>
