@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import boopSfx from '../../../../images/message.mp3';
+import useSound from 'use-sound';
 import Modal from 'react-bootstrap/Modal';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,7 +15,7 @@ import { AiOutlineSend } from 'react-icons/ai';
 import { FiMessageSquare } from 'react-icons/fi';
 
 function ChatbotCreate() {
-
+    const [play] = useSound(boopSfx);
     const loginUser = JSON.parse(localStorage.getItem("user"))
     const [show, setShow] = useState(false);
     const [showChatbot, setshowChatbot] = useState(false);
@@ -23,7 +25,6 @@ function ChatbotCreate() {
     const [ChatbotData, setChatbotData] = useState([])
     const handleShow = () => setShow(true);
     const [name, setName] = useState("");
-
     const handleClose = () => {
         setError("")
         setShow(false)
@@ -183,7 +184,7 @@ function ChatbotCreate() {
                                 <div className="input-group">
                                     <textarea className="form-control message_area" aria-label="With textarea"></textarea>
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
+                                        <span className="input-group-text text_send"><button className=' custom_send' onClick={play}><AiOutlineSend className='snd_icon' /></button></span>
                                     </div>
                                 </div>
                             </div>

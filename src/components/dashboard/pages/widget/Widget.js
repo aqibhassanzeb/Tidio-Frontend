@@ -8,6 +8,8 @@ import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
 import { FaRegCalendarCheck } from 'react-icons/fa';
 import { BiMobile } from 'react-icons/bi';
+import { GrFormClose } from 'react-icons/gr';
+import { FiArrowDownRight  } from 'react-icons/fi';
 
 import { AiOutlineSend } from 'react-icons/ai';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -18,11 +20,22 @@ import "../widget/Widget.css"
 import EmojiIcon from "../../../../images/icon.jpg"
 import Chatbackground from '../../../../images/chat_back.jpg';
 import User_png from '../../../../images/user.png'
+import { useEffect } from 'react';
 export default function Widget() {
     const [showChatbot, setshowChatbot] = useState(false);
-    const [getStarted, setgetStarted] = useState({
-    });
-    console.log(getStarted)
+    const [getStarted, setgetStarted] = useState({});
+    const [Images, setImages] = useState([]);
+    const [imagesUrl, setImagesUrl] = useState([]);
+    useEffect(() => {
+        if (Images.length < 1) return;
+        const newImageUrl = [];
+        Images.forEach(image => newImageUrl.push(URL.createObjectURL(image)));
+        setImagesUrl(newImageUrl);
+
+    }, [Images]);
+    const imageUpload = (e) => {
+        setImages([...e.target.files]);
+    }
     const inputEvent = (event, name) => {
         setgetStarted({ ...getStarted, [name]: event.target.value })
     }
@@ -95,6 +108,9 @@ export default function Widget() {
                                             <textarea className="form-control custom_form_control" name='message' rows="2" placeholder='enter Your message here' onChange={(e) => { inputEvent(e, "message") }} ></textarea> <br />
                                             <div className="form-check form-switch check_background">
                                                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                                {imagesUrl.map(imageSrc => <img src={imageSrc} className='back_image' />)}
+                                                <input type="file" onChange={imageUpload}></input>
+
                                             </div>
                                         </div>
                                     </div>
@@ -211,8 +227,8 @@ export default function Widget() {
                     </Accordion>
                 </div>
             </div>
-            <div className='col-sm-3 offset-1 '>
-                {/* Get Started Ui */}
+            {/* <div className='col-sm-3 offset-2 '>
+                Get Started Ui 
                 <div className='row mt-4'>
                     <div className='col-sm-12 text-center'>
                         <h3>Preview</h3>
@@ -240,9 +256,7 @@ export default function Widget() {
                                     <path fill="#ffff" fill-opacity="1" d="M0,288L80,277.3C160,267,320,245,480,240C640,235,800,245,960,245.3C1120,245,1280,235,1360,229.3L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
     </svg> */}
 
-                            </div>
-                        </div>
-                    </div>
+                           
 
                     <div className='sometextmessages'></div>
                     <div className='indiv d-flex'>
@@ -251,43 +265,42 @@ export default function Widget() {
                         <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
                     </div>
 
-                </div>
+                
 
-            </div>
+            
             {/* free Chat servy */}
-            {/*<div className='mt-5 bg-light'>
-                    <div className='row mt-2 '>
-                        <div className='col-sm-12 text-end'>
-                            <GrFormClose />
-                        </div>
-                        <div className='col-sm-12 text-center mt-5'>
-                            <img className='chat_setting_profile' src={User_png} />
-                            <h4 className='mt-2'>{getStarted.user_message}</h4>
-                            <div className='p-4'>
-                                <div className="input-group">
-                                    <div className="input-group-prepend">
-                                        <div className="input-group-text arrow"><FiArrowDownRight /></div>
-                                    </div>
-                                    <input type="text" class="form-control custom_control" placeholder="userName" aria-label="Input group example" />
+            <div className='mt-5 bg-light offset-1'>
+                <div className='row mt-2 '>
+                    <div className='col-sm-12 text-end'>
+                        <GrFormClose />
+                    </div>
+                    <div className='col-sm-12 text-center mt-5'>
+                        <img className='chat_setting_profile' src={User_png} />
+                        <h4 className='mt-2'>{getStarted.user_message}</h4>
+                        <div className='p-4'>
+                            <div className="input-group">
+                                <div className="input-group-prepend">
+                                    <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                 </div>
-                                <div className="input-group mt-2">
-                                    <div className="input-group-prepend">
-                                        <div className="input-group-text arrow"><FiArrowDownRight /></div>
-                                    </div>
-                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
-                                </div>
-                                    <div className="mt-2 mb-5">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                        <label className="form-check-label check_label" for="flexCheckDefault">
-                                            <small>Agree Privacy policy</small>
-                                        </label>
-                                    </div>
-                                    <button type="button" class="btn btn-primary btn-lg btn-block block_btn">Send</button>
+                                <input type="text" class="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
                             </div>
+                            <div className="input-group mt-2">
+                                <div className="input-group-prepend">
+                                    <div className="input-group-text arrow"><FiArrowDownRight /></div>
+                                </div>
+                                <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
+                            </div>
+                            <div className="mt-2 mb-5">
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label className="form-check-label check_label" for="flexCheckDefault">
+                                    <small>{getStarted.privacy}</small>
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-lg btn-block block_btn">Send</button>
                         </div>
                     </div>
-    </div> */}
+    </div> 
         </div>
-
+        </div>
     )
 }

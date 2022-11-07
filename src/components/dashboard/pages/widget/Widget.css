@@ -333,3 +333,6 @@
         flex-direction: column;
     }
 }
+.back_image{
+    width: 76px !important;
+}
