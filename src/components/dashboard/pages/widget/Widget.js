@@ -24,13 +24,13 @@ export default function Widget() {
     const [getStarted, setgetStarted] = useState({});
     const [Images, setImages] = useState([]);
     const [imagesUrl, setImagesUrl] = useState([]);
-    useEffect (()=> {
-        if (Images.length <1) return;
+    useEffect(() => {
+        if (Images.length < 1) return;
         const newImageUrl = [];
-        Images.forEach(image => newImageUrl.push(URL.createObjectURL(image)) );
+        Images.forEach(image => newImageUrl.push(URL.createObjectURL(image)));
         setImagesUrl(newImageUrl);
 
-    },[Images]);
+    }, [Images]);
     const imageUpload = (e) => {
         setImages([...e.target.files]);
     }
@@ -108,7 +108,7 @@ export default function Widget() {
                                                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
                                                 {imagesUrl.map(imageSrc => <img src={imageSrc} className='back_image' />)}
                                                 <input type="file" onChange={imageUpload}></input>
-                                              
+
                                             </div>
                                         </div>
                                     </div>
@@ -177,32 +177,32 @@ export default function Widget() {
                                             <label className='btn_position_size'>Survey Fields:</label>
                                         </div>
                                         <div className='bg_email  col-sm-7'>
-                                        <div className='d-flex justify-content-between'>
-                                            <div className='emailtext '>Email</div>
-                                            <div className='p-2'>
-                                                <span className=''> <input type="email" className='inputsurvey w-100' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_email") }} /></span><br />
-                                                <span><input type="checkbox" placeholder='Enter your text' /></span>
-                                                <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
+                                            <div className='d-flex justify-content-between'>
+                                                <div className='emailtext '>Email</div>
+                                                <div className='p-2'>
+                                                    <span className=''> <input type="email" className='inputsurvey w-100' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_email") }} /></span><br />
+                                                    <span><input type="checkbox" placeholder='Enter your text' /></span>
+                                                    <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
+                                                </div>
+                                                <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
                                             </div>
-                                            <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
-                                        </div>
-                                        <div className='d-flex justify-content-between'>
-                                            <div className='emailtext '>Phone Number</div>
-                                            <div className='p-2'>
-                                                <span className=''> <input type="number" className='inputsurvey w-100' name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                            <div className='d-flex justify-content-between'>
+                                                <div className='emailtext '>Phone Number</div>
+                                                <div className='p-2'>
+                                                    <span className=''> <input type="number" className='inputsurvey w-100' name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
 
+                                                </div>
+                                                <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
                                             </div>
-                                            <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
-                                        </div>
-                                        <div className='d-flex justify-content-between'>
-                                            <div className='emailtext '>Name</div>
-                                            <div className='p-2'>
-                                                <span className=''> <input type="text" className='inputsurvey w-100' name='privacy' placeholder='Enter yourphone' onChange={(e) => { inputEvent(e, "privacy") }} /></span><br />
+                                            <div className='d-flex justify-content-between'>
+                                                <div className='emailtext '>Name</div>
+                                                <div className='p-2'>
+                                                    <span className=''> <input type="text" className='inputsurvey w-100' name='privacy' placeholder='Enter yourphone' onChange={(e) => { inputEvent(e, "privacy") }} /></span><br />
 
+                                                </div>
+                                                <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
                                             </div>
-                                            <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
-                                        </div>
                                         </div>
 
                                     </div>
@@ -264,38 +264,38 @@ export default function Widget() {
             </div> */}
             {/* free Chat servy */}
             <div className='mt-5 bg-light offset-1'>
-                    <div className='row mt-2 '>
-                        <div className='col-sm-12 text-end'>
-                            <GrFormClose />
-                        </div>
-                        <div className='col-sm-12 text-center mt-5'>
-                            <img className='chat_setting_profile' src={User_png} />
-                            <h4 className='mt-2'>{getStarted.user_message}</h4>
-                            <div className='p-4'>
-                                <div className="input-group">
-                                    <div className="input-group-prepend">
-                                        <div className="input-group-text arrow"><FiArrowDownRight /></div>
-                                    </div>
-                                    <input type="text" class="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
+                <div className='row mt-2 '>
+                    <div className='col-sm-12 text-end'>
+                        <GrFormClose />
+                    </div>
+                    <div className='col-sm-12 text-center mt-5'>
+                        <img className='chat_setting_profile' src={User_png} />
+                        <h4 className='mt-2'>{getStarted.user_message}</h4>
+                        <div className='p-4'>
+                            <div className="input-group">
+                                <div className="input-group-prepend">
+                                    <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                 </div>
-                                <div className="input-group mt-2">
-                                    <div className="input-group-prepend">
-                                        <div className="input-group-text arrow"><FiArrowDownRight /></div>
-                                    </div>
-                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
-                                </div>
-                                    <div className="mt-2 mb-5">
-                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                        <label className="form-check-label check_label" for="flexCheckDefault">
-                                            <small>{getStarted.privacy}</small>
-                                        </label>
-                                    </div>
-                                    <button type="button" class="btn btn-primary btn-lg btn-block block_btn">Send</button>
+                                <input type="text" class="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
                             </div>
+                            <div className="input-group mt-2">
+                                <div className="input-group-prepend">
+                                    <div className="input-group-text arrow"><FiArrowDownRight /></div>
+                                </div>
+                                <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
+                            </div>
+                            <div className="mt-2 mb-5">
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label className="form-check-label check_label" for="flexCheckDefault">
+                                    <small>{getStarted.privacy}</small>
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-lg btn-block block_btn">Send</button>
                         </div>
                     </div>
-    </div>
+                </div>
             </div>
+        </div>
 
     )
 }
