@@ -6,8 +6,8 @@ import { AiFillHome, AiFillEye, AiOutlineDelete } from 'react-icons/ai';
 import { BsFillQuestionCircleFill, BsThreeDotsVertical } from 'react-icons/bs';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
-import { GrFormClose } from 'react-icons/gr';
-import { FiArrowDownRight } from 'react-icons/fi';
+import { FaRegCalendarCheck } from 'react-icons/fa';
+import { BiMobile } from 'react-icons/bi';
 
 import { AiOutlineSend } from 'react-icons/ai';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -34,7 +34,7 @@ export default function Widget() {
                     <Accordion style={{ border: "none" }}>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className='text-dark border_acc'>
-                                <AiFillEye className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Widget Visibility</h5>
+                                <AiFillEye className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Widget Visibility</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
@@ -79,7 +79,7 @@ export default function Widget() {
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>
-                                <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Get Started</h5>
+                                <AiFillHome className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Get Started</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
@@ -91,7 +91,7 @@ export default function Widget() {
                                     </div>
                                     <div className='col-sm-10'>
                                         <div className="form-check ">
-                                            <textarea className="form-control" name='status' rows="2" placeholder='Enter your status here' onChange={(e) => { inputEvent(e, "status") }}></textarea> <img className='img_icon' src={EmojiIcon} /> <br />
+                                            <textarea className="form-control" name='status' rows="2" placeholder='Enter your status here' onChange={(e) => { inputEvent(e, "status") }}></textarea> <br />
                                             <textarea className="form-control custom_form_control" name='message' rows="2" placeholder='enter Your message here' onChange={(e) => { inputEvent(e, "message") }} ></textarea> <br />
                                             <div className="form-check form-switch check_background">
                                                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
@@ -103,7 +103,7 @@ export default function Widget() {
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
                             <Accordion.Header>
-                                <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Mobile Widget</h5>
+                                <BiMobile className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Mobile Widget</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
@@ -135,7 +135,7 @@ export default function Widget() {
                         </Accordion.Item>
                         <Accordion.Item eventKey="3">
                             <Accordion.Header>
-                                <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Free-chat Survey</h5>
+                                <FaRegCalendarCheck className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Pre-chat Survey</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
@@ -150,7 +150,7 @@ export default function Widget() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-sm-12 display_display'>
+                                    <div className='col-sm-12 display_display mt-2'>
                                         <div className='col-sm-2'>
                                             <label className='btn_position_size'>Message :</label>
                                         </div>
@@ -158,37 +158,37 @@ export default function Widget() {
                                             <input type="text" className='inputsurvey1 w-100' name='user_message' placeholder='Enter your text...' onChange={(e) => { inputEvent(e, "user_message") }} />
                                         </div>
                                     </div>
-                                    <div className='col-sm-12 display_display mt-2 '>
-                                        <div className='d-flex align-items-center col-sm-2'>
+                                    <div className='display_display mt-3 '>
+                                        <div className='d-flex col-sm-2'>
                                             <label className='btn_position_size'>Survey Fields:</label>
                                         </div>
-                                        <div className='bg_email  col-sm-7'>
-                                        <div className='d-flex justify-content-between'>
-                                            <div className='emailtext '>Email</div>
-                                            <div className='p-2'>
-                                                <span className=''> <input type="email" className='inputsurvey w-100' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
-                                                <span><input type="checkbox" placeholder='Enter your text' /></span>
-                                                <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
+                                        <div className='bg_email '>
+                                            <div className='emailinputandtext'>
+                                                <div className='emailtext '>Email</div>
+                                                <div className='p-2'>
+                                                    <span className=''> <input type="email" className='inputsurvey w-100' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                                    <span><input type="checkbox" placeholder='Enter your text' /></span>
+                                                    <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
+                                                </div>
+                                                <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
                                             </div>
-                                            <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
-                                        </div>
-                                        <div className='d-flex justify-content-between'>
-                                            <div className='emailtext '>Phone Number</div>
-                                            <div className='p-2'>
-                                                <span className=''> <input type="number" className='inputsurvey w-100' name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                            <div className='emailinputandtext'>
+                                                <div className='emailtext '>Phone Number</div>
+                                                <div className='p-2'>
+                                                    <span className=''> <input type="number" className='inputsurvey w-100' name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
 
+                                                </div>
+                                                <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
                                             </div>
-                                            <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
-                                        </div>
-                                        <div className='d-flex justify-content-between'>
-                                            <div className='emailtext '>Name</div>
-                                            <div className='p-2'>
-                                                <span className=''> <input type="text" className='inputsurvey w-100' name='enter_name' placeholder='Enter yourphone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                            <div className='emailinputandtext'>
+                                                <div className='emailtext '>Name</div>
+                                                <div className='p-2'>
+                                                    <span className=''> <input type="text" className='inputsurvey w-100' name='enter_name' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
 
+                                                </div>
+                                                <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
                                             </div>
-                                            <div className='d-flex align-items-center p-3'> <AiFillDelete /> </div>
-                                        </div>
                                         </div>
 
                                     </div>
@@ -221,7 +221,7 @@ export default function Widget() {
                 <div className='backdivofacard'>
                     <div className=' background_img'>
                         <div className='img_color'>
-                            <div className='d-flex'>
+                            <div className='d-flex justify-content-between'>
                                 <div className='hitheretext p-4 mt-4'>
                                     <h2>{getStarted.status}</h2>
                                     <p className='text-light messagetextcard'>{getStarted.message}</p>
@@ -231,9 +231,15 @@ export default function Widget() {
                                     <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
                                 </div>
                             </div>
-                            <div className=' p-2 maindivofaimme  d-flex align-items-center'>
-                                <div className='doticononline'></div>
-                                <div className='weimmediatex'>We reply immediately</div>
+                            <div className=' maindivofaimme   align-items-center'>
+                                <div className='d-flex align-items-center p-2'>
+                                    <div className='doticononline'></div>
+                                    <div className='weimmediatex'>We reply immediately</div>
+                                </div>
+                                {/*                 <svg className='svgimg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                                    <path fill="#ffff" fill-opacity="1" d="M0,288L80,277.3C160,267,320,245,480,240C640,235,800,245,960,245.3C1120,245,1280,235,1360,229.3L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+    </svg> */}
+
                             </div>
                         </div>
                     </div>
@@ -246,7 +252,7 @@ export default function Widget() {
                     </div>
 
                 </div>
-               
+
             </div>
             {/* free Chat servy */}
             {/*<div className='mt-5 bg-light'>
@@ -281,7 +287,7 @@ export default function Widget() {
                         </div>
                     </div>
     </div> */}
-            </div>
+        </div>
 
     )
 }

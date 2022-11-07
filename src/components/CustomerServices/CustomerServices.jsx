@@ -25,10 +25,12 @@ function CustomerServices() {
     return (
         <>
             <div className='container-fluid'>
+            <div className='container'>
                 <div className='row mt-4 pb-4'>
                     <div className='col-sm-12 text-center mt-4'>
                         <h1 className='customer_service'>Customer service is great, but it's even better when  it's combined with higher sales</h1>
                     </div>
+                </div>
                 </div>
                 <div className='row mb-3'>
                     <div className='col-sm-12 mt-3 text-center'>
@@ -36,7 +38,7 @@ function CustomerServices() {
                     </div>
                 </div>
                 <div className='row tidio_section_margin  bg_tidio py-4'>
-                    <div className=' col-md-6'>
+                    <div className=' col-md-6 d-flex align-items-center'>
                         <div className=''>
                             <p className='tidio_combines text-center'>Tidio combines live chat and chatbot tools to help you provide superb customer service and generate more sales.</p>
                         </div>
@@ -45,7 +47,7 @@ function CustomerServices() {
                         <img className='chat_pic' src={chat} />
                     </div>
                 </div>
-                <div className='row my-4'>
+                <div className='row ' style={{marginTop : 80}}>
 
                     <div className='bg-transparent carouseldiv mt-4 '>
 

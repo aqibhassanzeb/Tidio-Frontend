@@ -6,8 +6,14 @@
     margin-top: 4px !important;
     padding-bottom: 8px !important;
 }
-.margin_hr{
-    margin: 0px !important;
+.deleicon:hover{
+    color: red;
+    cursor: pointer;
+}
+.svgimg{
+    position: relative;
+    width: 100%;
+        top: -10%;
 }
 .widget_header{
     color: black !important;
@@ -25,6 +31,10 @@
 }
 .check_chat{
     padding-left: 85px !important;
+}
+.emailinputandtext{
+    display: flex;
+    justify-content: space-between;
 }
 .display_chat{
     color: #080f1a;
@@ -168,17 +178,21 @@
     width: 240px;
 }
 .widget_div{
-    border: 1px solid  rgba(150,33,128,0.78);
-    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 2px 2px 8px 9px rgba(0,0,0,0); 
-    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 2px 2px 8px 9px rgba(0,0,0,0);
-    padding-bottom: 10px !important;
+    box-shadow: 5px 5px 10px rgba(23, 58, 70, 0.288);
+   padding-bottom: 10px !important;
+   border-radius: 10px;
+   
+}
+.iconofwidget{
+    color: gray;
+    font-size: 20px;
 }
 .background_img{
     background-image: url(../../../../images/chat_back.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /* clip-path: polygon(100% 0, 100% 8%, 100% 35%, 100% 98%, 80% 97%, 53% 99%, 24% 98%, 0 100%, 0% 35%, 0 0); */
+   clip-path: ellipse(98% 95% at 34% 5%);
 
 }
  .img_color{
@@ -229,7 +243,7 @@
 }
 .sometextmessages{
     height: 160px;
-    border: 1px solid rgba(211, 211, 211, 0.288);
+    border-bottom: 1px solid rgba(211, 211, 211, 0.288);
 }
 .indiv input{
     border: none;
@@ -265,12 +279,7 @@
     height: 35px;
     font-size: 16px;
 }
-@media only screen and (min-width: 370px) and (max-width: 600px) {
-    .display_display{
-        display: flex;
-        flex-direction: column;
-    }
-}
+
 .Create_right{
     flex-direction: column;
 }
@@ -299,4 +308,28 @@
     border-radius: 0px !important;
     font-size: initial !important;
 
+}
+@media only screen and (min-width: 370px) and (max-width: 600px) {
+    .display_display{
+        display: flex;
+        flex-direction: column;
+    }
+    .emailinputandtext{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .emailtext{
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        padding: 5px;
+        width: 100%;
+        justify-content: center;
+    }
+    .widget_div{
+        flex-direction: column;
+    }
 }
