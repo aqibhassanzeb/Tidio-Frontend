@@ -22,7 +22,6 @@ import ChatInbox from '../components/chatinbox/ChatInbox';
 import ChatCard from '../components/dashboard/pages/dashboardheader/chatCard/ChatCard';
 import Widget from '../components/dashboard/pages/widget/Widget'
 import ChatbotCreate from '../components/dashboard/pages/chatbotcreate/ChatbotCreate';
-
 const Routespath = () => {
 
   const dispatch=useDispatch()
