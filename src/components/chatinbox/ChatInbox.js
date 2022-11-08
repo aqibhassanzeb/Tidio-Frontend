@@ -3,13 +3,13 @@ import "../chatinbox/ChatInbox.css"
 import melissa from '../../images/melissa-j.webp'
 import { fetchMessages, sendMessage, sendMessage2 } from '../../apis/Chat-api'
 import { useDispatch, useSelector } from 'react-redux'
-import  io  from 'socket.io-client'
+import io from 'socket.io-client'
 import { setNotification } from '../../redux/features/ChatSlice'
 
 
-// var ENDPOINT =  process.env.REACT_APP_SOCKET_LINK
-// var socket =io() 
-// var selectedChatCompare
+var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
+var socket = io()
+var selectedChatCompare
 
 
 function ChatInbox({ senderUser }) {
@@ -19,11 +19,11 @@ function ChatInbox({ senderUser }) {
     const [socketConnected, setSocketConnected] = useState(false)
     const [typing, setTyping] = useState(false)
     const [isTyping, setIsTyping] = useState(false)
-
+    const [notficationControl, setNotficationControl] = useState(null)
 
     const selectedUser = useSelector(state => state.SelectedUser.selectedUser)
     const loginUser = useSelector(state => state.User.activeUser)
-    // const notification = useSelector(state => state.SelectedUser.notification)
+    const notification = useSelector(state => state.SelectedUser.notification)
     const dispatch = useDispatch()
 
 
@@ -31,15 +31,14 @@ function ChatInbox({ senderUser }) {
         const content = newmessage
         // socket.emit("stop typing", selectedUser._id)
         const chatId = selectedUser._id
-        const payload = { content, chatId }
+        const payload = { content, chatId, senderId: loginUser._id }
         setLoading(true)
         sendMessage2(payload).then((res) => {
-            console.log(res.data)
             const data = res.data
             setMessages([...messages, data])
             setNewmessage("")
             setLoading(false)
-            // socket.emit("new message", data && data)
+            socket.emit("new message", data && data)
         }).catch((err) => {
             setLoading(false)
             console.log(err)
@@ -50,22 +49,20 @@ function ChatInbox({ senderUser }) {
         const chatId = selectedUser._id
         fetchMessages(chatId).then((res) => {
             setMessages(res.data)
-            // socket.emit("join chat", chatId && chatId)
+            socket.emit("join chat", chatId && chatId)
         }).catch(err => { console.log(err); })
     }
 
 
-    // useEffect(() => {
-    //     // socket.on("connected", () => setSocketConnected(true))
-    //     socket = io(ENDPOINT)
-    //     socket.emit("setup", loginUser !== null && loginUser);
-    //     socket.on("connected", () => setSocketConnected(true))
-    //     // socket.on("typing", () => setIsTyping(true))
-    //     // socket.on("stop typing", () => setIsTyping(false))
-    // },[loginUser])
-    // // useEffect(() => {
-    // // })
-    
+    useEffect(() => {
+        // socket.on("connected", () => setSocketConnected(true))
+        socket = io(ENDPOINT)
+        socket.emit("setup", loginUser !== null && loginUser);
+        socket.on("connected", () => setSocketConnected(true))
+        // socket.on("typing", () => setIsTyping(true))
+        // socket.on("stop typing", () => setIsTyping(false))
+    }, [loginUser])
+
 
     // const handleChange = () => {
     //     socket.emit("typing", selectedUser && selectedUser._id)
@@ -86,27 +83,35 @@ function ChatInbox({ senderUser }) {
     // }
 
 
-
     useEffect(() => {
         selectedUser != null && fetchMessageshandle();
-        // selectedChatCompare = selectedUser ? selectedUser :null
-    },[selectedUser])
+        selectedChatCompare = selectedUser ? selectedUser : null
+    }, [selectedUser])
+
+    const handlenoficationmessage = () => {
+        if (notficationControl != null) {
+            dispatch(setNotification(notficationControl))
+        }
+    }
 
 
-    // useEffect(() => {
-    //     socket.on("messagerecieved", (newMessageRecieved) => {
-    //         if (!selectedChatCompare || selectedChatCompare._id !== newMessageRecieved.chat._id) {
-    //             console.log("if portion ,;;")
-    //             // if(!notification.includes(newMessageRecieved)){
+    useEffect(() => {
+        handlenoficationmessage()
+    }, [notficationControl])
 
-    //             //     dispatch(setNotification(newMessageRecieved))
-    //             // }
-    //         } else {
-    //             setMessages([...messages, newMessageRecieved])
-    //         }
-    //     })
-    // })
 
+    useEffect(() => {
+        socket.on("messagerecieved", (newMessageRecieved) => {
+
+            if (!selectedChatCompare || selectedChatCompare._id !== newMessageRecieved.chat._id) {
+                if (!notification.includes(newMessageRecieved)) {
+                    setNotficationControl(newMessageRecieved)
+                }
+            } else {
+                setMessages([...messages, newMessageRecieved])
+            }
+        })
+    })
 
     return (
         <>
@@ -115,7 +120,7 @@ function ChatInbox({ senderUser }) {
                     <div className='col-sm-12 header_chat'>
                         <div className='display_header'>
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
-                            <p className='online'>{senderUser.name}</p>
+                            <p className='online'>{selectedUser && selectedUser.subUser?.email}</p>
                         </div>
                     </div>
                 </div>
@@ -154,7 +159,7 @@ function ChatInbox({ senderUser }) {
                     {/* {isTyping ?<p>Typing...</p>:""} */}
                     <div className='col-sm-12 text-end'>
                         {/* <input type='file' /> */}
-                        {loading ? <p>loading..</p> : selectedUser && <button className='btn btn-primary' onClick={() => {sendMessageHandle()}} >Reply</button>}
+                        {loading ? <p>loading..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
                     </div>
                     <div className='col-sm-12 text_area_padding'>
                         <textarea className='form-control custom_text_area' value={newmessage} onChange={(e) => { setNewmessage(e.target.value) }}>

@@ -4,12 +4,14 @@ import "../inbox/Inbox.css"
 import useimage from "../../../../../images/horse.jpg"
 import { fetchChat2, getAllUser, selectUser, selectUser2 } from '../../../../../apis/Chat-api'
 import { useDispatch, useSelector } from 'react-redux'
-import { setSelectUser } from '../../../../../redux/features/ChatSlice'
+import { setNotification, setNotificationClear, setNotifSelectChat, setSelectUser, setsubUserNotifClear } from '../../../../../redux/features/ChatSlice'
 import { useNavigate } from 'react-router-dom'
 import { Button, Modal } from 'react-bootstrap'
 import ChatInbox from '../../../../chatinbox/ChatInbox'
 import { getSender, getSenderFull } from '../../../../../apisfun/separateUser'
 import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io'
+import NotificationBadge from 'react-notification-badge/lib/components/NotificationBadge';
+import { Effect } from 'react-notification-badge';
 const Inbox = () => {
     const [search, setSearch] = useState('')
     const [loading, setLoading] = useState(false)
@@ -17,13 +19,17 @@ const Inbox = () => {
     const [searchUsers, setSearchUsers] = useState([])
     const [chatUser, setChatUser] = useState([])
     const [senderUser, setSenderUser] = useState('')
+    const [totalnotifi, setTotalnotifi] = useState([])
+
     // for modal control 
     const [show, setShow] = useState(false);
     const [hide, setHide] = useState(false);
     const handleClose = () => setShow(false);
+    
     // const handleShow = () => setShow(true);
     const handleShow = () => setHide(false);
     const handleShowforward = () => setHide(true)
+    
     // another hooks 
     const fetchControl = useRef(false);
     const selectedUser = useSelector(state => state.SelectedUser.selectedUser)
@@ -50,21 +56,21 @@ const Inbox = () => {
         }
     }
 
-//  fetch chat user
-    
-const fetchChatUser = () => {
-    const _id = activeUser && activeUser._id
-            setLoading(true)
-            fetchChat2(_id).then((res) => {
-                setChatUser(res.data)
-                setLoading(false)
-            }
-            ).catch(err => {
-                setLoading(false)
-                console.log(err)
-            })
+    //  fetch chat user
 
-        
+    const fetchChatUser = () => {
+        const _id = activeUser && activeUser._id
+        setLoading(true)
+        fetchChat2(_id).then((res) => {
+            setChatUser(res.data)
+            setLoading(false)
+        }
+        ).catch(err => {
+            setLoading(false)
+            console.log(err)
+        })
+
+
     }
 
     // Select User for Chat func
@@ -74,10 +80,16 @@ const fetchChatUser = () => {
         setSelectLoading(true)
         selectUser2({ _id }).then(res => {
             dispatch(setSelectUser(res.data.FullChat))
-          console.log("access chat :",res)
             // var result = getSenderFull(activeUser, res.data.FullChat.subUser)
             // setSenderUser(res.data.FullChat.subUser)
-            setSelectLoading(false)
+            const newnofication = notification.filter(elm=>elm.chat?._id != value)
+            if(newnofication.length > 0)
+            {
+                dispatch(setNotifSelectChat(newnofication))
+            }else{
+                dispatch(setNotificationClear())
+            }
+        setSelectLoading(false)
         }).catch(err => {
 
             setSelectLoading(false)
@@ -85,48 +97,74 @@ const fetchChatUser = () => {
         })
     }
 
-useEffect(() => {
-    if (fetchControl.current) return
-    fetchControl.current = true
-    fetchChatUser()
-}, [])
+    useEffect(() => {
+        if (fetchControl.current) return
+        fetchControl.current = true
+        fetchChatUser()
+    }, [])
 
 
+    useEffect(() => {
+        // notication control 
+        var output=[]
+        notification && notification.forEach(element => {
+            output.push(element.chat._id)
+        }); 
+        var output2=[]
+        output && output.forEach((element,index,arr)=>{
+            if(arr.indexOf(element) == index ){
+                output2.push(element)
+            }
+        })
+
+        let result=[]
+        output2 && output2.map((elm,index)=>{
+          let  lengthValue =output.filter((el)=>elm==el)
+           result[index]=lengthValue       
+   
+      })
+          result && setTotalnotifi(result)
+    }, [notification,hide])
 
     return (
         <>
             <div className='row'>
-        {
-            hide ?( <div className='inbox-maindiv col-3'  >
-            <div className='uppersearch  d-flex justify-content-end pt-1'>
-                {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} />
+                {
+                    hide ? (<div className='inbox-maindiv col-3'  >
+                        <div className='uppersearch  d-flex justify-content-end pt-1'>
+                            {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} />
                <BsSearch className='searchiocon ' onClick={handleShow} /> */}
-                <IoMdArrowBack className='searchiocon ' onClick={handleShow} /> 
-            </div>
-            {
+                            <IoMdArrowBack className='searchiocon ' onClick={handleShow} />
+                        </div>
+                        {
                             chatUser &&
                             chatUser.map((elm, index) => {
+                            const notfi=  totalnotifi && totalnotifi.filter((elem)=>elem[0]==elm._id)
+                                        console.log( notfi)
                                 return (
                                     <>
                                         <div key={elm._id} className='inboxUserdetail d-flex mt-2' onClick={() => { handleSelect(elm._id) }} style={{ cursor: "pointer" }}>
-                                           
-                                            <div style={{color:"white"}}>
+                                        
+                                        <NotificationBadge count={notfi[0]?.length}
+                                             effect={Effect.SCALE}
+                                             />
+                                            <div style={{ color: "white" }}>
                                                 <p>{elm?.subUser.email}</p>
                                             </div>
                                         </div>
                                     </>
                                 )
                             })
-                    }
-            </div>):(
-                <div className='inbox-maindivforwarddiv col-3'  >
-            
-               <IoMdArrowForward className='searchioconforward ' onClick={handleShowforward} />          
-            </div>
-                
-            )
-        }
-           
+                        }
+                    </div>) : (
+                        <div className='inbox-maindivforwarddiv col-3'  >
+
+                            <IoMdArrowForward className='searchioconforward ' onClick={handleShowforward} />
+                        </div>
+
+                    )
+                }
+
 
                 {/* Chat portion  */}
                 <div className='col-sm-12 col-md-9 inboxCahtsys '>

@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     selectedUser: null,
-    notification:[]
+    notification:[],
+    subUsernotif:[],
 }
 
 const ChatSlice = createSlice({
@@ -13,7 +14,20 @@ const ChatSlice = createSlice({
             state.selectedUser = action.payload
         },
         setNotification: (state, action) => {
-            state.notification = [...state, action.payload]
+                state.notification = [...state.notification, action.payload]
+        },
+        setNotifSelectChat: (state, action) => {   
+            state.notification = action.payload
+        },
+    
+        setNotificationClear: (state, action) => {
+                state.notification = []
+        },
+        setsubUserNotif: (state, action) => {
+                state.subUsernotif = [...state.subUsernotif, action.payload]
+        },
+        setsubUserNotifClear: (state, action) => {
+                state.subUsernotif = []
         },
        
        
@@ -22,6 +36,6 @@ const ChatSlice = createSlice({
     }
 });
 
-export const { setSelectUser ,setNotification} = ChatSlice.actions
+export const { setSelectUser ,setNotification,setsubUserNotif,setsubUserNotifClear,setNotificationClear,setNotifSelectChat} = ChatSlice.actions
 
 export default ChatSlice.reducer
