@@ -18,6 +18,9 @@ import PricingModel from '../pricingmodel/PricingModel';
 import Footer from './../footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import SimpleInstallation from '../simpleInstalation/SimpleInstallation';
+import { RiSendPlaneFill } from 'react-icons/ri';
+import { FaForumbee, FaShopify, FaWordpress } from 'react-icons/fa';
+import { BsGoogle } from 'react-icons/bs';
 
 function CustomerServices() {
 
@@ -25,10 +28,12 @@ function CustomerServices() {
     return (
         <>
             <div className='container-fluid'>
+            <div className='container'>
                 <div className='row mt-4 pb-4'>
                     <div className='col-sm-12 text-center mt-4'>
                         <h1 className='customer_service'>Customer service is great, but it's even better when  it's combined with higher sales</h1>
                     </div>
+                </div>
                 </div>
                 <div className='row mb-3'>
                     <div className='col-sm-12 mt-3 text-center'>
@@ -36,7 +41,7 @@ function CustomerServices() {
                     </div>
                 </div>
                 <div className='row tidio_section_margin  bg_tidio py-4'>
-                    <div className=' col-md-6'>
+                    <div className=' col-md-6 d-flex align-items-center'>
                         <div className=''>
                             <p className='tidio_combines text-center'>Tidio combines live chat and chatbot tools to help you provide superb customer service and generate more sales.</p>
                         </div>
@@ -45,7 +50,7 @@ function CustomerServices() {
                         <img className='chat_pic' src={chat} />
                     </div>
                 </div>
-                <div className='row my-4'>
+                <div className='row ' style={{marginTop : 80}}>
 
                     <div className='bg-transparent carouseldiv mt-4 '>
 
@@ -144,6 +149,18 @@ function CustomerServices() {
                     <div className='col-sm-4  mt-4 imgsldie'>
                         <img className='imgview img-fluid' src={backgroundview} />
 
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='mt-5'>
+                        <h1 className='text-center'>Excellence confirmed by 1961+ reviews</h1>
+                    </div>
+                    <div className='excellenceicon'> 
+                   <div className='icondif'><RiSendPlaneFill /> Capterra</div>
+                   <div className='icondif'> <FaShopify /> Shopify</div>
+                   <div className='icondif'><FaWordpress /> Wordpress</div>
+                   <div className='icondif'> <BsGoogle /> Google</div>
+                   <div className='icondif'><FaForumbee /> GetApp</div>
                     </div>
                 </div>
                 {/* card section */}
@@ -303,7 +320,7 @@ function CustomerServices() {
                     </div>
                 </div>
                 <div className='container'>
-                    <div className='row'>
+                    <div className='row rowreverse'>
                         <div className='col-sm-12 col-md-6 live_chat_padding'>
                             <img className='img img-fluid' src={Ai} />
                         </div>
@@ -337,7 +354,7 @@ function CustomerServices() {
                     </div>
                 </div>
                 <div className='container'>
-                    <div className='row'>
+                    <div className='row rowreverse'>
                         <div className='col-sm-12 col-md-6 live_chat_padding'>
                             <img className='img img-fluid' src={messenger} />
                         </div>
@@ -372,25 +389,12 @@ function CustomerServices() {
                 </div>
 
 
+                
                 <div className='container'>
-                    <div className='row'>
-                        <div className='col-sm-12 col-md-6 live_chat_padding'>
-                            <img className='img img-fluid' src={messenger} />
+                    <div className='row rowreverse live_chat_padding'>
+                    <div className='col-sm-12 col-md-6 img_live_chat_padd'>
+                            <img className='img img-fluid' src={closed} />
                         </div>
-                        <div className='col-sm-12 col-md-6'>
-                            <h3 className='live_chat virtual_padd'>Answer any channel  from one place</h3>
-                            <p className='half_of'>As many as 75% of online customers said they expect help within five minutes. Connect all your channels to Tidio and answer your customers in an instant!</p>
-                            <ul className='ul_padding'>
-                                <li className='connect_li'>Integrate your live chat, email inbox,  Messenger, and Instagram into one  multichannel communicator</li>
-                                <li className='connect_li'>Talk to your customers on all devices:  desktop, mobile, and tablet</li>
-                                <li className='connect_li'>Never lose a potential customer because  they contacted you on a channel you  rarely use</li>
-                            </ul>
-                            <a className='discover_live'>Discover Tidio Chatbots</a><i className="bi bi-arrow-right-short"></i>
-                        </div>
-                    </div>
-                </div>
-                <div className='container'>
-                    <div className='row live_chat_padding'>
                         <div className='col-sm-12 col-md-6 liv_col'>
                             <h3 className='live_chat more_sales'>Empower your  customer support  team</h3>
                             <p className='half_of'>Did you know that 3M businesses  generated 20M leads and $400M in sales after they started using our  chatbots?</p>
@@ -401,9 +405,7 @@ function CustomerServices() {
                             </ul>
                             <a className='discover_live'>try for free now!</a><i className="bi bi-arrow-right-short"></i>
                         </div>
-                        <div className='col-sm-12 col-md-6 img_live_chat_padd'>
-                            <img className='img img-fluid' src={closed} />
-                        </div>
+                        
                     </div>
                 </div>
                 <SimpleInstallation/>

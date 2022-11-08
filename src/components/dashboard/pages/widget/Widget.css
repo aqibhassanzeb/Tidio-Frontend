@@ -6,8 +6,14 @@
     margin-top: 4px !important;
     padding-bottom: 8px !important;
 }
-.margin_hr{
-    margin: 0px !important;
+.deleicon:hover{
+    color: red;
+    cursor: pointer;
+}
+.svgimg{
+    position: relative;
+    width: 100%;
+        top: -10%;
 }
 .widget_header{
     color: black !important;
@@ -25,6 +31,10 @@
 }
 .check_chat{
     padding-left: 85px !important;
+}
+.emailinputandtext{
+    display: flex;
+    justify-content: space-between;
 }
 .display_chat{
     color: #080f1a;
@@ -55,19 +65,15 @@
     line-height: 1.28571429;
 }
 .custom_form_control{
-    margin-top: -20px !important;
+   
 }
 .status_p_label{
-    margin-top: 69px;
     color: #080f1a;
     font-family: euclidcircularb,sans-serif;
     font-size: 14px;
     line-height: 1.28571429;
 }
-.check_background{
-    margin-top: -5px !important;
-    margin-left: 0px !important;
-}
+
 .img_icon{
     width: 24px;
     text-align: end;
@@ -111,6 +117,9 @@
 }
 .display_display{
     display: flex;
+}
+.rowtocolumn{
+    display: flex;
     flex-direction: column;
 }
 .question_mark{
@@ -122,6 +131,7 @@
 }
 .bg_email{
     background-color: #f7f8fc !important;
+    padding: 10px;
 }
 .email_control{
     padding-left: 12px !important;
@@ -164,46 +174,164 @@
     width: 240px;
 }
 .widget_div{
-    border: 1px solid  rgba(150,33,128,0.78);
-    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 2px 2px 8px 9px rgba(0,0,0,0); 
-    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 2px 2px 8px 9px rgba(0,0,0,0);
-    padding-bottom: 10px !important;
+    box-shadow: 5px 5px 10px rgba(23, 58, 70, 0.288);
+   padding-bottom: 10px !important;
+   border-radius: 10px;
+   
+}
+.iconofwidget{
+    color: gray;
+    font-size: 20px;
 }
 .background_img{
-    height: auto;
-    width: 300px;
     background-image: url(../../../../images/chat_back.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-   
+   clip-path: ellipse(98% 95% at 42% 5%);
+
 }
  .img_color{
     background-color: rgba(150, 33, 128, 0.664);
     width: 100%;
-    height: 200px;
+    height: 100%;
    display: flex;
+   flex-direction: column;
     top: 0;
-    border: 1px solid red;
     z-index: -2;
 } 
+.backdivofacard{
+    border: 1px solid rgba(161, 168, 161, 0.253);
+    border-radius: 10px;
+    overflow: hidden;
+}
 .hitheretext h2{
     font-weight: 400;
     font-size: 22px;
     color: white;
-    line-height: 50px;
+    line-height: 30px;
     overflow-wrap: break-word;
     white-space: pre-line;
     -webkit-text-stroke: 0.4px;
     display: flex;
     align-items: center;
-    border: 1px solid red;
 }
 .iconmainduv{
-    padding-left: 29px;
+    padding-left: 20px;
     color: white;
     display: flex;
-    align-items: center;
     font-size: 30px;
-    border: 1px solid red;
+    align-items: center;
+}
+.doticononline{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+}
+.weimmediatex{
+    margin-left: 10px;
+    
+}
+.maindivofaimme{
+    color: white;
+    border-top: 1px solid rgba(211, 211, 211, 0.438);
+}
+.sometextmessages{
+    height: 160px;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.288);
+}
+.indiv input{
+    border: none;
+    width: 100%;
+    border-top: 1px solid rgba(211, 211, 211, 0.397);
+    height: 62px;
+    outline: none;
+    padding: 10px;
+}
+.emailtext{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 5px;
+    width: 75px;
+}
+.askvisitor{
+    font-size: 12px;
+}
+.inputsurvey{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    outline: 1px solid lightblue;
+    height: 35px;
+    font-size: 16px;
+}
+.inputsurvey1{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    outline: 1px solid lightblue;
+    height: 35px;
+    font-size: 16px;
+}
+
+.Create_right{
+    flex-direction: column;
+}
+.user_width{
+    width: 96px !important;
+    border-radius: 20%;
+}
+.chat_setting_profile{
+    width: 90px !important;
+}
+.arrow{
+    padding: 12px !important;
+    border-radius: 0px !important;
+}
+.custom_control:focus{
+    box-shadow: none !important;
+    border-color: gainsboro !important;
+}
+.check_label{
+    padding-left: 12px;
+}
+.block_btn{
+    width: 100% !important;
+    background-color: #952080 !important;
+    border: none !important;
+    border-radius: 0px !important;
+    font-size: initial !important;
+
+}
+@media only screen and (min-width: 370px) and (max-width: 600px) {
+    .display_display{
+        display: flex;
+        flex-direction: column;
+    }
+    .emailinputandtext{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .emailtext{
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        padding: 5px;
+        width: 100%;
+        justify-content: center;
+    }
+    .widget_div{
+        flex-direction: column;
+    }
+    .width_add{
+        width: 100% !important;
+    }
+}
+.back_image{
+    width: 76px !important;
 }

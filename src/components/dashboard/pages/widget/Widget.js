@@ -5,6 +5,12 @@ import { Accordion } from "react-bootstrap";
 import { AiFillHome, AiFillEye, AiOutlineDelete } from 'react-icons/ai';
 import { BsFillQuestionCircleFill, BsThreeDotsVertical } from 'react-icons/bs';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import { AiFillDelete } from 'react-icons/ai';
+import { FaRegCalendarCheck } from 'react-icons/fa';
+import { BiMobile } from 'react-icons/bi';
+import { GrFormClose } from 'react-icons/gr';
+import { FiArrowDownRight } from 'react-icons/fi';
+
 import { AiOutlineSend } from 'react-icons/ai';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Form from 'react-bootstrap/Form';
@@ -12,24 +18,37 @@ import EmojiPicker from 'emoji-picker-react';
 import { FiMessageSquare } from 'react-icons/fi';
 import "../widget/Widget.css"
 import EmojiIcon from "../../../../images/icon.jpg"
-import Chatbackground from '../../../../images/chat_back.jpg'
+import Chatbackground from '../../../../images/chat_back.jpg';
+import User_png from '../../../../images/user.png'
+import { useEffect } from 'react';
 export default function Widget() {
     const [showChatbot, setshowChatbot] = useState(false);
-    const [getStarted, setgetStarted] = useState({
-    });
-    console.log(getStarted)
+    const [getStarted, setgetStarted] = useState({});
+    const [Images, setImages] = useState([]);
+    const [imagesUrl, setImagesUrl] = useState([]);
+    useEffect(() => {
+        if (Images.length < 1) return;
+        const newImageUrl = [];
+        Images.forEach(image => newImageUrl.push(URL.createObjectURL(image)));
+        setImagesUrl(newImageUrl);
+
+    }, [Images]);
+    const imageUpload = (e) => {
+        setImages([...e.target.files]);
+    }
     const inputEvent = (event, name) => {
         setgetStarted({ ...getStarted, [name]: event.target.value })
     }
 
     return (
+        <>
         <div className='container d-flex widget_div mt-4'>
             <div className='col-sm-7'>
                 <div className="accordion mt-5">
                     <Accordion style={{ border: "none" }}>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header className='text-dark border_acc'>
-                                <AiFillEye className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Widget Visibility</h5>
+                                <AiFillEye className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Widget Visibility</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
@@ -74,23 +93,43 @@ export default function Widget() {
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>
-                                <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Get Started</h5>
+                                <AiFillHome className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Get Started</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
                                 <div className='row'>
-                                    <div className='col-sm-2'>
+                                    <div className='col-md-2 col-sm-12'>
                                         <label className='status_p'>Status:</label> <br />
-                                        <label className='status_p mt-5'>message:</label><br />
+                                    </div>
+                                    <div className='col-md-10 col-sm-12'>
+                                       
+                                            <textarea className="form-control" name='status' rows="2" placeholder='Enter your status here' onChange={(e) => { inputEvent(e, "status") }}></textarea> <br />
+                                      
+                                        </div>
+                                    </div>
+                                    <div className='row'>
+                                    <div className='col-md-2 col-sm-12'>
+                                        <label className='status_p '>message:</label><br />
+                                    </div>
+                                    <div className='col-md-10 col-sm-12'>
+                                        
+                                            <textarea className="form-control custom_form_control" name='message' rows="2" placeholder='enter Your message here' onChange={(e) => { inputEvent(e, "message") }} ></textarea> <br />
+                                     
+                                    </div>
+                                    </div>
+                                    <div className='row'>
+                                    <div className='col-md-2 col-sm-12'>
                                         <label className='status_p_label'>Background:</label> <br />
                                     </div>
-                                    <div className='col-sm-10'>
-                                        <div className="form-check ">
-                                            <textarea className="form-control" name='status' rows="2" placeholder='Enter your status here' onChange={(e) => { inputEvent(e, "status") }}></textarea> <img className='img_icon' src={EmojiIcon} /> <br />
-                                            <textarea className="form-control custom_form_control" name='message' rows="2" placeholder='enter Your message here' onChange={(e) => { inputEvent(e, "message") }} ></textarea> <br />
+
+                                    <div className='col-md-10 col-sm-12'>
+                                        
                                             <div className="form-check form-switch check_background">
                                                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
-                                            </div>
+                                                {imagesUrl.map(imageSrc => <img src={imageSrc} className='back_image' />)}
+                                                <input type="file" onChange={imageUpload}></input>
+
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +137,7 @@ export default function Widget() {
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
                             <Accordion.Header>
-                                <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Mobile Widget</h5>
+                                <BiMobile className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Mobile Widget</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
@@ -130,7 +169,7 @@ export default function Widget() {
                         </Accordion.Item>
                         <Accordion.Item eventKey="3">
                             <Accordion.Header>
-                                <AiFillHome className='text-dark' /> &nbsp;  &nbsp; <h5 className='widget_header'>Free-chat Survey</h5>
+                                <FaRegCalendarCheck className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Pre-chat Survey</h5>
                             </Accordion.Header>
                             <hr className='margin_hr' />
                             <Accordion.Body>
@@ -145,41 +184,47 @@ export default function Widget() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col-sm-12 display_display'>
+                                    <div className='col-sm-12 display_display mt-2'>
                                         <div className='col-sm-2'>
                                             <label className='btn_position_size'>Message :</label>
                                         </div>
-                                        <div className='col-sm-10 mt-4'>
-                                            <textarea className="form-control custom_form_control" id="exampleFormControlTextarea1" rows="2" placeholder='enter Your email...'></textarea> <br />
+                                        <div className='col-sm-7  messgaein'>
+                                            <input type="text" className='inputsurvey1 w-100' name='user_message' placeholder='Enter your text...' onChange={(e) => { inputEvent(e, "user_message") }} />
                                         </div>
                                     </div>
-                                    <div className='col-sm-12 display_display bg_email'>
-                                        <div>
+                                    <div className='display_display mt-3 '>
+                                        <div className='d-flex col-sm-2'>
                                             <label className='btn_position_size'>Survey Fields:</label>
                                         </div>
-                                        <div className='col-sm-10 d-flex'>
-                                            <div className='row'>
-                                                <div className=' display_display'>
-                                                    <div className='col-sm-2 text-center '>
-                                                        <p className='email  px-2'>Email</p>
-                                                    </div>
-                                                    <div className='col-sm-8  px-2 email_control d-flex '>
-                                                        <div className=''>
-                                                            <span className='d-flex'>
-                                                                <textarea ></textarea>
-                                                                <p className=' deleteiconwiget'><AiOutlineDelete /></p>
-                                                            </span>
-                                                            <div className="form-check mt-2">
-                                                                <input className="form-check-input checkbox_icon" type="checkbox" id="flexCheckDefault" />
-                                                                <label className="form-check-label permission" for="flexCheckDefault">
-                                                                    Ask your visitor for newsletter permission
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                        <div className='bg_email '>
+                                            <div className='emailinputandtext'>
+                                                <div className='emailtext '>Email</div>
+                                                <div className='p-2'>
+                                                    <span className=''> <input type="email" className='inputsurvey w-100' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                                    <span><input type="checkbox" placeholder='Enter your text' /></span>
+                                                    <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
+
                                                 </div>
+                                                <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
+                                            </div>
+                                            <div className='emailinputandtext'>
+                                                <div className='emailtext '>Phone Number</div>
+                                                <div className='p-2'>
+                                                    <span className=''> <input type="number" className='inputsurvey w-100' name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+
+                                                </div>
+                                                <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
+                                            </div>
+                                            <div className='emailinputandtext'>
+                                                <div className='emailtext '>Name</div>
+                                                <div className='p-2'>
+                                                    <span className=''> <input type="text" className='inputsurvey w-100' name='enter_name' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+
+                                                </div>
+                                                <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
                                             </div>
                                         </div>
+
                                     </div>
                                     <div className='col-sm-12 width_add d-flex mt-3'>
                                         <div className='col-sm-8 offset-3 custom_width'>
@@ -200,29 +245,80 @@ export default function Widget() {
                     </Accordion>
                 </div>
             </div>
-            <div className='col-sm-3 offset-1 '>
+            <div className='col-sm-3 offset-2 '>
+                Get Started Ui
                 <div className='row mt-4'>
                     <div className='col-sm-12 text-center'>
                         <h3>Preview</h3>
                     </div>
                 </div>
-               
-                    
-                       <div className=' background_img'>
-                     
-                       <div className='img_color'>
-                       <div className='hitheretext p-4 pt-5 mt-4'>
-                                <h2>hi There check</h2>
-                                <p className='text-light'>Welcome to our website. Ask us anything </p>
+                <div className='backdivofacard'>
+                    <div className=' background_img'>
+                        <div className='img_color'>
+                            <div className='d-flex justify-content-between'>
+                                <div className='hitheretext p-4 mt-4'>
+                                    <h2>{getStarted.status}</h2>
+                                    <p className='text-light messagetextcard'>{getStarted.message}</p>
+                                </div>
+                                <div className='iconmainduv'>
+                                    <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
+                                    <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
+                                </div>
                             </div>
-                            <div className='iconmainduv'>
-                                <span className='threedoticoon'> <BsThreeDotsVertical/> </span> &nbsp;
-                                <span className='threedoticoon'> <RiArrowDropDownLine/> </span>
+                            <div className=' maindivofaimme   align-items-center'>
+                                <div className='d-flex align-items-center p-2'>
+                                    <div className='doticononline'></div>
+                                    <div className='weimmediatex'>We reply immediately</div>
+                                </div>
                             </div>
-                       </div>
+                        </div>
+                    </div>
+                    <div className='sometextmessages'></div>
+                    <div className='indiv d-flex'>
+                        <input type="text" placeholder='Enter your message... ' className='' />
+
+                        <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
+                    </div>
+
+
+
+
+                    {/* free Chat servy */}
+                    <div className='mt-5 bg-light offset-1'>
+                        <div className='row mt-2 '>
+                            <div className='col-sm-12 text-end'>
+                                <GrFormClose />
+                            </div>
+                            <div className='col-sm-12 text-center mt-5'>
+                                <img className='chat_setting_profile' src={User_png} />
+                                <h4 className='mt-2'>{getStarted.user_message}</h4>
+                                <div className='p-4'>
+                                    <div className="input-group">
+                                        <div className="input-group-prepend">
+                                            <div className="input-group-text arrow"><FiArrowDownRight /></div>
+                                        </div>
+                                        <input type="text" class="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
+                                    </div>
+                                    <div className="input-group mt-2">
+                                        <div className="input-group-prepend">
+                                            <div className="input-group-text arrow"><FiArrowDownRight /></div>
+                                        </div>
+                                        <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
+                                    </div>
+                                    <div className="mt-2 mb-5">
+                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label check_label" for="flexCheckDefault">
+                                            <small>{getStarted.privacy}</small>
+                                        </label>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block block_btn">Send</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-         
+            </div>
         </div>
+        </>
     )
 }

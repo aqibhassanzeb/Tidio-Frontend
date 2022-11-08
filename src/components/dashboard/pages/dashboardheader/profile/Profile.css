@@ -81,3 +81,6 @@
 .textdata{
     color: rgba(255, 255, 255, 0.884);
 }
+.userProfiletext:hover{
+    cursor: pointer;
+}

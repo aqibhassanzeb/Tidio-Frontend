@@ -36,6 +36,7 @@
     background-color: #001b47 !important;
 }
 .tidio_combines{
+    color: rgba(255, 255, 255, 0.705);
     padding-top: 40px !important;
     padding-bottom: 40px !important;
     font-size: 40px;
@@ -175,6 +176,21 @@
     padding-top: 40px !important;
 
 }
+.excellenceicon{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.excetext{
+    font-size: 50px;
+    font-weight: bold;
+}
+.icondif{
+    font-size: 25px;
+    margin: 20px 10px;
+    font-weight: bold;
+}
 .imgview{
     position: relative;
     left: 30%;
@@ -256,6 +272,10 @@
 .textparagraph{
     width: 40%;
     
+}
+.whiskerName{
+    letter-spacing: 7px;
+    font-weight: bold;
 }
 .card_shadow{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
@@ -345,5 +365,11 @@
     }
     .live_chat{
         font-size: 34px;
+    }
+    .rowreverse{
+        flex-direction: column-reverse;
+    }
+    .excellenceicon{
+        justify-content: space-around;
     }
 }

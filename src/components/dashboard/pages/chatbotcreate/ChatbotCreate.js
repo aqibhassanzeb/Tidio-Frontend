@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import boopSfx from '../../../../images/message.mp3';
+import useSound from 'use-sound';
 import Modal from 'react-bootstrap/Modal';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,7 +15,7 @@ import { AiOutlineSend } from 'react-icons/ai';
 import { FiMessageSquare } from 'react-icons/fi';
 
 function ChatbotCreate() {
-
+    const [play] = useSound(boopSfx);
     const loginUser = JSON.parse(localStorage.getItem("user"))
     const [show, setShow] = useState(false);
     const [Error, setError] = useState(false)
@@ -22,7 +24,6 @@ function ChatbotCreate() {
     const [ChatbotData, setChatbotData] = useState([])
     const handleShow = () => setShow(true);
     const [name, setName] = useState("");
-
     const handleClose = () => {
         setError("")
         setShow(false)
