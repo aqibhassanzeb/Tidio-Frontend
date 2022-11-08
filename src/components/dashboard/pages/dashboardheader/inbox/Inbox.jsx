@@ -35,6 +35,7 @@ const Inbox = () => {
     const selectedUser = useSelector(state => state.SelectedUser.selectedUser)
     const activeUser = useSelector(state => state.User.activeUser)
     const notification = useSelector(state => state.SelectedUser.notification)
+    var user = JSON.parse(localStorage.getItem("user"))
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -59,8 +60,8 @@ const Inbox = () => {
     //  fetch chat user
 
     const fetchChatUser = () => {
-        const _id = activeUser && activeUser._id
-        setLoading(true)
+        const _id = user && user._id
+       if(_id){ setLoading(true)
         fetchChat2(_id).then((res) => {
             setChatUser(res.data)
             setLoading(false)
@@ -68,7 +69,7 @@ const Inbox = () => {
         ).catch(err => {
             setLoading(false)
             console.log(err)
-        })
+        })}
 
 
     }
@@ -101,7 +102,7 @@ const Inbox = () => {
         if (fetchControl.current) return
         fetchControl.current = true
         fetchChatUser()
-    }, [])
+    }, [activeUser])
 
 
     useEffect(() => {

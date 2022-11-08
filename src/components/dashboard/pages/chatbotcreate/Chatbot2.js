@@ -33,10 +33,10 @@ const Chatbot2 = () => {
     const fetchControl = useRef(false);
     const [socketConnected, setSocketConnected] = useState(false)
     const subUserData = JSON.parse(tidiochatUser)
+    const [sendloading, setSendloading] = useState(false)
     const [notficationControl, setNotficationControl] = useState(null)
     const dispatch = useDispatch()
 
-    console.log("showChatbot :", showChatbot)
 
     const subUserNotify = useSelector(state => state.SelectedUser.subUsernotif)
 
@@ -91,14 +91,18 @@ const Chatbot2 = () => {
         if (!content) {
             return setContentError(true)
         }
-        console.log(subUserData, "subUserData")
         const paylaod = { chatId, senderId: subUserData._id, sender: "subUser", content }
+        setSendloading(true)
         sendMessage2(paylaod).then(result => {
             const messagedata = result.data
             setData([...data, messagedata])
             setContent("")
             socket.emit("new message", result?.data)
-        }).catch(err => console.log(err))
+            setSendloading(false)
+        }).catch(err => {
+            
+            setSendloading(false)
+            console.log(err)})
     }
 
     // fetch messages
@@ -119,15 +123,15 @@ const Chatbot2 = () => {
         chatId && handleFetchMessages()
     }, [])
 
+
     const handlenoficationmessage = () => {
         if (notficationControl != null) {
             dispatch(setsubUserNotif(notficationControl))
-            play()
+            // play()
 
         }
     }
 
-    console.log("notify subuser :", subUserNotify)
 
     useEffect(() => {
         handlenoficationmessage()
@@ -135,10 +139,9 @@ const Chatbot2 = () => {
 
     useEffect(() => {
         socket.on("messagerecieved", (newMessageRecieved) => {
-            console.log("show chat bot 2", chatbotControl);
             if (!chatbotControl) {
-                console.log("call notification function ", chatbotControl);
                 setNotficationControl(newMessageRecieved);
+                setData([...data, newMessageRecieved])
             } else {
                 setData([...data, newMessageRecieved])
             }
@@ -214,7 +217,7 @@ const Chatbot2 = () => {
                                         aria-label="With textarea"></textarea>
                                     {chatId && chatId != undefined && <div className="input-group-prepend">
                                         <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
-                                            <AiOutlineSend className='snd_icon' />
+                                         {sendloading ? <p>loading...</p> :  <AiOutlineSend className='snd_icon' />}
                                         </button></span>
                                     </div>}
                                 </div>
@@ -225,9 +228,18 @@ const Chatbot2 = () => {
             }
             <div className='row'>
                 <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); dispatch(setsubUserNotifClear()) }}>
-                    <NotificationBadge count={subUserNotify.length}
+                  {subUserNotify.length > 0 && 
+                 <>
+                   <div className='d-flex justify-content-center' style={{zIndex:'10px'}}>
+                    <div style={{height:"10px",width:"10px",borderRadius:"50%",backgroundColor:"red"}}></div>
+                    </div>
+                  </>
+                    }
+                    {/* <NotificationBadge 
+                            count={subUserNotify.length/2}
                         effect={Effect.SCALE}
-                    />
+                    /> */}
+
                     <FiMessageSquare className='fi_message' /></button></div>
             </div>
         </>
