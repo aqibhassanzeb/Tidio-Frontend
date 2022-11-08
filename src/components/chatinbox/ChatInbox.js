@@ -34,7 +34,6 @@ function ChatInbox({ senderUser }) {
         const payload = { content, chatId, senderId: loginUser._id }
         setLoading(true)
         sendMessage2(payload).then((res) => {
-            console.log(res.data)
             const data = res.data
             setMessages([...messages, data])
             setNewmessage("")
