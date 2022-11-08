@@ -121,7 +121,7 @@ function ChatInbox({ senderUser }) {
                     <div className='col-sm-12 header_chat'>
                         <div className='display_header'>
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
-                            <p className='online'>{selectedUser.subUser?.email}</p>
+                            <p className='online'>{selectedUser && selectedUser.subUser?.email}</p>
                         </div>
                     </div>
                 </div>
