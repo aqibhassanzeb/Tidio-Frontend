@@ -22,6 +22,7 @@ import ChatInbox from '../components/chatinbox/ChatInbox';
 import ChatCard from '../components/dashboard/pages/dashboardheader/chatCard/ChatCard';
 import Widget from '../components/dashboard/pages/widget/Widget'
 import ChatbotCreate from '../components/dashboard/pages/chatbotcreate/ChatbotCreate';
+import Chatbot2 from '../components/dashboard/pages/chatbotcreate/Chatbot2';
 
 const Routespath = () => {
 
@@ -53,6 +54,7 @@ const Routespath = () => {
         <Route path="/userlogin" element={ <>    <Login />  </>} />
         <Route path="/register" element={<>    <Register /> </> } />
         <Route path="/pricing" element={<> <Header /> <Pricing /> <Footer /> </>} />
+        <Route path="/chatbot" exact element={<> <Header /> <Chatbot2 /> <Footer /> </>} />
         <Route path="/reset-pass" element={ <> <Header /> <ResetPass /> <Footer /> </>} />
        <Route path="/reset-pass/:token" element={<NewPassword />} />
         </Routes>
