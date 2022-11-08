@@ -199,8 +199,8 @@ export default function Widget() {
                                         <div className='bg_email '>
                                             <div className='emailinputandtext'>
                                                 <div className='emailtext '>Email</div>
-                                                <div className='p-2'>
-                                                    <span className=''> <input type="email" className='inputsurvey w-100' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                                <div className='p-2 '>
+                                                     <input type="email" className='inputsurvey ' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
                                                     <span><input type="checkbox" placeholder='Enter your text' /></span>
                                                     <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
@@ -208,17 +208,17 @@ export default function Widget() {
                                                 <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
                                             </div>
                                             <div className='emailinputandtext'>
-                                                <div className='emailtext '>Phone Number</div>
-                                                <div className='p-2'>
-                                                    <span className=''> <input type="number" className='inputsurvey w-100' name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                                <div className='emailtext '>Phone No.</div>
+                                                <div className='p-2 inpdivforwit'>
+                                                    <input type="number" className='inputsurvey' name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
 
                                                 </div>
                                                 <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
                                             </div>
                                             <div className='emailinputandtext'>
                                                 <div className='emailtext '>Name</div>
-                                                <div className='p-2'>
-                                                    <span className=''> <input type="text" className='inputsurvey w-100' name='enter_name' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /></span><br />
+                                                <div className='p-2 inpdivforwit '>
+                                                    <input type="text" className='inputsurvey ' name='enter_name' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
 
                                                 </div>
                                                 <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>

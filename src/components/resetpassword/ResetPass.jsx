@@ -42,7 +42,7 @@ const ResetPass = () => {
       <div className='col'>
         <div className='d-flex justify-content-center mt-5'>
 
-          <h1>Forgot Password</h1>
+          <h1 className='forrpass'>Forgot Password</h1>
         </div>
 
         <div className=' inputforget mt-5 mb-5'>
