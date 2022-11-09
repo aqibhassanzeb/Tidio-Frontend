@@ -167,7 +167,7 @@ const Chatbot2 = () => {
 
 
                             {chatId && chatId != undefined ?
-                                <div className='border chatbotmessagediv'>
+                                <div className=' chatbotmessagediv'>
                                     {
                                         data && data.map((elm) => {
                                             var setDate = new Date(elm.createdAt)
@@ -180,20 +180,20 @@ const Chatbot2 = () => {
                                                                 <div className='col-sm-1'>
                                                                     <img src={Profilepic} className="img img-fluid img_profile" />
                                                                 </div>
-                                                                <div className='col-sm-11 border border-top-0 p-3 custom_rebot_chat space_box'>
-                                                                    <p>{elm?.content}</p>
+                                                                <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box'>
+                                                                    <p className= "mesegtetxher">{elm?.content}</p>
                                                                     <time className=''>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         :
-                                                        <div className='col-sm-12  bg-light'>
+                                                        <div className='col-sm-12 '>
                                                             <div className='d-flex custom_rtl'>
                                                                 <div className='col-sm-1'>
                                                                     <img src={Profilepic} className="img img-fluid img_profile" />
                                                                 </div>
-                                                                <div className='col-sm-11 border border-top-0 p-3 custom_rebot_chat space_box_user '>
-                                                                    <p>{elm?.content}</p>
+                                                                <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
+                                                                    <p className= "mesegtetxher">{elm?.content}</p>
                                                                     <time className=''>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
                                                                 </div>
                                                             </div>
@@ -207,7 +207,7 @@ const Chatbot2 = () => {
                                 :
                                 <>
                                     <p>Please Enter Email</p>
-                                    <input style={{ border: Error ? "red solid" : "none" }} type="text" className='form-input'
+                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input'
                                         placeholder='Enter Your email here...'
                                         onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
                                     <button className='btn btn-primary' onClick={() => handleCreateChat()}>submit</button>
@@ -215,12 +215,12 @@ const Chatbot2 = () => {
                             }
                             <div className='col-sm-12'>
                                 <div className="input-group">
-                                    <textarea className="form-control message_area" style={{ border: contentError ? "1px red solid" : "1px solid #962180" }}
+                                    <input type="text" className="form-control message_area" style={{ border: contentError ? "1px red solid" : "1px solid #0b1277" }}
                                         onChange={(e) => { setContent(e.target.value); setContentError(false) }} value={content}
-                                        aria-label="With textarea"></textarea>
+                                        aria-label="With textarea"></input>
                                     {chatId && chatId != undefined && <div className="input-group-prepend">
                                         <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
-                                            {sendloading ? <p>loading...</p> : <AiOutlineSend className='snd_icon' />}
+                                            {sendloading ? <p>Sending...</p> : <AiOutlineSend className='snd_icon' />}
                                         </button></span>
                                     </div>}
                                 </div>

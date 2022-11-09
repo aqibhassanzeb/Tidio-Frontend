@@ -8,11 +8,22 @@
     background-color: #e2e8ef !important;
 }
 .chatbot_header{
-    background-color: #962180;
+    background: linear-gradient(3deg, rgba(16,2,222,1) 0%, rgba(0,0,0,1) 99%);
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
     padding: 4px !important;
     display: flex;
+}
+.chatbotmessagediv::-webkit-scrollbar{
+    width: 7px;
+    
+    background-color: blue;
+    border: 1px solid blue;
+    
+}
+.chatbotmessagediv::-webkit-scrollbar-thumb{
+    background: linear-gradient(3deg, rgba(2,2,15,1) 0%, rgb(23, 5, 73) 99%);
+    
 }
 .chatbottexthead{
     width: 90%;
@@ -35,10 +46,7 @@
 }
 .custom_rebot_chat{
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    border-bottom-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
+    border-radius: 7px;
     width: fit-content !important;
 }
 .custom_rtl{
@@ -57,15 +65,19 @@
 }
 .snd_icon{
     font-size: 29px !important;
-    color: #962180 !important;
+    color: #0b1277 !important;
 }
 .custom_send{
     border: 0px !important;
 }
+.mesegtetxher{
+    margin: 0px;
+    padding: 0px;
+}
 .message_area:focus{
     border-radius: 0px !important;
     box-shadow: none !important;
-    border-color: #962180 !important;
+    border-color: #0b1277 !important;
 }
 .heart{
     color: red !important;
@@ -81,7 +93,7 @@
     font-size: 20px !important;
     border-radius: 100% !important;
     padding: 10px !important;
-    background-color: #962180 !important;
+    background-color: #0b1277 !important;
 }
 .sticky_bton{
     display: flex;

@@ -6,6 +6,18 @@ overflow-y: scroll;
 border-radius: 10px;
 border: 1px solid lightgray;
 }
+.chat-area::-webkit-scrollbar{
+    width: 7px;
+    border-radius: 5px;
+    background-color: blue;
+    border: 1px solid blue;
+    
+}
+.chat-area::-webkit-scrollbar-thumb{
+    background: linear-gradient(3deg, rgba(2,2,15,1) 0%, rgb(23, 5, 73) 99%);
+    border-radius: 5px;
+}
+
 
 .chat_icon{
     width: 29px;

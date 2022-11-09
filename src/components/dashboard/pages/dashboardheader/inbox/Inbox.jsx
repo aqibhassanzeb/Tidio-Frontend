@@ -134,9 +134,12 @@ const Inbox = () => {
             <div className='row'>
                 {
                     hide ? (<div className='inbox-maindiv col-3'  >
-                        <div className='uppersearch  d-flex justify-content-end pt-1'>
+                        <div className='uppersearch  d-flex justify-content-between pt-1'>
                             {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} />
                <BsSearch className='searchiocon ' onClick={handleShow} /> */}
+               <div>
+                   <span className='conver'>Conversation</span>
+               </div>
                             <IoMdArrowBack className='searchiocon ' onClick={handleShow} />
                         </div>
                         {
@@ -146,7 +149,7 @@ const Inbox = () => {
                                         console.log( notfi)
                                 return (
                                     <>
-                                        <div key={elm._id} className='inboxUserdetail d-flex mt-2' onClick={() => { handleSelect(elm._id) }} style={{ cursor: "pointer" }}>
+                                        <div key={elm._id} className='inboxUserdetail mt-2' onClick={() => { handleSelect(elm._id) }} style={{ cursor: "pointer" }}>
                                         
                                         <NotificationBadge count={notfi[0]?.length}
                                              effect={Effect.SCALE}
