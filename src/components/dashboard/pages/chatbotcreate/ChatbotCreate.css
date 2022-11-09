@@ -12,6 +12,22 @@
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
     padding: 4px !important;
+    display: flex;
+}
+.chatbottexthead{
+    width: 90%;
+}
+.clsoeicon{
+    width: 10%;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+.chatbotmessagediv{
+    overflow-y: scroll;
+    height: 60vh;
+    border: 1px solid lightgray;
+    background-color: white;
 }
 .img_profile{
     width: 36px;

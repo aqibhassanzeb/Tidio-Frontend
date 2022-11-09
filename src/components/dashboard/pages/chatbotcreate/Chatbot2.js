@@ -14,6 +14,7 @@ import NotificationBadge from 'react-notification-badge/lib/components/Notificat
 import { Effect } from 'react-notification-badge';
 import useSound from 'use-sound';
 import boopSfx from "../../../../images/message.mp3"
+import { RiArrowDropDownLine } from 'react-icons/ri';
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
@@ -100,9 +101,10 @@ const Chatbot2 = () => {
             socket.emit("new message", result?.data)
             setSendloading(false)
         }).catch(err => {
-            
+
             setSendloading(false)
-            console.log(err)})
+            console.log(err)
+        })
     }
 
     // fetch messages
@@ -154,17 +156,18 @@ const Chatbot2 = () => {
 
     return (
         <>
-            {showChatbot &&
+            {showChatbot ?
                 <div className='container-fluid' style={{ position: "fixed" }}>
                     <div className='row mt-3'>
                         <div className='col-sm-3 offset-9 '>
                             <div className='col-sm-12 text-center chatbot_header'>
-                                <p className='pt-2 text-light'>Chatbot</p>
+                                <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
+                                <div className='clsoeicon' onClick={()=>{setshowChatbot(false)}} ><RiArrowDropDownLine/></div>
                             </div>
 
 
                             {chatId && chatId != undefined ?
-                                <div style={{ overflowY: "scroll", height: "60vh" }}>
+                                <div className='border chatbotmessagediv'>
                                     {
                                         data && data.map((elm) => {
                                             var setDate = new Date(elm.createdAt)
@@ -217,7 +220,7 @@ const Chatbot2 = () => {
                                         aria-label="With textarea"></textarea>
                                     {chatId && chatId != undefined && <div className="input-group-prepend">
                                         <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
-                                         {sendloading ? <p>loading...</p> :  <AiOutlineSend className='snd_icon' />}
+                                            {sendloading ? <p>loading...</p> : <AiOutlineSend className='snd_icon' />}
                                         </button></span>
                                     </div>}
                                 </div>
@@ -225,15 +228,15 @@ const Chatbot2 = () => {
                         </div>
                     </div>
                 </div>
-            }
+            :
             <div className='row'>
                 <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); dispatch(setsubUserNotifClear()) }}>
-                  {subUserNotify.length > 0 && 
-                 <>
-                   <div className='d-flex justify-content-center' style={{zIndex:'10px'}}>
-                    <div style={{height:"10px",width:"10px",borderRadius:"50%",backgroundColor:"red"}}></div>
-                    </div>
-                  </>
+                    {subUserNotify.length > 0 &&
+                        <>
+                            <div className='d-flex justify-content-center' style={{ zIndex: '10px' }}>
+                                <div style={{ height: "10px", width: "10px", borderRadius: "50%", backgroundColor: "red" }}></div>
+                            </div>
+                        </>
                     }
                     {/* <NotificationBadge 
                             count={subUserNotify.length/2}
@@ -242,6 +245,7 @@ const Chatbot2 = () => {
 
                     <FiMessageSquare className='fi_message' /></button></div>
             </div>
+        }
         </>
     )
 }

@@ -3,6 +3,7 @@
     height: 86vh;
     border: 1px solid lightgray;
     background-color: rgb(239, 242, 246);
+    transition: 1s;
 }
 .imageofuser{
     width: 60px;

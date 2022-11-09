@@ -12,6 +12,7 @@ import { getSender, getSenderFull } from '../../../../../apisfun/separateUser'
 import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io'
 import NotificationBadge from 'react-notification-badge/lib/components/NotificationBadge';
 import { Effect } from 'react-notification-badge';
+import ProfileChatInfo from '../../../profileChatInfo/ProfileChatInfo'
 const Inbox = () => {
     const [search, setSearch] = useState('')
     const [loading, setLoading] = useState(false)
@@ -23,6 +24,7 @@ const Inbox = () => {
 
     // for modal control 
     const [show, setShow] = useState(false);
+    const [showProfInfo, setShowProfInfo] = useState(false);
     const [hide, setHide] = useState(false);
     const handleClose = () => setShow(false);
     
@@ -168,10 +170,17 @@ const Inbox = () => {
 
 
                 {/* Chat portion  */}
-                <div className='col-sm-12 col-md-9 inboxCahtsys '>
+                <div className='col-sm-12 col-md-9 inboxCahtsys d-flex'>
 
-                    <ChatInbox senderUser={senderUser} />
-
+                    <ChatInbox senderUser={senderUser}
+                    showProfInfo = {showProfInfo}
+                    setShowProfInfo = {setShowProfInfo} />
+                    {
+                        showProfInfo &&
+                        <ProfileChatInfo 
+                       
+                        />
+                    }
                 </div>
             </div>
             {/* Modal for user search  */}

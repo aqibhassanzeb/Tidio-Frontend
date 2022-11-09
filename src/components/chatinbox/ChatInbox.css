@@ -1,3 +1,11 @@
+.chat-area{
+    background: linear-gradient(3deg, rgba(16,2,222,1) 0%, rgba(0,0,0,1) 99%);
+    padding: 20px;
+height: 60vh;
+overflow-y: scroll;
+border-radius: 10px;
+border: 1px solid lightgray;
+}
 
 .chat_icon{
     width: 29px;
@@ -19,20 +27,30 @@
 .chat_text{
     /* margin-left: 43px;
     margin-top: 0px; */
-    
+    width: fit-content;
     margin-top: 8px;
-    background-color: cadetblue;
-    border-radius: 14px;
-    padding-left: 12px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(231,216,216,0.8715861344537815) 99%);
+    border-radius: 5px;
+    padding: 12px;
+}
+.chat_text p{
+   margin: 0px;
+   padding: 0px;
 }
 .chat_end_text{
     margin-right: 43px;
     margin-top: 0px;
     padding: 9px;
-    background-color: #0497db;
-    border-radius: 12px;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(231,216,216,0.8715861344537815) 99%);
+    border-radius: 5px;
+    width: fit-content;
+    display: flex;
+    justify-content: end;
+}
+.chat_end_text p{
+   margin: 0px;
+   padding: 0px;
 }
 .chat_end_row{
     display: inline-flex;
@@ -52,25 +70,56 @@
     padding-right: 30px;
     padding-top: 2px;
 }
-.chat-area{
-background-color: #1c2b45;
-height: 50vh;
-overflow-y: scroll;
+
+.text_area_padding{
+    width: 100%;
+    
 }
-.custom_text_area{
-    height: 140px;
-    margin-bottom: 9px;
+.replybtn{
+    padding: 20px 0px;
 }
-/* .text_area_padding{
-    padding-left: 29px !important;
-} */
 .custom_fluid{
     width: 100% !important;
+}
+.custom_text_area{
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.replymaindic{
+    border: 1px solid rgba(211, 211, 211, 0.288);
+    border-radius: 10px;
+}
+.openprofinfo{
+    padding: 0px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    color: rgb(248, 248, 248);
+    background-color: rgb(11, 11, 133);
+    clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+}
+.openprofinfo2{
+    padding: 0px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    color: rgb(248, 248, 248);
+    background-color: rgb(11, 11, 133);
+    clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
 }
 .header_chat{
     margin-top: 5px !important;
     padding-bottom: 5px;
     border-bottom: 2px solid rgb(208, 208, 224);
+    display: flex;
+    justify-content: space-between;
 }
 .display_header{
     display: flex;
@@ -79,4 +128,9 @@ overflow-y: scroll;
     margin-left: 8px;
     margin-bottom: 0px !important;
     padding: 0px;
+}
+@media only screen and (max-width: 800px) and (min-width: 400px)  {
+    .chat_end_text{
+        margin-right: 10px;
+    }
 }
