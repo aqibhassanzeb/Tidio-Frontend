@@ -5,6 +5,9 @@ import { fetchMessages, sendMessage, sendMessage2 } from '../../apis/Chat-api'
 import { useDispatch, useSelector } from 'react-redux'
 import io from 'socket.io-client'
 import { setNotification } from '../../redux/features/ChatSlice'
+import { useRef } from 'react'
+import Peer from "simple-peer"
+import { Modal } from 'bootstrap'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -25,7 +28,25 @@ function ChatInbox({ senderUser }) {
     const loginUser = useSelector(state => state.User.activeUser)
     const notification = useSelector(state => state.SelectedUser.notification)
     const dispatch = useDispatch()
-
+    
+    // calling state portion 
+    const [ me, setMe ] = useState("")
+	const [ stream, setStream ] = useState()
+	const [ receivingCall, setReceivingCall ] = useState(false)
+	const [ caller, setCaller ] = useState("")
+	const [ callerSignal, setCallerSignal ] = useState()
+	const [ callAccepted, setCallAccepted ] = useState(false)
+	const [ idToCall, setIdToCall ] = useState("")
+	const [ callEnded, setCallEnded] = useState(false)
+	const [ name, setName ] = useState("")
+	const myVideo = useRef()
+	const userVideo = useRef()
+	const connectionRef= useRef()
+    
+    // video modal 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const sendMessageHandle = (e) => {
         const content = newmessage
@@ -55,12 +76,29 @@ function ChatInbox({ senderUser }) {
 
 
     useEffect(() => {
-        // socket.on("connected", () => setSocketConnected(true))
         socket = io(ENDPOINT)
         socket.emit("setup", loginUser !== null && loginUser);
         socket.on("connected", () => setSocketConnected(true))
         // socket.on("typing", () => setIsTyping(true))
         // socket.on("stop typing", () => setIsTyping(false))
+
+        // call portion 
+        
+        navigator.mediaDevices.getUserMedia({ video: false, audio: true }).then((stream) => {
+			setStream(stream)
+				myVideo.current.srcObject = stream
+		})
+        socket.on("me", (id) => {
+			setMe(id)
+		})
+
+		socket.on("callUser", (data) => {
+			setReceivingCall(true)
+			setCaller(data.from)
+			setName(data.name)
+			setCallerSignal(data.signal)
+		})
+    
     }, [loginUser])
 
 
@@ -112,6 +150,60 @@ function ChatInbox({ senderUser }) {
             }
         })
     })
+
+    // calling portion 
+
+    const callUser = (id) => {
+		const peer = new Peer({
+			initiator: true,
+			trickle: false,
+			stream: stream
+		})
+		peer.on("signal", (data) => {
+			socket.emit("callUser", {
+				userToCall: id,
+				signalData: data,
+				from: me,
+				name: name
+			})
+		})
+		peer.on("stream", (stream) => {
+			
+				userVideo.current.srcObject = stream
+			
+		})
+		socket.on("callAccepted", (signal) => {
+			setCallAccepted(true)
+			peer.signal(signal)
+		})
+
+		connectionRef.current = peer
+	}
+
+	const answerCall =() =>  {
+		setCallAccepted(true)
+		const peer = new Peer({
+			initiator: false,
+			trickle: false,
+			stream: stream
+		})
+		peer.on("signal", (data) => {
+			socket.emit("answerCall", { signal: data, to: caller })
+		})
+		peer.on("stream", (stream) => {
+			userVideo.current.srcObject = stream
+		})
+
+		peer.signal(callerSignal)
+		connectionRef.current = peer
+	}
+
+	const leaveCall = () => {
+		setCallEnded(true)
+		connectionRef.current.destroy()
+	}
+
+
 
     return (
         <>
@@ -167,6 +259,23 @@ function ChatInbox({ senderUser }) {
                     </div>
                 </div>
             </div>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Create ChatBot</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                   
+                </Modal.Body>
+                <Modal.Footer>
+                    <button className='btn btn-danger' onClick={handleClose}>
+                        Close
+                    </button>
+                    <button className='btn btn-primary' onClick={handleShow}>
+                        Save Changes
+                    </button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }

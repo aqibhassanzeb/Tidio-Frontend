@@ -72,12 +72,12 @@ function ChatbotCreate() {
             console.log(err)
         })
     }
-
+    
     useEffect(() => {
         handlefetch()
     }, [fetchControl])
-    var framlink = `<iframe src=${window.location.href} ></iframe>`
-    console.log(window.location.href)
+    var framlink = `<iframe src=${window.location.href}/chatbot/${loginUser._id} ></iframe>`
+    console.log(window.location.pathname)
     return (
         <>
             <ToastContainer />
@@ -86,6 +86,7 @@ function ChatbotCreate() {
                     <div className='col-sm-12'>
                         <button className='btn btn-primary' onClick={handleShow}>Create ChatBot</button>
                         {/* <p>{window.location.href}</p> */}
+                        <h4>Chatbot Link</h4>
                         <p>{framlink}</p>
                         {/* <button onClick={copy}>{!copied ? "Copy link" : "Copied!"}</button> */}
                     </div>
