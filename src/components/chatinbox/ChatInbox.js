@@ -7,7 +7,7 @@ import io from 'socket.io-client'
 import { setNotification } from '../../redux/features/ChatSlice'
 import { useRef } from 'react'
 import Peer from "simple-peer"
-import { Modal } from 'bootstrap'
+import { Modal } from 'react-bootstrap'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -15,7 +15,7 @@ var socket = io()
 var selectedChatCompare
 
 
-function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
+function ChatInbox({ senderUser }) {
     const [messages, setMessages] = useState([])
     const [newmessage, setNewmessage] = useState('')
     const [loading, setLoading] = useState(false)
@@ -44,9 +44,10 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
 	const connectionRef= useRef()
     
     // video modal 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+      const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
     const sendMessageHandle = (e) => {
         const content = newmessage
@@ -214,9 +215,6 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
                             <p className='online'>{selectedUser && selectedUser.subUser?.email}</p>
                         </div>
-                        <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
-                            showProfInfo ? "Close" : "Open"
-                        }</div>
                     </div>
                 </div>
                 {selectedUser ? <div className='row chat-area' >
@@ -228,12 +226,12 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
 
                                 elm.sender == "subUser" ? <div className='col-sm-12 text-left p-2'>
                                     <div className='chat_row'>
-                                        <h5 className='chat_name    '>{elm.name}</h5>
+                                        <h5 className='chat_name'>{elm.name}</h5>
                                         <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
 
                                     </div>
                                     <div className='chat_text'>
-                                        <p className='mesagecontext'>{elm.content}</p>
+                                        <p>{elm.content}</p>
                                     </div>
                                 </div> :
                                     <div className='col-sm-12 text-end  p-2'>
@@ -241,27 +239,24 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                                             <time className='chat_end_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
                                             <h5 className='chat_end_name'>{elm.name}</h5>
                                         </div>
-                                        <div className='d-flex justify-content-end'>
-                                            <div className='chat_end_text'>
-                                                <p>{elm.content}</p>
-                                            </div>
+                                        <div className='chat_end_text'>
+                                            <p>{elm.content}</p>
                                         </div>
                                     </div>
                             )
                         })
                     }
                 </div> : <h2>Empty</h2>}
-                <div className='row  '>
-                    <div className='d-flex replymaindic '>
+                <div className='row pb-4  position_textarea'>
+
+                    {/* {isTyping ?<p>Typing...</p>:""} */}
+                    <div className='col-sm-12 text-end'>
                         {/* <input type='file' /> */}
-                        <div className=' text_area_padding'>
-                            <input type="text" placeholder='Type your message here...' className=' custom_text_area' value={newmessage} onChange={(e) => { setNewmessage(e.target.value) }}>
-                            </input>
-                        </div>
-                        {/* {isTyping ?<p>Typing...</p>:""} */}
-                        <div className='replybtn '>
-                            {loading ? <p>loading..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
-                        </div>
+                        {loading ? <p>loading..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
+                    </div>
+                    <div className='col-sm-12 text_area_padding'>
+                        <textarea className='form-control custom_text_area' value={newmessage} onChange={(e) => { setNewmessage(e.target.value) }}>
+                        </textarea>
                     </div>
                 </div>
             </div>
@@ -271,13 +266,16 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                     <Modal.Title>Create ChatBot</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                   
+                    {/* <input className="form-control" placeholder="enter your chatbotname"
+                        onChange={(e) => { setName(e.target.value); setError(false) }}
+                    ></input>
+                    {Error && <p style={{ color: "red" }}>please fill the name</p>} */}
                 </Modal.Body>
                 <Modal.Footer>
                     <button className='btn btn-danger' onClick={handleClose}>
                         Close
                     </button>
-                    <button className='btn btn-primary' onClick={handleShow}>
+                    <button className='btn btn-primary' onClick={handleClose}>
                         Save Changes
                     </button>
                 </Modal.Footer>
