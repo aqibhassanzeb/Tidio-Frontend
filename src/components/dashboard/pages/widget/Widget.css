@@ -251,10 +251,9 @@
 }
 .emailtext{
     display: flex;
-    align-items: center;
     font-size: 16px;
     padding: 5px;
-    width: 75px;
+    width: 85px;
 }
 .askvisitor{
     font-size: 12px;
@@ -266,6 +265,10 @@
     outline: 1px solid lightblue;
     height: 35px;
     font-size: 16px;
+    width: 100%;
+}
+.inpdivforwit{
+    width: 265px;
 }
 .inputsurvey1{
     padding: 5px;

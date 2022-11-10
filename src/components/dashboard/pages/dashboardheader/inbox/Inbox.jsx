@@ -12,6 +12,7 @@ import { getSender, getSenderFull } from '../../../../../apisfun/separateUser'
 import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io'
 import NotificationBadge from 'react-notification-badge/lib/components/NotificationBadge';
 import { Effect } from 'react-notification-badge';
+import ProfileChatInfo from '../../../profileChatInfo/ProfileChatInfo'
 const Inbox = () => {
     const [search, setSearch] = useState('')
     const [loading, setLoading] = useState(false)
@@ -23,6 +24,7 @@ const Inbox = () => {
 
     // for modal control 
     const [show, setShow] = useState(false);
+    const [showProfInfo, setShowProfInfo] = useState(false);
     const [hide, setHide] = useState(false);
     const handleClose = () => setShow(false);
     
@@ -132,9 +134,12 @@ const Inbox = () => {
             <div className='row'>
                 {
                     hide ? (<div className='inbox-maindiv col-3'  >
-                        <div className='uppersearch  d-flex justify-content-end pt-1'>
+                        <div className='uppersearch  d-flex justify-content-between pt-1'>
                             {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} />
                <BsSearch className='searchiocon ' onClick={handleShow} /> */}
+               <div>
+                   <span className='conver'>Conversation</span>
+               </div>
                             <IoMdArrowBack className='searchiocon ' onClick={handleShow} />
                         </div>
                         {
@@ -144,7 +149,7 @@ const Inbox = () => {
                                         console.log( notfi)
                                 return (
                                     <>
-                                        <div key={elm._id} className='inboxUserdetail d-flex mt-2' onClick={() => { handleSelect(elm._id) }} style={{ cursor: "pointer" }}>
+                                        <div key={elm._id} className='inboxUserdetail mt-2' onClick={() => { handleSelect(elm._id) }} style={{ cursor: "pointer" }}>
                                         
                                         <NotificationBadge count={notfi[0]?.length}
                                              effect={Effect.SCALE}
@@ -168,10 +173,17 @@ const Inbox = () => {
 
 
                 {/* Chat portion  */}
-                <div className='col-sm-12 col-md-9 inboxCahtsys '>
+                <div className='col-sm-12 col-md-9 inboxCahtsys d-flex'>
 
-                    <ChatInbox senderUser={senderUser} />
-
+                    <ChatInbox senderUser={senderUser}
+                    showProfInfo = {showProfInfo}
+                    setShowProfInfo = {setShowProfInfo} />
+                    {
+                        showProfInfo &&
+                        <ProfileChatInfo 
+                       
+                        />
+                    }
                 </div>
             </div>
             {/* Modal for user search  */}

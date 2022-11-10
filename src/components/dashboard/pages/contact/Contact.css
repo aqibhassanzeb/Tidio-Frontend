@@ -1,3 +1,42 @@
 .chat_page{
     font-display: flex;
 }
+.socialicon{
+    font-size: 30px;
+}
+.contatchead{
+    text-align: center;
+    font-family: serif;
+}
+.socialicon:hover{
+   color: rgb(6, 6, 122);
+   cursor: pointer;
+}
+.tidiologohere{
+    border: 1px solid rgba(211, 211, 211, 0.466);
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 255, 0.171);
+    width: 80%;
+    margin: auto;
+    color: white;
+   
+    animation: shadowtext 5s linear infinite;
+}
+@keyframes shadowtext {
+    0%{
+        text-shadow: 0px 0px 0px red;
+    }
+    25%{
+        text-shadow: 1px 1px 6px rgb(0, 255, 42);
+    }
+    50%{
+        text-shadow: 1px 1px 6px rgb(0, 47, 255);
+    }
+    75%{
+        text-shadow: 1px 1px 6px rgb(255, 0, 0);
+    }
+    100%{
+        text-shadow: 1px 1px 6px rgb(255, 145, 0);
+    }
+}
