@@ -4,6 +4,7 @@
     border: 1px solid lightgray;
     background-color: rgb(239, 242, 246);
     animation: profinfoanim 1s linear;
+    transition: linear 1s;
 }
 @keyframes profinfoanim {
     from{

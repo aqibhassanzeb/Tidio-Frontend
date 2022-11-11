@@ -15,7 +15,7 @@ const ProfileChatInfo = () => {
     const [cross , setCross] = useState(false);
     return (
         <>
-
+        
             <div className='ProfileChatMaindiv'>
                 <div className='ProfileimageAndemail  p-2 d-flex'>
                     <span>
