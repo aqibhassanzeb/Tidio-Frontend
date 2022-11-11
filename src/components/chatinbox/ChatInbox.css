@@ -92,6 +92,7 @@ border: 1px solid lightgray;
 }
 .custom_fluid{
     width: 100% !important;
+    transition: .7s;
 }
 .custom_text_area{
     width: 100%;
@@ -132,6 +133,7 @@ border: 1px solid lightgray;
     border-bottom: 2px solid rgb(208, 208, 224);
     display: flex;
     justify-content: space-between;
+    transition: .7s;
 }
 .display_header{
     display: flex;

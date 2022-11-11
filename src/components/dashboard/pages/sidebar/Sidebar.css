@@ -10,7 +10,6 @@ main{
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
-    
     padding-bottom: 5px;
 }
 .sidebar{
@@ -18,11 +17,20 @@ main{
     color: white;
     height: 100vh;
     width: 300px;
+    transition: .7s;
 }
 .top_section{
     display: flex;
     align-items: center;
     padding: 20px 15px;
+}
+.fabricon{  
+    cursor: pointer;
+}
+.closecrass{
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
 }
 .logo{
     font-size: 30px;
