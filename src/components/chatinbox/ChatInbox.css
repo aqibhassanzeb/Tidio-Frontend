@@ -137,6 +137,15 @@ border: 1px solid lightgray;
     justify-content: space-between;
     transition: .7s;
 }
+.callicon{
+    border: 1px solid lightgray;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 3px;
+    color: blue;
+    cursor: pointer;
+    background-color: lightblue;
+}
 .display_header{
     display: flex;
 }
