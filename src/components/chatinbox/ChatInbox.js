@@ -5,6 +5,10 @@ import { fetchMessages, sendMessage, sendMessage2 } from '../../apis/Chat-api'
 import { useDispatch, useSelector } from 'react-redux'
 import io from 'socket.io-client'
 import { setNotification } from '../../redux/features/ChatSlice'
+import { useRef } from 'react'
+import Peer from "simple-peer"
+import { Button, Modal } from 'react-bootstrap'
+import CopyToClipboard from 'react-copy-to-clipboard'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -26,6 +30,29 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     const notification = useSelector(state => state.SelectedUser.notification)
     const dispatch = useDispatch()
 
+    // calling state portion 
+    const [me, setMe] = useState("")
+    const [stream, setStream] = useState('')
+    const [receivingCall, setReceivingCall] = useState(false)
+    const [caller, setCaller] = useState("")
+    const [callerSignal, setCallerSignal] = useState('')
+    const [callAccepted, setCallAccepted] = useState(false)
+    const [idToCall, setIdToCall] = useState("")
+    const [callEnded, setCallEnded] = useState(false)
+    const [name, setName] = useState('')
+    const [forceUpdate, setForceUpdate] = useState(false)
+    const myVideo = useRef()
+    const userVideo = useRef()
+    const connectionRef = useRef()
+
+    // video modal 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () =>{
+        leaveCall()    
+        setShow(false)
+    }
+    const handleShow = () => setShow(true);
 
     const sendMessageHandle = (e) => {
         const content = newmessage
@@ -52,16 +79,48 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             socket.emit("join chat", chatId && chatId)
         }).catch(err => { console.log(err); })
     }
-
+    useEffect(() => {
+        loginUser && setName(loginUser.name)
+    }, [loginUser])
 
     useEffect(() => {
-        // socket.on("connected", () => setSocketConnected(true))
         socket = io(ENDPOINT)
         socket.emit("setup", loginUser !== null && loginUser);
         socket.on("connected", () => setSocketConnected(true))
         // socket.on("typing", () => setIsTyping(true))
         // socket.on("stop typing", () => setIsTyping(false))
+
+        socket.on("me", (id) => {
+            setMe(id)
+        })
+
+        socket.on("callUser", (data) => {
+            handleCall()
+            setReceivingCall(true)
+            setCaller(data.from)
+            setName(data.name)
+            setCallerSignal(data.signal)
+        })
+
     }, [loginUser])
+
+    const handleCall = () => {
+         setShow(true);
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+            setStream(stream)
+            // let cur = myVideo.current;
+            // myVideo.current?.srcObject = stream;
+            myVideo.current.srcObject = stream;
+            // myVideo.current['srcObject'] = stream;
+            // myVideo.current = { ...myVideo.current, srcObject: stream };
+            // myVideo = { ...myVideo, current: {...myVideo.current, } };
+            setForceUpdate(!forceUpdate)
+           
+        })
+
+    }
+
+
 
 
     // const handleChange = () => {
@@ -113,6 +172,68 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
         })
     })
 
+    // calling portion 
+
+    const callUser = (id) => {
+        const peer = new Peer({
+            initiator: true,
+            trickle: false,
+            stream: stream
+        })
+        peer.on("signal", (data) => {
+            socket.emit("callUser", {
+                userToCall: id,
+                signalData: data,
+                from: me,
+                name: name
+            })
+        })
+        peer.on("stream", (stream) => {
+
+            userVideo.current.srcObject = stream
+
+        })
+
+        socket.on("callAccepted", (signal) => {
+            setCallAccepted(true)
+            setForceUpdate(!forceUpdate)
+            peer.signal(signal)
+        })
+        connectionRef.current = peer
+    }
+
+
+    const answerCall = () => {
+        setCallAccepted(true)
+        const peer = new Peer({
+            initiator: false,
+            trickle: false,
+            stream: stream
+        })
+        peer.on("signal", (data) => {
+            socket.emit("answerCall", { signal: data, to: caller })
+        })
+        peer.on("stream", (stream) => {
+            // console.log("my video :",stream)
+            userVideo.current.srcObject = stream
+
+        })
+        setForceUpdate(!forceUpdate)
+
+        peer.signal(callerSignal)
+
+        connectionRef.current = peer
+    }
+
+    const leaveCall = () => {
+        setCallEnded(true)
+        stream.getTracks().forEach(function(track) {
+            track.stop();
+          });
+          connectionRef.current && connectionRef.current.destroy()
+    }
+
+
     return (
         <>
             <div className='container-fluid custom_fluid'>
@@ -121,6 +242,9 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                         <div className='display_header'>
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
                             <p className='online'>{selectedUser && selectedUser.subUser?.email}</p>
+                        </div>
+                        <div>
+                        {selectedUser  &&  <button className='btn btn-success' onClick={() => { handleCall() }}>Call</button>}
                         </div>
                         <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
                             showProfInfo ? "Close" : "Open"
@@ -136,7 +260,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
 
                                 elm.sender == "subUser" ? <div className='col-sm-12 text-left p-2'>
                                     <div className='chat_row'>
-                                        <h5 className='chat_name    '>{elm.name}</h5>
+                                        <h5 className='chat_name'>{elm.name}</h5>
                                         <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
 
                                     </div>
@@ -173,6 +297,49 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                     </div>
                 </div>
             </div>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Video Call</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className='row'>
+
+                        <div className='col-3'>
+                            {<video ref={myVideo} src={myVideo.current} autoPlay style={{ width: "300px" }} />}
+                        </div>
+                        <div className='col-3'>
+                            {
+                                callAccepted && !callEnded ? <video style={{ width: "300px" }} ref={userVideo} src={userVideo.current} autoPlay /> : <></>
+                            }
+                        </div>
+                    </div>
+
+                    {callAccepted && !callEnded ? (
+                        <Button variant="danger" onClick={() => handleClose()}>
+                            End Call
+                        </Button>
+                    ) : (
+                            <Button variant="info" onClick={() => callUser(selectedUser.subUser._id)}>
+                                Call
+                            </Button>
+                        )}
+
+                    {receivingCall && !callAccepted ? (
+                        <div className="caller">
+                            <h1 >{name} is calling...</h1>
+                            <Button variant="primary" onClick={answerCall}>
+                                Answer
+						</Button>
+                        </div>
+                    ) : null}
+                </Modal.Body>
+                <Modal.Footer>
+                    <button className='btn btn-danger' onClick={()=>{handleClose()}}>
+                        Close
+                    </button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }
