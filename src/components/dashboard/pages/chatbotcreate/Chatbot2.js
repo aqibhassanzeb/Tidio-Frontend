@@ -376,16 +376,6 @@ const Chatbot2 = () => {
                             }
                         </div>
                     </div>
-
-                    <CopyToClipboard text={me} style={{ marginBottom: "2rem" }}>
-                        <button className='btn btn-primary'>
-                            Copy ID
-                        </button>
-                    </CopyToClipboard>
-                    <div className=''>
-                        <input value={idToCall}
-                            onChange={(e) => setIdToCall(e.target.value)} />
-                    </div>
                     {callAccepted && !callEnded ? (
                         <Button variant="danger" onClick={() => handleClose()}>
                             End Call
@@ -408,9 +398,6 @@ const Chatbot2 = () => {
                 <Modal.Footer>
                     <button className='btn btn-danger' onClick={() => { handleClose() }}>
                         Close
-                    </button>
-                    <button className='btn btn-primary' onClick={handleClose}>
-                        Save Changes
                     </button>
                 </Modal.Footer>
             </Modal>

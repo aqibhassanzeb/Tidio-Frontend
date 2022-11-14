@@ -338,9 +338,6 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                     <button className='btn btn-danger' onClick={()=>{handleClose()}}>
                         Close
                     </button>
-                    <button className='btn btn-primary' onClick={handleClose}>
-                        Save Changes
-                    </button>
                 </Modal.Footer>
             </Modal>
         </>
