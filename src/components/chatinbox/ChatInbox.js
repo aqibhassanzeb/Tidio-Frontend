@@ -298,17 +298,17 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                 </div>
             </div>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} style={{height:"900px",width:"900px"}}>
                 <Modal.Header closeButton>
                     <Modal.Title>Video Call</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className='row'>
+                    <div className='d-flex justify-content-between'>
 
-                        <div className='col-3'>
+                        <div className=''>
                             {<video ref={myVideo} src={myVideo.current} autoPlay style={{ width: "300px" }} />}
                         </div>
-                        <div className='col-3'>
+                        <div className=''>
                             {
                                 callAccepted && !callEnded ? <video style={{ width: "300px" }} ref={userVideo} src={userVideo.current} autoPlay /> : <></>
                             }
