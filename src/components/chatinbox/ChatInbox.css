@@ -137,6 +137,15 @@ border: 1px solid lightgray;
     justify-content: space-between;
     transition: .7s;
 }
+.callicon{
+    border: 1px solid lightgray;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 3px;
+    color: blue;
+    cursor: pointer;
+    background-color: lightblue;
+}
 .display_header{
     display: flex;
 }
@@ -144,6 +153,10 @@ border: 1px solid lightgray;
     margin-left: 8px;
     margin-bottom: 0px !important;
     padding: 0px;
+}
+.videocalldiv{
+    border-radius: 5px;
+    width: 300px;
 }
 @media only screen and (max-width: 800px) and (min-width: 400px)  {
     .chat_end_text{

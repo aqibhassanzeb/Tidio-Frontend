@@ -9,6 +9,7 @@ import { useRef } from 'react'
 import Peer from "simple-peer"
 import { Button, Modal } from 'react-bootstrap'
 import CopyToClipboard from 'react-copy-to-clipboard'
+import { IoMdCall } from 'react-icons/io'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -243,12 +244,14 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
                             <p className='online'>{selectedUser && selectedUser.subUser?.email}</p>
                         </div>
+                        <div className='d-flex'>
                         <div>
-                        {selectedUser  &&  <button className='btn btn-success' onClick={() => { handleCall() }}>Call</button>}
+                        {selectedUser  &&  <div className='callicon' onClick={() => { handleCall() }}><IoMdCall /></div>}
                         </div>
                         <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
                             showProfInfo ? "Close" : "Open"
                         }</div>
+                        </div>
                     </div>
                 </div>
                 {selectedUser ? <div className='row chat-area' >
@@ -297,20 +300,20 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                     </div>
                 </div>
             </div>
-
-            <Modal show={show} onHide={handleClose}>
+                        
+            <Modal show={show} onHide={handleClose} className="modalcall">
                 <Modal.Header closeButton>
                     <Modal.Title>Video Call</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className='row'>
+                    <div className='row '>
 
                         <div className='col-3'>
-                            {<video ref={myVideo} src={myVideo.current} autoPlay style={{ width: "300px" }} />}
+                            {<video ref={myVideo} src={myVideo.current} autoPlay className="videocalldiv" />}
                         </div>
                         <div className='col-3'>
                             {
-                                callAccepted && !callEnded ? <video style={{ width: "300px" }} ref={userVideo} src={userVideo.current} autoPlay /> : <></>
+                                callAccepted && !callEnded ? <video className="videocalldiv" ref={userVideo} src={userVideo.current} autoPlay /> : <></>
                             }
                         </div>
                     </div>
@@ -334,11 +337,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                         </div>
                     ) : null}
                 </Modal.Body>
-                <Modal.Footer>
-                    <button className='btn btn-danger' onClick={()=>{handleClose()}}>
-                        Close
-                    </button>
-                </Modal.Footer>
+               
             </Modal>
         </>
     )
