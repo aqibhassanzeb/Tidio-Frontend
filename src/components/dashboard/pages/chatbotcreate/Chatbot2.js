@@ -15,6 +15,9 @@ import { Effect } from 'react-notification-badge';
 import useSound from 'use-sound';
 import boopSfx from "../../../../images/message.mp3"
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import Peer from "simple-peer"
+import { Button, Modal } from 'react-bootstrap'
+import CopyToClipboard from 'react-copy-to-clipboard'
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
@@ -38,6 +41,28 @@ const Chatbot2 = () => {
     const [notficationControl, setNotficationControl] = useState(null)
     const dispatch = useDispatch()
 
+    // calling state portion 
+    const [me, setMe] = useState("")
+    const [stream, setStream] = useState('')
+    const [receivingCall, setReceivingCall] = useState(false)
+    const [caller, setCaller] = useState("")
+    const [callerSignal, setCallerSignal] = useState('')
+    const [callAccepted, setCallAccepted] = useState(false)
+    const [idToCall, setIdToCall] = useState("")
+    const [callEnded, setCallEnded] = useState(false)
+    const [name, setName] = useState('')
+    const myVideo = useRef()
+    const userVideo = useRef()
+    const connectionRef = useRef()
+
+    // video modal 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => {
+        leaveCall()
+        setShow(false)
+    }
+    const handleShow = () => setShow(true);
 
     const subUserNotify = useSelector(state => state.SelectedUser.subUsernotif)
 
@@ -55,7 +80,22 @@ const Chatbot2 = () => {
         socket.on("connected", () => setSocketConnected(true))
         // socket.on("typing", () => setIsTyping(true))
         // socket.on("stop typing", () => setIsTyping(false))
-    }, [subUserData])
+
+        // webrtc portion 
+
+        socket.on("me", (id) => {
+            setMe(id)
+        })
+
+        socket.on("callUser", (data) => {
+            handleCall()
+            setReceivingCall(true)
+            setCaller(data.from)
+            setName(data.name)
+            setCallerSignal(data.signal)
+        })
+
+    }, [])
 
     // 6360ffa27c91f7b5f10b7a3c
     // 6368a80a8841f2a317a1b37a
@@ -64,7 +104,6 @@ const Chatbot2 = () => {
         if (_id && _id != undefined) {
             const paylaod = { createdby, _id }
             createChat(paylaod).then(result => {
-                console.log("result fetch chat :", result)
                 localStorage.setItem("tidiochat", result?.data.FullChat._id)
                 localStorage.setItem("tidiochatuser", JSON.stringify(result.data?.FullChat.subUser))
                 setFetchemail()
@@ -134,6 +173,17 @@ const Chatbot2 = () => {
         }
     }
 
+    const handleCall = () => {
+        setShow(true);
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+            setStream(stream)
+            myVideo.current.srcObject = stream;
+            setForceUpdate(!forceUpdate)
+        })
+
+    }
+
+  
 
     useEffect(() => {
         handlenoficationmessage()
@@ -154,6 +204,68 @@ const Chatbot2 = () => {
         chatbotControl = showChatbot
     }, [showChatbot])
 
+  
+    // calling portion 
+
+    const callUser = (id) => {
+        const peer = new Peer({
+            initiator: true,
+            trickle: false,
+            stream: stream
+        })
+        peer.on("signal", (data) => {
+            socket.emit("callUser", {
+                userToCall: id,
+                signalData: data,
+                from: me,
+                name: name
+            })
+        })
+        peer.on("stream", (stream) => {
+
+            userVideo.current.srcObject = stream
+
+        })
+
+        socket.on("callAccepted", (signal) => {
+            setCallAccepted(true)
+            setForceUpdate(!forceUpdate)
+            peer.signal(signal)
+        })
+        connectionRef.current = peer
+    }
+
+
+    const answerCall = () => {
+        setCallAccepted(true)
+        const peer = new Peer({
+            initiator: false,
+            trickle: false,
+            stream: stream
+        })
+        peer.on("signal", (data) => {
+            socket.emit("answerCall", { signal: data, to: caller })
+        })
+        peer.on("stream", (stream) => {
+            // console.log("my video :",stream)
+            userVideo.current.srcObject = stream
+
+        })
+        setForceUpdate(!forceUpdate)
+
+        peer.signal(callerSignal)
+
+        connectionRef.current = peer
+    }
+
+    const leaveCall = () => {
+        setCallEnded(true)
+        stream.getTracks().forEach(function(track) {
+            track.stop();
+          });
+          connectionRef.current && connectionRef.current.destroy()
+    }
+
     return (
         <>
             {showChatbot ?
@@ -162,7 +274,8 @@ const Chatbot2 = () => {
                         <div className='col-sm-3 offset-9 '>
                             <div className='col-sm-12 text-center chatbot_header'>
                                 <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
-                                <div className='clsoeicon' onClick={()=>{setshowChatbot(false)}} ><RiArrowDropDownLine/></div>
+                                <div className='pt-2 chatbottexthead text-light'style={{cursor:"pointer"}} onClick={() => { handleCall() }}>Call</div>
+                                <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
                             </div>
 
 
@@ -181,7 +294,7 @@ const Chatbot2 = () => {
                                                                     <img src={Profilepic} className="img img-fluid img_profile" />
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box'>
-                                                                    <p className= "mesegtetxher">{elm?.content}</p>
+                                                                    <p className="mesegtetxher">{elm?.content}</p>
                                                                     <time className=''>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
                                                                 </div>
                                                             </div>
@@ -193,7 +306,7 @@ const Chatbot2 = () => {
                                                                     <img src={Profilepic} className="img img-fluid img_profile" />
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
-                                                                    <p className= "mesegtetxher">{elm?.content}</p>
+                                                                    <p className="mesegtetxher">{elm?.content}</p>
                                                                     <time className=''>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
                                                                 </div>
                                                             </div>
@@ -228,24 +341,79 @@ const Chatbot2 = () => {
                         </div>
                     </div>
                 </div>
-            :
-            <div className='row'>
-                <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); dispatch(setsubUserNotifClear()) }}>
-                    {subUserNotify.length > 0 &&
-                        <>
-                            <div className='d-flex justify-content-center' style={{ zIndex: '10px' }}>
-                                <div style={{ height: "10px", width: "10px", borderRadius: "50%", backgroundColor: "red" }}></div>
-                            </div>
-                        </>
-                    }
-                    {/* <NotificationBadge 
+                :
+                <div className='row'>
+                    <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); dispatch(setsubUserNotifClear()) }}>
+                        {subUserNotify.length > 0 &&
+                            <>
+                                <div className='d-flex justify-content-center' style={{ zIndex: '10px' }}>
+                                    <div style={{ height: "10px", width: "10px", borderRadius: "50%", backgroundColor: "red" }}></div>
+                                </div>
+                            </>
+                        }
+                        {/* <NotificationBadge 
                             count={subUserNotify.length/2}
                         effect={Effect.SCALE}
                     /> */}
 
-                    <FiMessageSquare className='fi_message' /></button></div>
-            </div>
-        }
+                        <FiMessageSquare className='fi_message' /></button></div>
+                </div>
+            }
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Video Call</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className='row'>
+
+                        <div className='col-3'>
+                            {<video ref={myVideo} src={myVideo.current} autoPlay style={{ width: "300px" }} />}
+                        </div>
+                        <div className='col-3'>
+                            {
+                                callAccepted && !callEnded ? <video style={{ width: "300px" }} ref={userVideo} src={userVideo.current} autoPlay /> : <></>
+                            }
+                        </div>
+                    </div>
+
+                    <CopyToClipboard text={me} style={{ marginBottom: "2rem" }}>
+                        <button className='btn btn-primary'>
+                            Copy ID
+                        </button>
+                    </CopyToClipboard>
+                    <div className=''>
+                        <input value={idToCall}
+                            onChange={(e) => setIdToCall(e.target.value)} />
+                    </div>
+                    {callAccepted && !callEnded ? (
+                        <Button variant="danger" onClick={() => handleClose()}>
+                            End Call
+                        </Button>
+                    ) : (
+                        <Button variant="info" onClick={() => callUser(createdby)}>
+                            Call
+                        </Button>
+                    )}
+
+                    {receivingCall && !callAccepted ? (
+                        <div className="caller">
+                            <h1 >{name} is calling...</h1>
+                            <Button variant="primary" onClick={answerCall}>
+                                Answer
+                            </Button>
+                        </div>
+                    ) : null}
+                </Modal.Body>
+                <Modal.Footer>
+                    <button className='btn btn-danger' onClick={() => { handleClose() }}>
+                        Close
+                    </button>
+                    <button className='btn btn-primary' onClick={handleClose}>
+                        Save Changes
+                    </button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }
