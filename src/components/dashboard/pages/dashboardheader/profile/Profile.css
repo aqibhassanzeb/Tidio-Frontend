@@ -7,6 +7,15 @@
     top: 100%;
     z-index: 10;
     border-radius: 5px;
+    animation: profilemai .5s linear;
+}
+@keyframes profilemai {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 .crossicon{
     color: white;

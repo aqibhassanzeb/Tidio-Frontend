@@ -4,6 +4,7 @@ import { SiChatbot} from 'react-icons/si';
 import { MdOutlinePermContactCalendar, MdSettings } from 'react-icons/md';
 import { HiHome } from 'react-icons/hi';
 import { FaBars } from 'react-icons/fa';
+import { GrFormClose } from 'react-icons/gr';
 import { NavLink } from 'react-router-dom';
 import '../sidebar/Sidebar.css'
 
@@ -19,23 +20,23 @@ function Sidebar({children}) {
         },
         {
             path: '#/',
-            name: 'dashboard',
+            name: 'Dashboard',
             icon: <HiHome />
         },
         {
             path: '/contact',
-            name: 'contact',
+            name: 'Contact',
             icon: <MdOutlinePermContactCalendar />
         },
         {
             path: '/chat',
-            name: 'chat',
+            name: 'Chat',
             icon: <BsFillChatRightFill />
             
         },
         {
             path: '/widget',
-            name: 'setting',
+            name: 'Setting',
             icon: <MdSettings />
             
         },
@@ -53,7 +54,11 @@ function Sidebar({children}) {
                     <div className='top_section'>
                             <h1 style={{display: isOpen ? "block" : "none"}} className='logo'>Logo</h1>
                         <div style={{marginLeft: isOpen ? "150px" : "0px"}} className='bars'>
-                            <FaBars onClick={toggle} />
+                        {isOpen ? 
+                            <GrFormClose className='closecrass' onClick={toggle} />
+                            :
+                            <FaBars className='fabricon' onClick={toggle} />
+                         }   
                         </div>
                     </div>
                     {menuItems.map((item, index)=>(
