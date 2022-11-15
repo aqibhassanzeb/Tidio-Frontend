@@ -19,15 +19,27 @@ const Register = () => {
     const [websiteName, setWebsiteName] = useState("")
     const [loader, setLoader] = useState(false)
     const [error, setError] = useState(false)
+    const [termCond, setTermCond] = useState(false)
 
 
-
+    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
 
     // Register function 
-
     const handleRegister = () => {
-        if (!email && !password) {
-            return toast.error("please fill the fields");
+        if (!name) {
+            return toast.error("please fill the name");
+        }
+        if (!email) {
+            return toast.error("please fill the email");
+        }
+        if (!password) {
+            return toast.error("please fill the password");
+        }
+        if(!regex.test(email)){
+        return toast.error("please valid email");
+       }
+        if (!termCond) {
+            return toast.error("please click term and condition");
         }
         setLoader(true)
         const payload = { name, surName, email, password, websiteName }
@@ -86,7 +98,7 @@ const Register = () => {
                                     <input type="password" className='inputfielddata' placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password} />
                                     <input type="text" className='inputfielddata' placeholder='Website' onChange={(e) => setWebsiteName(e.target.value)} value={websiteName} />
                                     <div className='maincheckbox'>
-                                        <input type="checkbox" className='agreetext' id="agree" name="agree" value="" />
+                                        <input type="checkbox" className='agreetext' value={termCond} onClick={()=>setTermCond(!termCond)} />
                                         <label for="agree" className='agreetext2'> I agree to Tidio's <a href=''>Terms & Conditions</a> and <a href=''>Privacy Policy</a></label>
                                     </div>
                                     <div className='registerbtn '>

@@ -14,7 +14,7 @@ function Sidebar({children}) {
     const menuItems = [
         {
             path: '/inbox',
-            name: 'Inbox',
+            name: 'Chat',
             icon: <BsFillInboxFill />
             
         },
@@ -28,12 +28,12 @@ function Sidebar({children}) {
             name: 'Contact',
             icon: <MdOutlinePermContactCalendar />
         },
-        {
-            path: '/chat',
-            name: 'Chat',
-            icon: <BsFillChatRightFill />
+        // {
+        //     path: '/chat',
+        //     name: 'Chat',
+        //     icon: <BsFillChatRightFill />
             
-        },
+        // },
         {
             path: '/widget',
             name: 'Setting',
@@ -43,6 +43,12 @@ function Sidebar({children}) {
         {
             path: '/ChatbotCreate',
             name: 'Chatbot',
+            icon: <SiChatbot />
+            
+        },
+        {
+            path: '/chatbot/id',
+            name: 'Test Chatbot',
             icon: <SiChatbot />
             
         }
