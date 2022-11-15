@@ -51,6 +51,7 @@ const Chatbot2 = () => {
     const [idToCall, setIdToCall] = useState("")
     const [callEnded, setCallEnded] = useState(false)
     const [name, setName] = useState('')
+    const [callloading, setCallloading] = useState(false)
     const myVideo = useRef()
     const userVideo = useRef()
     const connectionRef = useRef()
@@ -93,6 +94,11 @@ const Chatbot2 = () => {
             setCaller(data.from)
             setName(data.name)
             setCallerSignal(data.signal)
+        })
+        socket.on("end",()=>{
+             setCallEnded(true)
+          connectionRef.current && connectionRef.current.destroy()
+          window.location.reload();
         })
 
     }, [])
@@ -214,6 +220,7 @@ const Chatbot2 = () => {
             stream: stream
         })
         peer.on("signal", (data) => {
+            setCallloading(true)
             socket.emit("callUser", {
                 userToCall: id,
                 signalData: data,
@@ -228,6 +235,7 @@ const Chatbot2 = () => {
         })
 
         socket.on("callAccepted", (signal) => {
+            setCallloading(false)
             setCallAccepted(true)
             setForceUpdate(!forceUpdate)
             peer.signal(signal)
@@ -259,6 +267,7 @@ const Chatbot2 = () => {
     }
 
     const leaveCall = () => {
+        socket.emit("endCall",createdby && createdby );
         setCallEnded(true)
         stream.getTracks().forEach(function(track) {
             track.stop();
@@ -295,7 +304,7 @@ const Chatbot2 = () => {
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box'>
                                                                     <p className="mesegtetxher">{elm?.content}</p>
-                                                                    <time className=''>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                                                    <time style={{fontSize:"10px"}} className=''>{setDate ? setDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}): "N/A"}</time>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -307,7 +316,7 @@ const Chatbot2 = () => {
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
                                                                     <p className="mesegtetxher">{elm?.content}</p>
-                                                                    <time className=''>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                                                    <time style={{fontSize:"10px"}} className=''>{setDate ? setDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}): "N/A"}</time>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -382,7 +391,7 @@ const Chatbot2 = () => {
                         </Button>
                     ) : (
                         <Button variant="info" onClick={() => callUser(createdby)}>
-                            Call
+                        {callloading ? "Calling":" Call"}
                         </Button>
                     )}
 

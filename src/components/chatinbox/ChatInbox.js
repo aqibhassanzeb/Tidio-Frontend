@@ -45,7 +45,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     const myVideo = useRef()
     const userVideo = useRef()
     const connectionRef = useRef()
-
+    console.log("user video :",userVideo,userVideo.current)
     // video modal 
     const [show, setShow] = useState(false);
 
@@ -103,6 +103,11 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             setCallerSignal(data.signal)
         })
 
+        socket.on("end",()=>{
+            setCallEnded(true)
+         connectionRef.current && connectionRef.current.destroy()
+         window.location.reload();
+       })
     }, [loginUser])
 
     const handleCall = () => {
@@ -215,7 +220,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             socket.emit("answerCall", { signal: data, to: caller })
         })
         peer.on("stream", (stream) => {
-            // console.log("my video :",stream)
+            console.log("my video :",stream)
             userVideo.current.srcObject = stream
 
         })
@@ -227,12 +232,16 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     }
 
     const leaveCall = () => {
+        socket.emit("endCall",caller && caller );
+        setCallAccepted(false)
         setCallEnded(true)
         stream.getTracks().forEach(function(track) {
             track.stop();
           });
           connectionRef.current && connectionRef.current.destroy()
-    }
+          setForceUpdate(!forceUpdate)
+        }
+
 
 
     return (
@@ -313,7 +322,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                         </div>
                         <div className=''>
                             {
-                                callAccepted && !callEnded ? <video className="videocalldiv" ref={userVideo} src={userVideo.current} autoPlay /> : <></>
+                             callAccepted && !callEnded ?<video ref={userVideo} src={userVideo.current} autoPlay style={{ width: "300px" }} /> : <></>
                             }
                         </div>
                     </div>
@@ -323,6 +332,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             End Call
                         </Button>
                     ) : (
+                        
                             <Button variant="info" onClick={() => callUser(selectedUser.subUser._id)}>
                                 Call
                             </Button>
