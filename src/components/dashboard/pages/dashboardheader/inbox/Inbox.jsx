@@ -155,7 +155,7 @@ const Inbox = () => {
                                              effect={Effect.SCALE}
                                              />
                                             <div className="" >
-                                                <p style={{ color: "white" }}>{elm?.subUser.email}</p>
+                                                <p style={{ color: "black" }}>{elm?.subUser.email}</p>
                                             </div>
                                         </div>
                                     </>

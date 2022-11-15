@@ -23,7 +23,9 @@ import { FaForumbee, FaShopify, FaWordpress } from 'react-icons/fa';
 import { BsGoogle } from 'react-icons/bs';
 
 function CustomerServices() {
-
+const handlesignup =() =>{
+    
+}
     const navigate = useNavigate()
     return (
         <>
@@ -37,7 +39,7 @@ function CustomerServices() {
                 </div>
                 <div className='row mb-3'>
                     <div className='col-sm-12 mt-3 text-center'>
-                        <button className='btn btn-primary btn-lg get_started' onClick={() => navigate("/register")} >Sign Up</button>
+                        <button className='btn btn-primary btn-lg get_started' onClick={handlesignup} >Sign Up</button>
                     </div>
                 </div>
                 <div className='row tidio_section_margin  bg_tidio py-4'>

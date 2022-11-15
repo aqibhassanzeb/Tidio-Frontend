@@ -281,7 +281,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                                             </div>
                                         </div>
                                         <div className='chat_end_row '>
-                                        <time className='chat_end_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                        <time className='chat_end_time  '>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
                                         
                                     </div>
                                     </div>
@@ -298,7 +298,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                         </div>
                         {/* {isTyping ?<p>Typing...</p>:""} */}
                         <div className='replybtn '>
-                            {loading ? <p>loading..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
+                            {loading ? <p>Sending..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
                         </div>
                     </div>
                 </div>
