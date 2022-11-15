@@ -18,6 +18,8 @@ import { RiArrowDropDownLine } from 'react-icons/ri';
 import Peer from "simple-peer"
 import { Button, Modal } from 'react-bootstrap'
 import CopyToClipboard from 'react-copy-to-clipboard'
+import { IoMdCall } from 'react-icons/io';
+import { TbPhoneCall } from 'react-icons/tb';
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
@@ -281,9 +283,9 @@ const Chatbot2 = () => {
                 <div className='container-fluid' style={{ position: "fixed" }}>
                     <div className='row mt-3'>
                         <div className='col-sm-3 offset-9 '>
-                            <div className='col-sm-12 text-center chatbot_header'>
+                            <div className='col-sm-12  chatbot_header'>
                                 <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
-                                <div className='pt-2 chatbottexthead text-light'style={{cursor:"pointer"}} onClick={() => { handleCall() }}>Call</div>
+                                <div className='pt-2 chatbottexthead2 text-light'style={{cursor:"pointer"}} onClick={() => { handleCall() }}><IoMdCall /></div>
                                 <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
                             </div>
 
@@ -297,7 +299,7 @@ const Chatbot2 = () => {
                                                 <>
                                                     {elm.sender != "subUser" ?
 
-                                                        <div className='col-sm-12 p-2 bg-light' key={elm?._id}>
+                                                        <div className='col-sm-12 p-2 ' key={elm?._id}>
                                                             <div className='d-flex'>
                                                                 <div className='col-sm-1'>
                                                                     <img src={Profilepic} className="img img-fluid img_profile" />
@@ -370,18 +372,18 @@ const Chatbot2 = () => {
             }
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Video Call</Modal.Title>
+                <Modal.Header closeButton className="headback">
+                    <Modal.Title className="">Video Call</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <div className='d-flex justify-content-between'>
+                <Modal.Body className="headback">
+                    <div className='row'>
 
-                        <div className=''>
-                            {<video ref={myVideo} src={myVideo.current} autoPlay style={{ width: "300px" }} />}
+                        <div className='col-3 '>
+                            {<video ref={myVideo} src={myVideo.current} autoPlay  className="videodivforcall" />}
                         </div>
-                        <div className=''>
+                        <div className='col-3 '>
                             {
-                                callAccepted && !callEnded ? <video style={{ width: "300px" }} ref={userVideo} src={userVideo.current} autoPlay /> : <></>
+                                callAccepted && !callEnded ? <video className="videodivforcall"  ref={userVideo} src={userVideo.current} autoPlay /> : <></>
                             }
                         </div>
                     </div>
@@ -390,9 +392,9 @@ const Chatbot2 = () => {
                             End Call
                         </Button>
                     ) : (
-                        <Button variant="info" onClick={() => callUser(createdby)}>
-                        {callloading ? "Calling":" Call"}
-                        </Button>
+                        <button className="callbtn" onClick={() => callUser(createdby)}>
+                      {callloading ? "Calling":<TbPhoneCall />} 
+                        </button>
                     )}
 
                     {receivingCall && !callAccepted ? (
@@ -404,7 +406,7 @@ const Chatbot2 = () => {
                         </div>
                     ) : null}
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className="headback">
                     <button className='btn btn-danger' onClick={() => { handleClose() }}>
                         Close
                     </button>

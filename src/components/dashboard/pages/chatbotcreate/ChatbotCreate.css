@@ -27,6 +27,14 @@
 }
 .chatbottexthead{
     width: 90%;
+    padding-left: 10px;
+}
+.chatbottexthead2{
+    width: 90%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 25px;
 }
 .clsoeicon{
     width: 10%;
