@@ -376,12 +376,12 @@ const Chatbot2 = () => {
                     <Modal.Title className="">Video Call</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="headback">
-                    <div className='row'>
+                    <div className='row videofulldiv'>
 
-                        <div className='col-3 '>
+                        <div className='col-12 videodivforcall'>
                             {<video ref={myVideo} src={myVideo.current} autoPlay  className="videodivforcall" />}
                         </div>
-                        <div className='col-3 '>
+                        <div className='col-12 videodivforcall'>
                             {
                                 callAccepted && !callEnded ? <video className="videodivforcall"  ref={userVideo} src={userVideo.current} autoPlay /> : <></>
                             }

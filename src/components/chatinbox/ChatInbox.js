@@ -318,14 +318,14 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                     <Modal.Title>Video Call</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="headback">
-                    <div className='row d-flex'>
+                    <div className='row  videofulldiv'>
 
-                        <div className='col-3 videodivforcall'>
+                        <div className='col-12 videodivforcall'>
                             {<video ref={myVideo} src={myVideo.current} autoPlay className="videocalldiv" />}
                         </div>
-                        <div className='col-3 videodivforcall'>
+                        <div className='col-12 videodivforcall'>
                             {
-                             callAccepted && !callEnded ?<video ref={userVideo} src={userVideo.current} autoPlay style={{ width: "300px" }} /> : <></>
+                             callAccepted && !callEnded ?<video ref={userVideo} src={userVideo.current} autoPlay   className="videocalldiv" /> : <></>
                             }
                         </div>
                     </div>

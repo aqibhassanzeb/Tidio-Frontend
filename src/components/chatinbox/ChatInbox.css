@@ -174,7 +174,7 @@ border: 1px solid lightgray;
 
 }
 .modal-content{
-    width: 130% !important;
+    width: 100% !important;
 }
 .callbtn{
     background-color: rgb(7, 5, 143);
@@ -200,6 +200,9 @@ border: 1px solid lightgray;
 }
 .rowofvideo{
     background: linear-gradient(90deg, rgba(53, 96, 180, 0.678) 0%, rgba(255, 253, 253, 0.623) 64%);
+}
+.videofulldiv{
+    margin: auto;
 }
 @media only screen and (max-width: 800px) and (min-width: 400px)  {
     .chat_end_text{
