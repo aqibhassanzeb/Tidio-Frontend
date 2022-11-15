@@ -10,6 +10,7 @@ import Peer from "simple-peer"
 import { Button, Modal } from 'react-bootstrap'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { IoMdCall } from 'react-icons/io'
+import { TbPhoneCall } from 'react-icons/tb'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -49,8 +50,8 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     // video modal 
     const [show, setShow] = useState(false);
 
-    const handleClose = () =>{
-        leaveCall()    
+    const handleClose = () => {
+        leaveCall()
         setShow(false)
     }
     const handleShow = () => setShow(true);
@@ -106,7 +107,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     }, [loginUser])
 
     const handleCall = () => {
-         setShow(true);
+        setShow(true);
         navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
             setStream(stream)
             // let cur = myVideo.current;
@@ -116,7 +117,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             // myVideo.current = { ...myVideo.current, srcObject: stream };
             // myVideo = { ...myVideo, current: {...myVideo.current, } };
             setForceUpdate(!forceUpdate)
-           
+
         })
 
     }
@@ -228,10 +229,10 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
 
     const leaveCall = () => {
         setCallEnded(true)
-        stream.getTracks().forEach(function(track) {
+        stream.getTracks().forEach(function (track) {
             track.stop();
-          });
-          connectionRef.current && connectionRef.current.destroy()
+        });
+        connectionRef.current && connectionRef.current.destroy()
     }
 
 
@@ -245,12 +246,12 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             <p className='online'>{selectedUser && selectedUser.subUser?.email}</p>
                         </div>
                         <div className='d-flex'>
-                        <div>
-                        {selectedUser  &&  <div className='callicon' onClick={() => { handleCall() }}><IoMdCall /></div>}
-                        </div>
-                        <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
-                            showProfInfo ? "Close" : "Open"
-                        }</div>
+                            <div>
+                                {selectedUser && <div className='callicon' onClick={() => { handleCall() }}><IoMdCall /></div>}
+                            </div>
+                            <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
+                                showProfInfo ? "Close" : "Open"
+                            }</div>
                         </div>
                     </div>
                 </div>
@@ -261,26 +262,28 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
 
                             return (
 
-                                elm.sender == "subUser" ? <div className='col-sm-12 text-left p-2'>
+                                elm.sender == "subUser" ?
+                                    <div className='col-sm-12 text-left p-2'>
+                                    <div className='chat_text'>
+                                    <p className='mesagecontext'>{elm.content}</p>
+                                    </div>
                                     <div className='chat_row'>
-                                        <h5 className='chat_name'>{elm.name}</h5>
                                         <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
 
                                     </div>
-                                    <div className='chat_text'>
-                                        <p className='mesagecontext'>{elm.content}</p>
                                     </div>
-                                </div> :
+                                    :
                                     <div className='col-sm-12 text-end  p-2'>
-                                        <div className='chat_end_row'>
-                                            <time className='chat_end_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
-                                            <h5 className='chat_end_name'>{elm.name}</h5>
-                                        </div>
-                                        <div className='d-flex justify-content-end'>
+                                       
+                                        <div className='d-flex justify-content-end '>
                                             <div className='chat_end_text'>
                                                 <p>{elm.content}</p>
                                             </div>
                                         </div>
+                                        <div className='chat_end_row '>
+                                        <time className='chat_end_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                        
+                                    </div>
                                     </div>
                             )
                         })
@@ -300,18 +303,18 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                     </div>
                 </div>
             </div>
-                        
+
             <Modal show={show} onHide={handleClose} className="modalcall">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="headback">
                     <Modal.Title>Video Call</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <div className='row '>
+                <Modal.Body className="headback">
+                    <div className='row d-flex'>
 
-                        <div className='col-3'>
+                        <div className='col-3 videodivforcall'>
                             {<video ref={myVideo} src={myVideo.current} autoPlay className="videocalldiv" />}
                         </div>
-                        <div className='col-3'>
+                        <div className='col-3 videodivforcall'>
                             {
                                 callAccepted && !callEnded ? <video className="videocalldiv" ref={userVideo} src={userVideo.current} autoPlay /> : <></>
                             }
@@ -323,21 +326,21 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             End Call
                         </Button>
                     ) : (
-                            <Button variant="info" onClick={() => callUser(selectedUser.subUser._id)}>
-                                Call
-                            </Button>
-                        )}
+                        <button className="callbtn" onClick={() => callUser(selectedUser.subUser._id)}>
+                            <TbPhoneCall />
+                        </button>
+                    )}
 
                     {receivingCall && !callAccepted ? (
                         <div className="caller">
                             <h1 >{name} is calling...</h1>
                             <Button variant="primary" onClick={answerCall}>
                                 Answer
-						</Button>
+                            </Button>
                         </div>
                     ) : null}
                 </Modal.Body>
-               
+
             </Modal>
         </>
     )
