@@ -227,7 +227,7 @@ const Chatbot2 = () => {
                 userToCall: id,
                 signalData: data,
                 from: me,
-                name: name
+                name: subUserData.email
             })
         })
         peer.on("stream", (stream) => {
@@ -254,7 +254,7 @@ const Chatbot2 = () => {
             stream: stream
         })
         peer.on("signal", (data) => {
-            socket.emit("answerCall", { signal: data, to: caller })
+            socket.emit("answerCall", { signal: data, to: createdby })
         })
         peer.on("stream", (stream) => {
             // console.log("my video :",stream)
@@ -269,7 +269,8 @@ const Chatbot2 = () => {
     }
 
     const leaveCall = () => {
-        socket.emit("endCall",createdby && createdby );
+        socket.emit("endCall",{to:createdby} );
+        window.location.reload();
         setCallEnded(true)
         stream.getTracks().forEach(function(track) {
             track.stop();
