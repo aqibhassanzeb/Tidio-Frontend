@@ -46,7 +46,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     const myVideo = useRef()
     const userVideo = useRef()
     const connectionRef = useRef()
-
+    console.log("user video :",userVideo,userVideo.current)
     // video modal 
     const [show, setShow] = useState(false);
 
@@ -104,6 +104,11 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             setCallerSignal(data.signal)
         })
 
+        socket.on("end",()=>{
+            setCallEnded(true)
+         connectionRef.current && connectionRef.current.destroy()
+         window.location.reload();
+       })
     }, [loginUser])
 
     const handleCall = () => {
@@ -216,7 +221,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             socket.emit("answerCall", { signal: data, to: caller })
         })
         peer.on("stream", (stream) => {
-            // console.log("my video :",stream)
+            console.log("my video :",stream)
             userVideo.current.srcObject = stream
 
         })
@@ -228,12 +233,16 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     }
 
     const leaveCall = () => {
+        socket.emit("endCall",caller && caller );
+        setCallAccepted(false)
         setCallEnded(true)
         stream.getTracks().forEach(function (track) {
             track.stop();
-        });
-        connectionRef.current && connectionRef.current.destroy()
-    }
+          });
+          connectionRef.current && connectionRef.current.destroy()
+          setForceUpdate(!forceUpdate)
+        }
+
 
 
     return (
@@ -243,7 +252,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                     <div className='col-sm-12 header_chat'>
                         <div className='display_header'>
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
-                            <p className='online'>{selectedUser && selectedUser.subUser?.email}</p>
+                            <p className='online'>{selectedUser &&  selectedUser.subUser?.email.split('@')[0] }</p>
                         </div>
                         <div className='d-flex'>
                             <div>
@@ -309,14 +318,14 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                     <Modal.Title>Video Call</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="headback">
-                    <div className='row d-flex'>
+                    <div className='row  videofulldiv'>
 
-                        <div className='col-3 videodivforcall'>
+                        <div className='col-12 videodivforcall'>
                             {<video ref={myVideo} src={myVideo.current} autoPlay className="videocalldiv" />}
                         </div>
-                        <div className='col-3 videodivforcall'>
+                        <div className='col-12 videodivforcall'>
                             {
-                                callAccepted && !callEnded ? <video className="videocalldiv" ref={userVideo} src={userVideo.current} autoPlay /> : <></>
+                             callAccepted && !callEnded ?<video ref={userVideo} src={userVideo.current} autoPlay   className="videocalldiv" /> : <></>
                             }
                         </div>
                     </div>

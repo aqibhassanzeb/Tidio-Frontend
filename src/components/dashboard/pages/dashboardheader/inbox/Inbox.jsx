@@ -133,7 +133,7 @@ const Inbox = () => {
         <>
             <div className='row'>
                 {
-                    hide ? (<div className='inbox-maindiv col-3'  >
+                    hide ? (<div className='inbox-maindiv col-3' style={{overflowY:"scroll"}}  >
                         <div className='uppersearch  d-flex justify-content-between pt-1'>
                             {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} />
                <BsSearch className='searchiocon ' onClick={handleShow} /> */}
@@ -146,6 +146,7 @@ const Inbox = () => {
                             chatUser &&
                             chatUser.map((elm, index) => {
                             const notfi=  totalnotifi && totalnotifi.filter((elem)=>elem[0]==elm._id)
+                            const result = elm?.subUser.email.split('@')[0];
                                         console.log( notfi)
                                 return (
                                     <>
@@ -156,6 +157,7 @@ const Inbox = () => {
                                              />
                                             <div className="" >
                                                 <p style={{ color: "black" }}>{elm?.subUser.email}</p>
+                                                <h5 style={{ color: "white" }}>{result}</h5>
                                             </div>
                                         </div>
                                     </>
