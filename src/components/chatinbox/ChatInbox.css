@@ -22,7 +22,7 @@ border: 1px solid lightgray;
 }
 .chat_row{
     display: flex;
-    margin-top: 9px !important;
+    /* margin-top: 9px !important; */
 }
 .chat_name{
     font-size: 15px;
@@ -31,16 +31,38 @@ border: 1px solid lightgray;
 .chat_time{
     color: black;
     font-size: 11px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.bcakhover{
+    display: flex;
+}
+.icondivchat{
+    background-color: rgba(255, 0, 0, 0.267);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icondivchat p{
+    margin-top: 10px;
+}
+.bcakhover:hover{
+    background-color: rgba(211, 211, 211, 0.623);
+    border-radius: 5px;
 }
 .chat_text{
     /* margin-left: 43px;
     margin-top: 0px; */
     width: fit-content;
-    margin-top: 8px;
-    background-color: rgba(121, 121, 124, 0.233);
+    
+    /* background-color: rgba(121, 121, 124, 0.233); */
     color: black;
-    border-radius: 5px;
-    padding: 12px;
+    /* border-radius: 5px;
+    padding: 12px; */
 
 }
 .chat_text p{
@@ -50,16 +72,20 @@ border: 1px solid lightgray;
 .chat_end_text{
     margin-right: 43px;
     margin-top: 0px;
-    padding: 9px;
-    background: rgba(121, 121, 124, 0.233);
+    /* padding: 9px; */
+    /* background: rgba(121, 121, 124, 0.233); */
     color: black;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     width: fit-content;
     display: flex;
     justify-content: end;
 }
 .chat_end_row{
     margin-right: 43px;
+}
+.boldemail{
+    font-weight: bold;
+    font-size: 14px;
 }
 .chat_end_text p{
    margin: 0px;
@@ -81,6 +107,9 @@ border: 1px solid lightgray;
     color: black;
     font-size: 11px;
     padding-top: 2px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .text_area_padding{
