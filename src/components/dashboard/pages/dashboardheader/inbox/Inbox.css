@@ -8,8 +8,9 @@
         animation: animationonsidebar .7s linear;
         transition: .7s;
 }
+
 .inboxCahtsys{
-    
+    padding: 0px !important;
 }
 .inbox-maindivforwarddiv{
     margin-left: -20px;
@@ -75,7 +76,7 @@
 }
 .searchioconforward{
     color: white;
-    background-color: rgb(5, 5, 90);
+    background-color: #636464;
     font-size: 25px;
     border-radius: 5px;
     padding: 2px;
@@ -84,12 +85,16 @@
 }
 .conver{
     color: black;
+    padding: 0px 5px;
+    font-weight: bold;
 }
 .inboxUserdetail{
-   
     border: 1px solid rgba(211, 211, 211, 0.322);
-    background-color: rgba(121, 121, 124, 0.76);
-    padding: 5px 5px;
+    background-color: rgba(121, 121, 124, 0.233);
+    padding: 0px 5px;
+}
+.inboxUserdetail:hover{
+    background-color: rgba(121, 121, 124, 0.432);
 }
 .userimage{
     width: 50px;

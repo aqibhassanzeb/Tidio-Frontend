@@ -2,7 +2,7 @@
     width: 270px;
     height: 90vh;
     border: 1px solid lightgray;
-    background-color: rgb(239, 242, 246);
+    background: linear-gradient(3deg, rgba(17, 17, 20, 0.082) 0%, rgba(105, 112, 105, 0.082) 99%);
     animation: profinfoanim 1s linear;
     transition: linear 1s;
 }

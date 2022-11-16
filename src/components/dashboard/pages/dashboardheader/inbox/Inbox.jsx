@@ -131,10 +131,10 @@ const Inbox = () => {
 
     return (
         <>
-            <div className='row'>
+            <div className='row chatdivin'>
                 {
-                    hide ? (<div className='inbox-maindiv col-3' style={{overflowY:"scroll"}}  >
-                        <div className='uppersearch  d-flex justify-content-between pt-1'>
+                    hide ? (<div className='inbox-maindiv col-3' style={{overflowY:"scroll", padding: 0}}  >
+                        <div className='uppersearch  d-flex justify-content-between '>
                             {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} />
                <BsSearch className='searchiocon ' onClick={handleShow} /> */}
                <div>
@@ -150,14 +150,14 @@ const Inbox = () => {
                                         console.log( notfi)
                                 return (
                                     <>
-                                        <div key={elm._id} className='inboxUserdetail  mt-2' onClick={() => { handleSelect(elm._id) }} style={{ cursor: "pointer" }}>
+                                        <div key={elm._id} className='inboxUserdetail  ' onClick={() => { handleSelect(elm._id) }} style={{ cursor: "pointer" }}>
                                         
                                         <NotificationBadge count={notfi[0]?.length}
                                              effect={Effect.SCALE}
                                              />
-                                            <div className="" >
-                                                <p style={{ color: "black" }}>{elm?.subUser.email}</p>
-                                                <h5 style={{ color: "white" }}>{result}</h5>
+                                            <div className="p-1" >
+                                            <h6 style={{ color: "black" }} className='p-0 m-0'>{result}</h6>
+                                                <p style={{ color: "black" }} className='p-0 m-0'>{elm?.subUser.email}</p>
                                             </div>
                                         </div>
                                     </>

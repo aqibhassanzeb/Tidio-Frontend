@@ -21,8 +21,10 @@ import SimpleInstallation from '../simpleInstalation/SimpleInstallation';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import { FaForumbee, FaShopify, FaWordpress } from 'react-icons/fa';
 import { BsGoogle } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 
 function CustomerServices() {
+    const loginUser = useSelector(state => state.User.activeUser)
 const handlesignup =() =>{
     
 }
@@ -38,9 +40,9 @@ const handlesignup =() =>{
                 </div>
                 </div>
                 <div className='row mb-3'>
-                    <div className='col-sm-12 mt-3 text-center'>
+                  { !loginUser &&  <div className='col-sm-12 mt-3 text-center'>
                         <button className='btn btn-primary btn-lg get_started' onClick={handlesignup} >Sign Up</button>
-                    </div>
+                    </div>}
                 </div>
                 <div className='row tidio_section_margin  bg_tidio py-4'>
                     <div className=' col-md-6 d-flex align-items-center'>
