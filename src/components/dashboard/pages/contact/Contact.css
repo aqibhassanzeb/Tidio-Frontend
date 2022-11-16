@@ -45,3 +45,11 @@
         text-shadow: 1px 1px 6px rgb(255, 145, 0);
     }
 }
+.delebtnrow{
+    border-radius: 5px;
+    outline: none;
+}
+.delebtnrow:hover{
+    color: red;
+    cursor: pointer;
+}
