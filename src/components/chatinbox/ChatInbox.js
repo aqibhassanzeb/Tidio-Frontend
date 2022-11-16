@@ -290,7 +290,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                                         </div>
                                     </div>
                                     :
-                                    <div className='col-sm-12 bcakhover'>
+                                    <div className='col-sm-12 bcakhover2'>
 
                                         <div className='d-flex justify-content-start '>
                                             <div className="d-flex">
