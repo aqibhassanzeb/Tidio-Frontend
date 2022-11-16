@@ -21,6 +21,12 @@
     border: 1px solid blue;
     
 }
+.inputemailchatbot{
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 5px;
+}
 .chatbotmessagediv::-webkit-scrollbar-thumb{
     background: linear-gradient(3deg, rgba(2,2,15,1) 0%, rgb(23, 5, 73) 99%);
     

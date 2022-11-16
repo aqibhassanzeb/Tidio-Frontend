@@ -22,7 +22,7 @@ function DashboardHeader() {
     return (
         <>
             <Navbar className='border'>
-            <Navbar.Brand className="backtohome" onClick={() => navigate("/")} title='Home page'><IoMdArrowBack /></Navbar.Brand>
+            <Navbar.Brand className="backtohome" onClick={() => navigate("/")} title='Home page'>Logo</Navbar.Brand>
                 <Navbar.Brand href="#home" className=' d-flex justify-content-center align-items-center'>
                 <HiHome className='dashbdicon'/> Dashboard </Navbar.Brand>
                 <Navbar.Toggle />

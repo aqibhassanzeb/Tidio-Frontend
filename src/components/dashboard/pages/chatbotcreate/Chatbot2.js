@@ -332,7 +332,7 @@ const Chatbot2 = () => {
                                 :
                                 <>
                                     <p>Please Enter Email</p>
-                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input'
+                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input inputemailchatbot'
                                         placeholder='Enter Your email here...'
                                         onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
                                     <button className='btn btn-primary' onClick={() => handleCreateChat()}>submit</button>

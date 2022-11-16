@@ -104,11 +104,11 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             setCallerSignal(data.signal)
         })
 
-        socket.on("end",()=>{
+        socket.on("end", () => {
             setCallEnded(true)
-         connectionRef.current && connectionRef.current.destroy()
-         window.location.reload();
-       })
+            connectionRef.current && connectionRef.current.destroy()
+            window.location.reload();
+        })
     }, [loginUser])
 
     const handleCall = () => {
@@ -240,10 +240,10 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
         setCallEnded(true)
         stream.getTracks().forEach(function (track) {
             track.stop();
-          });
-          connectionRef.current && connectionRef.current.destroy()
-          setForceUpdate(!forceUpdate)
-        }
+        });
+        connectionRef.current && connectionRef.current.destroy()
+        setForceUpdate(!forceUpdate)
+    }
 
 
 
@@ -254,14 +254,14 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                     <div className='col-sm-12 header_chat'>
                         <div className='display_header'>
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
-                            <p className='online'>{selectedUser &&  selectedUser.subUser?.email.split('@')[0] }</p>
+                            <p className='online'>{selectedUser && selectedUser.subUser?.email.split('@')[0]}</p>
                         </div>
                         <div className='d-flex'>
                             <div>
                                 {selectedUser && <div className='callicon' onClick={() => { handleCall() }}><IoMdCall /></div>}
                             </div>
                             <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
-                                showProfInfo ? "Close" : "Open"
+                                showProfInfo ? "Close" : "Open profile detail "
                             }</div>
                         </div>
                     </div>
@@ -274,27 +274,39 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             return (
 
                                 elm.sender == "subUser" ?
-                                    <div className='col-sm-12 text-left p-2'>
-                                    <div className='chat_text'>
-                                    <p className='mesagecontext'>{elm.content}</p>
-                                    </div>
-                                    <div className='chat_row'>
-                                        <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                    <div className='col-sm-12 text-left bcakhover'>
+                                    {/* <div className='icondivchat'>
+                                    <p>Icon</p>
+                            </div> */}
+                                    <div>
+                                        <div className='chat_row'>
+                                            <p className='p-0 m-0 boldemail'>{selectedUser.subUser?.email}</p>
+                                            <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
 
-                                    </div>
+                                        </div>
+                                        <div>
+                                            <div className='chat_text '>
+                                                <p className='mesagecontext'>{elm.content}</p>
+                                            </div>
+                                        </div>
+                                        </div>
                                     </div>
                                     :
-                                    <div className='col-sm-12 text-end  p-2'>
-                                       
-                                        <div className='d-flex justify-content-end '>
-                                            <div className='chat_end_text'>
-                                                <p>{elm.content}</p>
+                                    <div className='col-sm-12 bcakhover2'>
+
+                                        <div className='d-flex justify-content-start '>
+                                            <div className="d-flex">
+                                                <p className='p-0 m-0 boldemail'>You</p>
+                                                <div className='chat_end_text'>
+                                                    <time className='chat_end_time  '>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+
+                                                </div>
                                             </div>
                                         </div>
                                         <div className='chat_end_row '>
-                                        <time className='chat_end_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
-                                        
-                                    </div>
+                                            <p className='p-0 m-0'>{elm.content}</p>
+
+                                        </div>
                                     </div>
                             )
                         })
@@ -309,7 +321,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                         </div>
                         {/* {isTyping ?<p>Typing...</p>:""} */}
                         <div className='replybtn '>
-                            {loading ? <p>loading..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
+                            {loading ? <p>Sending..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
                         </div>
                     </div>
                 </div>
@@ -327,7 +339,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                         </div>
                         <div className='col-12 videodivforcall'>
                             {
-                             callAccepted && !callEnded ?<video ref={userVideo} src={userVideo.current} autoPlay   className="videocalldiv" /> : <></>
+                                callAccepted && !callEnded ? <video ref={userVideo} src={userVideo.current} autoPlay className="videocalldiv" /> : <></>
                             }
                         </div>
                     </div>
