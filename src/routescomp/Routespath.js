@@ -54,7 +54,7 @@ const Routespath = () => {
         <Route path="/userlogin" element={ <>    <Login />  </>} />
         <Route path="/register" element={<>    <Register /> </> } />
         <Route path="/pricing" element={<> <Header /> <Pricing /> <Footer /> </>} />
-        <Route path="/chatbot/id"  element={<Chatbot2 />} />
+        <Route path="/chatbot"  element={<Chatbot2 />} />
         <Route path="/reset-pass" element={ <> <Header /> <ResetPass /> <Footer /> </>} />
        <Route path="/reset-pass/:token" element={<NewPassword />} />
         </Routes>
