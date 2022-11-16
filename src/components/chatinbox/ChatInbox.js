@@ -260,9 +260,9 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             <div>
                                 {selectedUser && <div className='callicon' onClick={() => { handleCall() }}><IoMdCall /></div>}
                             </div>
-                            <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
+                            {/* <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
                                 showProfInfo ? "Close" : "Open profile detail "
-                            }</div>
+                            }</div> */}
                         </div>
                     </div>
                 </div>
