@@ -157,7 +157,7 @@ const Inbox = () => {
                                              />
                                             <div className="p-1" >
                                             <h6 style={{ color: "black" }} className='p-0 m-0'>{result}</h6>
-                                                <p style={{ color: "black" }} className='p-0 m-0'>{elm?.subUser.email}</p>
+                                                <p style={{ color: "black" }} className='p-0 m-0 emailofinbos'>{elm?.subUser.email}</p>
                                             </div>
                                         </div>
                                     </>
