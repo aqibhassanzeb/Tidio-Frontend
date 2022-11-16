@@ -286,7 +286,7 @@ const Chatbot2 = () => {
                         <div className='col-sm-3 offset-9 '>
                             <div className='col-sm-12  chatbot_header'>
                                 <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
-                                <div className='pt-2 chatbottexthead2 text-light'style={{cursor:"pointer"}} onClick={() => { handleCall() }}><IoMdCall /></div>
+                            {chatId && chatId != undefined &&    <div className='pt-2 chatbottexthead2 text-light'style={{cursor:"pointer"}} onClick={() => { handleCall() }}><IoMdCall /></div>}
                                 <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
                             </div>
 

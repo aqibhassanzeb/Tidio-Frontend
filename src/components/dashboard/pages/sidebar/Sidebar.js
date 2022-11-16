@@ -45,13 +45,13 @@ function Sidebar({children}) {
             name: 'Chatbot',
             icon: <SiChatbot />
             
-        },
-        {
-            path: '/chatbot/id',
-            name: 'Test Chatbot',
-            icon: <SiChatbot />
-            
         }
+        // {
+        //     path: '/chatbot/id',
+        //     name: 'Test Chatbot',
+        //     icon: <SiChatbot />
+            
+        // }
     ]
     return (
         <>
