@@ -278,6 +278,14 @@ const Chatbot2 = () => {
           connectionRef.current && connectionRef.current.destroy()
     }
 
+    const  muteMic=()=> {
+        stream.getAudioTracks().forEach(track => track.enabled = !track.enabled);
+      }
+      
+      const muteCam=()=> {
+        stream.getVideoTracks().forEach(track => track.enabled = !track.enabled);
+      }
+
     return (
         <>
             {showChatbot ?
@@ -389,9 +397,14 @@ const Chatbot2 = () => {
                         </div>
                     </div>
                     {callAccepted && !callEnded ? (
+                        <>
                         <Button variant="danger" onClick={() => handleClose()}>
                             End Call
                         </Button>
+                       
+                        </>
+
+
                     ) : (
                         <button className="callbtn" onClick={() => callUser(createdby)}>
                       {callloading ? "Calling":<TbPhoneCall />} 
@@ -406,6 +419,12 @@ const Chatbot2 = () => {
                             </Button>
                         </div>
                     ) : null}
+                     <Button variant="primary" onClick={() => muteCam()}>
+                            video
+                        </Button>
+                        <Button variant="primary" onClick={() => muteMic()}>
+                            audio
+                        </Button>
                 </Modal.Body>
                 <Modal.Footer className="headback">
                     <button className='btn btn-danger' onClick={() => { handleClose() }}>

@@ -245,6 +245,13 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
         setForceUpdate(!forceUpdate)
     }
 
+    const  muteMic=()=> {
+        stream.getAudioTracks().forEach(track => track.enabled = !track.enabled);
+      }
+      
+      const muteCam=()=> {
+        stream.getVideoTracks().forEach(track => track.enabled = !track.enabled);
+      }
 
 
     return (
@@ -362,6 +369,12 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             </Button>
                         </div>
                     ) : null}
+                     <Button variant="primary" onClick={() => muteCam()}>
+                            video
+                        </Button>
+                        <Button variant="primary" onClick={() => muteMic()}>
+                            audio
+                        </Button>
                 </Modal.Body>
 
             </Modal>
