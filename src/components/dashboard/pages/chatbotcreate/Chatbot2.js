@@ -20,6 +20,7 @@ import { Button, Modal } from 'react-bootstrap'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { IoMdCall } from 'react-icons/io';
 import { TbPhoneCall } from 'react-icons/tb';
+import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill } from 'react-icons/bs'
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
@@ -54,6 +55,8 @@ const Chatbot2 = () => {
     const [callEnded, setCallEnded] = useState(false)
     const [name, setName] = useState('')
     const [callloading, setCallloading] = useState(false)
+    const [videoMuted, setVideoMuted] = useState(true)
+    const [audioMuted, setAudioMuted] = useState(true)
     const myVideo = useRef()
     const userVideo = useRef()
     const connectionRef = useRef()
@@ -280,10 +283,12 @@ const Chatbot2 = () => {
 
     const  muteMic=()=> {
         stream.getAudioTracks().forEach(track => track.enabled = !track.enabled);
+        setAudioMuted(!audioMuted)
       }
       
       const muteCam=()=> {
         stream.getVideoTracks().forEach(track => track.enabled = !track.enabled);
+        setVideoMuted(!videoMuted)
       }
 
     return (
@@ -396,6 +401,7 @@ const Chatbot2 = () => {
                             }
                         </div>
                     </div>
+                    <div className="d-flex">
                     {callAccepted && !callEnded ? (
                         <>
                         <Button variant="danger" onClick={() => handleClose()}>
@@ -414,17 +420,36 @@ const Chatbot2 = () => {
                     {receivingCall && !callAccepted ? (
                         <div className="caller">
                             <h1 >{name} is calling...</h1>
-                            <Button variant="primary" onClick={answerCall}>
+                            <Button  onClick={answerCall}>
                                 Answer
                             </Button>
                         </div>
                     ) : null}
-                     <Button variant="primary" onClick={() => muteCam()}>
-                            video
-                        </Button>
-                        <Button variant="primary" onClick={() => muteMic()}>
-                            audio
-                        </Button>
+                    {videoMuted ? (
+                        <div className="mutedbtn" onClick={() => muteCam()}>
+                        <BsCameraVideoFill />
+                       
+                    </div>
+
+                    ) : (
+                        <div className="mutedbtn" onClick={() => muteCam()}>
+                                    
+                                    <BsCameraVideoOffFill />
+                                </div>
+
+                    )}
+                    {audioMuted ? (
+                        <div className="mutedbtn" onClick={() => muteMic()}>
+                        <BsFillMicFill />
+                        </div>
+
+                    ) : (
+                        <div className="mutedbtn" onClick={() => muteMic()}>
+                        <BsFillMicMuteFill />
+                    </div>
+
+                    )}
+                    </div>
                 </Modal.Body>
                 <Modal.Footer className="headback">
                     <button className='btn btn-danger' onClick={() => { handleClose() }}>

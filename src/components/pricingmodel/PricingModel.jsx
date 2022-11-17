@@ -28,9 +28,11 @@ export default function PricingModel() {
                             </div>
                             <div className='cardcustomertext m-2 p-0 d-flex col-md-6 col-sm-12'>
                                 <span className='spantexttrans'>
-                                    <h1>Free</h1>
-                                    <h3>Forever-free</h3>
-                                    <p>The best option for companies who just started and want to elevate their customer support.</p>
+                                    <h1>Paid</h1>
+                                    <h3>From 19 USD/mo.
+                                    </h3>
+                                    <p>
+                                    The best option for small and medium businesses that want to start accelerating their revenue.</p>
                                 </span>
                                 <div>
                                     <img src={transs} className='imgtransparent ' />
@@ -46,7 +48,7 @@ export default function PricingModel() {
                             <div className='dicoverbackdown my-2'>
                                 <div >
                                     <p className='dicovertiodio'>Discover what Tidio can do for you</p>
-                                   <div className='discovermaindic'> <button className='startdebtn ' onClick={()=> navigate("/login")} >Get Started</button></div>
+                                   <div className='discovermaindic'> <button className='startdebtn ' onClick={()=> navigate("/contact")} >Get Started</button></div>
                                 </div>
                                 </div>
                         </div>

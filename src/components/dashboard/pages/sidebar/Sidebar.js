@@ -7,6 +7,7 @@ import { FaBars } from 'react-icons/fa';
 import { GrFormClose } from 'react-icons/gr';
 import { NavLink } from 'react-router-dom';
 import '../sidebar/Sidebar.css'
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 function Sidebar({children}) {
     const[isOpen ,setIsOpen] = useState(false);
@@ -18,15 +19,11 @@ function Sidebar({children}) {
             icon: <BsFillInboxFill />
             
         },
-        {
-            path: '#/',
-            name: 'Dashboard',
-            icon: <HiHome />
-        },
+       
         {
             path: '/contact',
-            name: 'Contact',
-            icon: <MdOutlinePermContactCalendar />
+            name: 'Home',
+            icon: <HiHome />
         },
         // {
         //     path: '/chat',
@@ -60,8 +57,14 @@ function Sidebar({children}) {
                     <div className='top_section'>
                             <h1 style={{display: isOpen ? "block" : "none"}} className='logo'>Logo</h1>
                         <div style={{marginLeft: isOpen ? "150px" : "0px"}} className='bars'>
-                        {isOpen ? 
-                            <GrFormClose className='closecrass' onClick={toggle} />
+                        {isOpen ? (<>
+                            
+                            <div className='custom-cross' onClick={toggle}>
+                            <div className='cro2' onClick={toggle}></div>
+                            <div className='cro3' onClick={toggle}></div>
+                            </div>
+                            </>
+                            )
                             :
                             <FaBars className='fabricon' onClick={toggle} />
                          }   
