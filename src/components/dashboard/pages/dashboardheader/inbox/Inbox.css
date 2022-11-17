@@ -4,7 +4,6 @@
         width: 100% ;
         height: 90vh;
         background-color: rgb(206, 204, 204);
-        border-radius: 5px;
         animation: animationonsidebar .7s linear;
         transition: .7s;
 }
@@ -95,6 +94,9 @@
 }
 .inboxUserdetail:hover{
     background-color: rgba(121, 121, 124, 0.432);
+}
+.emailofinbos{
+    font-size: 12px;
 }
 .userimage{
     width: 50px;

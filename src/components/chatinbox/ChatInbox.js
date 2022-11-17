@@ -282,26 +282,30 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
 
                                 elm.sender == "subUser" ?
                                     <div className='col-sm-12 text-left bcakhover'>
-                                    {/* <div className='icondivchat'>
-                                    <p>Icon</p>
-                            </div> */}
-                                    <div>
-                                        <div className='chat_row'>
-                                            <p className='p-0 m-0 boldemail'>{selectedUser.subUser?.email}</p>
-                                            <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
-
+                                        <div className='icondivchat'>
+                                            <p>{selectedUser.subUser?.email.charAt(0)}</p>
                                         </div>
                                         <div>
-                                            <div className='chat_text '>
-                                                <p className='mesagecontext'>{elm.content}</p>
+                                            <div className='chat_row'>
+                                                <p className='p-0 m-0 boldemail'>{selectedUser.subUser?.email}</p>
+                                                <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+
                                             </div>
-                                        </div>
+                                            <div>
+                                                <div className='chat_text '>
+                                                    <p className='mesagecontext'>{elm.content}</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     :
                                     <div className='col-sm-12 bcakhover2'>
 
                                         <div className='d-flex justify-content-start '>
+                                        <div className='icondivchat'>
+                                            <p>Y</p>
+                                        </div>
+                                        <div>
                                             <div className="d-flex">
                                                 <p className='p-0 m-0 boldemail'>You</p>
                                                 <div className='chat_end_text'>
@@ -309,11 +313,12 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
 
                                                 </div>
                                             </div>
+                                            <div className='chat_end_row '>
+                                                <p className='p-0 m-0'>{elm.content}</p>
+    
+                                            </div>
                                         </div>
-                                        <div className='chat_end_row '>
-                                            <p className='p-0 m-0'>{elm.content}</p>
-
-                                        </div>
+                                    </div>
                                     </div>
                             )
                         })

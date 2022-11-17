@@ -39,21 +39,28 @@ border: 1px solid lightgray;
     display: flex;
 }
 .bcakhover2{
-    
+
 }
 .icondivchat{
-    background-color: rgba(255, 0, 0, 0.267);
-    height: 40px;
-    width: 40px;
+    background-color: rgba(0, 183, 255, 0.541);
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 5px;
 }
 .icondivchat p{
     margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 .bcakhover:hover{
+    background-color: rgba(211, 211, 211, 0.623);
+    border-radius: 5px;
+}
+.bcakhover2:hover{
     background-color: rgba(211, 211, 211, 0.623);
     border-radius: 5px;
 }
@@ -135,7 +142,6 @@ border: 1px solid lightgray;
 }
 .replymaindic{
     border: 1px solid rgba(211, 211, 211, 0.288);
-    border-radius: 10px;
     padding: 0px;
 }
 .openprofinfo{
