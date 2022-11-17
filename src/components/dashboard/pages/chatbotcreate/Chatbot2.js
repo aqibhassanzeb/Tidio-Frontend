@@ -289,7 +289,7 @@ const Chatbot2 = () => {
     return (
         <>
             {showChatbot ?
-                <div className='container-fluid' style={{ position: "fixed" }}>
+                <div className='container-fluid' style={{ position:"absolute", top:"200px"}}>
                     <div className='row mt-3'>
                         <div className='col-sm-3 offset-9 '>
                             <div className='col-sm-12  chatbot_header'>
@@ -300,7 +300,7 @@ const Chatbot2 = () => {
 
 
                             {chatId && chatId != undefined ?
-                                <div className=' chatbotmessagediv'>
+                                <div className=' chatbotmessagediv' style={{height:"350px"}}>
                                     {
                                         data && data.map((elm) => {
                                             var setDate = new Date(elm.createdAt)
