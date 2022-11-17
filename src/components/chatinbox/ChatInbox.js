@@ -11,6 +11,7 @@ import { Button, Modal } from 'react-bootstrap'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { IoMdCall } from 'react-icons/io'
 import { TbPhoneCall } from 'react-icons/tb'
+import EmojiPicker from 'emoji-picker-react'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -256,6 +257,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
 
     return (
         <>
+        {/* <EmojiPicker/> */}
             <div className='container-fluid custom_fluid'>
                 <div className='row '>
                     <div className='col-sm-12 header_chat'>
