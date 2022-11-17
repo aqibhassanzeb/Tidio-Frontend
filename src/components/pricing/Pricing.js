@@ -5,7 +5,7 @@ import { Accordion } from "react-bootstrap";
 import "./pricing.css";
 function Pricing() {
   const [activeTab, setActiveTab] = useState(1);
-  
+
   const handleActive = (ind) => {
     setActiveTab(ind);
   }
@@ -23,10 +23,10 @@ function Pricing() {
         </div>
         <div className="both">
           <div className="pricing-tabs mt-4 d-flex flex-direction-row">
-            
-              <span className={activeTab === 1 ? "tabsmon tabsmon-active" : "tabsmon"} onClick={() => handleActive(1)}  >Monthly</span>
-              <span className={activeTab === 2 ? "tabsmon tabsmon-active" : "tabsmon"} onClick={() => handleActive(2)} >Annually</span>
-            
+
+            <span className={activeTab === 1 ? "tabsmon tabsmon-active" : "tabsmon"} onClick={() => handleActive(1)}  >Monthly</span>
+            <span className={activeTab === 2 ? "tabsmon tabsmon-active" : "tabsmon"} onClick={() => handleActive(2)} >Annually</span>
+
           </div>
           <div className="pricing-annuallyFree">
             Annually you have 2 months free😍
@@ -65,6 +65,20 @@ function Pricing() {
                   <li>Email Support</li>
                 </ul>
               </div>
+              <div className="features">
+                <p>Features:</p>
+
+                <div className="secondLast-text">
+                  <ul>
+
+                    <li>Desktop & Mobile Apps</li>
+                    <li>3rd party apps integration
+                    </li>
+                    <li>Visitors Info</li>
+                    <li>JavaScript API</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
           <div className="col-md-6 col-lg-4 col-sm-12  d-flex justify-content-center">
@@ -78,20 +92,20 @@ function Pricing() {
               </div>
               <div></div>
               <div className="card-price mt-4">
-                
+
                 {
-                  activeTab === 1? (
+                  activeTab === 1 ? (
                     <span className="price">
-                    15<sup>.83</sup>
+                      15<sup>.83</sup>
                     </span>
-                  ): activeTab === 1? (
+                  ) : activeTab === 1 ? (
                     ""
-                  ): 
-                  <span className="price">
-                    19
+                  ) :
+                    <span className="price">
+                      19
                     </span>
                 }
-                 
+
                 <span className="currency">USD</span>
                 <span className="perMonth">/mo.</span>
               </div>
@@ -110,6 +124,25 @@ function Pricing() {
                   <li>Email Support</li>
                 </ul>
               </div>
+              <div className="features">
+                <p>Features:</p>
+
+                <div className="secondLast-text">
+                  <ul>
+                    <li id="highlightText">
+                      All the Free Features
+                    </li>
+                    <li>Team departments</li>
+                    <li>Analytics</li>
+                    <li>Native Shopify Integration</li>
+                    <li>Live Typing</li>
+                    <li>Viewed Pages</li>
+                    <li>Live Visitors List</li>
+                    <li>Permissions</li>
+                    <li>Notes</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
           <div className="col-md-6 col-lg-4 col-sm-12  d-flex justify-content-center">
@@ -127,20 +160,20 @@ function Pricing() {
 
               </div> */}
               <div className="card-price mt-4">
-              {
-                activeTab === 2? (
-                  <span className="price">
-                   289
-                  </span>
-                ): activeTab === 2? (
-                  ""
-                ): 
-                <span className="price">
-                240<sup>.84</sup>
-                  </span>
-              }
-               
-                
+                {
+                  activeTab === 2 ? (
+                    <span className="price">
+                      289
+                    </span>
+                  ) : activeTab === 2 ? (
+                    ""
+                  ) :
+                    <span className="price">
+                      240<sup>.84</sup>
+                    </span>
+                }
+
+
                 <span className="currency">USD</span>
                 <span className="perMonth">/mo.</span>
               </div>
