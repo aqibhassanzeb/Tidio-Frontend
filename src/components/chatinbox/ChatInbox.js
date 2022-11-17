@@ -12,6 +12,7 @@ import CopyToClipboard from 'react-copy-to-clipboard'
 import { IoMdCall } from 'react-icons/io'
 import { TbPhoneCall } from 'react-icons/tb'
 import EmojiPicker from 'emoji-picker-react'
+import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill } from 'react-icons/bs'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -45,6 +46,8 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     const [name, setName] = useState('')
     const [forceUpdate, setForceUpdate] = useState(false)
     const [callloading, setCallloading] = useState(false)
+    const [videoMuted, setVideoMuted] = useState(true)
+    const [audioMuted, setAudioMuted] = useState(true)
     const myVideo = useRef()
     const userVideo = useRef()
     const connectionRef = useRef()
@@ -221,7 +224,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             stream: stream
         })
         peer.on("signal", (data) => {
-            socket.emit("answerCall", { signal: data, to:selectedUser ? selectedUser.subUser._id : caller })
+            socket.emit("answerCall", { signal: data, to: selectedUser ? selectedUser.subUser._id : caller })
         })
         peer.on("stream", (stream) => {
             userVideo.current.srcObject = stream
@@ -235,7 +238,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     }
 
     const leaveCall = () => {
-        socket.emit("endCall",{to:caller ? caller:selectedUser.subUser._id});
+        socket.emit("endCall", { to: caller ? caller : selectedUser.subUser._id });
         window.location.reload();
         setCallAccepted(false)
         setCallEnded(true)
@@ -246,13 +249,15 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
         setForceUpdate(!forceUpdate)
     }
 
-    const  muteMic=()=> {
+    const muteMic = () => {
         stream.getAudioTracks().forEach(track => track.enabled = !track.enabled);
-      }
-      
-      const muteCam=()=> {
+        setAudioMuted(!audioMuted)
+    }
+
+    const muteCam = () => {
         stream.getVideoTracks().forEach(track => track.enabled = !track.enabled);
-      }
+        setVideoMuted(!videoMuted)
+    }
 
 
     return (
@@ -275,7 +280,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                         </div>
                     </div>
                 </div>
-                {selectedUser ? <div className={`${messages.length < 6 ? "chat-area2" : "chat-area" } row `} >
+                {selectedUser ? <div className={`${messages.length < 6 ? "chat-area2" : "chat-area"} row `} >
                     {
                         messages && messages.map((elm, index) => {
                             var setDate = new Date(elm.createdAt)
@@ -304,23 +309,23 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                                     <div className='col-sm-12 bcakhover2'>
 
                                         <div className='d-flex justify-content-start '>
-                                        <div className='icondivchat'>
-                                            <p>Y</p>
-                                        </div>
-                                        <div>
-                                            <div className="d-flex">
-                                                <p className='p-0 m-0 boldemail'>You</p>
-                                                <div className='chat_end_text'>
-                                                    <time className='chat_end_time  '>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                            <div className='icondivchat'>
+                                                <p>Y</p>
+                                            </div>
+                                            <div>
+                                                <div className="d-flex">
+                                                    <p className='p-0 m-0 boldemail'>You</p>
+                                                    <div className='chat_end_text'>
+                                                        <time className='chat_end_time  '>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+
+                                                    </div>
+                                                </div>
+                                                <div className='chat_end_row '>
+                                                    <p className='p-0 m-0'>{elm.content}</p>
 
                                                 </div>
                                             </div>
-                                            <div className='chat_end_row '>
-                                                <p className='p-0 m-0'>{elm.content}</p>
-    
-                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                             )
                         })
@@ -357,14 +362,14 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             }
                         </div>
                     </div>
-
+                    <div className="d-flex">
                     {callAccepted && !callEnded ? (
                         <Button variant="danger" onClick={() => handleClose()}>
                             End Call
                         </Button>
                     ) : (
                         <button className="callbtn" onClick={() => callUser(selectedUser.subUser._id)}>
-                        {callloading ? "Calling":<TbPhoneCall />} 
+                            {callloading ? "Calling" : <TbPhoneCall />}
                         </button>
                     )}
 
@@ -376,12 +381,27 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             </Button>
                         </div>
                     ) : null}
-                     <Button variant="primary" onClick={() => muteCam()}>
-                            video
-                        </Button>
-                        <Button variant="primary" onClick={() => muteMic()}>
-                            audio
-                        </Button>
+                    {videoMuted ? (
+                        <div className="mutedbtn" onClick={() => muteCam()}>
+                            <BsCameraVideoFill />
+                        </div>
+                    ) : (
+
+                        <div className="mutedbtn" onClick={() => muteCam()}>
+                            <BsCameraVideoOffFill />
+                        </div>
+                    )}
+                    {audioMuted ? (
+                        <div className="mutedbtn" onClick={() => muteMic()}>
+                            <BsFillMicFill />
+                        </div>
+
+                    ) : (
+                        <div className="mutedbtn" onClick={() => muteMic()}>
+                            <BsFillMicMuteFill />
+                        </div>
+                    )}
+                    </div>
                 </Modal.Body>
 
             </Modal>

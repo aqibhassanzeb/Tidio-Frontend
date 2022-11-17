@@ -1,6 +1,10 @@
 import React from 'react'
 import '../simpleInstalation/SimpleInstallation.css'
 import loginimg from '../../../src/images/loginlink.webp'
+import loginimg2 from '../../../src/images/pluginsec.webp'
+import loginimg3 from '../../../src/images/instactive.webp'
+import loginimg4 from '../../../src/images/createacc.webp'
+import loginimg5 from '../../../src/images/enjoyshort.webp'
 import { useState } from 'react';
 import { FaFacebookF, FaShopify, FaTwitter, FaTwitterSquare, FaWix, FaWordpressSimple } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
@@ -8,7 +12,11 @@ const SimpleInstallation = () => {
 
     const [show, setShow] = useState(1);
     const [active, setActive] = useState(1);
+    const [changeimg, setChangeimg] = useState(1);
 
+    const handleimgChange = (ind) =>{
+        setChangeimg(ind)
+    }
     return (
         <>
             <div className='container-fluid my-4'>
@@ -25,16 +33,38 @@ const SimpleInstallation = () => {
                             <div className='maindvloginimg'>
                                 <div className='anchortextul'>
                                     <ul >
-                                        <li><a>Log in to your website or platform</a></li>
-                                        <li><a>Find the “Tidio” app in the plugins section</a></li>
-                                        <li><a>Install and activate the plugin</a></li>
-                                        <li><a>Create your free Tidio account</a></li>
-                                        <li><a>Enjoy a short product tour and start using Tidio!</a></li>
+                                        <li onClick={() => handleimgChange(1)}><a>Log in to your website or platform</a></li>
+                                        <li onClick={() => handleimgChange(2)}><a>Find the “Tidio” app in the plugins section</a></li>
+                                        <li onClick={() => handleimgChange(3)}><a>Install and activate the plugin</a></li>
+                                        <li onClick={() => handleimgChange(4)}><a>Create your free Tidio account</a></li>
+                                        <li onClick={() => handleimgChange(5)}><a>Enjoy a short product tour and start using Tidio!</a></li>
                                     </ul>
                                 </div>
+                                {changeimg === 1 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg} className='img-fluid loginimage' />
+                                    </div>
+                               }
+                               {changeimg === 2 &&
                                 <div className='imageofanchortext'>
-                                    <img src={loginimg} className='img-fluid loginimage' />
+                                    <img src={loginimg2} className='img-fluid loginimage' />
                                 </div>
+                           }
+                           {changeimg === 3 &&
+                            <div className='imageofanchortext'>
+                                <img src={loginimg3} className='img-fluid loginimage' />
+                            </div>
+                       }
+                       {changeimg === 4 &&
+                        <div className='imageofanchortext'>
+                            <img src={loginimg4} className='img-fluid loginimage' />
+                        </div>
+                   }
+                   {changeimg === 5 &&
+                    <div className='imageofanchortext'>
+                        <img src={loginimg5} className='img-fluid loginimage' />
+                    </div>
+               }
                             </div>
                         )
                             :

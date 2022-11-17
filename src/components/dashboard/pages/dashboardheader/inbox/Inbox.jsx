@@ -25,7 +25,7 @@ const Inbox = () => {
     // for modal control 
     const [show, setShow] = useState(false);
     const [showProfInfo, setShowProfInfo] = useState(false);
-    const [hide, setHide] = useState(false);
+    const [hide, setHide] = useState(true);
     const handleClose = () => setShow(false);
     
     // const handleShow = () => setShow(true);
@@ -133,14 +133,14 @@ const Inbox = () => {
         <>
             <div className='row chatdivin'>
                 {
-                    hide ? (<div className='inbox-maindiv col-3' style={{overflowY:"scroll", padding: 0}}  >
+                    hide && (<div className='inbox-maindiv col-3' style={{overflowY:"scroll", padding: 0}}  >
                         <div className='uppersearch  d-flex justify-content-between '>
                             {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} />
                <BsSearch className='searchiocon ' onClick={handleShow} /> */}
                <div>
                    <span className='conver'>Conversation</span>
                </div>
-                            <IoMdArrowBack className='searchiocon ' onClick={handleShow} />
+                            
                         </div>
                         {
                             chatUser &&
@@ -164,13 +164,7 @@ const Inbox = () => {
                                 )
                             })
                         }
-                    </div>) : (
-                        <div className='inbox-maindivforwarddiv col-3'  >
-
-                            <IoMdArrowForward className='searchioconforward ' onClick={handleShowforward} />
-                        </div>
-
-                    )
+                    </div>) 
                 }
 
 
