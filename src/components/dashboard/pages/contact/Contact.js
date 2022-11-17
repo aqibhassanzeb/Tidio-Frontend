@@ -25,20 +25,20 @@ function Contact() {
               <td>1</td>
               <td>  Mark</td>
               <td>Mark@mdo.com</td>
-              <td className='delebtnrow'>Delete</td>
+              <td ><MdDelete className='delebtnrow'/></td>
             </tr>
             <tr>
               <td>2</td>
               <td>Jacob</td>
               <td>fat@fat.com</td>
-              <td className='delebtnrow'>Delete</td>
+              <td ><MdDelete className='delebtnrow'/></td>
 
             </tr>
             <tr>
               <td>3</td>
               <td >Larry the Bird</td>
               <td>twitter@twitter.com</td>
-              <td className='delebtnrow'>Delete</td>
+              <td ><MdDelete className='delebtnrow'/></td>
 
             </tr>
           </tbody>
