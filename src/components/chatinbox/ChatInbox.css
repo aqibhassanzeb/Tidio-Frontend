@@ -5,6 +5,13 @@ height: 60vh;
 overflow-y: scroll;
 border: 1px solid lightgray;
 }
+.chat-area2{
+    background: linear-gradient(3deg, rgba(17, 17, 20, 0.082) 0%, rgba(105, 112, 105, 0.082) 99%);
+    padding: 20px;
+height: 35vh;
+overflow-y: scroll;
+border: 1px solid lightgray;
+}
 .chat-area::-webkit-scrollbar{
     width: 7px;
     border-radius: 5px;
@@ -37,7 +44,9 @@ border: 1px solid lightgray;
 }
 .bcakhover{
     display: flex;
+    text-align: left;
 }
+
 .bcakhover2{
 
 }
