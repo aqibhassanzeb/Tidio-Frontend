@@ -294,7 +294,7 @@ const Chatbot2 = () => {
     return (
         <>
             {showChatbot ?
-                <div className='container-fluid' style={{ position:"absolute", top:"200px"}}>
+                <div className='container-fluid' style={{ position:"absolute", top:"300px"}}>
                     <div className='row mt-3'>
                         <div className='col-sm-3 offset-9 '>
                             <div className='col-sm-12  chatbot_header'>
