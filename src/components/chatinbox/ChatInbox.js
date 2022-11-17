@@ -264,7 +264,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                         </div>
                     </div>
                 </div>
-                {selectedUser ? <div className='row chat-area' >
+                {selectedUser ? <div className={`${messages.length < 6 ? "chat-area2" : "chat-area" } row `} >
                     {
                         messages && messages.map((elm, index) => {
                             var setDate = new Date(elm.createdAt)
@@ -272,7 +272,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             return (
 
                                 elm.sender == "subUser" ?
-                                    <div className='col-sm-12 text-left bcakhover'>
+                                    <div className={`col-sm-12  bcakhover }`}>
                                         <div className='icondivchat'>
                                             <p>{selectedUser.subUser?.email.charAt(0)}</p>
                                         </div>

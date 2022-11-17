@@ -18,15 +18,11 @@ function Sidebar({children}) {
             icon: <BsFillInboxFill />
             
         },
-        {
-            path: '#/',
-            name: 'Dashboard',
-            icon: <HiHome />
-        },
+       
         {
             path: '/contact',
-            name: 'Contact',
-            icon: <MdOutlinePermContactCalendar />
+            name: 'Home',
+            icon: <HiHome />
         },
         // {
         //     path: '/chat',
