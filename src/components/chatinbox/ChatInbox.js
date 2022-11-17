@@ -43,10 +43,10 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     const [callEnded, setCallEnded] = useState(false)
     const [name, setName] = useState('')
     const [forceUpdate, setForceUpdate] = useState(false)
+    const [callloading, setCallloading] = useState(false)
     const myVideo = useRef()
     const userVideo = useRef()
     const connectionRef = useRef()
-    console.log("user video :", userVideo, userVideo.current)
     // video modal 
     const [show, setShow] = useState(false);
 
@@ -188,6 +188,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             stream: stream
         })
         peer.on("signal", (data) => {
+            setCallloading(true)
             socket.emit("callUser", {
                 userToCall: id,
                 signalData: data,
@@ -202,6 +203,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
         })
 
         socket.on("callAccepted", (signal) => {
+            setCallloading(false)
             setCallAccepted(true)
             setForceUpdate(!forceUpdate)
             peer.signal(signal)
@@ -218,10 +220,9 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
             stream: stream
         })
         peer.on("signal", (data) => {
-            socket.emit("answerCall", { signal: data, to: caller })
+            socket.emit("answerCall", { signal: data, to:selectedUser ? selectedUser.subUser._id : caller })
         })
         peer.on("stream", (stream) => {
-            console.log("my video :", stream)
             userVideo.current.srcObject = stream
 
         })
@@ -233,7 +234,8 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
     }
 
     const leaveCall = () => {
-        socket.emit("endCall", caller && caller);
+        socket.emit("endCall",{to:caller ? caller:selectedUser.subUser._id});
+        window.location.reload();
         setCallAccepted(false)
         setCallEnded(true)
         stream.getTracks().forEach(function (track) {
@@ -243,6 +245,13 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
         setForceUpdate(!forceUpdate)
     }
 
+    const  muteMic=()=> {
+        stream.getAudioTracks().forEach(track => track.enabled = !track.enabled);
+      }
+      
+      const muteCam=()=> {
+        stream.getVideoTracks().forEach(track => track.enabled = !track.enabled);
+      }
 
 
     return (
@@ -258,9 +267,9 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             <div>
                                 {selectedUser && <div className='callicon' onClick={() => { handleCall() }}><IoMdCall /></div>}
                             </div>
-                            <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
+                            {/* <div className={showProfInfo ? 'openprofinfo' : 'openprofinfo2'} onClick={() => setShowProfInfo(!showProfInfo)}>{
                                 showProfInfo ? "Close" : "Open profile detail "
-                            }</div>
+                            }</div> */}
                         </div>
                     </div>
                 </div>
@@ -353,7 +362,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                         </Button>
                     ) : (
                         <button className="callbtn" onClick={() => callUser(selectedUser.subUser._id)}>
-                            <TbPhoneCall />
+                        {callloading ? "Calling":<TbPhoneCall />} 
                         </button>
                     )}
 
@@ -365,6 +374,12 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                             </Button>
                         </div>
                     ) : null}
+                     <Button variant="primary" onClick={() => muteCam()}>
+                            video
+                        </Button>
+                        <Button variant="primary" onClick={() => muteMic()}>
+                            audio
+                        </Button>
                 </Modal.Body>
 
             </Modal>

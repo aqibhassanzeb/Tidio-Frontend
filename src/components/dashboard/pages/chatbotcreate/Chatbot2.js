@@ -227,7 +227,7 @@ const Chatbot2 = () => {
                 userToCall: id,
                 signalData: data,
                 from: me,
-                name: name
+                name: subUserData.email
             })
         })
         peer.on("stream", (stream) => {
@@ -254,7 +254,7 @@ const Chatbot2 = () => {
             stream: stream
         })
         peer.on("signal", (data) => {
-            socket.emit("answerCall", { signal: data, to: caller })
+            socket.emit("answerCall", { signal: data, to: createdby })
         })
         peer.on("stream", (stream) => {
             // console.log("my video :",stream)
@@ -269,13 +269,22 @@ const Chatbot2 = () => {
     }
 
     const leaveCall = () => {
-        socket.emit("endCall",createdby && createdby );
+        socket.emit("endCall",{to:createdby} );
+        window.location.reload();
         setCallEnded(true)
         stream.getTracks().forEach(function(track) {
             track.stop();
           });
           connectionRef.current && connectionRef.current.destroy()
     }
+
+    const  muteMic=()=> {
+        stream.getAudioTracks().forEach(track => track.enabled = !track.enabled);
+      }
+      
+      const muteCam=()=> {
+        stream.getVideoTracks().forEach(track => track.enabled = !track.enabled);
+      }
 
     return (
         <>
@@ -285,7 +294,7 @@ const Chatbot2 = () => {
                         <div className='col-sm-3 offset-9 '>
                             <div className='col-sm-12  chatbot_header'>
                                 <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
-                                <div className='pt-2 chatbottexthead2 text-light'style={{cursor:"pointer"}} onClick={() => { handleCall() }}><IoMdCall /></div>
+                            {chatId && chatId != undefined &&    <div className='pt-2 chatbottexthead2 text-light'style={{cursor:"pointer"}} onClick={() => { handleCall() }}><IoMdCall /></div>}
                                 <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
                             </div>
 
@@ -388,9 +397,14 @@ const Chatbot2 = () => {
                         </div>
                     </div>
                     {callAccepted && !callEnded ? (
+                        <>
                         <Button variant="danger" onClick={() => handleClose()}>
                             End Call
                         </Button>
+                       
+                        </>
+
+
                     ) : (
                         <button className="callbtn" onClick={() => callUser(createdby)}>
                       {callloading ? "Calling":<TbPhoneCall />} 
@@ -405,6 +419,12 @@ const Chatbot2 = () => {
                             </Button>
                         </div>
                     ) : null}
+                     <Button variant="primary" onClick={() => muteCam()}>
+                            video
+                        </Button>
+                        <Button variant="primary" onClick={() => muteMic()}>
+                            audio
+                        </Button>
                 </Modal.Body>
                 <Modal.Footer className="headback">
                     <button className='btn btn-danger' onClick={() => { handleClose() }}>
