@@ -48,6 +48,7 @@
 .delebtnrow{
     border-radius: 5px;
     outline: none;
+    font-size: 25px;
 }
 .delebtnrow:hover{
     color: red !important;
