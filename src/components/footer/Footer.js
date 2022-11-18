@@ -8,12 +8,12 @@ export default function Footer() {
           <div className='col-md-4 col-sm-12 text-center'>
             <div className='footerinfo'>
               <h4 className='text-primary'>Antartical Corps</h4>
-              <p>Tidio 2022. All rights reserved.</p>
+              <p>Antartical Corps 2022. All rights reserved.</p>
             </div>
-            <p className='mt-2'>support@tidio.net</p>
+            <p className='mt-2'>support@antarticalcorps.net</p>
           </div>
           <div className='col-md-2  col-sm-12 text-center'>
-            <h4>Tidio</h4>
+            <h4>Antartical Corps</h4>
             <p>Affiliate Program</p>
             <p>Contact</p>
             <p>Jobs – We're hiring!</p>
