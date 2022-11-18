@@ -40,8 +40,14 @@ const Chatbot2 = () => {
     const fetchControl = useRef(false);
     const [socketConnected, setSocketConnected] = useState(false)
     const subUserData = JSON.parse(tidiochatUser)
-    const [sendloading, setSendloading] = useState(false)
+    const [sendloading, setSendloading] = useState(false);
+    const [issueResolved, setIssueResolved] = useState(false);
+    const [askIssueVisbile, setAskIssueVisible] = useState(false);
     const [notficationControl, setNotficationControl] = useState(null)
+
+    const [abc, setAbc] = useState(false)
+    const [abcNo, setAbcNo] = useState(0)
+
     const dispatch = useDispatch()
 
     // calling state portion 
@@ -100,13 +106,30 @@ const Chatbot2 = () => {
             setName(data.name)
             setCallerSignal(data.signal)
         })
-        socket.on("end",()=>{
-             setCallEnded(true)
-          connectionRef.current && connectionRef.current.destroy()
-          window.location.reload();
+        socket.on("end", () => {
+            setCallEnded(true)
+            connectionRef.current && connectionRef.current.destroy()
+            window.location.reload();
         })
 
     }, [])
+    useEffect(() => {
+        let result=abcNo+1
+        setAbcNo(result)
+        abcNo > 0 && resetTimeOut();
+        console.log("abc ",abcNo)
+    }, [abc,showChatbot])
+    
+
+    const resetTimeOut = () => {
+        
+        setTimeout(() =>{
+             setAskIssueVisible(true)
+            console.log("clicked ")
+            },5000 )
+
+    
+    }
 
     // 6360ffa27c91f7b5f10b7a3c
     // 6368a80a8841f2a317a1b37a
@@ -194,7 +217,7 @@ const Chatbot2 = () => {
 
     }
 
-  
+
 
     useEffect(() => {
         handlenoficationmessage()
@@ -215,7 +238,7 @@ const Chatbot2 = () => {
         chatbotControl = showChatbot
     }, [showChatbot])
 
-  
+
     // calling portion 
 
     const callUser = (id) => {
@@ -272,40 +295,40 @@ const Chatbot2 = () => {
     }
 
     const leaveCall = () => {
-        socket.emit("endCall",{to:createdby} );
+        socket.emit("endCall", { to: createdby });
         window.location.reload();
         setCallEnded(true)
-        stream.getTracks().forEach(function(track) {
+        stream.getTracks().forEach(function (track) {
             track.stop();
-          });
-          connectionRef.current && connectionRef.current.destroy()
+        });
+        connectionRef.current && connectionRef.current.destroy()
     }
 
-    const  muteMic=()=> {
+    const muteMic = () => {
         stream.getAudioTracks().forEach(track => track.enabled = !track.enabled);
         setAudioMuted(!audioMuted)
-      }
-      
-      const muteCam=()=> {
+    }
+
+    const muteCam = () => {
         stream.getVideoTracks().forEach(track => track.enabled = !track.enabled);
         setVideoMuted(!videoMuted)
-      }
+    }
 
     return (
         <>
             {showChatbot ?
-                <div className='container-fluid' style={{ position:"absolute", top:"300px"}}>
+                <div className='container-fluid' style={{ position: "absolute", top: "300px" }}>
                     <div className='row mt-3'>
                         <div className='col-sm-3 offset-9 '>
                             <div className='col-sm-12  chatbot_header'>
                                 <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
-                            {chatId && chatId != undefined &&    <div className='pt-2 chatbottexthead2 text-light'style={{cursor:"pointer"}} onClick={() => { handleCall() }}><IoMdCall /></div>}
+                                {chatId && chatId != undefined && <div className='pt-2 chatbottexthead2 text-light' style={{ cursor: "pointer" }} onClick={() => { handleCall() }}><IoMdCall /></div>}
                                 <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
                             </div>
 
 
                             {chatId && chatId != undefined ?
-                                <div className=' chatbotmessagediv' style={{height:"350px"}}>
+                                <div className=' chatbotmessagediv' style={{ height: "350px" }}>
                                     {
                                         data && data.map((elm) => {
                                             var setDate = new Date(elm.createdAt)
@@ -320,7 +343,7 @@ const Chatbot2 = () => {
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box'>
                                                                     <p className="mesegtetxher">{elm?.content}</p>
-                                                                    <time style={{fontSize:"10px"}} className=''>{setDate ? setDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}): "N/A"}</time>
+                                                                    <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -331,8 +354,9 @@ const Chatbot2 = () => {
                                                                     <img src={Profilepic} className="img img-fluid img_profile" />
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
+                                                            
                                                                     <p className="mesegtetxher">{elm?.content}</p>
-                                                                    <time style={{fontSize:"10px"}} className=''>{setDate ? setDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}): "N/A"}</time>
+                                                                    <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -341,6 +365,27 @@ const Chatbot2 = () => {
                                             )
                                         })
                                     }
+                                    { askIssueVisbile &&
+                                    <>
+                                     <div className='col-sm-12 '>
+                                            <div className='d-flex custom_rtl'>
+                                                <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
+                                                    {issueResolved ?
+                                                    <p className="mesegtetxher">{"Thanks"}</p>
+                                                    :
+                                                    <p className="mesegtetxher">{"Is your issue resolved ?"}</p>  
+                                                    }
+                                                    {!issueResolved &&
+                                                      <>
+                                                    <button onClick={()=>{setAbc(!abc);setAskIssueVisible(false)}}>No</button>
+                                                    <button onClick={()=>{clearTimeout();setIssueResolved(true)}}>Yes</button>
+                                                      </>
+                                                    }
+                                                        </div>
+                                            </div>
+                                        </div>
+                                        </>
+                                        }
                                 </ div>
                                 :
                                 <>
@@ -393,62 +438,61 @@ const Chatbot2 = () => {
                     <div className='row videofulldiv'>
 
                         <div className='col-12 videodivforcall'>
-                            {<video ref={myVideo} src={myVideo.current} autoPlay  className="videodivforcall" />}
+                            {<video ref={myVideo} src={myVideo.current} autoPlay className="videodivforcall" />}
                         </div>
                         <div className='col-12 videodivforcall'>
                             {
-                                callAccepted && !callEnded ? <video className="videodivforcall"  ref={userVideo} src={userVideo.current} autoPlay /> : <></>
+                                callAccepted && !callEnded ? <video className="videodivforcall" ref={userVideo} src={userVideo.current} autoPlay /> : <></>
                             }
                         </div>
                     </div>
                     <div className="d-flex">
-                    {callAccepted && !callEnded ? (
-                        <>
-                        <Button variant="danger" onClick={() => handleClose()}>
-                            End Call
-                        </Button>
-                       
-                        </>
+                        {callAccepted && !callEnded ? (
+                            <>
+                                <Button variant="danger" onClick={() => handleClose()}>
+                                    End Call
+                                </Button>
 
+                            </>
+                        ) : (
+                            !receivingCall &&
+                            <button className="callbtn" onClick={() => callUser(createdby)}>
+                                {callloading ? "Calling" : <TbPhoneCall />}
+                            </button>
+                        )}
 
-                    ) : (
-                        <button className="callbtn" onClick={() => callUser(createdby)}>
-                      {callloading ? "Calling":<TbPhoneCall />} 
-                        </button>
-                    )}
+                        {receivingCall && !callAccepted ? (
+                            <div className="caller">
+                                <h1 >{name} is calling...</h1>
+                                <Button onClick={answerCall}>
+                                    Answer
+                                </Button>
+                            </div>
+                        ) : null}
+                        {videoMuted ? (
+                            <div className="mutedbtn" onClick={() => muteCam()}>
+                                <BsCameraVideoFill />
 
-                    {receivingCall && !callAccepted ? (
-                        <div className="caller">
-                            <h1 >{name} is calling...</h1>
-                            <Button  onClick={answerCall}>
-                                Answer
-                            </Button>
-                        </div>
-                    ) : null}
-                    {videoMuted ? (
-                        <div className="mutedbtn" onClick={() => muteCam()}>
-                        <BsCameraVideoFill />
-                       
-                    </div>
+                            </div>
 
-                    ) : (
-                        <div className="mutedbtn" onClick={() => muteCam()}>
-                                    
-                                    <BsCameraVideoOffFill />
-                                </div>
+                        ) : (
+                            <div className="mutedbtn" onClick={() => muteCam()}>
 
-                    )}
-                    {audioMuted ? (
-                        <div className="mutedbtn" onClick={() => muteMic()}>
-                        <BsFillMicFill />
-                        </div>
+                                <BsCameraVideoOffFill />
+                            </div>
 
-                    ) : (
-                        <div className="mutedbtn" onClick={() => muteMic()}>
-                        <BsFillMicMuteFill />
-                    </div>
+                        )}
+                        {audioMuted ? (
+                            <div className="mutedbtn" onClick={() => muteMic()}>
+                                <BsFillMicFill />
+                            </div>
 
-                    )}
+                        ) : (
+                            <div className="mutedbtn" onClick={() => muteMic()}>
+                                <BsFillMicMuteFill />
+                            </div>
+
+                        )}
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="headback">
