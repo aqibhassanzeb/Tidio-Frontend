@@ -13,6 +13,7 @@ import { IoMdCall } from 'react-icons/io'
 import { TbPhoneCall } from 'react-icons/tb'
 import EmojiPicker from 'emoji-picker-react'
 import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill } from 'react-icons/bs'
+import { AiFillCaretRight } from 'react-icons/ai'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -20,7 +21,7 @@ var socket = io()
 var selectedChatCompare
 
 
-function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
+function ChatInbox({ senderUser, showProfInfo, setShowProfInfo,setHide }) {
     const [messages, setMessages] = useState([])
     const [newmessage, setNewmessage] = useState('')
     const [loading, setLoading] = useState(false)
@@ -267,6 +268,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo }) {
                 <div className='row '>
                     <div className='col-sm-12 header_chat'>
                         <div className='display_header'>
+                        <div className='conver2' onClick={()=> setHide(true)}><AiFillCaretRight /></div>
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
                             <p className='online'>{selectedUser && selectedUser.subUser?.email.split('@')[0]}</p>
                         </div>

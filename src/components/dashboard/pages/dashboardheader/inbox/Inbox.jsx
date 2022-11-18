@@ -13,6 +13,7 @@ import { IoMdArrowBack, IoMdArrowForward } from 'react-icons/io'
 import NotificationBadge from 'react-notification-badge/lib/components/NotificationBadge';
 import { Effect } from 'react-notification-badge';
 import ProfileChatInfo from '../../../profileChatInfo/ProfileChatInfo'
+import { AiFillCaretLeft } from 'react-icons/ai'
 const Inbox = () => {
     const [search, setSearch] = useState('')
     const [loading, setLoading] = useState(false)
@@ -137,8 +138,9 @@ const Inbox = () => {
                         <div className='uppersearch  d-flex justify-content-between '>
                             {/* <input type="search" placeholder='Search here min 2 word..' className='inputsearch' value={search} onChange={(e)=>searchHandle(e)} />
                <BsSearch className='searchiocon ' onClick={handleShow} /> */}
-               <div>
-                   <span className='conver'>Conversation</span>
+               <div className='d-flex justify-content-between w-100 '>
+                   <div className='conver'>Conversation</div>
+                   <div className='conver2' onClick={()=> setHide(false)}><AiFillCaretLeft /></div>
                </div>
                             
                         </div>
@@ -171,7 +173,9 @@ const Inbox = () => {
                 {/* Chat portion  */}
                 <div className='col-sm-12 col-md-9 inboxCahtsys d-flex'>
 
-                    <ChatInbox senderUser={senderUser}
+                    <ChatInbox
+                    setHide={setHide}
+                    senderUser={senderUser}
                     showProfInfo = {showProfInfo}
                     setShowProfInfo = {setShowProfInfo} />
                     {

@@ -54,8 +54,9 @@ useEffect(() => {
       <div className='container'>
         <h1 className='col contatchead'>Acquired Contact List</h1>
         <div className='row'>
-          <div className='col'>
-          <Table striped bordered hover>
+          <div className='col '>
+          <div className='tablemaindivofcol'>
+          <Table striped bordered hover >
           <thead>
             <tr>
               <th>#</th>
@@ -82,7 +83,7 @@ useEffect(() => {
             }
         </Table>
           </div>
-
+          </div>
         </div>
       </div>
     </div>

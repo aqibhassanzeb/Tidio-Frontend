@@ -20,6 +20,7 @@ import { Button, Modal } from 'react-bootstrap'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { IoMdCall } from 'react-icons/io';
 import { TbPhoneCall } from 'react-icons/tb';
+import { MdOutlineAddReaction } from 'react-icons/md';
 import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill } from 'react-icons/bs'
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -351,11 +352,12 @@ const Chatbot2 = () => {
                                     <button className='btn btn-primary' onClick={() => handleCreateChat()}>submit</button>
                                 </>
                             }
-                            <div className='col-sm-12'>
+                            <div className='col-sm-12 border'>
                                 <div className="input-group">
-                                    <input type="text" className="form-control message_area" style={{ border: contentError ? "1px red solid" : "1px solid #0b1277" }}
+                                    <input type="text" className={`form-control ${contentError ? "borderred " : " messagechatbot"}`}
                                         onChange={(e) => { setContent(e.target.value); setContentError(false) }} value={content}
-                                        aria-label="With textarea"></input>
+                                        ></input>
+                                        <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon'/></div>
                                     {chatId && chatId != undefined && <div className="input-group-prepend">
                                         <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
                                             {sendloading ? <p>Sending...</p> : <AiOutlineSend className='snd_icon' />}
