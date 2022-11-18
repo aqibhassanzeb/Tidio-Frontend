@@ -21,6 +21,11 @@
     border: 1px solid blue;
     
 }
+.emojiicon{
+    font-size: 25px;
+    margin-right: 5px;
+    cursor: pointer;
+}
 .inputemailchatbot{
     padding: 5px;
     border-radius: 5px;
@@ -88,15 +93,21 @@
     margin: 0px;
     padding: 0px;
 }
-.message_area:focus{
-    border-radius: 0px !important;
+.messagechatbot:focus{
     box-shadow: none !important;
-    border-color: #0b1277 !important;
 }
 .heart{
     color: red !important;
 }
-
+.borderred{
+    border: 1px solid red;
+}
+.messagechatbot{
+    border: 0px solid lightgray !important;
+    outline: none ;
+    border-radius: 0px !important;
+    border-right: 0px solid red !important;
+}
 .custom_position{
     position: fixed;
     position: -webkit-sticky;

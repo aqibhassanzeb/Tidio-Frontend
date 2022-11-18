@@ -9,6 +9,9 @@
     text-align: center;
     font-family: serif;
 }
+.tablemaindivofcol{
+    width: 100% !important;
+}
 .socialicon:hover{
    color: rgb(6, 6, 122);
    cursor: pointer;
@@ -53,4 +56,7 @@
 .delebtnrow:hover{
     color: red !important;
     cursor: pointer;
+}
+@media only screen and (min-width : 370px) and (max-width: 760px) {
+   
 }

@@ -80,7 +80,7 @@ const handlesignup =() =>{
                                                             <h6 className='m-0'>jano le Rpoux</h6>
                                                             <a href=''>whiskerbag.com</a></div>
                                                     </div>
-                                                    <p className='fs-5 m-2 w-75'>“Tidio changed everything changed everything about the way we  about the way we collect leads”</p>
+                                                    <p className='fs-5 m-2 w-50'>“Tidio is the ultimate customer-relationship building platform. It also helped us handle difficult clients, which wouldn’t be possible via mail”</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,7 +97,7 @@ const handlesignup =() =>{
                                         <div className="whiskerbagdiv">
                                             <div className=' '>
                                                 <p className='whiskerName'>Whisker Bag </p>
-                                                <h3 className='textparagraph'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
+                                                <h3 className='textparagraph'>The company set up bots to segment their website’s visitors and capture leads.</h3>
 
                                             </div>
                                             <div className='d-flex cardlinetextdiv'>
@@ -109,7 +109,7 @@ const handlesignup =() =>{
                                                             <h6 className='m-0'>jano le Rpoux</h6>
                                                             <a href=''>whiskerbag.com</a></div>
                                                     </div>
-                                                    <p className='fs-5 m-2 w-75'>“Tidio changed everything changed everything about the way we  about the way we collect leads”</p>
+                                                    <p className='fs-5 m-2 w-50'>“Tidio’s bots have helped us qualify the traffic in a way that was never possible before”</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,7 +126,7 @@ const handlesignup =() =>{
                                         <div className="whiskerbagdiv">
                                             <div className=' '>
                                                 <p className='whiskerName'>Whisker Bag </p>
-                                                <h3 className='textparagraph'>Whisker Bag installed Tidio chat to get closer to their website visitors and collect data about their needs and expectations.</h3>
+                                                <h3 className='textparagraph'>By using the combination of Tidio live chat and chatbots, Whisker Bag managed to collect 4x more leads within two months of Tidio installation.</h3>
 
                                             </div>
                                             <div className='d-flex cardlinetextdiv'>
@@ -138,7 +138,7 @@ const handlesignup =() =>{
                                                             <h6 className='m-0'>jano le Rpoux</h6>
                                                             <a href=''>whiskerbag.com</a></div>
                                                     </div>
-                                                    <p className='fs-5 m-2 w-75'>“Tidio changed everything about the changed everything about the way we  way we collect leads”</p>
+                                                    <p className='fs-5 m-2 w-50'>“Tidio changed everything about the changed everything about the way we  way we collect leads”</p>
 
                                                 </div>
                                             </div>
@@ -173,7 +173,9 @@ const handlesignup =() =>{
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br /> CEO</p>
+                                <p className='name_card '>Farzan A
+
+                                <br />  Web Designer</p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -188,7 +190,9 @@ const handlesignup =() =>{
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
+                                <p className='name_card '>SMelissa J
+
+                               <br /> Consultant Telecommunications</p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -204,7 +208,9 @@ const handlesignup =() =>{
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
+                                <p className='name_card '>Finn R
+
+                                <br />Consultant </p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -219,7 +225,11 @@ const handlesignup =() =>{
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
+                                <p className='name_card '>Donna T
+
+                               
+                                
+                                <br /> Co-Founder</p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -234,7 +244,9 @@ const handlesignup =() =>{
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
+                                <p className='name_card '>Baylen M
+
+                                <br /> Marketing Consultant</p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -249,7 +261,9 @@ const handlesignup =() =>{
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
+                                <p className='name_card '>Guilherme F
+
+                                <br />Owner</p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -264,7 +278,9 @@ const handlesignup =() =>{
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
+                                <p className='name_card '>Bobby H
+
+                                 <br />Consultant</p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -280,7 +296,9 @@ const handlesignup =() =>{
                         <div className='card_shadow'>
                             <div className='display_img'>
                                 <img className='card_img' src={melissa} />
-                                <p className='name_card '>Shervin K <br />CEO</p>
+                                <p className='name_card '>Davis E
+
+                                <br />Sales Executive </p>
                             </div>
                             <div className='text-left mt-2'>
                                 <p className='service'> Excellent service and product</p>
@@ -374,24 +392,7 @@ const handlesignup =() =>{
                         </div>
                     </div>
                 </div>
-                <div className='container'>
-                    <div className='row live_chat_padding'>
-                        <div className='col-sm-12 col-md-6 liv_col'>
-                            <h3 className='live_chat more_sales'>Generate more sales</h3>
-                            <p className='half_of'>Did you know that 3M businesses  generated 20M leads and $400M in sales after they started using our  chatbots?</p>
-                            <ul className='ul_padding'>
-                                <li className='connect_li'>Stop 60% of your clients from abandoning  their carts by offering a discount</li>
-                                <li className='connect_li'>Automatically qualify leads and reach out to them at the right time</li>
-                                <li className='connect_li'>Easily gather your visitors’ emails and  phone numbers</li>
-                            </ul>
-                            <a className='discover_live'>try for free now!</a><i className="bi bi-arrow-right-short"></i>
-                        </div>
-                        <div className='col-sm-12 col-md-6 img_live_chat_padd'>
-                            <img className='img img-fluid' src={closed} />
-                        </div>
-                    </div>
-                </div>
-
+              
 
                 
                 <div className='container'>
@@ -407,7 +408,7 @@ const handlesignup =() =>{
                                 <li className='connect_li'>Automatically qualify leads and reach out to them at the right time</li>
                                 <li className='connect_li'>Easily gather your visitors’ emails and  phone numbers</li>
                             </ul>
-                            <a className='discover_live'>try for free now!</a><i className="bi bi-arrow-right-short"></i>
+                            <a className='discover_live'>Try for free now!</a><i className="bi bi-arrow-right-short"></i>
                         </div>
                         
                     </div>

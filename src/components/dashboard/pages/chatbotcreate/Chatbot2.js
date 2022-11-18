@@ -20,13 +20,16 @@ import { Button, Modal } from 'react-bootstrap'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { IoMdCall } from 'react-icons/io';
 import { TbPhoneCall } from 'react-icons/tb';
+import { MdOutlineAddReaction } from 'react-icons/md';
 import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill } from 'react-icons/bs'
-
+import Picker from 'emoji-picker-react';
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
 var chatbotControl
 const Chatbot2 = () => {
-    const [play] = useSound(boopSfx)
+    const [play] = useSound(boopSfx);
+    const [showEmoji, setshowEmoji] = useState(false);
+    const [chosenEmoji, setChosenEmoji] = useState("");
     const [showChatbot, setshowChatbot] = useState(false);
     const [forceUpdate, setForceUpdate] = useState(false);
     const [Error, setError] = useState(false)
@@ -314,6 +317,11 @@ const Chatbot2 = () => {
         setVideoMuted(!videoMuted)
     }
 
+    const onEmojiClick = (event, emojiObject) => {
+        setChosenEmoji(emojiObject);
+        console.log("your emoji is ", emojiObject.target.src);
+      };
+
     return (
         <>
             {showChatbot ?
@@ -396,11 +404,16 @@ const Chatbot2 = () => {
                                     <button className='btn btn-primary' onClick={() => handleCreateChat()}>submit</button>
                                 </>
                             }
-                            <div className='col-sm-12'>
+                            <div className='col-sm-12 border'>
                                 <div className="input-group">
-                                    <input type="text" className="form-control message_area" style={{ border: contentError ? "1px red solid" : "1px solid #0b1277" }}
+                                    <input type="text" className={`form-control ${contentError ? "borderred " : " messagechatbot"}`}
                                         onChange={(e) => { setContent(e.target.value); setContentError(false) }} value={content}
-                                        aria-label="With textarea"></input>
+                                        ></input>
+                                         {showEmoji ?
+        <Picker onEmojiClick={onEmojiClick} />
+        : null
+      }
+                                        <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon'  onClick={() => setshowEmoji(!showEmoji)}/></div>
                                     {chatId && chatId != undefined && <div className="input-group-prepend">
                                         <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
                                             {sendloading ? <p>Sending...</p> : <AiOutlineSend className='snd_icon' />}

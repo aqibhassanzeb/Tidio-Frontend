@@ -57,6 +57,11 @@
 .uppersearch{
     /* border: 1px solid lightblue; */
     margin-bottom: 10px;
+    padding: 7px;
+}
+.conver2{
+    cursor: pointer;
+    display: none;
 }
 .inputsearch{
     border: none;
@@ -126,6 +131,10 @@
     }
     .chatbottextare{
         z-index: 10;
+    }
+    .conver2{
+        display: block;
+        cursor: pointer;
     }
     
 }

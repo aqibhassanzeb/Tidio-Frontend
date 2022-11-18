@@ -36,12 +36,16 @@
     margin: 0px 3px;
     width: 100px;
     text-align: center;
+    font-weight: bold;
 }
 .plugintextactive{
-    background-color: rgb(3, 44, 46);
+   border-bottom: 8px solid rgb(3, 44, 46);
+   border-top: 1px solid rgb(3, 44, 46);
+   border-left: 1px solid rgb(3, 44, 46);
+   border-right: 1px solid rgb(3, 44, 46);
     padding: 10px;
-    color: white;
-    border: 1px solid lightgray;
+    color: black;
+    font-weight: bold;
     border-radius: 10px;
     margin: 0px 3px;
     width: 100px;

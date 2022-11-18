@@ -5,6 +5,11 @@ import loginimg2 from '../../../src/images/pluginsec.webp'
 import loginimg3 from '../../../src/images/instactive.webp'
 import loginimg4 from '../../../src/images/createacc.webp'
 import loginimg5 from '../../../src/images/enjoyshort.webp'
+import loginimg6 from '../../../src/images/CRtidio.webp'
+import loginimg7 from '../../../src/images/INScode.webp'
+import loginimg8 from '../../../src/images/COPYinst.webp'
+import loginimg9 from '../../../src/images/PLACEcode.webp'
+import loginimg10 from '../../../src/images/SAVE.webp'
 import { useState } from 'react';
 import { FaFacebookF, FaShopify, FaTwitter, FaTwitterSquare, FaWix, FaWordpressSimple } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
@@ -14,7 +19,7 @@ const SimpleInstallation = () => {
     const [active, setActive] = useState(1);
     const [changeimg, setChangeimg] = useState(1);
 
-    const handleimgChange = (ind) =>{
+    const handleimgChange = (ind) => {
         setChangeimg(ind)
     }
     return (
@@ -25,8 +30,8 @@ const SimpleInstallation = () => {
                         <h1 className='text-center'>Simple installation within 5 minutes</h1>
                     </div>
                     <div className='my-2 plugtext'>
-                        <span className={active === 2 ? 'plugintext' : 'plugintextactive'} onClick={() => { setShow(1); setActive(1) }}>Plugin</span>
-                        <span className={active === 1 ? 'plugintext' : 'plugintextactive'} onClick={() => { setShow(2); setActive(2) }}>JS code</span>
+                        <span className={active === 2 ? 'plugintext' : 'plugintextactive'} onClick={() => { setShow(1); setActive(1);handleimgChange(1) }}>Plugin</span>
+                        <span className={active === 1 ? 'plugintext' : 'plugintextactive'} onClick={() => { setShow(2); setActive(2);handleimgChange(1) }}>JS code</span>
                     </div>
                     {
                         show === 1 ? (
@@ -44,27 +49,27 @@ const SimpleInstallation = () => {
                                     <div className='imageofanchortext'>
                                         <img src={loginimg} className='img-fluid loginimage' />
                                     </div>
-                               }
-                               {changeimg === 2 &&
-                                <div className='imageofanchortext'>
-                                    <img src={loginimg2} className='img-fluid loginimage' />
-                                </div>
-                           }
-                           {changeimg === 3 &&
-                            <div className='imageofanchortext'>
-                                <img src={loginimg3} className='img-fluid loginimage' />
-                            </div>
-                       }
-                       {changeimg === 4 &&
-                        <div className='imageofanchortext'>
-                            <img src={loginimg4} className='img-fluid loginimage' />
-                        </div>
-                   }
-                   {changeimg === 5 &&
-                    <div className='imageofanchortext'>
-                        <img src={loginimg5} className='img-fluid loginimage' />
-                    </div>
-               }
+                                }
+                                {changeimg === 2 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg2} className='img-fluid loginimage' />
+                                    </div>
+                                }
+                                {changeimg === 3 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg3} className='img-fluid loginimage' />
+                                    </div>
+                                }
+                                {changeimg === 4 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg4} className='img-fluid loginimage' />
+                                    </div>
+                                }
+                                {changeimg === 5 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg5} className='img-fluid loginimage' />
+                                    </div>
+                                }
                             </div>
                         )
                             :
@@ -75,16 +80,43 @@ const SimpleInstallation = () => {
                             <div className='maindvloginimg'>
                                 <div className='anchortextul'>
                                     <ul >
-                                        <li><a>Create a free Tidio account</a></li>
-                                        <li><a>Go to the “Installation” tab and find the installation code</a></li>
-                                        <li><a>Copy the installation code and open your website's admin panel</a></li>
-                                        <li><a>Place the code in your website or ask the developer to do that for you</a></li>
-                                        <li><a>Save changes and start using Tidio right away!</a></li>
+                                        <li onClick={() => handleimgChange(1)}><a>Create a free Tidio account</a></li>
+                                        <li onClick={() => handleimgChange(7)}><a>Go to the “Installation” tab and find the installation code</a></li>
+                                        <li onClick={() => handleimgChange(8)}><a>Copy the installation code and open your website's admin panel</a></li>
+                                        <li onClick={() => handleimgChange(9)}><a>Place the code in your website or ask the developer to do that for you</a></li>
+                                        <li onClick={() => handleimgChange(10)}><a>Save changes and start using Tidio right away!</a></li>
                                     </ul>
                                 </div>
-                                <div className='imageofanchortext'>
-                                    <img src={loginimg} className='img-fluid loginimage' />
-                                </div>
+                                {
+                                    changeimg === 1 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg6} className='img-fluid loginimage' />
+                                    </div>
+                                }
+                                {
+                                    changeimg === 7 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg7} className='img-fluid loginimage' />
+                                    </div>
+                                }
+                                {
+                                    changeimg === 8 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg8} className='img-fluid loginimage' />
+                                    </div>
+                                }
+                                {
+                                    changeimg === 9 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg9} className='img-fluid loginimage' />
+                                    </div>
+                                }
+                                {
+                                    changeimg === 10 &&
+                                    <div className='imageofanchortext'>
+                                        <img src={loginimg10} className='img-fluid loginimage' />
+                                    </div>
+                                }
                             </div>
                         ) : null
                     }

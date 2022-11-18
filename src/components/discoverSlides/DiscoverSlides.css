@@ -29,7 +29,11 @@
 .textcarolinfo{
     width: 380px;
     font-size: 20px;
-    
+    line-height: 40px;
+}
+.textcarolinfo p{
+        font-size: 25px;
+        
 }
 .imagecarolinnderdiv{
     margin-left: 150px;
