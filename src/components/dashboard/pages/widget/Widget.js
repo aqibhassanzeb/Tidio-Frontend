@@ -23,6 +23,7 @@ import User_png from '../../../../images/user.png'
 import { useEffect } from 'react';
 export default function Widget() {
     const [showChatbot, setshowChatbot] = useState(false);
+    const [chatToggle, setChatToggle] = useState(true);
     const [getStarted, setgetStarted] = useState({});
     const [Images, setImages] = useState([]);
     const [imagesUrl, setImagesUrl] = useState([]);
@@ -91,7 +92,7 @@ export default function Widget() {
                                 </div>
                             </Accordion.Body>
                         </Accordion.Item>
-                        <Accordion.Item eventKey="1">
+                        <Accordion.Item eventKey="1" onClick={() => setChatToggle(true)}>
                             <Accordion.Header>
                                 <AiFillHome className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Get Started</h5>
                             </Accordion.Header>
@@ -167,7 +168,7 @@ export default function Widget() {
                                 </div>
                             </Accordion.Body>
                         </Accordion.Item>
-                        <Accordion.Item eventKey="3">
+                        <Accordion.Item eventKey="3" onClick={() => setChatToggle(false)}>
                             <Accordion.Header>
                                 <FaRegCalendarCheck className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Pre-chat Survey</h5>
                             </Accordion.Header>
@@ -246,46 +247,47 @@ export default function Widget() {
                 </div>
             </div>
             <div className='col-sm-3 offset-2 '>
-                Get Started Ui
+               
                 <div className='row mt-4'>
                     <div className='col-sm-12 text-center'>
                         <h3>Preview</h3>
                     </div>
                 </div>
                 <div className='backdivofacard'>
+                {chatToggle ? (
+                    <>
                     <div className=' background_img'>
-                        <div className='img_color'>
-                            <div className='d-flex justify-content-between'>
-                                <div className='hitheretext p-4 mt-4'>
-                                    <h2>{getStarted.status}</h2>
-                                    <p className='text-light messagetextcard'>{getStarted.message}</p>
-                                </div>
-                                <div className='iconmainduv'>
-                                    <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
-                                    <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
-                                </div>
+                    <div className='img_color'>
+                        <div className='d-flex justify-content-between'>
+                            <div className='hitheretext p-4 mt-4'>
+                                <h2>{getStarted.status}</h2>
+                                <p className='text-light messagetextcard'>{getStarted.message}</p>
                             </div>
-                            <div className=' maindivofaimme   align-items-center'>
-                                <div className='d-flex align-items-center p-2'>
-                                    <div className='doticononline'></div>
-                                    <div className='weimmediatex'>We reply immediately</div>
-                                </div>
+                            <div className='iconmainduv'>
+                                <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
+                                <span className='threedoticoon'> <RiArrowDropDownLine /> </span>
+                            </div>
+                        </div>
+                        <div className=' maindivofaimme   align-items-center'>
+                            <div className='d-flex align-items-center p-2'>
+                                <div className='doticononline'></div>
+                                <div className='weimmediatex'>We reply immediately</div>
                             </div>
                         </div>
                     </div>
-                    <div className='sometextmessages'></div>
-                    <div className='indiv d-flex'>
-                        <input type="text" placeholder='Enter your message... ' className='' />
+                </div>
+                <div className='sometextmessages'></div>
+                <div className='indiv d-flex'>
+                    <input type="text" placeholder='Enter your message... ' className='' />
 
-                        <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
-                    </div>
-
-
-
-
-                    {/* free Chat servy */}
-                    <div className='mt-5 bg-light offset-1'>
-                        <div className='row mt-2 '>
+                    <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
+                </div>
+                </>
+                ) : 
+<>
+{/* free Chat servy */}
+                    <div className='bg-light '>
+                        <div className='row '>
                             <div className='col-sm-12 text-end'>
                                 <GrFormClose />
                             </div>
@@ -316,6 +318,14 @@ export default function Widget() {
                             </div>
                         </div>
                     </div>
+</>
+                 }
+                   
+
+
+
+
+                    
                 </div>
             </div>
         </div>
