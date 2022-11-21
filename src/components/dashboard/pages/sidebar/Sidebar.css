@@ -90,6 +90,7 @@ main{
 .link_text{
     margin-top: 10px ;
     padding-bottom: 12px;
+    white-space: nowrap;
 }
 .link:hover{
     background-color: lightskyblue;
