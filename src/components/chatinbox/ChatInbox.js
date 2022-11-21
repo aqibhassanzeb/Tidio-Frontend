@@ -369,10 +369,12 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo,setHide }) {
                         <Button variant="danger" onClick={() => handleClose()}>
                             End Call
                         </Button>
-                    ) : (
-                        <button className="callbtn" onClick={() => callUser(selectedUser.subUser._id)}>
-                            {callloading ? "Calling" : <TbPhoneCall />}
-                        </button>
+                    ) : (    
+                    !receivingCall && 
+                    <button className="callbtn" onClick={() => callUser(selectedUser.subUser._id)}>
+                        {callloading ? "Calling" : <TbPhoneCall />}
+                    </button>
+                
                     )}
 
                     {receivingCall && !callAccepted ? (

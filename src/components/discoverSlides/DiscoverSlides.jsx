@@ -1,7 +1,7 @@
 import React from 'react'
 import { Carousel } from 'react-bootstrap'
 import hor from '../../images/horse.jpg'
-import saleimg from '../../images/sale.webp'
+import saleimg from '../../images/cart3.webp'
 import saleimg4 from '../../images/4vis.webp'
 import saleimg5 from '../../images/5vis.webp'
 import saleimg6 from '../../images/6vis.webp'
@@ -9,7 +9,7 @@ import saleimg7 from '../../images/7vis.webp'
 import saleimg8 from '../../images/8vis.webp'
 import saleimg9 from '../../images/9vis.webp'
 import saleimg10 from '../../images/10vis.webp'
-import cardimgweb from '../../images/card.webp'
+import cardimgweb from '../../images/cart1.webp'
 import '../discoverSlides/DiscoverSlides.css'
 const DiscoverSlides = () => {
     return (
