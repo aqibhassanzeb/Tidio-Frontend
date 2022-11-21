@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { BsFillChatRightFill, BsFillInboxFill } from 'react-icons/bs';
 import { SiChatbot} from 'react-icons/si';
-import { MdOutlinePermContactCalendar, MdSettings } from 'react-icons/md';
+import { MdOutlinePermContactCalendar, MdSettings, MdContacts } from 'react-icons/md';
 import { HiHome } from 'react-icons/hi';
 import { FaBars } from 'react-icons/fa';
 import { GrFormClose } from 'react-icons/gr';
@@ -24,6 +24,11 @@ function Sidebar({children}) {
             path: '/contact',
             name: 'Home',
             icon: <HiHome />
+        },
+        {
+            path: '/contact',
+            name: 'Acquired Contact',
+            icon: <MdContacts />
         },
         // {
         //     path: '/chat',
@@ -72,7 +77,7 @@ function Sidebar({children}) {
                     </div>
                     {menuItems.map((item, index)=>(
                         <NavLink to={item.path} key={index} className="link" activeClassName="active" >
-                            <div className='icon icon_showtext'>{item.icon}</div>
+                            <div className='icon icon_showtext mt-2' >{item.icon}</div>
                             <div className='link_text'>{item.name}</div>
                         </NavLink>
                     ))}
