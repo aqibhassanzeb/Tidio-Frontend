@@ -364,7 +364,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo,setHide }) {
                             }
                         </div>
                     </div>
-                    <div className="d-flex">
+                    <div className="">
                     {callAccepted && !callEnded ? (
                         <Button variant="danger" onClick={() => handleClose()}>
                             End Call
@@ -379,12 +379,18 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo,setHide }) {
 
                     {receivingCall && !callAccepted ? (
                         <div className="caller">
-                            <h1 >{name} is calling...</h1>
-                            <Button variant="primary" onClick={answerCall}>
+                            <h3 >{name} is calling...</h3>
+                            <div className="d-flex">
+                            <div className="answerbtn" onClick={answerCall}>
                                 Answer
-                            </Button>
+                            </div>
+                           
+                            </div>
                         </div>
                     ) : null}
+                   
+                    </div>
+                    <div className='d-flex'>
                     {videoMuted ? (
                         <div className="mutedbtn" onClick={() => muteCam()}>
                             <BsCameraVideoFill />

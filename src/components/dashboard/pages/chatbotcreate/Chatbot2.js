@@ -476,36 +476,42 @@ const Chatbot2 = () => {
 
                         {receivingCall && !callAccepted ? (
                             <div className="caller">
-                                <h1 >{name} is calling...</h1>
-                                <Button onClick={answerCall}>
+                                <h3 >{name} is calling...</h3>
+                                <div className="d-flex"> 
+                                <div className="answerbtn" onClick={answerCall}>
                                     Answer
-                                </Button>
+                                </div>
+                                
+                                </div>
                             </div>
                         ) : null}
-                        {videoMuted ? (
-                            <div className="mutedbtn" onClick={() => muteCam()}>
-                                <BsCameraVideoFill />
+                      
+                    </div>
+                    <div className='d-flex'>
+                    {videoMuted ? (
+                        <div className="mutedbtn" onClick={() => muteCam()}>
+                            <BsCameraVideoFill />
 
-                            </div>
+                        </div>
 
-                        ) : (
-                            <div className="mutedbtn" onClick={() => muteCam()}>
+                    ) : (
+                        <div className="mutedbtn" onClick={() => muteCam()}>
 
-                                <BsCameraVideoOffFill />
-                            </div>
+                            <BsCameraVideoOffFill />
+                        </div>
 
-                        )}
-                        {audioMuted ? (
-                            <div className="mutedbtn" onClick={() => muteMic()}>
-                                <BsFillMicFill />
-                            </div>
+                    )}
+                    {audioMuted ? (
+                        <div className="mutedbtn" onClick={() => muteMic()}>
+                            <BsFillMicFill />
+                        </div>
 
-                        ) : (
-                            <div className="mutedbtn" onClick={() => muteMic()}>
-                                <BsFillMicMuteFill />
-                            </div>
+                    ) : (
+                        <div className="mutedbtn" onClick={() => muteMic()}>
+                            <BsFillMicMuteFill />
+                        </div>
 
-                        )}
+                    )}
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="headback">

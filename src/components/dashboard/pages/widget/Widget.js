@@ -128,7 +128,7 @@ export default function Widget() {
                                             <div className="form-check form-switch check_background">
                                                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
                                                 {imagesUrl.map(imageSrc => <img src={imageSrc} className='back_image' />)}
-                                                <input type="file" onChange={imageUpload}></input>
+                                                <input type="file" style={{ width: 200 , fontSize: 14 }} onChange={imageUpload}></input>
 
                                            
                                         </div>
