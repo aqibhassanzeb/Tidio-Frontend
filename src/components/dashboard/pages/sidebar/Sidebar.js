@@ -77,8 +77,8 @@ function Sidebar({children}) {
                     </div>
                     {menuItems.map((item, index)=>(
                         <NavLink to={item.path} key={index} className="link" activeClassName="active" >
-                            <div className='icon icon_showtext mt-2' >{item.icon}</div>
-                            <div className='link_text'>{item.name}</div>
+                            <div className='icon icon_showtext ' >{item.icon}</div>
+                            <div className='link_text '>{item.name}</div>
                         </NavLink>
                     ))}
                 </div>
