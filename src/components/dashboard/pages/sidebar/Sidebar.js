@@ -27,7 +27,7 @@ function Sidebar({children}) {
         },
         {
             path: '/contact',
-            name: 'Acquired Contact',
+            name: 'Contact List',
             icon: <MdContacts />
         },
         // {

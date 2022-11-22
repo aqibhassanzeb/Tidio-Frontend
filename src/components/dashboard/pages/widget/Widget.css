@@ -334,6 +334,9 @@
     .width_add{
         width: 100% !important;
     }
+    .select_device{
+        margin-left: 30px !important;
+    }
 }
 .back_image{
     width: 76px !important;
