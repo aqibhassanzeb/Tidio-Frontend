@@ -24,7 +24,7 @@ const Profile = ({setToggle,setValue,value}) => {
                 </div>
                 <div className='my-4'>
                 <div className='profileimagediv'>
-                    <img src={loginUser?.imageUrl} className=' profileimage' onClick={()=>navigate("/acount")}  style={{cursor:"pointer"}}/>
+                    <img src={loginUser?.imageUrl} alt="image_card" className=' profileimage' onClick={()=>navigate("/acount")}  style={{cursor:"pointer"}}/>
                     <h5 className='textdata text-center mt-2'>{loginUser?.name}</h5>
                     <p className='textdata text-center'>Trial Account (10 days left)</p>
                 </div>

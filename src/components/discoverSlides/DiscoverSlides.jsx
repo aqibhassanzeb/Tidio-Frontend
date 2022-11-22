@@ -32,7 +32,7 @@ const DiscoverSlides = () => {
                                                     discount or free shipping</p>
                                             </div>
                                             <div className='imagecarolinnderdiv'>
-                                                <img src={saleimg} className='img-fluid saleimgcarol' />
+                                                <img src={saleimg} className='img-fluid saleimgcarol' alt="sales" />
                                             </div>
                                         </div>
 
@@ -49,7 +49,7 @@ const DiscoverSlides = () => {
                                         Welcome every website visitor and incentivize them to make purchases by giving personalized discounts</p>
                                     </div>
                                     <div className='imagecarolinnderdiv'>
-                                        <img src={cardimgweb} className='img-fluid saleimgcarol' />
+                                        <img src={cardimgweb} className='img-fluid saleimgcarol' alt="card" />
                                     </div>
                                 </div>
 
@@ -65,7 +65,7 @@ const DiscoverSlides = () => {
                                         Send a personalized message to those who want to leave your website</p>
                                     </div>
                                     <div className='imagecarolinnderdiv'>
-                                        <img src={saleimg} className='img-fluid saleimgcarol' />
+                                        <img src={saleimg} className='img-fluid saleimgcarol' alt="sales"/>
                                     </div>
                                 </div>
 
@@ -82,7 +82,7 @@ const DiscoverSlides = () => {
                                         Welcome returning visitors and customers with a personalized message</p>
                                     </div>
                                     <div className='imagecarolinnderdiv'>
-                                        <img src={saleimg4} className='img-fluid saleimgcarol' />
+                                        <img src={saleimg4} className='img-fluid saleimgcarol' alt="sales"/>
                                     </div>
                                 </div>
 
@@ -99,7 +99,7 @@ const DiscoverSlides = () => {
                                         Send a proactive chat message or a product proposal based on the time they spent on your page</p>
                                     </div>
                                     <div className='imagecarolinnderdiv'>
-                                        <img src={saleimg5} className='img-fluid saleimgcarol' />
+                                        <img src={saleimg5} className='img-fluid saleimgcarol' alt="sales" />
                                     </div>
                                 </div>
 
@@ -116,7 +116,7 @@ const DiscoverSlides = () => {
                                         See who is visiting your website in real time and monitor which part of your website they are browsing</p>
                                     </div>
                                     <div className='imagecarolinnderdiv'>
-                                        <img src={saleimg6} className='img-fluid saleimgcarol' />
+                                        <img src={saleimg6} className='img-fluid saleimgcarol' alt="sales" />
                                     </div>
                                 </div>
 
@@ -133,7 +133,7 @@ const DiscoverSlides = () => {
                                         Prevent website visitors from abandoning the form by sending them a message when they stop filling it</p>
                                     </div>
                                     <div className='imagecarolinnderdiv'>
-                                        <img src={saleimg7} className='img-fluid saleimgcarol' />
+                                        <img src={saleimg7} className='img-fluid saleimgcarol' alt="sales" />
                                     </div>
                                 </div>
 
@@ -150,7 +150,7 @@ const DiscoverSlides = () => {
                                         See how your sales grow after the website visitors interact with Tidio</p>
                                     </div>
                                     <div className='imagecarolinnderdiv'>
-                                        <img src={saleimg8} className='img-fluid saleimgcarol' />
+                                        <img src={saleimg8} className='img-fluid saleimgcarol' alt="sales" />
                                     </div>
                                 </div>
 
@@ -170,7 +170,7 @@ const DiscoverSlides = () => {
                                         Collect their phone numbers and emails</p>
                                     </div>
                                     <div className='imagecarolinnderdiv'>
-                                        <img src={saleimg9} className='img-fluid saleimgcarol' />
+                                        <img src={saleimg9} className='img-fluid saleimgcarol' alt="sales" />
                                     </div>
                                 </div>
 
@@ -188,7 +188,7 @@ Export the visitors’ data to a .csv file<br/>
 Easily filter and segment your visitors</p>
                                     </div>
                                     <div className='imagecarolinnderdiv'>
-                                        <img src={saleimg10} className='img-fluid saleimgcarol' />
+                                        <img src={saleimg10} className='img-fluid saleimgcarol' alt="sales" />
                                     </div>
                                 </div>
 

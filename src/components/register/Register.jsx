@@ -69,7 +69,7 @@ const Register = () => {
                         </div>
                         <div className=' registersidebartext'>
                             <div className='registersidediv d-flex'>
-                                <img src={customerimg} className=' horseimg img-fluid' />
+                                <img src={customerimg} className=' horseimg img-fluid' alt="customer"/>
                                 <div className=' mx-2'>
                                     <span>Farzan A</span>
                                     <p>Website Designer</p>

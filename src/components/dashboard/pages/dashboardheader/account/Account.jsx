@@ -33,7 +33,7 @@ const Account = () => {
                             <div className='col-2 '>
                                 <label >Your Picture:</label>
                             </div>
-                            <img src={loginUser?.imageUrl} className='inputtextimg' />
+                            <img src={loginUser?.imageUrl} className='inputtextimg' alt="user" />
                             <input type="file" className='inputtextfield3' />
                         </div>
                         <div className='d-flex  mt-2 align-items-center'>

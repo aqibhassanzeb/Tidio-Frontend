@@ -55,8 +55,8 @@ export default function Widget() {
                                 <div className='row'>
                                     <div className='col-sm-12 d-flex p-3'>
                                         <label className='display_widget'>Display Widget</label>
-                                        <div class="form-check form-switch check_custom">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                        <div className="form-check form-switch check_custom">
+                                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
                                         </div>
                                     </div>
                                     <div className='col-sm-12 d-flex p-3 pb-0'>
@@ -72,20 +72,20 @@ export default function Widget() {
                                     </div>
                                     <div className='col-sm-12 d-flex p-3'>
                                         <label className='display_chat'>Display the Chat<br /> When You're Offline</label>
-                                        <div class="form-check form-switch check_chat">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                        <div className="form-check form-switch check_chat">
+                                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
                                         </div>
                                     </div>
                                     <div className='col-sm-12 d-flex p-3'>
                                         <label className='display_chat'>Display the Chat<br /><small className='color_small'>(adjust online hour)</small></label>
-                                        <div class="form-check form-switch ">
-                                            <input class="form-control" />
+                                        <div className="form-check form-switch ">
+                                            <input className="form-control" />
                                         </div>
                                     </div>
                                     <div className='col-sm-12 d-flex p-3'>
                                         <label className='display_chat'>Offline message</label>
-                                        <div class="form-check form-switch ">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                        <div className="form-check form-switch ">
+                                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +126,7 @@ export default function Widget() {
                                         
                                             <div className="form-check form-switch check_background">
                                                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
-                                                {imagesUrl.map(imageSrc => <img src={imageSrc} className='back_image' />)}
+                                                {imagesUrl.map(imageSrc => <img src={imageSrc} className='back_image' alt="image_card" />)}
                                                 <input type="file" onChange={imageUpload}></input>
 
                                            
@@ -179,8 +179,8 @@ export default function Widget() {
                                             <label className='btn_position_size'>Display :</label>
                                         </div>
                                         <div className='col-sm-10 mt-2'>
-                                            <div class="form-check form-switch ">
-                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" /> <BsFillQuestionCircleFill className='question_mark' />
+                                            <div className="form-check form-switch ">
+                                                <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" /> <BsFillQuestionCircleFill className='question_mark' />
                                             </div>
                                         </div>
                                     </div>
@@ -290,14 +290,14 @@ export default function Widget() {
                                 <GrFormClose />
                             </div>
                             <div className='col-sm-12 text-center mt-5'>
-                                <img className='chat_setting_profile' src={User_png} />
+                                <img className='chat_setting_profile' src={User_png} alt="user"/>
                                 <h4 className='mt-2'>{getStarted.user_message}</h4>
                                 <div className='p-4'>
                                     <div className="input-group">
                                         <div className="input-group-prepend">
                                             <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                         </div>
-                                        <input type="text" class="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
+                                        <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
                                     </div>
                                     <div className="input-group mt-2">
                                         <div className="input-group-prepend">
@@ -311,7 +311,7 @@ export default function Widget() {
                                             <small>{getStarted.privacy}</small>
                                         </label>
                                     </div>
-                                    <button type="button" class="btn btn-primary btn-lg btn-block block_btn">Send</button>
+                                    <button type="button" className="btn btn-primary btn-lg btn-block block_btn">Send</button>
                                 </div>
                             </div>
                         </div>

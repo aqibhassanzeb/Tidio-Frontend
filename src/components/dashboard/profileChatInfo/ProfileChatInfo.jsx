@@ -19,7 +19,7 @@ const ProfileChatInfo = () => {
             <div className='ProfileChatMaindiv'>
                 <div className='ProfileimageAndemail  p-2 d-flex'>
                     <span>
-                        <img src={profimageem} className='imageofuser' />
+                        <img src={profimageem} className='imageofuser' alt="profile_img"/>
                     </span>
                     <span className='m-1'>
                         <span className='useremail fw-bold'>hamzafarooq925@gmail.com</span>

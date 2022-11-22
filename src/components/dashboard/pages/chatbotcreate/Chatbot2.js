@@ -347,7 +347,7 @@ const Chatbot2 = () => {
                                                         <div className='col-sm-12 p-2 ' key={elm?._id}>
                                                             <div className='d-flex'>
                                                                 <div className='col-sm-1'>
-                                                                    <img src={Profilepic} className="img img-fluid img_profile" />
+                                                                    <img src={Profilepic} className="img img-fluid img_profile" alt="profile"/>
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box'>
                                                                     <p className="mesegtetxher">{elm?.content}</p>
@@ -359,7 +359,7 @@ const Chatbot2 = () => {
                                                         <div className='col-sm-12 '>
                                                             <div className='d-flex custom_rtl'>
                                                                 <div className='col-sm-1'>
-                                                                    <img src={Profilepic} className="img img-fluid img_profile" />
+                                                                    <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
                                                             
