@@ -132,7 +132,7 @@ const Inbox = () => {
 
     return (
         <>
-            <div className='row chatdivin'>
+            <div className='row chatdivin p-0'>
                 {
                     hide && (<div className='inbox-maindiv col-3' style={{overflowY:"scroll", padding: 0}}  >
                         <div className='uppersearch  d-flex justify-content-between '>
