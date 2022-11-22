@@ -20,6 +20,7 @@ import { Button, Modal } from 'react-bootstrap'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { IoMdCall } from 'react-icons/io';
 import { TbPhoneCall } from 'react-icons/tb';
+import { GrAttachment } from 'react-icons/gr';
 import { MdOutlineAddReaction } from 'react-icons/md';
 import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill } from 'react-icons/bs'
 import Picker from 'emoji-picker-react';
@@ -413,6 +414,10 @@ const Chatbot2 = () => {
         <Picker onEmojiClick={onEmojiClick} />
         : null
       }
+      <div className=' d-flex align-items-center attacth'>
+      <GrAttachment className='' />
+      <input type="file" className='filetype' />
+  </div>
                                         <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon'  onClick={() => setshowEmoji(!showEmoji)}/></div>
                                     {chatId && chatId != undefined && <div className="input-group-prepend">
                                         <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>

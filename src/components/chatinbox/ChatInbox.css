@@ -259,6 +259,17 @@ border: 1px solid lightgray;
     transition: .5s;
     cursor: pointer;
 }
+.filetype{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.attacth{
+    font-size: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
 .callbtn:hover{
     background-color:rgb(5, 143, 28) ;
     transition: .5s;

@@ -14,6 +14,7 @@ import { TbPhoneCall } from 'react-icons/tb'
 import EmojiPicker from 'emoji-picker-react'
 import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill } from 'react-icons/bs'
 import { AiFillCaretRight } from 'react-icons/ai'
+import { GrAttachment } from 'react-icons/gr'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -21,7 +22,7 @@ var socket = io()
 var selectedChatCompare
 
 
-function ChatInbox({ senderUser, showProfInfo, setShowProfInfo,setHide }) {
+function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
     const [messages, setMessages] = useState([])
     const [newmessage, setNewmessage] = useState('')
     const [loading, setLoading] = useState(false)
@@ -263,12 +264,12 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo,setHide }) {
 
     return (
         <>
-        {/* <EmojiPicker/> */}
+            {/* <EmojiPicker/> */}
             <div className='container-fluid custom_fluid'>
                 <div className='row '>
                     <div className='col-sm-12 header_chat'>
                         <div className='display_header'>
-                        <div className='conver2' onClick={()=> setHide(true)}><AiFillCaretRight /></div>
+                            <div className='conver2' onClick={() => setHide(true)}><AiFillCaretRight /></div>
                             <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
                             <p className='online'>{selectedUser && selectedUser.subUser?.email.split('@')[0]}</p>
                         </div>
@@ -341,6 +342,12 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo,setHide }) {
                             </input>
                         </div>
                         {/* {isTyping ?<p>Typing...</p>:""} */}
+                        <div className=' d-flex align-items-center attacth'>
+                            <GrAttachment className='' />
+                            <input type="file" className='filetype' />
+                        </div>
+
+
                         <div className='replybtn '>
                             {loading ? <p>Sending..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
                         </div>
@@ -365,52 +372,52 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo,setHide }) {
                         </div>
                     </div>
                     <div className="">
-                    {callAccepted && !callEnded ? (
-                        <Button variant="danger" onClick={() => handleClose()}>
-                            End Call
-                        </Button>
-                    ) : (    
-                    !receivingCall && 
-                    <button className="callbtn" onClick={() => callUser(selectedUser.subUser._id)}>
-                        {callloading ? "Calling" : <TbPhoneCall />}
-                    </button>
-                
-                    )}
+                        {callAccepted && !callEnded ? (
+                            <Button variant="danger" onClick={() => handleClose()}>
+                                End Call
+                            </Button>
+                        ) : (
+                            !receivingCall &&
+                            <button className="callbtn" onClick={() => callUser(selectedUser.subUser._id)}>
+                                {callloading ? "Calling" : <TbPhoneCall />}
+                            </button>
 
-                    {receivingCall && !callAccepted ? (
-                        <div className="caller">
-                            <h3 >{name} is calling...</h3>
-                            <div className="d-flex">
-                            <div className="answerbtn" onClick={answerCall}>
-                                Answer
+                        )}
+
+                        {receivingCall && !callAccepted ? (
+                            <div className="caller">
+                                <h3 >{name} is calling...</h3>
+                                <div className="d-flex">
+                                    <div className="answerbtn" onClick={answerCall}>
+                                        Answer
+                                    </div>
+
+                                </div>
                             </div>
-                           
-                            </div>
-                        </div>
-                    ) : null}
-                   
+                        ) : null}
+
                     </div>
                     <div className='d-flex'>
-                    {videoMuted ? (
-                        <div className="mutedbtn" onClick={() => muteCam()}>
-                            <BsCameraVideoFill />
-                        </div>
-                    ) : (
+                        {videoMuted ? (
+                            <div className="mutedbtn" onClick={() => muteCam()}>
+                                <BsCameraVideoFill />
+                            </div>
+                        ) : (
 
-                        <div className="mutedbtn" onClick={() => muteCam()}>
-                            <BsCameraVideoOffFill />
-                        </div>
-                    )}
-                    {audioMuted ? (
-                        <div className="mutedbtn" onClick={() => muteMic()}>
-                            <BsFillMicFill />
-                        </div>
+                            <div className="mutedbtn" onClick={() => muteCam()}>
+                                <BsCameraVideoOffFill />
+                            </div>
+                        )}
+                        {audioMuted ? (
+                            <div className="mutedbtn" onClick={() => muteMic()}>
+                                <BsFillMicFill />
+                            </div>
 
-                    ) : (
-                        <div className="mutedbtn" onClick={() => muteMic()}>
-                            <BsFillMicMuteFill />
-                        </div>
-                    )}
+                        ) : (
+                            <div className="mutedbtn" onClick={() => muteMic()}>
+                                <BsFillMicMuteFill />
+                            </div>
+                        )}
                     </div>
                 </Modal.Body>
 
