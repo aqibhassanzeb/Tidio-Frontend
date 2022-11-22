@@ -201,7 +201,7 @@ export default function Widget() {
                                             <div className='emailinputandtext'>
                                                 <div className='emailtext '>Email</div>
                                                 <div className='p-2 '>
-                                                     <input type="email" className='inputsurvey ' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
+                                                     <input type="email" className='inputsurvey ' name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_email") }} /><br />
                                                     <span><input type="checkbox" placeholder='Enter your text' /></span>
                                                     <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
@@ -209,7 +209,7 @@ export default function Widget() {
                                                 <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
                                             </div>
                                             <div className='emailinputandtext'>
-                                                <div className='emailtext '>Phone No.</div>
+                                                <div className='emailtext '>Phone</div>
                                                 <div className='p-2 inpdivforwit'>
                                                     <input type="number" className='inputsurvey' name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
 
@@ -217,9 +217,9 @@ export default function Widget() {
                                                 <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
                                             </div>
                                             <div className='emailinputandtext'>
-                                                <div className='emailtext '>Name</div>
+                                                <div className='emailtext '>GDPR</div>
                                                 <div className='p-2 inpdivforwit '>
-                                                    <input type="text" className='inputsurvey ' name='enter_name' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
+                                                    <input type="text" className='inputsurvey ' name='gdpr' placeholder='GDPR' onChange={(e) => { inputEvent(e, "gdpr") }} /><br />
 
                                                 </div>
                                                 <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
@@ -310,7 +310,7 @@ export default function Widget() {
                                     <div className="mt-2 mb-5">
                                         <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                         <label className="form-check-label check_label" for="flexCheckDefault">
-                                            <small>{getStarted.privacy}</small>
+                                            <small>{getStarted.gdpr}</small>
                                         </label>
                                     </div>
                                     <button type="button" className="btn btn-primary btn-lg btn-block block_btn">Send</button>
