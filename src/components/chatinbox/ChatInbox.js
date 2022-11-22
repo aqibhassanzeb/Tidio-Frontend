@@ -271,7 +271,9 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                     <div className='col-sm-12 header_chat'>
                         <div className='display_header'>
                             <div className='conver2' onClick={() => setHide(true)}><AiFillCaretRight /></div>
-                            <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
+                            {selectedUser &&
+                                <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
+                            }
                             <p className='online'>{selectedUser && selectedUser.subUser?.email.split('@')[0]}</p>
                         </div>
                         <div className='d-flex'>
