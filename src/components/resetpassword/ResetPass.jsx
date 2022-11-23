@@ -49,7 +49,7 @@ const ResetPass = () => {
 
           <form onSubmit={submitHandle}>
 
-            <input onChange={(e) => setEmail(e.target.value)} className="form-control " placeholder="Email..." />
+            <input onChange={(e) => setEmail(e.target.value)} className="form-control indata " placeholder="Email..." />
             {loader ? <button className='btn btn-primary float-end'>loading..</button>
               :
               <div className=' d-flex justify-content-center'>

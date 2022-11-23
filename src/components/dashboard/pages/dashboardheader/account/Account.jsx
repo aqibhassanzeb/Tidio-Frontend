@@ -33,8 +33,14 @@ const Account = () => {
                             <div className='col-2 '>
                                 <label >Your Picture:</label>
                             </div>
-                            <img src={loginUser?.imageUrl} className='inputtextimg' alt="user" />
-                            <input type="file" className='inputtextfield3' />
+                            <div>
+                                <div>
+                                    <img src={loginUser?.imageUrl} className='inputtextimg' alt="user" />
+                                </div>
+                                <div>
+                                    <input type="file" className='inputtextfield3' />
+                                </div>
+                            </div>
                         </div>
                         <div className='d-flex  mt-2 align-items-center'>
                             <div className='col-2 '>
@@ -80,10 +86,10 @@ const Account = () => {
                 <Modal.Body>
                     <div className='row'>
                         <div className='col-sm-12 mt-3'>
-                            <input type="password" className='form-control' placeholder='Current password'></input> 
-                            <div  className='small_change'>
-                            <small>If you forgot your current password pleas and use <Link to='/reset-pass' className='forgot_pass'>Forgot Password</Link> Forgot Password  option on the login page.
-                            </small>
+                            <input type="password" className='form-control' placeholder='Current password'></input>
+                            <div className='small_change'>
+                                <small>If you forgot your current password please use <Link to='/reset-pass' className='forgot_pass'>Forget Password</Link> option on the login page.
+                                </small>
                             </div>
                         </div>
                         <div className='col-sm-12 mt-3'>

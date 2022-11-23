@@ -57,7 +57,11 @@
         left: 5%;
     }
     .textcarolinfo{
-        width: 340px; 
+        width: 314px; 
+    }
+    .textcarolinfo p{
+        font-size: 22px;
+        padding: 0px 10px;
     }
     .imagecarolinnderdiv{
         margin-left: 0px;

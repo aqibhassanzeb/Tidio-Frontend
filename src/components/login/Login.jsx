@@ -88,6 +88,9 @@ const Login = () => {
           <div className='col-md-6 '>
             <div className='logindiv mt-5'>
               <div className='wraper mt-5'>
+              <div className='loginmobileview'>
+            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Antartical Corps</Link>
+          </div>
                 <div className='logininputdiv mt-5'>
                   <h2 >Log In</h2>
                   {/* <div className=' logoicondiv'> */}

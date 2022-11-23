@@ -6,6 +6,8 @@
 }
 .background{
     background-color: #e2e8ef !important;
+    overflow-x: scroll;
+    width: 100%;
 }
 .chatbot_header{
     background: linear-gradient(3deg, rgba(16,2,222,1) 0%, rgba(0,0,0,1) 99%);
@@ -127,4 +129,7 @@
 }
 .fi_message{
     font-size: 31px !important;
+}
+@media only screen and(min-width: 370px) and(max-width: 700px) {
+    
 }

@@ -87,7 +87,7 @@ function ChatbotCreate() {
                         <button className='btn btn-primary' onClick={handleShow}>Create ChatBot</button>
                         {/* <p>{window.location.href}</p> */}
                         <h4>Chatbot Link</h4>
-                        <p>{framlink}</p>
+                        <p style={{fontSize: 10}}>{framlink}</p>
                         {/* <button onClick={copy}>{!copied ? "Copy link" : "Copied!"}</button> */}
                     </div>
 
@@ -118,8 +118,8 @@ function ChatbotCreate() {
                 <div className='text-center'>
                     <h1>Your list</h1>
                 </div>
-                <div className='col-sm-12 mt-3'>
-                    <div className='col-sm-8 border  offset-2 d-flex background p-4'>
+                <div className='col mt-3'>
+                    <div className='col-sm-8 border  offset-md-2 d-flex background p-4'>
                         <Table striped>
                             <thead>
                                 <tr>

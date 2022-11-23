@@ -23,6 +23,8 @@ import ChatCard from '../components/dashboard/pages/dashboardheader/chatCard/Cha
 import Widget from '../components/dashboard/pages/widget/Widget'
 import ChatbotCreate from '../components/dashboard/pages/chatbotcreate/ChatbotCreate';
 import Chatbot2 from '../components/dashboard/pages/chatbotcreate/Chatbot2';
+import TermsAndCondition from './../components/register/termsAndCondition/TermsAndCondition';
+import PrivacyPolicy from './../components/register/privacyPolicy/PrivacyPolicy';
 
 const Routespath = () => {
 
@@ -57,6 +59,8 @@ const Routespath = () => {
         <Route path="/chatbot/id"  element={<Chatbot2 />} />
         <Route path="/reset-pass" element={ <> <Header /> <ResetPass /> <Footer /> </>} />
        <Route path="/reset-pass/:token" element={<NewPassword />} />
+       <Route path="/termsandcondition" element={<TermsAndCondition />} />
+       <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         </Routes>
 
 

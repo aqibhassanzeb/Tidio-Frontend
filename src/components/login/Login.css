@@ -193,6 +193,9 @@
     clip-path: circle(99.2% at 1% 46%);
 
 }
+.loginmobileview{
+    display: none;
+}
 @media only screen and (max-width: 768px) and (min-width: 400px)  {
     .backgroundcol{
         height: 50vh;
@@ -228,5 +231,8 @@
     .ordta{
         display: block;
         font-size: 20px;
+    }
+    .loginmobileview{
+        display: block;
     }
 }

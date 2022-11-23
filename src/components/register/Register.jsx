@@ -65,7 +65,7 @@ const Register = () => {
                 <div className='row'>
                     <div className='col-md-6 backgroundmain'>
                         <div className='tidiologinheader'>
-                            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Antartical CorSps</Link>
+                            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Antartical Corps</Link>
                         </div>
                         <div className=' registersidebartext'>
                             <div className='registersidediv d-flex'>
@@ -88,6 +88,9 @@ const Register = () => {
                     </div>
                     <div className='col-md-6  maindivofregister d-flex justify-content-center'>
                         <div className='mainregisterdiv'>
+                        <div className='loginmobileview'>
+            <Link to={"/"} className='text-decoration-none backlink fw-bold'>Antartical Corps</Link>
+          </div>
                             <div className=' inerdivreg'>
                                 <h2 className='createtext'>Create a free account</h2>
                                 <p className=''>Register using your email address:</p>
@@ -99,7 +102,7 @@ const Register = () => {
                                     <input type="text" className='inputfielddata' placeholder='Website' onChange={(e) => setWebsiteName(e.target.value)} value={websiteName} />
                                     <div className='maincheckbox'>
                                         <input type="checkbox" className='agreetext' value={termCond} onClick={()=>setTermCond(!termCond)} />
-                                        <label for="agree" className='agreetext2'> I agree to Tidio's <a href=''>Terms & Conditions</a> and <a href=''>Privacy Policy</a></label>
+                                        <label for="agree" className='agreetext2'> I agree to Tidio's <Link to="/termsandcondition" href=''>Terms & Conditions</Link> and <Link to="/privacypolicy">Privacy Policy</Link></label>
                                     </div>
                                     <div className='registerbtn '>
                                         {loader ? <button className='btn btn-primary w-75 my-2'>Loading..</button> : <button className='btn btn-primary w-75 my-2' onClick={() => handleRegister()}>Register</button>}
