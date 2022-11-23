@@ -48,6 +48,8 @@ const Chatbot2 = () => {
     const [issueResolved, setIssueResolved] = useState(false);
     const [askIssueVisbile, setAskIssueVisible] = useState(false);
     const [notficationControl, setNotficationControl] = useState(null)
+    const [myFile, setFileAttachment] = useState('')
+    const [showFile, setShowFile] = useState('')
 
     const [abc, setAbc] = useState(false)
     const [abcNo, setAbcNo] = useState(0)
@@ -79,6 +81,18 @@ const Chatbot2 = () => {
         setShow(false)
     }
     const handleShow = () => setShow(true);
+ 
+    // file onchange 
+    const handleChangefile=(e)=>{
+        setFileAttachment(e.target.files[0])
+        const objectUrl = URL.createObjectURL(e.target.files[0])
+        setShowFile(objectUrl)
+    }
+    
+    const handleCanclePic=()=>{
+        setFileAttachment("")
+        setShowFile("")
+    }
 
     const subUserNotify = useSelector(state => state.SelectedUser.subUsernotif)
 
@@ -166,15 +180,27 @@ const Chatbot2 = () => {
 
     // send message 
     const handleSendMessages = () => {
-        if (!content) {
+        if (!content && !myFile) {
             return setContentError(true)
         }
+        // const content = newmessage
+        // socket.emit("stop typing", selectedUser._id)
+        // const chatId = selectedUser._id
+        // const payload = { content, chatId, senderId: loginUser._id }
+        const formdata=new FormData()
+        formdata.append("myFile",myFile)
+        formdata.append("content",content)
+        formdata.append("chatId",chatId)
+        formdata.append("senderId",subUserData._id)
+        formdata.append("sender","subUser")
         const paylaod = { chatId, senderId: subUserData._id, sender: "subUser", content }
         setSendloading(true)
-        sendMessage2(paylaod).then(result => {
+        sendMessage2(formdata).then(result => {
             const messagedata = result.data
-            setData([...data, messagedata])
             setContent("")
+            setFileAttachment("")
+            setShowFile("")
+            setData([...data, messagedata])
             socket.emit("new message", result?.data)
             setSendloading(false)
         }).catch(err => {
@@ -344,7 +370,9 @@ const Chatbot2 = () => {
                                             return (
                                                 <>
                                                     {elm.sender != "subUser" ?
-
+                                                     elm.myFile ?
+                                                     <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{width:"100px",height:"100px"}} />
+                                                     :
                                                         <div className='col-sm-12 p-2 ' key={elm?._id}>
                                                             <div className='d-flex'>
                                                                 <div className='col-sm-1'>
@@ -356,6 +384,9 @@ const Chatbot2 = () => {
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        :
+                                                        elm.myFile ?
+                                                        <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`}  style={{width:"100px",height:"100px"}} />
                                                         :
                                                         <div className='col-sm-12 '>
                                                             <div className='d-flex custom_rtl'>
@@ -407,16 +438,16 @@ const Chatbot2 = () => {
                             }
                             <div className='col-sm-12 border'>
                                 <div className="input-group">
-                                    <input type="text" className={`form-control ${contentError ? "borderred " : " messagechatbot"}`}
+                                  { myFile ? <><button className='btn btn-success' onClick={()=>handleCanclePic()}>X</button> <img src={showFile} style={{width:"200px",height:"200px"}} /> </> :  <input type="text" className={`form-control ${contentError ? "borderred " : " messagechatbot"}`}
                                         onChange={(e) => { setContent(e.target.value); setContentError(false) }} value={content}
-                                        ></input>
+                                        ></input>}
                                          {showEmoji ?
         <Picker onEmojiClick={onEmojiClick} />
         : null
       }
       <div className=' d-flex align-items-center attacth'>
       <GrAttachment className='' />
-      <input type="file" className='filetype' />
+      <input type="file" className='filetype' style={{cursor:"pointer"}} onChange={(e)=>handleChangefile(e)} />
   </div>
                                         <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon'  onClick={() => setshowEmoji(!showEmoji)}/></div>
                                     {chatId && chatId != undefined && <div className="input-group-prepend">
