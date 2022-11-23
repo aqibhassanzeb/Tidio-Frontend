@@ -131,6 +131,7 @@ const Chatbot2 = () => {
         })
 
     }, [])
+
     useEffect(() => {
         let result = abcNo + 1
         setAbcNo(result)
@@ -187,20 +188,20 @@ const Chatbot2 = () => {
         // socket.emit("stop typing", selectedUser._id)
         // const chatId = selectedUser._id
         // const payload = { content, chatId, senderId: loginUser._id }
-        const formdata = new FormData()
-        formdata.append("myFile", myFile)
-        formdata.append("content", content)
-        formdata.append("chatId", chatId)
-        formdata.append("senderId", subUserData._id)
-        formdata.append("sender", "subUser")
-        const paylaod = { chatId, senderId: subUserData._id, sender: "subUser", content }
+        const formdata=new FormData()
+        formdata.append("myFile",myFile)
+        formdata.append("content",content)
+        formdata.append("chatId",chatId)
+        formdata.append("senderId",subUserData._id)
+        formdata.append("sender","subUser")
+        // const paylaod = { chatId, senderId: subUserData._id, sender: "subUser", content }
         setSendloading(true)
         sendMessage2(formdata).then(result => {
             const messagedata = result.data
-            setContent("")
+            setData([...data, messagedata])
             setFileAttachment("")
             setShowFile("")
-            setData([...data, messagedata])
+            setContent("")
             socket.emit("new message", result?.data)
             setSendloading(false)
         }).catch(err => {
