@@ -131,6 +131,7 @@ const Chatbot2 = () => {
         })
 
     }, [])
+    
     useEffect(() => {
         let result=abcNo+1
         setAbcNo(result)
