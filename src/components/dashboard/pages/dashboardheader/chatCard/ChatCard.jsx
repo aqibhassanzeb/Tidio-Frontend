@@ -86,7 +86,7 @@ const ChatCard = () => {
             <div className='chatcardmaindiv'>
                 <div className='cardheader d-flex'>
                     <div className=' d-flex align-items-center'>
-                        <img src={chatcardimg} className='cardchatimg p-1' />
+                        <img src={chatcardimg} className='cardchatimg p-1' alt='chatcard' />
                     </div>
                     <div className='  maintextchathead '>
                         <div className=' iconchathead'>

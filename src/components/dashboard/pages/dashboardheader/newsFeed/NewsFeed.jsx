@@ -48,56 +48,56 @@ const NewsFeed = () => {
                     <Slider {...settings}>
                         <div className='mainCardOpendiv'>
                             <div className='imageouter'>
-                                <img src={imageofCard} className='cardimage' />
+                                <img src={imageofCard} className='cardimage' alt="cardImage" />
                                 <p>We are still gathering conversion data for you. Come back in a few days to start tracking conversions on your website.</p>
                                 <p className='ticketing text-center'>Sign up for Ticketing</p>
                             </div>
                         </div>
                         <div className='mainCardOpendiv'>
                             <div className='imageouter'>
-                                <img src={imageofCard} className='cardimage' />
+                                <img src={imageofCard} className='cardimage' alt="card" />
                                 <p>We are still gathering conversion data for you. Come back in a few days to start tracking conversions on your website.</p>
                                 <p className='ticketing text-center'>Sign up for Ticketing</p>
                             </div>
                         </div>
                         <div className='mainCardOpendiv'>
                             <div className='imageouter'>
-                                <img src={imageofCard} className='cardimage' />
+                                <img src={imageofCard} className='cardimage'  alt="image_card"/>
                                 <p>We are still gathering conversion data for you. Come back in a few days to start tracking conversions on your website.</p>
                                 <p className='ticketing text-center'>Sign up for Ticketing</p>
                             </div>
                         </div>
                         <div className='mainCardOpendiv'>
                             <div className='imageouter'>
-                                <img src={imageofCard} className='cardimage' />
+                                <img src={imageofCard} className='cardimage' alt="image_card" />
                                 <p>We are still gathering conversion data for you. Come back in a few days to start tracking conversions on your website.</p>
                                 <p className='ticketing text-center'>Sign up for Ticketing</p>
                             </div>
                         </div>
                         <div className='mainCardOpendiv'>
                             <div className='imageouter'>
-                                <img src={imageofCard} className='cardimage' />
+                                <img src={imageofCard} className='cardimage' alt="image_card" />
                                 <p>We are still gathering conversion data for you. Come back in a few days to start tracking conversions on your website.</p>
                                 <p className='ticketing text-center'>Sign up for Ticketing</p>
                             </div>
                         </div>
                         <div className='mainCardOpendiv'>
                             <div className='imageouter'>
-                                <img src={imageofCard} className='cardimage' />
+                                <img src={imageofCard} className='cardimage' alt="image_card" />
                                 <p>We are still gathering conversion data for you. Come back in a few days to start tracking conversions on your website.</p>
                                 <p className='ticketing text-center'>Sign up for Ticketing</p>
                             </div>
                         </div>
                         <div className='mainCardOpendiv'>
                             <div className='imageouter'>
-                                <img src={imageofCard} className='cardimage' />
+                                <img src={imageofCard} className='cardimage' alt="image_card" />
                                 <p>We are still gathering conversion data for you. Come back in a few days to start tracking conversions on your website.</p>
                                 <p className='ticketing text-center'>Sign up for Ticketing</p>
                             </div>
                         </div>
                         <div className='mainCardOpendiv'>
                             <div className='imageouter'>
-                                <img src={imageofCard} className='cardimage' />
+                                <img src={imageofCard} className='cardimage' alt="image_card" />
                                 <p>We are still gathering conversion data for you. Come back in a few days to start tracking conversions on your website.</p>
                                 <p className='ticketing text-center'>Sign up for Ticketing</p>
                             </div>

@@ -20,7 +20,7 @@ const InsideTidio = () => {
 
                     </div>
                     <div className='col-3 '>
-                        <img src={employeeima} className=' tidiopanel' />
+                        <img src={employeeima} className=' tidiopanel' alt="pannel"/>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@ const InsideTidio = () => {
                             </div>
                             <span className='m-0 visitortext'>(visitor reached)</span>
                         </div>
-                        <img src={laodim} className='img-fluid loadingimg' />
+                        <img src={laodim} className='img-fluid loadingimg' alt="loading" />
                     </div>
 
                     <div className='col-4  chatbotmaindiv mt-3'>

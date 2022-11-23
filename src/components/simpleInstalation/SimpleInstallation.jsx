@@ -47,27 +47,27 @@ const SimpleInstallation = () => {
                                 </div>
                                 {changeimg === 1 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg} className='img-fluid loginimage' />
+                                        <img src={loginimg} className='img-fluid loginimage' alt='login' />
                                     </div>
                                 }
                                 {changeimg === 2 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg2} className='img-fluid loginimage' />
+                                        <img src={loginimg2} className='img-fluid loginimage' alt='login'/>
                                     </div>
                                 }
                                 {changeimg === 3 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg3} className='img-fluid loginimage' />
+                                        <img src={loginimg3} className='img-fluid loginimage' alt='login'/>
                                     </div>
                                 }
                                 {changeimg === 4 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg4} className='img-fluid loginimage' />
+                                        <img src={loginimg4} className='img-fluid loginimage' alt='login'/>
                                     </div>
                                 }
                                 {changeimg === 5 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg5} className='img-fluid loginimage' />
+                                        <img src={loginimg5} className='img-fluid loginimage' alt='login'/>
                                     </div>
                                 }
                             </div>
@@ -90,31 +90,31 @@ const SimpleInstallation = () => {
                                 {
                                     changeimg === 1 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg6} className='img-fluid loginimage' />
+                                        <img src={loginimg6} className='img-fluid loginimage' alt='login'/>
                                     </div>
                                 }
                                 {
                                     changeimg === 7 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg7} className='img-fluid loginimage' />
+                                        <img src={loginimg7} className='img-fluid loginimage' alt='login' />
                                     </div>
                                 }
                                 {
                                     changeimg === 8 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg8} className='img-fluid loginimage' />
+                                        <img src={loginimg8} className='img-fluid loginimage' alt='login'/>
                                     </div>
                                 }
                                 {
                                     changeimg === 9 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg9} className='img-fluid loginimage' />
+                                        <img src={loginimg9} className='img-fluid loginimage' alt='login'/>
                                     </div>
                                 }
                                 {
                                     changeimg === 10 &&
                                     <div className='imageofanchortext'>
-                                        <img src={loginimg10} className='img-fluid loginimage' />
+                                        <img src={loginimg10} className='img-fluid loginimage' alt='login'/>
                                     </div>
                                 }
                             </div>

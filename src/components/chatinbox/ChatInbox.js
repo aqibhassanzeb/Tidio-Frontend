@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../chatinbox/ChatInbox.css"
 import melissa from '../../images/melissa-j.webp'
+import backimagess from '../../images/mesagesicon.png'
 import { fetchMessages, sendMessage, sendMessage2 } from '../../apis/Chat-api'
 import { useDispatch, useSelector } from 'react-redux'
 import io from 'socket.io-client'
@@ -288,11 +289,13 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
         <>
             {/* <EmojiPicker/> */}
             <div className='container-fluid custom_fluid'>
-                <div className='row '>
+                <div className='row chatib'>
                     <div className='col-sm-12 header_chat'>
                         <div className='display_header'>
                             <div className='conver2' onClick={() => setHide(true)}><AiFillCaretRight /></div>
-                            <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
+                            {selectedUser &&
+                                <img className='chat_icon' src={senderUser ? senderUser.imageUrl : melissa} />
+                            }
                             <p className='online'>{selectedUser && selectedUser.subUser?.email.split('@')[0]}</p>
                         </div>
                         <div className='d-flex'>
@@ -361,7 +364,22 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                             )
                         })
                     }
-                </div> : <h2>Empty</h2>}
+                </div>
+                 : 
+                    <>
+                    <div className='d-flex'>
+                    <div className='backgorundmessdage'>
+                        <div className='sendandreceice'>Send and Receive Messages Here...</div>
+                </div>
+                    <div className='backgorundmessdage2'>
+                        <img src={backimagess} className='backimagesnoimg' alt='' />
+                    </div>
+                    
+                </div>
+                    </>
+            }
+            {selectedUser &&
+            
                 <div className='row  '>
                     <div className='d-flex replymaindic '>
                         {/* <input type='file' /> */}
@@ -385,6 +403,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                         </div>
                     </div>
                 </div>
+            }
             </div>
 
             <Modal show={show} onHide={handleClose} className="modalcall">

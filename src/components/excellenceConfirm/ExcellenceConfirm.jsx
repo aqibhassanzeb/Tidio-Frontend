@@ -13,10 +13,10 @@ const ExcellenceConfirm = () => {
                     <div className='col'>
                         <h1 className='text-center fw-bold'>Excellence confirmed by 1961+ reviews</h1>
                         <div className=' d-flex justify-content-center'>
-                            <img src={word} className='img-fluid  webimglogo' />
-                            <img src={shop} className='img-fluid  webimglogo' />
-                            <img src={getap} className='img-fluid  webimglogo' />
-                            <img src={word} className='img-fluid  webimglogo' />
+                            <img src={word} className='img-fluid  webimglogo' alt="word"/>
+                            <img src={shop} className='img-fluid  webimglogo' alt="shop" />
+                            <img src={getap} className='img-fluid  webimglogo' alt="getap"/>
+                            <img src={word} className='img-fluid  webimglogo' alt="word"/>
 
                         </div>
                     </div>

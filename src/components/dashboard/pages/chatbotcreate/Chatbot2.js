@@ -352,7 +352,7 @@ const Chatbot2 = () => {
     return (
         <>
             {showChatbot ?
-                <div className='container-fluid' style={{ position: "absolute", top: "300px" }}>
+                <div className='container-fluid' style={{ position: "absolute", top: "200px" }}>
                     <div className='row mt-3'>
                         <div className='col-sm-3 offset-9 '>
                             <div className='col-sm-12  chatbot_header'>
@@ -376,7 +376,7 @@ const Chatbot2 = () => {
                                                         <div className='col-sm-12 p-2 ' key={elm?._id}>
                                                             <div className='d-flex'>
                                                                 <div className='col-sm-1'>
-                                                                    <img src={Profilepic} className="img img-fluid img_profile" />
+                                                                    <img src={Profilepic} className="img img-fluid img_profile" alt="profile"/>
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box'>
                                                                     <p className="mesegtetxher">{elm?.content}</p>
@@ -391,7 +391,7 @@ const Chatbot2 = () => {
                                                         <div className='col-sm-12 '>
                                                             <div className='d-flex custom_rtl'>
                                                                 <div className='col-sm-1'>
-                                                                    <img src={Profilepic} className="img img-fluid img_profile" />
+                                                                    <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
                                                                 </div>
                                                                 <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
                                                             
@@ -413,12 +413,14 @@ const Chatbot2 = () => {
                                                     {issueResolved ?
                                                     <p className="mesegtetxher">{"Thanks"}</p>
                                                     :
-                                                    <p className="mesegtetxher">{"Is your issue resolved ?"}</p>  
+                                                    <p className="mesegtetxher">{"? Is your issue resolved "}</p>  
                                                     }
                                                     {!issueResolved &&
                                                       <>
-                                                    <button onClick={()=>{setAbc(!abc);setAskIssueVisible(false)}}>No</button>
-                                                    <button onClick={()=>{clearTimeout();setIssueResolved(true)}}>Yes</button>
+                                                      <div className='d-flex'>
+                                                    <div className='m-1' style={{cursor: "pointer", color: "blue"}} onClick={()=>{setAbc(!abc);setAskIssueVisible(false)}}>No</div>
+                                                    <div className='m-1' style={{cursor: "pointer", color: "blue"}} onClick={()=>{clearTimeout();setIssueResolved(true)}}>Yes</div>
+                                                    </div>
                                                       </>
                                                     }
                                                         </div>

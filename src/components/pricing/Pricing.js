@@ -36,7 +36,7 @@ function Pricing() {
       <div className="container-fluid pricing-cards">
         <div className="row mt-5" id="cardsRow">
           <div className="col-md-6 col-lg-4 col-sm-12 d-flex justify-content-center">
-            <div class="card card-1" >
+            <div className="card card-1" >
               <p className="first-cardText">Free</p>
               <div className="cardText2">
                 <p>
@@ -82,7 +82,7 @@ function Pricing() {
             </div>
           </div>
           <div className="col-md-6 col-lg-4 col-sm-12  d-flex justify-content-center">
-            <div class="card card-1" >
+            <div className="card card-1" >
               <p className="first-cardText">Communicator</p>
               <div className="cardText2">
                 <p>
@@ -146,7 +146,7 @@ function Pricing() {
             </div>
           </div>
           <div className="col-md-6 col-lg-4 col-sm-12  d-flex justify-content-center">
-            <div class="card card-1" >
+            <div className="card card-1" >
               <p className="first-cardText">Tidio+</p>
               <div className="cardText2">
                 <p>

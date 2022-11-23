@@ -31,7 +31,7 @@ function Header() {
                 {user != null ?
                 <button className='btn btn-dark go_to_app' onClick={() => navigate('/ChatbotCreate')}>Go To App</button>
                   :                
-                <button type="button" class="btn reg_padding" onClick={() => navigate('/register')}>Sign Up</button>
+                <button type="button" className="btn reg_padding" onClick={() => navigate('/register')}>Sign Up</button>
                 }
 
               </div>

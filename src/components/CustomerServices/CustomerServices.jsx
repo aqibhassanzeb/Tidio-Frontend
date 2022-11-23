@@ -51,7 +51,7 @@ const handlesignup =() =>{
                         </div>
                     </div>
                     <div className=' col-md-6 chatimage'>
-                        <img className='chat_pic' src={chat} />
+                        <img className='chat_pic' src={chat} alt="chat" />
                     </div>
                 </div>
                 <div className='row ' style={{marginTop : 80}}>
@@ -62,7 +62,7 @@ const handlesignup =() =>{
                             <Carousel.Item>
                                 <div className='carouselinformationduv d-flex '>
                                     <div className='carousellineimagediv'>
-                                        <img src={Cimage} className='img-fluid carolimagemain' />
+                                        <img src={Cimage} className='img-fluid carolimagemain' alt="C_chat"/>
                                     </div>
                                     <div className='informationofcard'>
                                         <div className="whiskerbagdiv">
@@ -75,7 +75,7 @@ const handlesignup =() =>{
                                                 <div className='line'></div>
                                                 <div className='customerinfo p-2 ml-2 mt-2 '>
                                                     <div className='d-flex ' >
-                                                        <img src={horseimg} className=' horseimgage img-fluid' />
+                                                        <img src={horseimg} className=' horseimgage img-fluid' alt="horseimage" />
                                                         <div className='p-2  h-50'>
                                                             <h6 className='m-0'>jano le Rpoux</h6>
                                                             <a href=''>whiskerbag.com</a></div>
@@ -91,7 +91,7 @@ const handlesignup =() =>{
                             <Carousel.Item>
                                 <div className='carouselinformationduv d-flex'>
                                     <div className='carousellineimagediv'>
-                                        <img src={Cimage} className='img-fluid carolimagemain' />
+                                        <img src={Cimage} className='img-fluid carolimagemain' alt="C_image"/>
                                     </div>
                                     <div className='informationofcard'>
                                         <div className="whiskerbagdiv">
@@ -104,7 +104,7 @@ const handlesignup =() =>{
                                                 <div className='line'></div>
                                                 <div className='customerinfo p-2 ml-2 mt-2 '>
                                                     <div className='d-flex ' >
-                                                        <img src={horseimg} className=' horseimgage img-fluid' />
+                                                        <img src={horseimg} className=' horseimgage img-fluid' alt="horseimage" />
                                                         <div className='p-2  h-50'>
                                                             <h6 className='m-0'>jano le Rpoux</h6>
                                                             <a href=''>whiskerbag.com</a></div>
@@ -120,7 +120,7 @@ const handlesignup =() =>{
                             <Carousel.Item>
                                 <div className='carouselinformationduv d-flex'>
                                     <div className='carousellineimagediv'>
-                                        <img src={Cimage} className='img-fluid carolimagemain' />
+                                        <img src={Cimage} className='img-fluid carolimagemain' alt="horse_image" />
                                     </div>
                                     <div className='informationofcard'>
                                         <div className="whiskerbagdiv">
@@ -133,7 +133,7 @@ const handlesignup =() =>{
                                                 <div className='line'></div>
                                                 <div className='customerinfo p-2 ml-2 mt-2 '>
                                                     <div className='d-flex ' >
-                                                        <img src={horseimg} className=' horseimgage img-fluid' />
+                                                        <img src={horseimg} className=' horseimgage img-fluid' alt="horse_img"/>
                                                         <div className='p-2  h-50'>
                                                             <h6 className='m-0'>jano le Rpoux</h6>
                                                             <a href=''>whiskerbag.com</a></div>
@@ -151,7 +151,7 @@ const handlesignup =() =>{
 
                     </div>
                     <div className='col-sm-4  mt-4 imgsldie'>
-                        <img className='imgview img-fluid' src={backgroundview} />
+                        <img className='imgview img-fluid' src={backgroundview} alt="image_view"/>
 
                     </div>
                 </div>
@@ -172,7 +172,7 @@ const handlesignup =() =>{
                     <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
-                                <img className='card_img' src={melissa} />
+                                <img className='card_img' src={melissa} alt="card_img"/>
                                 <p className='name_card '>Farzan A
 
                                 <br />  Web Designer</p>
@@ -189,7 +189,7 @@ const handlesignup =() =>{
                     <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
-                                <img className='card_img' src={melissa} />
+                                <img className='card_img' src={melissa} alt="mellisa" />
                                 <p className='name_card '>SMelissa J
 
                                <br /> Consultant Telecommunications</p>
@@ -207,7 +207,7 @@ const handlesignup =() =>{
                     <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
-                                <img className='card_img' src={melissa} />
+                                <img className='card_img' src={melissa} alt="mellisa"/>
                                 <p className='name_card '>Finn R
 
                                 <br />Consultant </p>
@@ -224,7 +224,7 @@ const handlesignup =() =>{
                     <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
-                                <img className='card_img' src={melissa} />
+                                <img className='card_img' src={melissa} alt="melisa"/>
                                 <p className='name_card '>Donna T
 
                                
@@ -243,7 +243,7 @@ const handlesignup =() =>{
                     <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
-                                <img className='card_img' src={melissa} />
+                                <img className='card_img' src={melissa} alt="melisa"/>
                                 <p className='name_card '>Baylen M
 
                                 <br /> Marketing Consultant</p>
@@ -260,7 +260,7 @@ const handlesignup =() =>{
                     <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
-                                <img className='card_img' src={melissa} />
+                                <img className='card_img' src={melissa} alt="melisa"/>
                                 <p className='name_card '>Guilherme F
 
                                 <br />Owner</p>
@@ -277,7 +277,7 @@ const handlesignup =() =>{
                     <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
-                                <img className='card_img' src={melissa} />
+                                <img className='card_img' src={melissa} alt="melisa"/>
                                 <p className='name_card '>Bobby H
 
                                  <br />Consultant</p>
@@ -295,7 +295,7 @@ const handlesignup =() =>{
                     <div className='col-md-6 col-sm-12 col-lg-4 cardmaindivmarque'>
                         <div className='card_shadow'>
                             <div className='display_img'>
-                                <img className='card_img' src={melissa} />
+                                <img className='card_img' src={melissa} alt="melisa"/>
                                 <p className='name_card '>Davis E
 
                                 <br />Sales Executive </p>
@@ -337,14 +337,14 @@ const handlesignup =() =>{
                             <a className='discover_live'>Discover Tidio live chat</a><i className="bi bi-arrow-right-short"></i>
                         </div>
                         <div className='col-sm-12 col-md-6 img_live_chat_padd'>
-                            <img className='img img-fluid' src={livChat} />
+                            <img className='img img-fluid' src={livChat} alt="live_chat"/>
                         </div>
                     </div>
                 </div>
                 <div className='container'>
                     <div className='row rowreverse'>
                         <div className='col-sm-12 col-md-6 live_chat_padding'>
-                            <img className='img img-fluid' src={Ai} />
+                            <img className='img img-fluid' src={Ai} alt="Ai"/>
                         </div>
                         <div className='col-sm-12 col-md-6'>
                             <h3 className='live_chat virtual_padd'>Your virtual AI  supporter</h3>
@@ -371,14 +371,14 @@ const handlesignup =() =>{
                             <a className='discover_live'>Discover Tidio live chat</a><i className="bi bi-arrow-right-short"></i>
                         </div>
                         <div className='col-sm-12 col-md-6 img_live_chat_padd'>
-                            <img className='img img-fluid' src={sales} />
+                            <img className='img img-fluid' src={sales} alt="sales"/>
                         </div>
                     </div>
                 </div>
                 <div className='container'>
                     <div className='row rowreverse'>
                         <div className='col-sm-12 col-md-6 live_chat_padding'>
-                            <img className='img img-fluid' src={messenger} />
+                            <img className='img img-fluid' src={messenger} alt="messanger"/>
                         </div>
                         <div className='col-sm-12 col-md-6'>
                             <h3 className='live_chat virtual_padd'>Answer any channel  from one place</h3>
@@ -398,7 +398,7 @@ const handlesignup =() =>{
                 <div className='container'>
                     <div className='row rowreverse live_chat_padding'>
                     <div className='col-sm-12 col-md-6 img_live_chat_padd'>
-                            <img className='img img-fluid' src={closed} />
+                            <img className='img img-fluid' src={closed} alt="closed" />
                         </div>
                         <div className='col-sm-12 col-md-6 liv_col'>
                             <h3 className='live_chat more_sales'>Empower your  customer support  team</h3>
