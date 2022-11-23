@@ -31,6 +31,8 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
     const [typing, setTyping] = useState(false)
     const [isTyping, setIsTyping] = useState(false)
     const [notficationControl, setNotficationControl] = useState(null)
+    const [myFile, setFileAttachment] = useState('')
+    const [showFile, setShowFile] = useState('')
 
     const selectedUser = useSelector(state => state.SelectedUser.selectedUser)
     const loginUser = useSelector(state => state.User.activeUser)
@@ -63,15 +65,34 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
     }
     const handleShow = () => setShow(true);
 
+    // file onchange 
+    const handleChangefile=(e)=>{
+        setFileAttachment(e.target.files[0])
+        const objectUrl = URL.createObjectURL(e.target.files[0])
+        setShowFile(objectUrl)
+    }
+    
+    const handleCanclePic=()=>{
+        setFileAttachment("")
+        setShowFile("")
+    }
+
     const sendMessageHandle = (e) => {
         const content = newmessage
         // socket.emit("stop typing", selectedUser._id)
         const chatId = selectedUser._id
-        const payload = { content, chatId, senderId: loginUser._id }
+        // const payload = { content, chatId, senderId: loginUser._id }
+        const formdata=new FormData()
+        formdata.append("myFile",myFile)
+        formdata.append("content",content)
+        formdata.append("chatId",chatId)
+        formdata.append("senderId",loginUser._id)
         setLoading(true)
-        sendMessage2(payload).then((res) => {
+        sendMessage2(formdata).then((res) => {
             const data = res.data
             setMessages([...messages, data])
+            setFileAttachment("")
+            setShowFile("")
             setNewmessage("")
             setLoading(false)
             socket.emit("new message", data && data)
@@ -81,6 +102,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
         })
     }
 
+    // console.log("selected chat id",selectedUser)
     const fetchMessageshandle = () => {
         const chatId = selectedUser._id
         fetchMessages(chatId).then((res) => {
@@ -294,6 +316,9 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                             return (
 
                                 elm.sender == "subUser" ?
+                                elm.myFile ?
+                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`}  style={{width:"100px",height:"100px"}} />
+                                :
                                     <div className={`col-sm-12  bcakhover }`}>
                                         <div className='icondivchat'>
                                             <p>{selectedUser.subUser?.email.charAt(0)}</p>
@@ -311,6 +336,9 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                             </div>
                                         </div>
                                     </div>
+                                    :
+                                    elm.myFile ?
+                                    <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`}  style={{width:"100px",height:"100px"}} />
                                     :
                                     <div className='col-sm-12 bcakhover2'>
 
@@ -355,15 +383,19 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                 <div className='row  '>
                     <div className='d-flex replymaindic '>
                         {/* <input type='file' /> */}
-                        <div className=' text_area_padding'>
+                { selectedUser && myFile ? <><button className='btn btn-success' onClick={()=>handleCanclePic()}>X</button> <img src={showFile} style={{width:"200px",height:"200px"}} /> </> :<div className=' text_area_padding'>
                             <input type="text" placeholder='Type your message here...' className=' custom_text_area' value={newmessage} onChange={(e) => { setNewmessage(e.target.value) }}>
                             </input>
-                        </div>
+                        </div>}
                         {/* {isTyping ?<p>Typing...</p>:""} */}
-                        <div className=' d-flex align-items-center attacth'>
+                      {selectedUser && 
+                      <>
+                      <div className=' d-flex align-items-center attacth'>
                             <GrAttachment className='' />
-                            <input type="file" className='filetype' />
+                            <input type="file" className='filetype' onChange={(e)=>handleChangefile(e)} />
                         </div>
+                      </>
+                        }
 
 
                         <div className='replybtn '>
