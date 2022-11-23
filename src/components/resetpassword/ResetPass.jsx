@@ -43,7 +43,8 @@ const ResetPass = () => {
         <div className='d-flex justify-content-center mt-5'>
 
           <h1 className='forrpass'>Forgot Password</h1>
-        </div>
+          </div>
+          <p className='text-center'>Enter your email for confirmation password</p>
 
         <div className=' inputforget mt-5 mb-5'>
 
