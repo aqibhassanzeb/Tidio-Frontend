@@ -309,6 +309,19 @@ margin-left: 0px !important;
 
     }
 }
+.imagetopcrossdiv{
+    position: absolute;
+    top: 10%;
+}
+.imagetopcrossdiv img{
+    width: 560px;
+    height: 490px;
+}
+.btncrostop{
+    position: absolute;
+    top: 10px;
+    right: 2%;
+}
 .backimagesnoimg{
     width: 105%;
     height: 60vh;

@@ -66,13 +66,13 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
     const handleShow = () => setShow(true);
 
     // file onchange 
-    const handleChangefile=(e)=>{
+    const handleChangefile = (e) => {
         setFileAttachment(e.target.files[0])
         const objectUrl = URL.createObjectURL(e.target.files[0])
         setShowFile(objectUrl)
     }
-    
-    const handleCanclePic=()=>{
+
+    const handleCanclePic = () => {
         setFileAttachment("")
         setShowFile("")
     }
@@ -82,11 +82,11 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
         // socket.emit("stop typing", selectedUser._id)
         const chatId = selectedUser._id
         // const payload = { content, chatId, senderId: loginUser._id }
-        const formdata=new FormData()
-        formdata.append("myFile",myFile)
-        formdata.append("content",content)
-        formdata.append("chatId",chatId)
-        formdata.append("senderId",loginUser._id)
+        const formdata = new FormData()
+        formdata.append("myFile", myFile)
+        formdata.append("content", content)
+        formdata.append("chatId", chatId)
+        formdata.append("senderId", loginUser._id)
         setLoading(true)
         sendMessage2(formdata).then((res) => {
             const data = res.data
@@ -316,94 +316,112 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                             return (
 
                                 elm.sender == "subUser" ?
-                                elm.myFile ?
-                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`}  style={{width:"100px",height:"100px"}} />
-                                :
-                                    <div className={`col-sm-12  bcakhover }`}>
-                                        <div className='icondivchat'>
-                                            <p>{selectedUser.subUser?.email.charAt(0)}</p>
-                                        </div>
-                                        <div>
-                                            <div className='chat_row'>
-                                                <p className='p-0 m-0 boldemail'>{selectedUser.subUser?.email}</p>
-                                                <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
-
+                                    elm.myFile ?
+                                    <>
+                                    <div>
+                                        <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                        <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                        </div>    
+                                        </>
+                                        :
+                                        <div className={`col-sm-12  bcakhover }`}>
+                                            <div className='icondivchat'>
+                                                <p>{selectedUser.subUser?.email.charAt(0)}</p>
                                             </div>
                                             <div>
-                                                <div className='chat_text '>
-                                                    <p className='mesagecontext'>{elm.content}</p>
+                                                <div className='chat_row'>
+                                                    <p className='p-0 m-0 boldemail'>{selectedUser.subUser?.email}</p>
+                                                    <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+
+                                                </div>
+                                                <div>
+                                                    <div className='chat_text '>
+                                                        <p className='mesagecontext'>{elm.content}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     :
                                     elm.myFile ?
-                                    <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`}  style={{width:"100px",height:"100px"}} />
-                                    :
-                                    <div className='col-sm-12 bcakhover2'>
-
-                                        <div className='d-flex justify-content-start '>
-                                            <div className='icondivchat'>
-                                                <p>Y</p>
-                                            </div>
+                                        <>
                                             <div>
-                                                <div className="d-flex">
-                                                    <p className='p-0 m-0 boldemail'>You</p>
-                                                    <div className='chat_end_text'>
-                                                        <time className='chat_end_time  '>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                                <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                            </div>
+                                        </>
+                                        :
+                                        <div className='col-sm-12 bcakhover2'>
+
+                                            <div className='d-flex justify-content-start '>
+                                                <div className='icondivchat'>
+                                                    <p>Y</p>
+                                                </div>
+                                                <div>
+                                                    <div className="d-flex">
+                                                        <p className='p-0 m-0 boldemail'>You</p>
+                                                        <div className='chat_end_text'>
+                                                            <time className='chat_end_time  '>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+
+                                                        </div>
+                                                    </div>
+                                                    <div className='chat_end_row '>
+                                                        <p className='p-0 m-0'>{elm.content}</p>
 
                                                     </div>
                                                 </div>
-                                                <div className='chat_end_row '>
-                                                    <p className='p-0 m-0'>{elm.content}</p>
-
-                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                             )
                         })
                     }
                 </div>
-                 : 
+                    :
                     <>
-                    <div className='d-flex'>
-                    <div className='backgorundmessdage'>
-                        <div className='sendandreceice'>Send and Receive Messages Here...</div>
-                </div>
-                    <div className='backgorundmessdage2'>
-                        <img src={backimagess} className='backimagesnoimg' alt='' />
-                    </div>
-                    
-                </div>
+                        <div className='d-flex'>
+                            <div className='backgorundmessdage'>
+                                <div className='sendandreceice'>Send and Receive Messages Here...</div>
+                            </div>
+                            <div className='backgorundmessdage2'>
+                                <img src={backimagess} className='backimagesnoimg' alt='' />
+                            </div>
+
+                        </div>
                     </>
-            }
-            {selectedUser &&
-            
-                <div className='row  '>
-                    <div className='d-flex replymaindic '>
-                        {/* <input type='file' /> */}
-                { selectedUser && myFile ? <><button className='btn btn-success' onClick={()=>handleCanclePic()}>X</button> <img src={showFile} style={{width:"200px",height:"200px"}} /> </> :<div className=' text_area_padding'>
-                            <input type="text" placeholder='Type your message here...' className=' custom_text_area' value={newmessage} onChange={(e) => { setNewmessage(e.target.value) }}>
-                            </input>
-                        </div>}
-                        {/* {isTyping ?<p>Typing...</p>:""} */}
-                      {selectedUser && 
-                      <>
-                      <div className=' d-flex align-items-center attacth'>
-                            <GrAttachment className='' />
-                            <input type="file" className='filetype' onChange={(e)=>handleChangefile(e)} />
-                        </div>
-                      </>
-                        }
+                }
+                {selectedUser &&
+
+                    <div className='row  '>
+                        <div className='d-flex replymaindic '>
+                            {/* <input type='file' /> */}
+                            {selectedUser && myFile ?
+                                <>
+                                <div className="imagetopcrossdiv">
+                                <img src={showFile}  />
+                                    <button className='btn btn-success btncrostop'  onClick={() => handleCanclePic()}>X</button>
+                                    </div>
+                                </>
+                                :
+                                <div className=' text_area_padding'>
+                                    <input type="text" placeholder='Type your message here...' className=' custom_text_area' value={newmessage} onChange={(e) => { setNewmessage(e.target.value) }}>
+                                    </input>
+                                </div>}
+                            {/* {isTyping ?<p>Typing...</p>:""} */}
+                            {selectedUser &&
+                                <>
+                                    <div className=' d-flex align-items-center attacth'>
+                                        <GrAttachment className='' />
+                                        <input type="file" className='filetype' onChange={(e) => handleChangefile(e)} />
+                                    </div>
+                                </>
+                            }
 
 
-                        <div className='replybtn '>
-                            {loading ? <p>Sending..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
+                            <div className='replybtn '>
+                                {loading ? <p>Sending..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
             </div>
 
             <Modal show={show} onHide={handleClose} className="modalcall">

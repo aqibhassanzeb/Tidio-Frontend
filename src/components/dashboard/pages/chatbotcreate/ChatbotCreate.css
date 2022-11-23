@@ -130,6 +130,19 @@
 .fi_message{
     font-size: 31px !important;
 }
+.imagetopcrossdiv2{
+    position: absolute;
+    top: -480%;
+}
+.imagetopcrossdiv2 img{
+    width: 300px;
+    height: 290px;
+}
+.btncrostop2{
+    position: absolute;
+    top: -120px;
+    right: 15%;
+}
 @media only screen and(min-width: 370px) and(max-width: 700px) {
     
 }
