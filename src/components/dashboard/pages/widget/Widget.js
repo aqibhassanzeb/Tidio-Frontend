@@ -323,11 +323,11 @@ export default function Widget() {
                 <div className='col-sm-3 offset-2 '>
 
                     <div className='row '>
-                        <div className=' d-flex m-2'>
+                        <div className='prewithdrop'>
                             <p className="d-flex align-items-center">Preview</p>
                             <div className='dropdtacard '  >
-                                <Form.Select aria-label="Default select example" value={cardDisplay} style={{ width: "160px" }}
-                                    onChange={(e) => setCardDisplay(e.target.value)} className="select_device px-2 py-1">
+                                <Form.Select aria-label="Default select example" value={cardDisplay} 
+                                    onChange={(e) => setCardDisplay(e.target.value)} className="select_device ">
                                     <option value="2">Widget Visibility</option>
                                     <option value="0">Get Started</option>
                                     <option value="1">Pre-chat Survey</option>
@@ -341,7 +341,7 @@ export default function Widget() {
                                 <div className=' background_img'>
                                     <div className='img_color'>
                                         <div className='d-flex justify-content-between'>
-                                            <div className='hitheretext p-4 mt-4'>
+                                            <div className='hitheretext mt-4'>
                                                 <h2>{getStarted?.status}</h2>
                                                 <p className='text-light messagetextcard'>{getStarted?.message}</p>
                                             </div>

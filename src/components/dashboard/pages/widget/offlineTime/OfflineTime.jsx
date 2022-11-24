@@ -109,8 +109,8 @@ const OfflineTime = ({ getStarted, setgetStarted,handleClose,handleSubmit }) => 
                                 </div>
                             </>}
                             <div className='d-flex justify-content-center'>
-                            <button className='btn btn-danger' onClick={handleClose}>Close</button>
-                            <button className='btn btn-primary' onClick={handlesubmitTime}>Save</button>
+                            <div className='btncloose' onClick={handleClose}>Close</div>
+                            <div className='btnsaave' onClick={handlesubmitTime}>Save</div>
                             </div>
                     </div>
                 </div>

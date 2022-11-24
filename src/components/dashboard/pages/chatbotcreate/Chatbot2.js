@@ -32,7 +32,7 @@ var socket = io()
 var chatbotControl
 const Chatbot2 = () => {
     const [play] = useSound(boopSfx);
-    const [play2,{ stop, isPlaying }] = useSound(boopSfx2);
+    const [play2, { stop, isPlaying }] = useSound(boopSfx2);
     const [showEmoji, setshowEmoji] = useState(false);
     const [chosenEmoji, setChosenEmoji] = useState("");
     const [showChatbot, setshowChatbot] = useState(false);
@@ -139,7 +139,7 @@ const Chatbot2 = () => {
         })
 
         socket.on("callUser", (data) => {
-            
+
             handleCall()
             setReceivingCall(true)
             setCaller(data.from)
@@ -153,17 +153,17 @@ const Chatbot2 = () => {
         })
 
     }, [])
-    const Ringing=()=>{
-       if( receivingCall && !callAccepted ){
-           play2()   
-       }else{
-        stop()
-       }
+    const Ringing = () => {
+        if (receivingCall && !callAccepted) {
+            play2()
+        } else {
+            stop()
+        }
     }
-   
+
     useEffect(() => {
-    Ringing()
-    }, [receivingCall,callAccepted])
+        Ringing()
+    }, [receivingCall, callAccepted])
     // useEffect(() => {
     //     console.log("useEffect render ")
     //     let result = abcNo + 1
@@ -207,7 +207,7 @@ const Chatbot2 = () => {
         if (!emailInp || !nameInp) {
             return setError(true)
         }
-        const paylaod = { createdby, email: emailInp,name:nameInp }
+        const paylaod = { createdby, email: emailInp, name: nameInp }
         createChat(paylaod).then(result => {
             localStorage.setItem("tidiochat", result.data.FullChat._id);
             setChatId(result.data.FullChat._id)
@@ -456,22 +456,22 @@ const Chatbot2 = () => {
         <>
             {showChatbot ?
 
-               
-                 
-                    <div className='container-fluid' style={{ position: "absolute", top: "200px" }}>
-                        <div className='row mt-3'>
-                            <div className='col-sm-3 offset-9 '>
-                              
-                                <div className='col-sm-12  chatbot_header'>
-                                    <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
-                                    {chatId && chatId != undefined && OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime &&
-                                     <div className='pt-2 chatbottexthead2 text-light' style={{ cursor: "pointer" }} onClick={() => { handleCall() }}><IoMdCall /></div>}
-                                    <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
-                                </div>
 
 
-                                {chatId && chatId != undefined ?
-                                 OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime ?
+                <div className='container-fluid' style={{ position: "absolute", top: "200px" }}>
+                    <div className='row mt-3'>
+                        <div className='col-sm-3 offset-9 '>
+
+                            <div className='col-sm-12  chatbot_header'>
+                                <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
+                                {chatId && chatId != undefined && OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime &&
+                                    <div className='pt-2 chatbottexthead2 text-light' style={{ cursor: "pointer" }} onClick={() => { handleCall() }}><IoMdCall /></div>}
+                                <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
+                            </div>
+
+
+                            {chatId && chatId != undefined ?
+                                OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime ?
                                     <div className=' chatbotmessagediv' style={{ height: "350px" }}>
                                         {
                                             data && data.map((elm) => {
@@ -551,80 +551,80 @@ const Chatbot2 = () => {
                                             //    { updateState}
                                         }
                                     </ div>
-                                    : 
-                                    <div className="secondwidgeetoffline">
-                                    <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true}
-                                    setContent={setContent} setOfflineMsg={setOfflineMsg} handleSendMessages={handleSendMessages}
-                                    contentError={contentError} setContentError={setContentError} sendloading={sendloading} sendMsg={sendMsg}
-                                    content={content}
-                                    />
-                                    </div>
                                     :
+                                    <div className="secondwidgeetoffline">
+                                        <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true}
+                                            setContent={setContent} setOfflineMsg={setOfflineMsg} handleSendMessages={handleSendMessages}
+                                            contentError={contentError} setContentError={setContentError} sendloading={sendloading} sendMsg={sendMsg}
+                                            content={content}
+                                        />
+                                    </div>
+                                :
 
-                                    firstChatApp ?
-                                        <>
-                                            {/* make chatbot for first appereacne  */}
-                                            <div className='border'>
-                                                <div className='backgroundcolorcahtbot'>
-                                                    <div className=' d-flex' style={{ borderBottom: "1px solid lightgray" }}>
-                                                        <span className=' w-100'>
-                                                            <h4 className='text-white'>Hello</h4>
-                                                            <p className='text-white'>This is the text Here</p>
-                                                        </span>
-                                                        <span className=' d-flex align-items-center'>
-                                                            <BsThreeDotsVertical className='treedoticon text-white' />
-                                                            <RiArrowDropDownLine className='treedoticon text-white' />
-                                                        </span>
-                                                    </div>
-                                                    <div className='d-flex  mt-1'>
-                                                        <BsDot className='treedoticon2 ' />
-                                                        <span className='text-white'>We reply immediately</span>
-                                                    </div>
+                                firstChatApp ?
+                                    <>
+                                        {/* make chatbot for first appereacne  */}
+                                        <div className='border'>
+                                            <div className='backgroundcolorcahtbot'>
+                                                <div className=' d-flex' style={{ borderBottom: "1px solid lightgray" }}>
+                                                    <span className=' w-100'>
+                                                        <h4 className='text-white'>Hello</h4>
+                                                        <p className='text-white'>This is the text Here</p>
+                                                    </span>
+                                                    <span className=' d-flex align-items-center'>
+                                                        <BsThreeDotsVertical className='treedoticon text-white' />
+                                                        <RiArrowDropDownLine className='treedoticon text-white' />
+                                                    </span>
                                                 </div>
+                                                <div className='d-flex  mt-1'>
+                                                    <BsDot className='treedoticon2 ' />
+                                                    <span className='text-white'>We reply immediately</span>
+                                                </div>
+                                            </div>
 
-                                                <div className='messageareachatbot' style={{ height: "30vh" }}></div>
-                                                <div className='d-flex justify-content-end '>
+                                            <div className='messageareachatbot' style={{ height: "30vh" }}></div>
+                                            <div className='d-flex justify-content-end '>
                                                 <div className='divfornext' onClick={() => setfirstChatApp(false)}><AiOutlineSend className='treedoticon' /></div>
                                             </div>
-                                            </div>
-                                        </>
-                                        :
-                                        <>
-                                            <div style={{ borderLeft: "1px solid lightgray", borderRight: "1px solid lightgray" }}>
-                                                <div className="backforemailsub ">
-                                                    <div className="text-center text-white"><BiUser className="userbiicon" /></div>
-                                                    <h4 className="text-white text-center">Please introduce yourself</h4>
-                                                    <div className=' divforcreatecahtbot'>
-                                                        <div className='indiviconarow  mt-3'>
-                                                            <span className=' bg-light p-1 border d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
-                                                            <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot  '
+                                        </div>
+                                    </>
+                                    :
+                                    <>
+                                        <div style={{ borderLeft: "1px solid lightgray", borderRight: "1px solid lightgray" }}>
+                                            <div className="backforemailsub ">
+                                                <div className="text-center text-white"><BiUser className="userbiicon" /></div>
+                                                <h4 className="text-white text-center">Please introduce yourself</h4>
+                                                <div className=' divforcreatecahtbot'>
+                                                    <div className='indiviconarow  mt-3'>
+                                                        <span className=' bg-light p-1 border d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
+                                                        <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot  '
                                                             onChange={(e) => { setNameInp(e.target.value); setError(false) }} value={nameInp}
-                                                            /></span>
-                                                        </div>
-                                                        <div className='indiviconarow  mt-3'>
-                                                            <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
-                                                            <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="number" placeholder='Phone number' className='inputemailchatbot' />
-                                                            </span>
-                                                        </div>
-                                                        <div className='indiviconarow  mt-3'>
-                                                            <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
-                                                            <span> <input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" className='form-input  inputemailchatbot'
-                                                                placeholder='Enter Your email here...'
-                                                                onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
-                                                            </span>
-                                                        </div>
-
-                                                        <button className='subbtndata mt-3' onClick={() => handleCreateChat()}>Submit</button>
+                                                        /></span>
                                                     </div>
-                                                </div>
+                                                    <div className='indiviconarow  mt-3'>
+                                                        <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
+                                                        <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="number" placeholder='Phone number' className='inputemailchatbot' />
+                                                        </span>
+                                                    </div>
+                                                    <div className='indiviconarow  mt-3'>
+                                                        <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
+                                                        <span> <input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" className='form-input  inputemailchatbot'
+                                                            placeholder='Enter Your email here...'
+                                                            onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
+                                                        </span>
+                                                    </div>
 
+                                                    <button className='subbtndata mt-3' onClick={() => handleCreateChat()}>Submit</button>
+                                                </div>
                                             </div>
-                                        </>
-                                }
-                                {OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime &&
-                                    <div className='col-sm-12 border'>
+
+                                        </div>
+                                    </>
+                            }
+                            {OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime &&
+                                <div className='col-sm-12 border'>
                                     <div className="input-group">
-                                        { myFile ?
+                                        {myFile ?
                                             <>
                                                 <div className="imagetopcrossdiv2">
                                                     <img src={showFile} className='' />
@@ -641,33 +641,33 @@ const Chatbot2 = () => {
                                         }
                                         {
                                             firstChatApp &&
-                                            <>   
-                                            
-                                            <div className=' d-flex align-items-center attacth'>
-                                            
-                                            <GrAttachment className='' />
-                                            <input type="file" className='filetype' style={{ cursor: "pointer" }} onChange={(e) => handleChangefile(e)} />
-                                        </div>
-                                        <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div>
-                                        </>
-                                    }
-                                        {chatId && chatId != undefined && 
-                                        <div className="input-group-prepend">
-                                            <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
-                                                {sendloading ? <p>Sending...</p> : <AiOutlineSend className='snd_icon' />}
-                                            </button></span>
-                                        </div> 
-                                        
+                                            <>
+
+                                                <div className=' d-flex align-items-center attacth'>
+
+                                                    <GrAttachment className='' />
+                                                    <input type="file" className='filetype' style={{ cursor: "pointer" }} onChange={(e) => handleChangefile(e)} />
+                                                </div>
+                                                <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div>
+                                            </>
+                                        }
+                                        {chatId && chatId != undefined &&
+                                            <div className="input-group-prepend">
+                                                <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
+                                                    {sendloading ? <p>Sending...</p> : <AiOutlineSend className='snd_icon' />}
+                                                </button></span>
+                                            </div>
+
                                         }
                                     </div>
                                 </div>}
-                            </div>
-
-
                         </div>
+
+
                     </div>
-                    
-                   
+                </div>
+
+
                 :
                 <div className='row'>
                     <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); resetTimeOut(); dispatch(setsubUserNotifClear()) }}>
@@ -718,19 +718,19 @@ const Chatbot2 = () => {
                             </button>
                         )}
 
-                        {receivingCall && !callAccepted ? 
-                       
-                        (
-                            <div className="caller">
-                                <h3 >{name} is calling...</h3>
-                                <div className="d-flex">
-                                    <div className="answerbtn" onClick={answerCall}>
-                                        Answer
-                                    </div>
+                        {receivingCall && !callAccepted ?
 
+                            (
+                                <div className="caller">
+                                    <h3 >{name} is calling...</h3>
+                                    <div className="d-flex">
+                                        <div className="answerbtn" onClick={answerCall}>
+                                            Answer
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
-                        ) : null}
+                            ) : null}
 
                     </div>
                     <div className='d-flex'>
