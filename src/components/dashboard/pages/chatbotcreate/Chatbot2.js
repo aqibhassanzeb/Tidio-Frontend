@@ -36,22 +36,24 @@ const Chatbot2 = () => {
     const [Error, setError] = useState(false)
     const [contentError, setContentError] = useState(false)
     const [emailInp, setEmailInp] = useState("")
-    const [chatId, setChatId] = useState(localStorage.getItem("tidiochat"));
-    const [tidiochatUser, setTidiochatUser] = useState(localStorage.getItem("tidiochatuser"))
+    const [chatId, setChatId] = useState('');
+    const [tidiochatUser, setTidiochatUser] = useState("")
     const [content, setContent] = useState("")
     const [data, setData] = useState([])
     const [fetchemail, setFetchemail] = useState("")
     const fetchControl = useRef(false);
     const [socketConnected, setSocketConnected] = useState(false)
-    const subUserData = JSON.parse(tidiochatUser)
+    const [subUserData, setSubUserData] = useState("")
+    // const subUserData = JSON.parse(tidiochatUser)
     const [sendloading, setSendloading] = useState(false);
     const [notficationControl, setNotficationControl] = useState(null)
     const [myFile, setFileAttachment] = useState('')
     const [showFile, setShowFile] = useState('')
     const [getStarted, setgetStarted] = useState({});
     const [firstChatApp, setfirstChatApp] = useState(true)
-   
-    
+    const [handlefetchChatCreate, setHandlefetchChatCreate] = useState(false)
+
+
     // resolve message control state 
 
     const [issueResolved, setIssueResolved] = useState(false);
@@ -180,6 +182,7 @@ const Chatbot2 = () => {
         createChat(paylaod).then(result => {
             localStorage.setItem("tidiochat", result.data.FullChat._id);
             setChatId(result.data.FullChat._id)
+            setHandlefetchChatCreate(!handlefetchChatCreate)
         }).catch(err => {
             console.log(err);
         })
@@ -194,12 +197,12 @@ const Chatbot2 = () => {
         // socket.emit("stop typing", selectedUser._id)
         // const chatId = selectedUser._id
         // const payload = { content, chatId, senderId: loginUser._id }
-        const formdata=new FormData()
-        formdata.append("myFile",myFile)
-        formdata.append("content",content)
-        formdata.append("chatId",chatId)
-        formdata.append("senderId",subUserData._id)
-        formdata.append("sender","subUser")
+        const formdata = new FormData()
+        formdata.append("myFile", myFile)
+        formdata.append("content", content)
+        formdata.append("chatId", chatId)
+        formdata.append("senderId", subUserData._id)
+        formdata.append("sender", "subUser")
         // const paylaod = { chatId, senderId: subUserData._id, sender: "subUser", content }
         setSendloading(true)
         sendMessage2(formdata).then(result => {
@@ -356,6 +359,14 @@ const Chatbot2 = () => {
         console.log("your emoji is ", emojiObject.target.src);
     };
 
+    // chatbot id updating
+    useEffect(() => {
+        setChatId(localStorage.getItem("tidiochat"))
+        setTidiochatUser(localStorage.getItem("tidiochatuser"))
+        setSubUserData(JSON.parse(localStorage.getItem("tidiochatuser")))
+    }, [handlefetchChatCreate])
+    
+
     // chatbot setting data fetch 
 
     useEffect(() => {
@@ -363,8 +374,6 @@ const Chatbot2 = () => {
             setgetStarted(res?.data[0])
         }).catch(err => console.log(err))
     }, [])
-
-    console.log("get started :",getStarted)
 
     return (
         <>
@@ -456,21 +465,21 @@ const Chatbot2 = () => {
                                     }
                                 </ div>
                                 :
-                                
+
                                 firstChatApp ?
-                                <>
-                                {/* make chatbot for first appereacne  */}
-                                <p>dfjalksjdfkj</p>
-                                <button onClick={()=>setfirstChatApp(false)}>next</button>
-                                </>
-                                :
-                                <>
-                                    <p>Please Enter Email</p>
-                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input inputemailchatbot'
-                                        placeholder='Enter Your email here...'
-                                        onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
-                                    <button className='btn btn-primary' onClick={() => handleCreateChat()}>submit</button>
-                                </>
+                                    <>
+                                        {/* make chatbot for first appereacne  */}
+                                        <p>dfjalksjdfkj</p>
+                                        <button onClick={() => setfirstChatApp(false)}>next</button>
+                                    </>
+                                    :
+                                    <>
+                                        <p>Please Enter Email</p>
+                                        <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input inputemailchatbot'
+                                            placeholder='Enter Your email here...'
+                                            onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
+                                        <button className='btn btn-primary' onClick={() => handleCreateChat()}>submit</button>
+                                    </>
                             }
                             <div className='col-sm-12 border'>
                                 <div className="input-group">
