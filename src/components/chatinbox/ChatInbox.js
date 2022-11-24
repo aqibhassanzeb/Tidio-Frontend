@@ -317,11 +317,11 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
 
                                 elm.sender == "subUser" ?
                                     elm.myFile ?
-                                    <>
-                                    <div>
-                                        <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
-                                        <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
-                                        </div>    
+                                        <>
+                                            <div>
+                                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                                <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                            </div>
                                         </>
                                         :
                                         <div className={`col-sm-12  bcakhover }`}>
@@ -391,13 +391,13 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                 {selectedUser &&
 
                     <div className='row  '>
-                        <div className='d-flex replymaindic '>
+                        <div className='replymaindic '>
                             {/* <input type='file' /> */}
                             {selectedUser && myFile ?
                                 <>
-                                <div className="imagetopcrossdiv">
-                                <img src={showFile}  />
-                                    <button className='btn btn-success btncrostop'  onClick={() => handleCanclePic()}>X</button>
+                                    <div className="imagetopcrossdiv">
+                                        <img src={showFile} />
+                                        <button className='btn btn-success btncrostop' onClick={() => handleCanclePic()}>X</button>
                                     </div>
                                 </>
                                 :
@@ -406,6 +406,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                     </input>
                                 </div>}
                             {/* {isTyping ?<p>Typing...</p>:""} */}
+                            <div>
                             {selectedUser &&
                                 <>
                                     <div className=' d-flex align-items-center attacth'>
@@ -418,6 +419,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
 
                             <div className='replybtn '>
                                 {loading ? <p>Sending..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
+                            </div>
                             </div>
                         </div>
                     </div>

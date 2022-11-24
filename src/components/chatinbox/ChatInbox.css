@@ -154,6 +154,8 @@ margin-left: 0px !important;
 .replymaindic{
     border: 1px solid rgba(211, 211, 211, 0.288);
     padding: 0px;
+    display: flex;
+    justify-content: space-between;
 }
 .openprofinfo{
     padding: 0px 20px;
