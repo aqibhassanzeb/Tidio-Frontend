@@ -22,7 +22,7 @@ import { IoMdCall } from 'react-icons/io';
 import { TbPhoneCall } from 'react-icons/tb';
 import { GrAttachment } from 'react-icons/gr';
 import { MdOutlineAddReaction } from 'react-icons/md';
-import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill } from 'react-icons/bs'
+import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill, BsThreeDotsVertical, BsDot } from 'react-icons/bs'
 import Picker from 'emoji-picker-react';
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
@@ -50,8 +50,8 @@ const Chatbot2 = () => {
     const [showFile, setShowFile] = useState('')
     const [getStarted, setgetStarted] = useState({});
     const [firstChatApp, setfirstChatApp] = useState(true)
-   
-    
+
+
     // resolve message control state 
 
     const [issueResolved, setIssueResolved] = useState(false);
@@ -194,12 +194,12 @@ const Chatbot2 = () => {
         // socket.emit("stop typing", selectedUser._id)
         // const chatId = selectedUser._id
         // const payload = { content, chatId, senderId: loginUser._id }
-        const formdata=new FormData()
-        formdata.append("myFile",myFile)
-        formdata.append("content",content)
-        formdata.append("chatId",chatId)
-        formdata.append("senderId",subUserData._id)
-        formdata.append("sender","subUser")
+        const formdata = new FormData()
+        formdata.append("myFile", myFile)
+        formdata.append("content", content)
+        formdata.append("chatId", chatId)
+        formdata.append("senderId", subUserData._id)
+        formdata.append("sender", "subUser")
         // const paylaod = { chatId, senderId: subUserData._id, sender: "subUser", content }
         setSendloading(true)
         sendMessage2(formdata).then(result => {
@@ -364,7 +364,7 @@ const Chatbot2 = () => {
         }).catch(err => console.log(err))
     }, [])
 
-    console.log("get started :",getStarted)
+    console.log("get started :", getStarted)
 
     return (
         <>
@@ -456,21 +456,42 @@ const Chatbot2 = () => {
                                     }
                                 </ div>
                                 :
-                                
+
                                 firstChatApp ?
-                                <>
-                                {/* make chatbot for first appereacne  */}
-                                <p>dfjalksjdfkj</p>
-                                <button onClick={()=>setfirstChatApp(false)}>next</button>
-                                </>
-                                :
-                                <>
-                                    <p>Please Enter Email</p>
-                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input inputemailchatbot'
-                                        placeholder='Enter Your email here...'
-                                        onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
-                                    <button className='btn btn-primary' onClick={() => handleCreateChat()}>submit</button>
-                                </>
+                                    <>
+                                        {/* make chatbot for first appereacne  */}
+                                        <div className='border'>
+                                            <div className='backgroundcolorcahtbot'>
+                                                <div className=' d-flex' style={{ borderBottom: "1px solid lightgray" }}>
+                                                    <span className=' w-100'>
+                                                        <h4 className='text-white'>Hello</h4>
+                                                        <p className='text-white'>This is the text Here</p>
+                                                    </span>
+                                                    <span className=' d-flex align-items-center'>
+                                                        <BsThreeDotsVertical className='treedoticon text-white' />
+                                                        <RiArrowDropDownLine className='treedoticon text-white' />
+                                                    </span>
+                                                </div>
+                                                <div className='d-flex  mt-1'>
+                                                    <BsDot className='treedoticon2 ' />
+                                                    <span className='text-white'>We reply immediately</span>
+                                                </div>
+                                            </div>
+                                        
+                                        <div className='messageareachatbot' style={{ height: "30vh"}}></div>
+                                        <div className='d-flex justify-content-end '>
+                                            <div className='divfornext' onClick={() => setfirstChatApp(false)}><AiOutlineSend className='treedoticon' /></div>
+                                        </div>
+                                        </div>
+                                    </>
+                                    :
+                                    <>
+                                        <p>Please Enter Email</p>
+                                        <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input inputemailchatbot'
+                                            placeholder='Enter Your email here...'
+                                            onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
+                                        <button className='btn btn-primary' onClick={() => handleCreateChat()}>submit</button>
+                                    </>
                             }
                             <div className='col-sm-12 border'>
                                 <div className="input-group">
