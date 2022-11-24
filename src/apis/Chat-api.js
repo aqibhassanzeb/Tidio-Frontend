@@ -76,7 +76,7 @@ export const selectUser2 = async (reqParam) => {
 }
 
 export const subUserchatDelete = async (reqParam) => {
-    const response = await apiURL.delete(`/subuserdeletechat/${reqParam}`, config);
+    const response = await apiURL.put(`/subuserdeletechat/${reqParam}`, config);
     return response
 }
 

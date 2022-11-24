@@ -41,6 +41,7 @@ export default function Widget() {
         setgetStarted({ ...getStarted, [name]: event.target.value })
     }
 
+    console.log("get started :",getStarted)
     return (
         <>
         <div className='container d-flex widget_div mt-4'>
