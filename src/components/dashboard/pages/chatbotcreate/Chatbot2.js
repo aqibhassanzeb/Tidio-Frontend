@@ -4,7 +4,7 @@ import "./ChatbotCreate.css"
 import Profilepic from '../../../../images/profile.jpg'
 import { AiOutlineSend } from 'react-icons/ai';
 import { FiMessageSquare } from 'react-icons/fi';
-import { createChat, fetchMessages2, sendMessage2 } from '../../../../apis/Chat-api';
+import { chatbotSettingfetch, createChat, fetchMessages2, sendMessage2 } from '../../../../apis/Chat-api';
 import { useEffect } from 'react';
 import io from 'socket.io-client'
 import { useRef } from 'react';
@@ -45,14 +45,20 @@ const Chatbot2 = () => {
     const [socketConnected, setSocketConnected] = useState(false)
     const subUserData = JSON.parse(tidiochatUser)
     const [sendloading, setSendloading] = useState(false);
-    const [issueResolved, setIssueResolved] = useState(false);
-    const [askIssueVisbile, setAskIssueVisible] = useState(false);
     const [notficationControl, setNotficationControl] = useState(null)
     const [myFile, setFileAttachment] = useState('')
     const [showFile, setShowFile] = useState('')
+    const [getStarted, setgetStarted] = useState({});
+    const [firstChatApp, setfirstChatApp] = useState(true)
+   
+    
+    // resolve message control state 
 
+    const [issueResolved, setIssueResolved] = useState(false);
+    const [askIssueVisbile, setAskIssueVisible] = useState(false);
     const [abc, setAbc] = useState(false)
     const [abcNo, setAbcNo] = useState(0)
+
 
     const dispatch = useDispatch()
 
@@ -350,6 +356,16 @@ const Chatbot2 = () => {
         console.log("your emoji is ", emojiObject.target.src);
     };
 
+    // chatbot setting data fetch 
+
+    useEffect(() => {
+        chatbotSettingfetch(createdby).then((res) => {
+            setgetStarted(res?.data[0])
+        }).catch(err => console.log(err))
+    }, [])
+
+    console.log("get started :",getStarted)
+
     return (
         <>
             {showChatbot ?
@@ -439,6 +455,14 @@ const Chatbot2 = () => {
                                         </>
                                     }
                                 </ div>
+                                :
+                                
+                                firstChatApp ?
+                                <>
+                                {/* make chatbot for first appereacne  */}
+                                <p>dfjalksjdfkj</p>
+                                <button onClick={()=>setfirstChatApp(false)}>next</button>
+                                </>
                                 :
                                 <>
                                     <p>Please Enter Email</p>
