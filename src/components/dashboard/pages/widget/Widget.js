@@ -37,6 +37,8 @@ export default function Widget() {
     const [displayWidget, setDisplayWidget] = useState(false)
     const [displayWidget2, setDisplayWidget2] = useState(false)
     const [preChatDisplay, setPreChatDisplay] = useState(false)
+    const [cardDisplay, setCardDisplay] = useState("0")
+
 
     useEffect(() => {
         if (Images.length < 1) return;
@@ -86,65 +88,73 @@ export default function Widget() {
         }).catch(err => console.log(err))
     }, [loginUser, fetchControl])
 
-    console.log("get Started :",getStarted)
+    console.log("get Started :", cardDisplay)
 
     return (
         <>
-        <ToastContainer />
+            <ToastContainer />
+                <div className='d-flex justify-content-end mt-3' >
+                    <Form.Select aria-label="Default select example" value={cardDisplay} style={{ width: "300px"}}
+                        onChange={(e) => setCardDisplay(e.target.value)} className="select_device px-2 py-1">
+                        <option value="0">Get Started</option>
+                        <option value="1">Pre-chat Survey</option>
+                        {/* <option value="2">Only on mobile devices</option> */}
+                    </Form.Select>
+                </div>
             <div className='container d-flex widget_div mt-4'>
                 <div className='col-sm-7'>
                     <div className="accordion mt-5">
                         <Accordion style={{ border: "none" }}>
                             <Accordion.Item eventKey="0">
-                            <Accordion.Header className='text-dark border_acc'>
-                                <AiFillEye className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Widget Visibility</h5>
-                            </Accordion.Header>
-                            <hr className='margin_hr' />
-                            <Accordion.Body>
-                                <div className='row'>
-                                    <div className='col-sm-12 d-flex p-3'>
-                                        <label className='display_widget'>Display Widget</label>
-                                        <div className="form-check form-switch check_custom">
-                                            <input className="form-check-input" type="checkbox" value={displayWidget} id="flexSwitchCheckChecked" onClick={()=>setDisplayWidget(!displayWidget)} />
+                                <Accordion.Header className='text-dark border_acc'>
+                                    <AiFillEye className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Widget Visibility</h5>
+                                </Accordion.Header>
+                                <hr className='margin_hr' />
+                                <Accordion.Body>
+                                    <div className='row'>
+                                        <div className='col-sm-12 d-flex p-3'>
+                                            <label className='display_widget'>Display Widget</label>
+                                            <div className="form-check form-switch check_custom">
+                                                <input className="form-check-input" type="checkbox" value={displayWidget} id="flexSwitchCheckChecked" onClick={() => setDisplayWidget(!displayWidget)} />
+                                            </div>
                                         </div>
-                                    </div>
-                                   { displayWidget && <div className='col-sm-12 d-flex p-3 pb-0'>
-                                        <label className='display_widget'>Devices</label>
-                                        <Form.Select aria-label="Default select example" value={getStarted?.devices} 
-                                        onChange={(e) => { inputEvent(e, "devices") }} className="select_device px-2 py-1">
-                                            <option value="Both on desktop and mobile devices">Both on desktop and mobile devices</option>
-                                            <option value="Only on desktop devices">Only on desktop devices</option>
-                                            <option value="Only on mobile devices">Only on mobile devices</option>
-                                        </Form.Select>
-                                    </div>}
-                                    {/* <div className='col-sm-12'>
+                                        {displayWidget && <div className='col-sm-12 d-flex p-3 pb-0'>
+                                            <label className='display_widget'>Devices</label>
+                                            <Form.Select aria-label="Default select example" value={getStarted?.devices}
+                                                onChange={(e) => { inputEvent(e, "devices") }} className="select_device px-2 py-1">
+                                                <option value="Both on desktop and mobile devices">Both on desktop and mobile devices</option>
+                                                <option value="Only on desktop devices">Only on desktop devices</option>
+                                                <option value="Only on mobile devices">Only on mobile devices</option>
+                                            </Form.Select>
+                                        </div>}
+                                        {/* <div className='col-sm-12'>
                                         <label className='hide_screen'>Hide on specific</label>
                                     </div> */}
-                                    <div className='col-sm-12 d-flex p-3'>
-                                        <label className='display_chat'>Display the Chat<br /> When You're Offline</label>
-                                        <div className="form-check form-switch check_chat">
-                                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" value={displayWidget2} onChange={()=>setDisplayWidget2(!displayWidget2)} />
+                                        <div className='col-sm-12 d-flex p-3'>
+                                            <label className='display_chat'>Display the Chat<br /> When You're Offline</label>
+                                            <div className="form-check form-switch check_chat">
+                                                <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" value={displayWidget2} onChange={() => setDisplayWidget2(!displayWidget2)} />
+                                            </div>
                                         </div>
+                                        {displayWidget2 &&
+                                            <>
+                                                <div className='col-sm-12 d-flex p-3'>
+                                                    <label className='display_chat'>Display the Chat<br /><small className='color_small'>(adjust online hour)</small></label>
+                                                    <div className="form-check form-switch ">
+                                                        <input className="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div className='col-sm-12 d-flex p-3'>
+                                                    <label className='display_chat'>Offline message</label>
+                                                    <div className="form-check form-switch ">
+                                                        <textarea className="form-control" id="exampleFormControlTextarea1" value={getStarted?.offlineMessage} onChange={(e) => { inputEvent(e, "offlineMessage") }} rows="2" />
+                                                    </div>
+                                                </div>
+                                            </>}
                                     </div>
-                                   {displayWidget2 &&
-                                   <>
-                                   <div className='col-sm-12 d-flex p-3'>
-                                        <label className='display_chat'>Display the Chat<br /><small className='color_small'>(adjust online hour)</small></label>
-                                        <div className="form-check form-switch ">
-                                            <input className="form-control" />
-                                        </div>
-                                    </div>
-                                    <div className='col-sm-12 d-flex p-3'>
-                                        <label className='display_chat'>Offline message</label>
-                                        <div className="form-check form-switch ">
-                                            <textarea className="form-control" id="exampleFormControlTextarea1" value={getStarted?.offlineMessage} onChange={(e) => { inputEvent(e, "offlineMessage") }} rows="2" />
-                                        </div>
-                                    </div>
-                                   </>}
-                                </div>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                            <Accordion.Item eventKey="1" onClick={() => setChatToggle(true)}>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                            <Accordion.Item eventKey="1" onClick={() => setCardDisplay("0")}>
                                 <Accordion.Header>
                                     <AiFillHome className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Get Started</h5>
                                 </Accordion.Header>
@@ -216,7 +226,7 @@ export default function Widget() {
                                     </div>
                                 </Accordion.Body>
                             </Accordion.Item> */}
-                            <Accordion.Item eventKey="3" onClick={() => setChatToggle(false)}>
+                            <Accordion.Item eventKey="3" onClick={() => setCardDisplay("1")}>
                                 <Accordion.Header>
                                     <FaRegCalendarCheck className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Pre-chat Survey</h5>
                                 </Accordion.Header>
@@ -229,56 +239,56 @@ export default function Widget() {
                                             </div>
                                             <div className='col-sm-10 mt-2'>
                                                 <div className="form-check form-switch ">
-                                                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" value={preChatDisplay} onChange={()=>setPreChatDisplay(!preChatDisplay)} /> <BsFillQuestionCircleFill className='question_mark' />
+                                                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" value={preChatDisplay} onChange={() => setPreChatDisplay(!preChatDisplay)} /> <BsFillQuestionCircleFill className='question_mark' />
                                                 </div>
                                             </div>
                                         </div>
-                                       {
-                                        preChatDisplay &&
-                                        <>
-                                        <div className='col-sm-12 display_display mt-2'>
-                                            <div className='col-sm-2'>
-                                                <label className='btn_position_size'>Message :</label>
-                                            </div>
-                                            <div className='col-sm-7  messgaein'>
-                                                <input type="text" className='inputsurvey1 w-100' value={getStarted?.user_message} name='user_message' placeholder='Enter your text...' onChange={(e) => { inputEvent(e, "user_message") }} />
-                                            </div>
-                                        </div>
-                                        <div className='display_display mt-3 '>
-                                            <div className='d-flex col-sm-2'>
-                                                <label className='btn_position_size'>Survey Fields:</label>
-                                            </div>
-                                            <div className='bg_email '>
-                                                <div className='emailinputandtext'>
-                                                    <div className='emailtext '>Name</div>
-                                                    <div className='p-2 inpdivforwit'>
-                                                        <input type="text" className='inputsurvey' value={getStarted?.enter_phone} name='enter_phone' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
-
+                                        {
+                                            preChatDisplay &&
+                                            <>
+                                                <div className='col-sm-12 display_display mt-2'>
+                                                    <div className='col-sm-2'>
+                                                        <label className='btn_position_size'>Message :</label>
                                                     </div>
-                                                    {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
-                                                </div>
-                                                <div className='emailinputandtext'>
-                                                <div className='emailtext '>Email</div>
-                                                    <div className='p-2 '>
-                                                        <input type="email" className='inputsurvey ' value={getStarted?.enter_email} name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_email") }} /><br />
-                                                        <span><input type="checkbox" onClick={()=>setNewlettertoggle(!newlettertoggle)} placeholder='Enter your text' /></span>
-                                                        <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
-
+                                                    <div className='col-sm-7  messgaein'>
+                                                        <input type="text" className='inputsurvey1 w-100' value={getStarted?.user_message} name='user_message' placeholder='Enter your text...' onChange={(e) => { inputEvent(e, "user_message") }} />
                                                     </div>
-                                                    {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
                                                 </div>
-                                                <div className='emailinputandtext'>
-                                                    <div className='emailtext '>GDPR</div>
-                                                    <div className='p-2 inpdivforwit '>
-                                                        <input type="text" className='inputsurvey ' value={getStarted?.gdpr} name='gdpr' placeholder='GDPR' onChange={(e) => { inputEvent(e, "gdpr") }} /><br />
-
+                                                <div className='display_display mt-3 '>
+                                                    <div className='d-flex col-sm-2'>
+                                                        <label className='btn_position_size'>Survey Fields:</label>
                                                     </div>
-                                                    {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
+                                                    <div className='bg_email '>
+                                                        <div className='emailinputandtext'>
+                                                            <div className='emailtext '>Name</div>
+                                                            <div className='p-2 inpdivforwit'>
+                                                                <input type="text" className='inputsurvey' value={getStarted?.enter_phone} name='enter_phone' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
+
+                                                            </div>
+                                                            {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
+                                                        </div>
+                                                        <div className='emailinputandtext'>
+                                                            <div className='emailtext '>Email</div>
+                                                            <div className='p-2 '>
+                                                                <input type="email" className='inputsurvey ' value={getStarted?.enter_email} name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_email") }} /><br />
+                                                                <span><input type="checkbox" onClick={() => setNewlettertoggle(!newlettertoggle)} placeholder='Enter your text' /></span>
+                                                                <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
+
+                                                            </div>
+                                                            {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
+                                                        </div>
+                                                        <div className='emailinputandtext'>
+                                                            <div className='emailtext '>GDPR</div>
+                                                            <div className='p-2 inpdivforwit '>
+                                                                <input type="text" className='inputsurvey ' value={getStarted?.gdpr} name='gdpr' placeholder='GDPR' onChange={(e) => { inputEvent(e, "gdpr") }} /><br />
+
+                                                            </div>
+                                                            {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
                                             </>
-                                       }
+                                        }
                                         {/* <div className='col-sm-12 width_add d-flex mt-3'>
                                             <div className='col-sm-8 offset-3 custom_width'>
                                                 <Form.Select aria-label="Default select example" className=" px-2 py-1">
@@ -308,7 +318,7 @@ export default function Widget() {
                         </div>
                     </div>
                     <div className='backdivofacard'>
-                        {chatToggle ? (
+                        {cardDisplay == "0" &&
                             <>
                                 <div className=' background_img'>
                                     <div className='img_color'>
@@ -337,7 +347,9 @@ export default function Widget() {
                                     <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
                                 </div>
                             </>
-                        ) :
+                        }
+                        {
+                            cardDisplay == "1" &&
                             <>
                                 {/* free Chat servy */}
                                 <div className='bg-light '>
@@ -353,26 +365,26 @@ export default function Widget() {
                                                     <div className="input-group-prepend">
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
-                                                   
+
                                                     <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
-                                                   
+
                                                 </div>
                                                 <div className="input-group mt-2">
                                                     <div className="input-group-prepend">
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
-                                                   
+
                                                     <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
-                                                   
+
                                                 </div>
                                                 <div className="mt-2 mb-5">
-                                                    {newlettertoggle && 
-                                                    <>
-                                                    <input className="form-check-input" type="checkbox" value="true" id="flexCheckDefault" />
-                                                    <label className="form-check-label check_label" for="flexCheckDefault">
-                                                        <small>signup for our newsletter</small>
-                                                    </label>
-                                                    </>
+                                                    {newlettertoggle &&
+                                                        <>
+                                                            <input className="form-check-input" type="checkbox" value="true" id="flexCheckDefault" />
+                                                            <label className="form-check-label check_label" for="flexCheckDefault">
+                                                                <small>signup for our newsletter</small>
+                                                            </label>
+                                                        </>
                                                     }
                                                 </div>
                                                 <button type="button" className="btn btn-primary btn-lg btn-block block_btn">Send</button>
