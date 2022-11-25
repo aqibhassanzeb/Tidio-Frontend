@@ -4,10 +4,13 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { IoIosClose } from 'react-icons/io';
 import { BsArrowDownRight } from 'react-icons/bs';
 import userim from "../../../../images/horse.jpg"
-const WidgetOffline = ({getStarted}) => {
+const WidgetOffline = ({getStarted,setshowChatbot,chatBot}) => {
     return (
         <>
             <div className=' bg-light'>
+              {chatBot &&  <div className='d-flex justify-content-end'>
+                    <button className='btn btn-danger' onClick={()=>{setshowChatbot(false)}}>close</button>
+                </div>}
             <div className='d-flex justify-content-end'> </div>
                 <div className='d-flex justify-content-center'>
                     <img src={userim} className=' hrim' alt='' />

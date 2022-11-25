@@ -432,10 +432,8 @@ const Chatbot2 = () => {
 
         gettingDay && setOnlineTime(gettingDay2)
     }, [getStarted])
-    useEffect(() => {
 
-    }, [OnlineTime])
-
+    console.log("get Started :",getStarted)
     return (
         <>
             {showChatbot ?
@@ -609,7 +607,7 @@ const Chatbot2 = () => {
                         </div>
                     </div>
                     :
-                    <WidgetOffline />
+                    <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true} />
                 :
                 <div className='row'>
                     <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); resetTimeOut(); dispatch(setsubUserNotifClear()) }}>
