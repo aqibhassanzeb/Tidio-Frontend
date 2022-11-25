@@ -1,0 +1,33 @@
+import React from 'react'
+import { AiOutlineSend } from 'react-icons/ai';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { IoIosClose } from 'react-icons/io';
+import { BsArrowDownRight } from 'react-icons/bs';
+import userim from "../../../../images/horse.jpg"
+const WidgetOffline = () => {
+    return (
+        <>
+            <div className=' bg-light'>
+            <div className='d-flex justify-content-end'> <IoIosClose style={{fontSize: "30px",cursor: "pointer"}} /> </div>
+                <div className='d-flex justify-content-center'>
+                    <img src={userim} className=' hrim' alt='' />
+                   
+                </div>
+                <div>
+                    <p className='apraforofline'>We’re currently unavailable. We’ll get back to you when one of our operators is able to respond.
+                     Please provide your email address so we can get in touch with you.</p>
+                     
+                </div>
+                <div className='transdata '>
+             
+                <input type="text" placeholder='Enter your email...' />
+              
+                    <button className='btn btn-primary'>Send</button>
+                </div>
+            </div>
+           
+        </>
+    )
+}
+
+export default WidgetOffline

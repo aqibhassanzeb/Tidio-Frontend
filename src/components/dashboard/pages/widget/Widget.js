@@ -25,6 +25,9 @@ import { useSelector } from 'react-redux';
 import { chatbotSetting, chatbotSettingfetch } from '../../../../apis/Chat-api';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import WidgetOffline from './WidgetOffline';
+import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Widget() {
     const [showChatbot, setshowChatbot] = useState(false);
@@ -36,6 +39,7 @@ export default function Widget() {
     const [fetchControl, setFetchControl] = useState(false)
     const [newlettertoggle, setNewlettertoggle] = useState(false)
 
+    const navigate = useNavigate();
     useEffect(() => {
         if (Images.length < 1) return;
         const newImageUrl = [];
@@ -123,7 +127,9 @@ export default function Widget() {
                                         </div>
                                     </div>
                                     <div className='col-sm-12 d-flex p-3'>
-                                        <label className='display_chat'>Display the Chat<br /><small className='color_small'>(adjust online hour)</small></label>
+                                        <label className='display_chat'>Display the Chat<br />
+                                        <small className='color_small' onClick={()=> navigate("/offtime")}>(adjust online hour)</small>
+                                        </label>
                                         <div className="form-check form-switch ">
                                             <input className="form-control" />
                                         </div>
@@ -333,6 +339,8 @@ export default function Widget() {
 
                                     <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
                                 </div>
+
+                               <WidgetOffline />
                             </>
                         ) :
                             <>

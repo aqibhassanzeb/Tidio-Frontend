@@ -25,6 +25,7 @@ import ChatbotCreate from '../components/dashboard/pages/chatbotcreate/ChatbotCr
 import Chatbot2 from '../components/dashboard/pages/chatbotcreate/Chatbot2';
 import TermsAndCondition from './../components/register/termsAndCondition/TermsAndCondition';
 import PrivacyPolicy from './../components/register/privacyPolicy/PrivacyPolicy';
+import OfflineTime from './../components/dashboard/pages/widget/offlineTime/OfflineTime';
 
 const Routespath = () => {
 
@@ -61,6 +62,7 @@ const Routespath = () => {
        <Route path="/reset-pass/:token" element={<NewPassword />} />
        <Route path="/termsandcondition" element={<TermsAndCondition />} />
        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+       <Route path="/offtime" element={<OfflineTime />} />
         </Routes>
 
 

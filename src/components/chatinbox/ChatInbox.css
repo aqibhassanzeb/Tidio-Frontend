@@ -156,6 +156,8 @@ margin-left: 0px !important;
     padding: 0px;
     display: flex;
     justify-content: space-between;
+    margin-left: 10px;
+    width: 99%;
 }
 .openprofinfo{
     padding: 0px 20px;
@@ -323,6 +325,11 @@ margin-left: 0px !important;
     position: absolute;
     top: 10px;
     right: 2%;
+}
+.replyandatach{
+    display: flex;
+    justify-content: end;
+    width: 100%;
 }
 .backimagesnoimg{
     width: 105%;

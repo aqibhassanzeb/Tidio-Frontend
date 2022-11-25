@@ -191,6 +191,33 @@
    clip-path: ellipse(98% 95% at 42% 5%);
 
 }
+.hrim{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.apraforofline{
+    font-size: 18px;
+    margin: 5px 0px;
+    padding: 10px;
+}
+.transdata{
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+}
+.transdata input{
+    width: 75%;
+    margin: 10px auto ;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    outline: none;
+}
+.transdata button{
+    width: 75%;
+    margin: auto;
+}
  .img_color{
     background-color: rgba(150, 33, 128, 0.664);
     width: 100%;

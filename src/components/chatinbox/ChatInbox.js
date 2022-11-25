@@ -406,20 +406,20 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                     </input>
                                 </div>}
                             {/* {isTyping ?<p>Typing...</p>:""} */}
-                            <div>
-                            {selectedUser &&
-                                <>
-                                    <div className=' d-flex align-items-center attacth'>
-                                        <GrAttachment className='' />
-                                        <input type="file" className='filetype' onChange={(e) => handleChangefile(e)} />
-                                    </div>
-                                </>
-                            }
+                            <div className='replyandatach'>
+                                {selectedUser &&
+                                    <>
+                                        <div className=' d-flex align-items-center attacth'>
+                                            <GrAttachment className='' />
+                                            <input type="file" className='filetype' onChange={(e) => handleChangefile(e)} />
+                                        </div>
+                                    </>
+                                }
 
 
-                            <div className='replybtn '>
-                                {loading ? <p>Sending..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
-                            </div>
+                                <div className='replybtn '>
+                                    {loading ? <p>Sending..</p> : selectedUser && <button className='btn btn-primary' onClick={() => { sendMessageHandle() }} >Reply</button>}
+                                </div>
                             </div>
                         </div>
                     </div>
