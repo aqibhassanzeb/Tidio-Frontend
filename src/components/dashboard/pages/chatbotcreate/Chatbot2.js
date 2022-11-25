@@ -607,7 +607,9 @@ const Chatbot2 = () => {
                         </div>
                     </div>
                     :
+                    <div className="secondwidgeetoffline">
                     <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true} />
+                    </div>
                 :
                 <div className='row'>
                     <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); resetTimeOut(); dispatch(setsubUserNotifClear()) }}>

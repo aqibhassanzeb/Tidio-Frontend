@@ -27,6 +27,7 @@ import TermsAndCondition from './../components/register/termsAndCondition/TermsA
 import PrivacyPolicy from './../components/register/privacyPolicy/PrivacyPolicy';
 import OfflineTime from './../components/dashboard/pages/widget/offlineTime/OfflineTime';
 import Home from '../components/home/Home';
+import Billing from './../components/dashboard/pages/billing/Billing';
 
 const Routespath = () => {
 
@@ -66,6 +67,7 @@ const Routespath = () => {
         <Route path="/termsandcondition" element={<TermsAndCondition />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/offtime" element={<OfflineTime />} />
+        <Route path="/billing" element={<Billing />} />
       </Routes>
 
 

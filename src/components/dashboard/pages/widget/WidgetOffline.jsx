@@ -9,7 +9,7 @@ const WidgetOffline = ({getStarted,setshowChatbot,chatBot}) => {
         <>
             <div className=' bg-light'>
               {chatBot &&  <div className='d-flex justify-content-end'>
-                    <button className='btn btn-danger' onClick={()=>{setshowChatbot(false)}}>close</button>
+                    <div className='' onClick={()=>{setshowChatbot(false)}}><IoIosClose style={{fontSize: 25}}/></div>
                 </div>}
             <div className='d-flex justify-content-end'> </div>
                 <div className='d-flex justify-content-center'>
