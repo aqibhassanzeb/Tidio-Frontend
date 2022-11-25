@@ -72,7 +72,9 @@ function ChatbotCreate() {
             console.log(err)
         })
     }
-    
+    const handleCopy = () => {
+        navigator.clipboard.writeText(framlink)
+    }
     useEffect(() => {
         handlefetch()
     }, [fetchControl])
@@ -80,79 +82,81 @@ function ChatbotCreate() {
     return (
         <>
             <ToastContainer />
-            <div className='container-fluid'>
-                <div className='row text-end mt-2'>
-                    <div className='col-sm-12'>
-                        <button className='btn btn-primary' onClick={handleShow}>Create ChatBot</button>
-                        {/* <p>{window.location.href}</p> */}
-                        <h4>Chatbot Link</h4>
-                        <p style={{fontSize: 10}}>{framlink}</p>
-                        {/* <button onClick={copy}>{!copied ? "Copy link" : "Copied!"}</button> */}
-                    </div>
+            <div className='bg-light' style={{height: "87vh"}}>
+                <div className='container-fluid' >
+                    <div className='row text-center  chatbtmaindiv mt-2'>
+                        <div className='col-sm-12 mt-4'>
+                            <button className='Cratebotbtn' onClick={handleShow}>Create ChatBot</button>
+                            {/* <p>{window.location.href}</p> */}
+                            <h4 className="m-2">Chatbot Link</h4>
+                            <input type="text" className='w-25 inputlinkchatbot p-2' value={framlink} ></input>
+                            <button className='Cratebotbtn2 ' onClick={handleCopy}>Copy</button>
+                            {/* <button onClick={copy}>{!copied ? "Copy link" : "Copied!"}</button> */}
+                        </div>
 
-                </div>
-            </div>
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Create ChatBot</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <input className="form-control" placeholder="enter your chatbotname"
-                        onChange={(e) => { setName(e.target.value); setError(false) }}
-                    ></input>
-                    {Error && <p style={{ color: "red" }}>please fill the name</p>}
-                </Modal.Body>
-                <Modal.Footer>
-                    <button className='btn btn-danger' onClick={handleClose}>
-                        Close
-                    </button>
-                    <button className='btn btn-primary' onClick={handleCreate}>
-                        Save Changes
-                    </button>
-                </Modal.Footer>
-            </Modal>
-
-            <div className='row'>
-                <div className='text-center'>
-                    <h1>Your list</h1>
-                </div>
-                <div className='col mt-3'>
-                    <div className='col-sm-8 border  offset-md-2 d-flex background p-4'>
-                        <Table striped>
-                            <thead>
-                                <tr>
-                                    <th>S/No</th>
-                                    <th>Name</th>
-                                    <th>Embeded Link</th>
-                                    <th>Embeded Link</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {ChatbotData && ChatbotData.map(elm => {
-                                    return (
-                                        <>
-                                            <tr key={elm._id}>
-                                                <td>{serialNo = serialNo + 1}</td>
-                                                <td>{elm.name}</td>
-                                                <td>{elm._id}</td>
-                                                <td> <button className="btn btn-danger" onClick={() => handleDelete(elm._id)}>
-                                                    Delete
-                                                </button></td>
-                                            </tr>
-                                        </>
-                                    )
-                                })
-                                }
-                            </tbody>
-                        </Table>
                     </div>
                 </div>
+
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Create ChatBot</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <input className="form-control" placeholder="enter your chatbotname"
+                            onChange={(e) => { setName(e.target.value); setError(false) }}
+                        ></input>
+                        {Error && <p style={{ color: "red" }}>please fill the name</p>}
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className='btn btn-danger' onClick={handleClose}>
+                            Close
+                        </button>
+                        <button className='btn btn-primary' onClick={handleCreate}>
+                            Save Changes
+                        </button>
+                    </Modal.Footer>
+                </Modal>
+
+                <div className='row bg-light'>
+                    <div className='text-center mt-3'>
+                        <h3>Your list</h3>
+                    </div>
+                    <div className='col mt-3'>
+                        <div className='    d-flex background p-4'>
+                            <Table striped>
+                                <thead>
+                                    <tr>
+                                        <th>S/No</th>
+                                        <th>Name</th>
+                                        <th>Embeded Link</th>
+                                        <th>Embeded Link</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {ChatbotData && ChatbotData.map(elm => {
+                                        return (
+                                            <>
+                                                <tr key={elm._id}>
+                                                    <td>{serialNo = serialNo + 1}</td>
+                                                    <td>{elm.name}</td>
+                                                    <td>{elm._id}</td>
+                                                    <td> <button className="btn btn-danger" onClick={() => handleDelete(elm._id)}>
+                                                        Delete
+                                                    </button></td>
+                                                </tr>
+                                            </>
+                                        )
+                                    })
+                                    }
+                                </tbody>
+                            </Table>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            
-                
-          
+
 
         </>
     )
