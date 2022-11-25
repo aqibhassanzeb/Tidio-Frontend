@@ -48,6 +48,8 @@ const Chatbot2 = () => {
     const [chatbotTiming, setChatbotTiming] = useState([])
     const [today, setToday] = useState("")
     const [OnlineTime, setOnlineTime] = useState("")
+    const [offlineMsg, setOfflineMsg] = useState(false)
+    const [sendMsg, setSendMsg] = useState(false)
 
     // const [subUserData, setSubUserData] = useState("")
     const subUserData = JSON.parse(tidiochatUser)
@@ -216,10 +218,12 @@ const Chatbot2 = () => {
         formdata.append("chatId", chatId)
         formdata.append("senderId", subUserData._id)
         formdata.append("sender", "subUser")
+        formdata.append("offlineMsg", offlineMsg)
         // const paylaod = { chatId, senderId: subUserData._id, sender: "subUser", content }
         setSendloading(true)
         sendMessage2(formdata).then(result => {
             const messagedata = result.data
+            setSendMsg(true)
             setData([...data, messagedata])
             setFileAttachment("")
             setShowFile("")
@@ -433,7 +437,7 @@ const Chatbot2 = () => {
         gettingDay && setOnlineTime(gettingDay2)
     }, [getStarted])
 
-    console.log("get Started :",getStarted)
+    // console.log("get Started :",getStarted)
     return (
         <>
             {showChatbot ?
@@ -608,7 +612,11 @@ const Chatbot2 = () => {
                     </div>
                     :
                     <div className="secondwidgeetoffline">
-                    <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true} />
+                    <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true}
+                    setContent={setContent} setOfflineMsg={setOfflineMsg} handleSendMessages={handleSendMessages}
+                    contentError={contentError} setContentError={setContentError} sendloading={sendloading} sendMsg={sendMsg}
+                    content={content}
+                    />
                     </div>
                 :
                 <div className='row'>
