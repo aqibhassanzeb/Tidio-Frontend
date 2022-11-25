@@ -316,6 +316,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                             return (
 
                                 elm.sender == "subUser" ?
+                                elm?.offlineMsg == false ? 
                                     elm.myFile ?
                                         <>
                                             <div>
@@ -341,6 +342,28 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                                 </div>
                                             </div>
                                         </div>
+                                        :
+                                         <div className={`col-sm-12  bcakhover }`}>
+                                            
+                                        <div className='icondivchat'>
+                                            <p>{selectedUser.subUser?.email.charAt(0)}</p>
+                                        </div>
+                                        <div>
+                                            <div className='chat_row'>
+                                                <p className='p-0 m-0 boldemail'>{selectedUser.subUser?.email}</p>
+                                                <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+
+                                            </div>
+                                            <div>
+                                                <div className='chat_text '>
+                                                    <p className='mesagecontext'>{elm.content}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                                <p>offline mode </p>
+                                            </div>
+                                    </div>
                                     :
                                     elm.myFile ?
                                         <>
