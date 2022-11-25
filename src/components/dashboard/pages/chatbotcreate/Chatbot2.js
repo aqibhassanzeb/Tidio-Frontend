@@ -36,15 +36,15 @@ const Chatbot2 = () => {
     const [Error, setError] = useState(false)
     const [contentError, setContentError] = useState(false)
     const [emailInp, setEmailInp] = useState("")
-    const [chatId, setChatId] = useState('');
-    const [tidiochatUser, setTidiochatUser] = useState("")
+    const [chatId, setChatId] = useState(localStorage.getItem("tidiochat"));
+    const [tidiochatUser, setTidiochatUser] = useState(localStorage.getItem("tidiochatuser"))
     const [content, setContent] = useState("")
     const [data, setData] = useState([])
     const [fetchemail, setFetchemail] = useState("")
     const fetchControl = useRef(false);
     const [socketConnected, setSocketConnected] = useState(false)
-    const [subUserData, setSubUserData] = useState("")
-    // const subUserData = JSON.parse(tidiochatUser)
+    // const [subUserData, setSubUserData] = useState("")
+    const subUserData = JSON.parse(tidiochatUser)
     const [sendloading, setSendloading] = useState(false);
     const [notficationControl, setNotficationControl] = useState(null)
     const [myFile, setFileAttachment] = useState('')
@@ -144,7 +144,7 @@ const Chatbot2 = () => {
         let result = abcNo + 1
         setAbcNo(result)
         abcNo > 0 && resetTimeOut();
-        console.log("abc ", abcNo)
+        // console.log("abc ", abcNo)
     }, [abc, showChatbot])
 
 
@@ -152,7 +152,7 @@ const Chatbot2 = () => {
 
         setTimeout(() => {
             setAskIssueVisible(true)
-            console.log("clicked ")
+            // console.log("clicked ")
         }, 5000)
 
 
@@ -223,6 +223,7 @@ const Chatbot2 = () => {
     // fetch messages
 
     const handleFetchMessages = () => {
+
         fetchMessages2(chatId).then(res => {
             setData(res?.data)
             socket.emit("join chat", chatId && chatId)
@@ -242,7 +243,7 @@ const Chatbot2 = () => {
     const handlenoficationmessage = () => {
         if (notficationControl != null) {
             dispatch(setsubUserNotif(notficationControl))
-            // play()
+            play()
 
         }
     }
@@ -360,20 +361,21 @@ const Chatbot2 = () => {
     };
 
     // chatbot id updating
-    useEffect(() => {
-        setChatId(localStorage.getItem("tidiochat"))
-        setTidiochatUser(localStorage.getItem("tidiochatuser"))
-        setSubUserData(JSON.parse(localStorage.getItem("tidiochatuser")))
-    }, [handlefetchChatCreate])
+    // useEffect(() => {
+    //     // setChatId(localStorage.getItem("tidiochat"))
+    //     // setTidiochatUser(localStorage.getItem("tidiochatuser"))
+    //     setSubUserData(JSON.parse(localStorage.getItem("tidiochatuser")))
+    //     console.log("use Effect function :")
+    // }, [handlefetchChatCreate])
     
 
-    // chatbot setting data fetch 
+    // // chatbot setting data fetch 
 
-    useEffect(() => {
-        chatbotSettingfetch(createdby).then((res) => {
-            setgetStarted(res?.data[0])
-        }).catch(err => console.log(err))
-    }, [])
+    // useEffect(() => {
+    //     chatbotSettingfetch(createdby).then((res) => {
+    //         setgetStarted(res?.data[0])
+    //     }).catch(err => console.log(err))
+    // }, [])
 
     return (
         <>
@@ -394,7 +396,7 @@ const Chatbot2 = () => {
                                         data && data.map((elm) => {
                                             var setDate = new Date(elm.createdAt)
                                             return (
-                                                <>
+                                                <div key={elm._id}>
                                                     {elm.sender != "subUser" ?
                                                         elm.myFile ?
                                                             <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
@@ -436,7 +438,7 @@ const Chatbot2 = () => {
                                                                 </div>
                                                             </div>
                                                     }
-                                                </>
+                                                </div>
                                             )
                                         })
                                     }
