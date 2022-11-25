@@ -74,7 +74,7 @@ useEffect(() => {
             <tr>
               <td>{serialNo=serialNo+1}</td>
               <td>{elm.subUser?.email.split('@')[0]}</td>
-              <td>033345484545</td>
+              <td>{elm.subUser.phoneNo ? elm.subUser.phoneNo : "N/A"}</td>
               <td>{elm.subUser.email}</td>
              <td><MdDelete className='delebtnrow' onClick={()=>{window.confirm('Are you sure to delete') && handleDeleteChat(elm._id)}}/></td>
             </tr>
