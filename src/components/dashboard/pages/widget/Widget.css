@@ -54,6 +54,7 @@
 }
 .color_small{
     color: #0566ff !important;
+    cursor: pointer;
 }
 .form-switch{
     width: 100%;

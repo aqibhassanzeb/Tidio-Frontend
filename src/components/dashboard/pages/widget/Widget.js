@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import { Accordion } from "react-bootstrap";
+import { Accordion, Modal } from "react-bootstrap";
 import { AiFillHome, AiFillEye, AiOutlineDelete } from 'react-icons/ai';
 import { BsFillQuestionCircleFill, BsThreeDotsVertical } from 'react-icons/bs';
 import { RiArrowDropDownLine } from 'react-icons/ri';
@@ -28,6 +28,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import WidgetOffline from './WidgetOffline';
 import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import OfflineTime from './offlineTime/OfflineTime';
+
 
 export default function Widget() {
     const [showChatbot, setshowChatbot] = useState(false);
@@ -42,7 +45,10 @@ export default function Widget() {
     const [displayWidget2, setDisplayWidget2] = useState(false)
     const [preChatDisplay, setPreChatDisplay] = useState(false)
     const [cardDisplay, setCardDisplay] = useState("0")
+    const [show, setShow] = useState(false);
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const navigate = useNavigate();
     useEffect(() => {
@@ -145,7 +151,7 @@ export default function Widget() {
                                             <>
                                             <div className='col-sm-12 d-flex p-3'>
                                             <label className='display_chat'>Display the Chat<br />
-                                            <small className='color_small' onClick={()=> navigate("/offtime")}>(adjust online hour)</small>
+                                            <small className='color_small' onClick={handleShow}>(adjust online hour)</small>
                                             </label>
                                             <div className="form-check form-switch ">
                                                 <input className="form-control" />
@@ -412,6 +418,25 @@ export default function Widget() {
                     </div>
                 </div>
             </div>
+
+            
+          <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            
+            <Modal.Body>
+             <OfflineTime />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary">Understood</Button>
+            </Modal.Footer>
+          </Modal>
         </>
     )
 }
