@@ -21,6 +21,7 @@ import CopyToClipboard from 'react-copy-to-clipboard'
 import { IoMdCall } from 'react-icons/io';
 import { TbPhoneCall } from 'react-icons/tb';
 import { GrAttachment } from 'react-icons/gr';
+import { BiUser } from 'react-icons/bi';
 import { MdOutlineAddReaction } from 'react-icons/md';
 import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill, BsThreeDotsVertical, BsDot } from 'react-icons/bs'
 import Picker from 'emoji-picker-react';
@@ -486,11 +487,17 @@ const Chatbot2 = () => {
                                     </>
                                     :
                                     <>
-                                        <p>Please Enter Email</p>
-                                        <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input inputemailchatbot'
+                                    <div className="backforemailsub">
+                                    <div className="text-center text-white"><BiUser className="userbiicon" /></div>
+                                        <h4 className="text-white text-center">Please introduce yourself</h4>
+                                        <div className=' divforcreatecahtbot'>
+                                        <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot mt-3' />
+                                        <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input mt-3 inputemailchatbot'
                                             placeholder='Enter Your email here...'
                                             onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
-                                        <button className='btn btn-primary' onClick={() => handleCreateChat()}>submit</button>
+                                        <button className='subbtndata mt-3' onClick={() => handleCreateChat()}>Submit</button>
+                                        </div>
+                                        </div>
                                     </>
                             }
                             <div className='col-sm-12 border'>
