@@ -342,8 +342,8 @@ export default function Widget() {
                                     <div className='img_color'>
                                         <div className='d-flex justify-content-between'>
                                             <div className='hitheretext mt-4'>
-                                                <h2>{getStarted?.status}</h2>
-                                                <p className='text-light messagetextcard'>{getStarted?.message}</p>
+                                                <h2 className='m-0 p-0'>{getStarted?.status}</h2>
+                                                <p className='text-light m-0 p-0 messagetextcard'>{getStarted?.message}</p>
                                             </div>
                                             <div className='iconmainduv'>
                                                 <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;

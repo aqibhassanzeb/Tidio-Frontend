@@ -5,10 +5,10 @@
     margin-right: 5px;
     display: flex;
     justify-content: center;
-    border-radius: 100% 0% 57% 43% / 68% 0% 100% 32% ;
+    border-radius: 5px;
     background-color: gray;
     color: white;
-    box-shadow: 1px 1px 5px black;
+    
 }
 .btnsaave{
     border: 1px solid lightgray;
@@ -17,10 +17,10 @@
     margin-left: 5px;
     display: flex;
     justify-content: center;
-    border-radius: 100% 0% 57% 43% / 68% 0% 100% 32% ;
+    border-radius: 5px;
     background-color: rgb(0, 153, 255);
     color: white;
-    box-shadow: 1px 1px 5px black;
+    
 }
 .btncloose:hover{
    background-color: darkslategray;
