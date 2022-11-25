@@ -140,23 +140,28 @@ const Chatbot2 = () => {
 
     }, [])
 
-    useEffect(() => {
-        let result = abcNo + 1
-        setAbcNo(result)
-        abcNo > 0 && resetTimeOut();
-        // console.log("abc ", abcNo)
-    }, [abc, showChatbot])
+    // useEffect(() => {
+    //     console.log("useEffect render ")
+    //     let result = abcNo + 1
+    //     setAbcNo(result)
+    //     // console.log("abc No ",abcNo)
+    //    if(abcNo > 0){
+    //     console.log("abc No ",abcNo)
+    //        resetTimeOut();
+    //    } 
+    //     console.log("abc ", abcNo)
+    // }, [abc, showChatbot])
 
-
+    var toExactMinute = 60000 - (new Date().getTime() % 60000);
+    
     const resetTimeOut = () => {
-
         setTimeout(() => {
             setAskIssueVisible(true)
-            // console.log("clicked ")
-        }, 5000)
-
-
+        }, toExactMinute)
     }
+        
+        
+    // const updateState= resetTimeOut()
 
     // 6360ffa27c91f7b5f10b7a3c
     // 6368a80a8841f2a317a1b37a
@@ -442,7 +447,7 @@ const Chatbot2 = () => {
                                             )
                                         })
                                     }
-                                    {askIssueVisbile &&
+                                    {askIssueVisbile && data.length > 1 &&
                                         <>
                                             <div className='col-sm-12 '>
                                                 <div className='d-flex custom_rtl'>
@@ -455,7 +460,7 @@ const Chatbot2 = () => {
                                                         {!issueResolved &&
                                                             <>
                                                                 <div className='d-flex'>
-                                                                    <div className='m-1' style={{ cursor: "pointer", color: "blue" }} onClick={() => { setAbc(!abc); setAskIssueVisible(false) }}>No</div>
+                                                                    <div className='m-1' style={{ cursor: "pointer", color: "blue" }} onClick={() => { resetTimeOut(); setAskIssueVisible(false) }}>No</div>
                                                                     <div className='m-1' style={{ cursor: "pointer", color: "blue" }} onClick={() => { clearTimeout(); setIssueResolved(true) }}>Yes</div>
                                                                 </div>
                                                             </>
@@ -464,6 +469,8 @@ const Chatbot2 = () => {
                                                 </div>
                                             </div>
                                         </>
+                                    //     :
+                                    //    { updateState}
                                     }
                                 </ div>
                                 :
@@ -517,7 +524,7 @@ const Chatbot2 = () => {
                 </div>
                 :
                 <div className='row'>
-                    <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); dispatch(setsubUserNotifClear()) }}>
+                    <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); resetTimeOut(); dispatch(setsubUserNotifClear()) }}>
                         {subUserNotify.length > 0 &&
                             <>
                                 <div className='d-flex justify-content-center' style={{ zIndex: '10px' }}>

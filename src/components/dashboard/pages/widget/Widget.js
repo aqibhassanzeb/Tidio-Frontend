@@ -34,6 +34,9 @@ export default function Widget() {
     const [imagesUrl, setImagesUrl] = useState([]);
     const [fetchControl, setFetchControl] = useState(false)
     const [newlettertoggle, setNewlettertoggle] = useState(false)
+    const [displayWidget, setDisplayWidget] = useState(false)
+    const [displayWidget2, setDisplayWidget2] = useState(false)
+    const [preChatDisplay, setPreChatDisplay] = useState(false)
 
     useEffect(() => {
         if (Images.length < 1) return;
@@ -83,6 +86,7 @@ export default function Widget() {
         }).catch(err => console.log(err))
     }, [loginUser, fetchControl])
 
+    console.log("get Started :",getStarted)
 
     return (
         <>
@@ -101,27 +105,30 @@ export default function Widget() {
                                     <div className='col-sm-12 d-flex p-3'>
                                         <label className='display_widget'>Display Widget</label>
                                         <div className="form-check form-switch check_custom">
-                                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                            <input className="form-check-input" type="checkbox" value={displayWidget} id="flexSwitchCheckChecked" onClick={()=>setDisplayWidget(!displayWidget)} />
                                         </div>
                                     </div>
-                                    <div className='col-sm-12 d-flex p-3 pb-0'>
+                                   { displayWidget && <div className='col-sm-12 d-flex p-3 pb-0'>
                                         <label className='display_widget'>Devices</label>
-                                        <Form.Select aria-label="Default select example" className="select_device px-2 py-1">
-                                            <option>Both on desktop and mobile devices</option>
-                                            <option value="1">Only on desktop devices</option>
-                                            <option value="2">Only on mobile devices</option>
+                                        <Form.Select aria-label="Default select example" value={getStarted?.devices} 
+                                        onChange={(e) => { inputEvent(e, "devices") }} className="select_device px-2 py-1">
+                                            <option value="Both on desktop and mobile devices">Both on desktop and mobile devices</option>
+                                            <option value="Only on desktop devices">Only on desktop devices</option>
+                                            <option value="Only on mobile devices">Only on mobile devices</option>
                                         </Form.Select>
-                                    </div>
-                                    <div className='col-sm-12'>
+                                    </div>}
+                                    {/* <div className='col-sm-12'>
                                         <label className='hide_screen'>Hide on specific</label>
-                                    </div>
+                                    </div> */}
                                     <div className='col-sm-12 d-flex p-3'>
                                         <label className='display_chat'>Display the Chat<br /> When You're Offline</label>
                                         <div className="form-check form-switch check_chat">
-                                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" value={displayWidget2} onChange={()=>setDisplayWidget2(!displayWidget2)} />
                                         </div>
                                     </div>
-                                    <div className='col-sm-12 d-flex p-3'>
+                                   {displayWidget2 &&
+                                   <>
+                                   <div className='col-sm-12 d-flex p-3'>
                                         <label className='display_chat'>Display the Chat<br /><small className='color_small'>(adjust online hour)</small></label>
                                         <div className="form-check form-switch ">
                                             <input className="form-control" />
@@ -130,9 +137,10 @@ export default function Widget() {
                                     <div className='col-sm-12 d-flex p-3'>
                                         <label className='display_chat'>Offline message</label>
                                         <div className="form-check form-switch ">
-                                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                            <textarea className="form-control" id="exampleFormControlTextarea1" value={getStarted?.offlineMessage} onChange={(e) => { inputEvent(e, "offlineMessage") }} rows="2" />
                                         </div>
                                     </div>
+                                   </>}
                                 </div>
                             </Accordion.Body>
                         </Accordion.Item>
@@ -147,9 +155,7 @@ export default function Widget() {
                                             <label className='status_p'>Status:</label> <br />
                                         </div>
                                         <div className='col-md-10 col-sm-12'>
-
                                             <textarea className="form-control" value={getStarted?.status} name='status' rows="2" placeholder='Enter your status here' onChange={(e) => { inputEvent(e, "status") }}></textarea> <br />
-
                                         </div>
                                     </div>
                                     <div className='row'>
@@ -173,8 +179,6 @@ export default function Widget() {
                                                 <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
                                                 {imagesUrl.map(imageSrc => <img src={imageSrc} className='back_image' alt='imagesrc' />)}
                                                 <input type="file" style={{ width: 200, fontSize: 14 }} onChange={imageUpload}></input>
-
-
                                             </div>
                                         </div>
                                     </div> */}
@@ -225,10 +229,13 @@ export default function Widget() {
                                             </div>
                                             <div className='col-sm-10 mt-2'>
                                                 <div className="form-check form-switch ">
-                                                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" /> <BsFillQuestionCircleFill className='question_mark' />
+                                                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" value={preChatDisplay} onChange={()=>setPreChatDisplay(!preChatDisplay)} /> <BsFillQuestionCircleFill className='question_mark' />
                                                 </div>
                                             </div>
                                         </div>
+                                       {
+                                        preChatDisplay &&
+                                        <>
                                         <div className='col-sm-12 display_display mt-2'>
                                             <div className='col-sm-2'>
                                                 <label className='btn_position_size'>Message :</label>
@@ -243,15 +250,11 @@ export default function Widget() {
                                             </div>
                                             <div className='bg_email '>
                                                 <div className='emailinputandtext'>
-                                                    
                                                     <div className='emailtext '>Name</div>
                                                     <div className='p-2 inpdivforwit'>
                                                         <input type="text" className='inputsurvey' value={getStarted?.enter_phone} name='enter_phone' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
 
                                                     </div>
-
-
-
                                                     {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
                                                 </div>
                                                 <div className='emailinputandtext'>
@@ -273,8 +276,9 @@ export default function Widget() {
                                                     {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
                                                 </div>
                                             </div>
-
                                         </div>
+                                            </>
+                                       }
                                         {/* <div className='col-sm-12 width_add d-flex mt-3'>
                                             <div className='col-sm-8 offset-3 custom_width'>
                                                 <Form.Select aria-label="Default select example" className=" px-2 py-1">
