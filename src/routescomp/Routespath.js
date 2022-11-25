@@ -54,6 +54,7 @@ const Routespath = () => {
          <Route path="/acount" element={ <> <Sidebar><DashboardHeader/><Account /></Sidebar> </>  } />
          <Route path="/widget" element={ <> <Sidebar><DashboardHeader/><Widget /></Sidebar> </>  } />
          <Route path="/chatcard" element={ <> <Sidebar><DashboardHeader/><ChatCard /></Sidebar> </>  } />
+         <Route path="/billing" element={ <> <Sidebar><DashboardHeader/><Billing /></Sidebar> </>  } />
          </Route>
         
         

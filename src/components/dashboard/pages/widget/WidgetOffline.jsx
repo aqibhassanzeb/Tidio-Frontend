@@ -27,7 +27,7 @@ const WidgetOffline = ({getStarted,setshowChatbot,chatBot,setOfflineMsg,
                    
                 </div> 
                 { sendMsg && <div>
-                    <p>Your email has been sended</p>
+                    <p>Your email has been send</p>
                 </div>}
                 <div>
                     <p className='apraforofline'>
