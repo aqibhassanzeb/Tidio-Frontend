@@ -99,7 +99,7 @@ export default function Widget() {
         }).catch(err => console.log(err))
     }, [loginUser, fetchControl])
 
-    console.log("get Started :", cardDisplay)
+    console.log("get Started :", getStarted)
 
     return (
         <>
@@ -107,16 +107,16 @@ export default function Widget() {
                 <div className='d-flex justify-content-end mt-3' >
                     <Form.Select aria-label="Default select example" value={cardDisplay} style={{ width: "300px"}}
                         onChange={(e) => setCardDisplay(e.target.value)} className="select_device px-2 py-1">
+                        <option value="2">Widget Visibility</option>
                         <option value="0">Get Started</option>
                         <option value="1">Pre-chat Survey</option>
-                        {/* <option value="2">Only on mobile devices</option> */}
                     </Form.Select>
                 </div>
             <div className='container d-flex widget_div mt-4'>
                 <div className='col-sm-7'>
                     <div className="accordion mt-5">
                         <Accordion style={{ border: "none" }}>
-                            <Accordion.Item eventKey="0">
+                            <Accordion.Item eventKey="0" onClick={() => setCardDisplay("2")}>
                                 <Accordion.Header className='text-dark border_acc'>
                                     <AiFillEye className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Widget Visibility</h5>
                                 </Accordion.Header>
@@ -160,7 +160,7 @@ export default function Widget() {
                                         <div className='col-sm-12 d-flex p-3'>
                                             <label className='display_chat'>Offline message</label>
                                             <div className="form-check form-switch ">
-                                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                                <textarea className="form-control" id="exampleFormControlTextarea1" value={getStarted?.offlineMessage} onChange={(e) => { inputEvent(e, "offlineMessage") }} rows="2"></textarea>
                                             </div>
                                         </div>
                                             </>}
@@ -359,8 +359,6 @@ export default function Widget() {
 
                                     <span className="input-group-text text_send"><button className=' custom_send'><AiOutlineSend className='snd_icon' /></button></span>
                                 </div>
-
-                               <WidgetOffline />
                             </>
                         }
                         {
@@ -369,9 +367,9 @@ export default function Widget() {
                                 {/* free Chat servy */}
                                 <div className='bg-light '>
                                     <div className='row '>
-                                        <div className='col-sm-12 text-end'>
+                                        {/* <div className='col-sm-12 text-end'>
                                             <GrFormClose />
-                                        </div>
+                                        </div> */}
                                         <div className='col-sm-12 text-center mt-5'>
                                             <img className='chat_setting_profile' src={User_png} alt="user" />
                                             <h4 className='mt-2'>{getStarted.user_message}</h4>
@@ -408,6 +406,10 @@ export default function Widget() {
                                     </div>
                                 </div>
                             </>
+                        }
+                        {
+                            cardDisplay == "2" &&
+                             <WidgetOffline  getStarted={getStarted}/>
                         }
 
 
