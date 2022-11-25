@@ -34,6 +34,7 @@ export default function Widget() {
     const [Images, setImages] = useState([]);
     const [imagesUrl, setImagesUrl] = useState([]);
     const [fetchControl, setFetchControl] = useState(false)
+    const [newlettertoggle, setNewlettertoggle] = useState(false)
 
     useEffect(() => {
         if (Images.length < 1) return;
@@ -83,6 +84,7 @@ export default function Widget() {
         }).catch(err => console.log(err))
     }, [loginUser, fetchControl])
 
+
     return (
         <>
         <ToastContainer />
@@ -90,7 +92,7 @@ export default function Widget() {
                 <div className='col-sm-7'>
                     <div className="accordion mt-5">
                         <Accordion style={{ border: "none" }}>
-                            {/* <Accordion.Item eventKey="0">
+                            <Accordion.Item eventKey="0">
                             <Accordion.Header className='text-dark border_acc'>
                                 <AiFillEye className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Widget Visibility</h5>
                             </Accordion.Header>
@@ -134,7 +136,7 @@ export default function Widget() {
                                     </div>
                                 </div>
                             </Accordion.Body>
-                        </Accordion.Item> */}
+                        </Accordion.Item>
                             <Accordion.Item eventKey="1" onClick={() => setChatToggle(true)}>
                                 <Accordion.Header>
                                     <AiFillHome className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Get Started</h5>
@@ -179,7 +181,7 @@ export default function Widget() {
                                     </div> */}
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="2">
+                            {/* <Accordion.Item eventKey="2">
                                 <Accordion.Header>
                                     <BiMobile className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Mobile Widget</h5>
                                 </Accordion.Header>
@@ -210,7 +212,7 @@ export default function Widget() {
                                         </div>
                                     </div>
                                 </Accordion.Body>
-                            </Accordion.Item>
+                            </Accordion.Item> */}
                             <Accordion.Item eventKey="3" onClick={() => setChatToggle(false)}>
                                 <Accordion.Header>
                                     <FaRegCalendarCheck className='iconofwidget' /> &nbsp;  &nbsp; <h5 className='widget_header'>Pre-chat Survey</h5>
@@ -242,22 +244,26 @@ export default function Widget() {
                                             </div>
                                             <div className='bg_email '>
                                                 <div className='emailinputandtext'>
-                                                    <div className='emailtext '>Email</div>
+                                                    
+                                                    <div className='emailtext '>Name</div>
+                                                    <div className='p-2 inpdivforwit'>
+                                                        <input type="text" className='inputsurvey' value={getStarted?.enter_phone} name='enter_phone' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
+
+                                                    </div>
+
+
+
+                                                    {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
+                                                </div>
+                                                <div className='emailinputandtext'>
+                                                <div className='emailtext '>Email</div>
                                                     <div className='p-2 '>
                                                         <input type="email" className='inputsurvey ' value={getStarted?.enter_email} name='enter_email' placeholder='Enter your email' onChange={(e) => { inputEvent(e, "enter_email") }} /><br />
-                                                        <span><input type="checkbox" placeholder='Enter your text' /></span>
+                                                        <span><input type="checkbox" onClick={()=>setNewlettertoggle(!newlettertoggle)} placeholder='Enter your text' /></span>
                                                         <span className='p-2 askvisitor'>Ask your visitor for newsletter permission</span>
 
                                                     </div>
-                                                    <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
-                                                </div>
-                                                <div className='emailinputandtext'>
-                                                    <div className='emailtext '>Phone</div>
-                                                    <div className='p-2 inpdivforwit'>
-                                                        <input type="number" className='inputsurvey' value={getStarted?.enter_phone} name='enter_phone' placeholder='Enter your phone' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
-
-                                                    </div>
-                                                    <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
+                                                    {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
                                                 </div>
                                                 <div className='emailinputandtext'>
                                                     <div className='emailtext '>GDPR</div>
@@ -265,7 +271,7 @@ export default function Widget() {
                                                         <input type="text" className='inputsurvey ' value={getStarted?.gdpr} name='gdpr' placeholder='GDPR' onChange={(e) => { inputEvent(e, "gdpr") }} /><br />
 
                                                     </div>
-                                                    <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div>
+                                                    {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
                                                 </div>
                                             </div>
 
@@ -344,19 +350,27 @@ export default function Widget() {
                                                     <div className="input-group-prepend">
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
-                                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
+                                                   
+                                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
+                                                   
                                                 </div>
                                                 <div className="input-group mt-2">
                                                     <div className="input-group-prepend">
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
-                                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
+                                                   
+                                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
+                                                   
                                                 </div>
                                                 <div className="mt-2 mb-5">
-                                                    <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                    {newlettertoggle && 
+                                                    <>
+                                                    <input className="form-check-input" type="checkbox" value="true" id="flexCheckDefault" />
                                                     <label className="form-check-label check_label" for="flexCheckDefault">
-                                                        <small>{getStarted.gdpr}</small>
+                                                        <small>signup for our newsletter</small>
                                                     </label>
+                                                    </>
+                                                    }
                                                 </div>
                                                 <button type="button" className="btn btn-primary btn-lg btn-block block_btn">Send</button>
                                             </div>

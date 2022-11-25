@@ -44,6 +44,7 @@ const Chatbot2 = () => {
     const [fetchemail, setFetchemail] = useState("")
     const fetchControl = useRef(false);
     const [socketConnected, setSocketConnected] = useState(false)
+    // const [subUserData, setSubUserData] = useState("")
     const subUserData = JSON.parse(tidiochatUser)
     const [sendloading, setSendloading] = useState(false);
     const [notficationControl, setNotficationControl] = useState(null)
@@ -51,6 +52,7 @@ const Chatbot2 = () => {
     const [showFile, setShowFile] = useState('')
     const [getStarted, setgetStarted] = useState({});
     const [firstChatApp, setfirstChatApp] = useState(true)
+    const [handlefetchChatCreate, setHandlefetchChatCreate] = useState(false)
 
 
     // resolve message control state 
@@ -143,7 +145,7 @@ const Chatbot2 = () => {
         let result = abcNo + 1
         setAbcNo(result)
         abcNo > 0 && resetTimeOut();
-        console.log("abc ", abcNo)
+        // console.log("abc ", abcNo)
     }, [abc, showChatbot])
 
 
@@ -151,7 +153,7 @@ const Chatbot2 = () => {
 
         setTimeout(() => {
             setAskIssueVisible(true)
-            console.log("clicked ")
+            // console.log("clicked ")
         }, 5000)
 
 
@@ -181,6 +183,7 @@ const Chatbot2 = () => {
         createChat(paylaod).then(result => {
             localStorage.setItem("tidiochat", result.data.FullChat._id);
             setChatId(result.data.FullChat._id)
+            setHandlefetchChatCreate(!handlefetchChatCreate)
         }).catch(err => {
             console.log(err);
         })
@@ -221,6 +224,7 @@ const Chatbot2 = () => {
     // fetch messages
 
     const handleFetchMessages = () => {
+
         fetchMessages2(chatId).then(res => {
             setData(res?.data)
             socket.emit("join chat", chatId && chatId)
@@ -240,7 +244,7 @@ const Chatbot2 = () => {
     const handlenoficationmessage = () => {
         if (notficationControl != null) {
             dispatch(setsubUserNotif(notficationControl))
-            // play()
+            play()
 
         }
     }
@@ -357,15 +361,22 @@ const Chatbot2 = () => {
         console.log("your emoji is ", emojiObject.target.src);
     };
 
-    // chatbot setting data fetch 
+    // chatbot id updating
+    // useEffect(() => {
+    //     // setChatId(localStorage.getItem("tidiochat"))
+    //     // setTidiochatUser(localStorage.getItem("tidiochatuser"))
+    //     setSubUserData(JSON.parse(localStorage.getItem("tidiochatuser")))
+    //     console.log("use Effect function :")
+    // }, [handlefetchChatCreate])
+    
 
-    useEffect(() => {
-        chatbotSettingfetch(createdby).then((res) => {
-            setgetStarted(res?.data[0])
-        }).catch(err => console.log(err))
-    }, [])
+    // // chatbot setting data fetch 
 
-    console.log("get started :", getStarted)
+    // useEffect(() => {
+    //     chatbotSettingfetch(createdby).then((res) => {
+    //         setgetStarted(res?.data[0])
+    //     }).catch(err => console.log(err))
+    // }, [])
 
     return (
         <>
@@ -386,7 +397,7 @@ const Chatbot2 = () => {
                                         data && data.map((elm) => {
                                             var setDate = new Date(elm.createdAt)
                                             return (
-                                                <>
+                                                <div key={elm._id}>
                                                     {elm.sender != "subUser" ?
                                                         elm.myFile ?
                                                             <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
@@ -428,7 +439,7 @@ const Chatbot2 = () => {
                                                                 </div>
                                                             </div>
                                                     }
-                                                </>
+                                                </div>
                                             )
                                         })
                                     }
