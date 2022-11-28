@@ -14,6 +14,7 @@ import NotificationBadge from 'react-notification-badge/lib/components/Notificat
 import { Effect } from 'react-notification-badge';
 import ProfileChatInfo from '../../../profileChatInfo/ProfileChatInfo'
 import { AiFillCaretLeft } from 'react-icons/ai'
+import DashboardHeader from './../DashboardHeader';
 const Inbox = () => {
     const [search, setSearch] = useState('')
     const [loading, setLoading] = useState(false)
@@ -27,6 +28,7 @@ const Inbox = () => {
     const [show, setShow] = useState(false);
     const [showProfInfo, setShowProfInfo] = useState(false);
     const [hide, setHide] = useState(true);
+    const [chatMail, setChatMail] = useState();
     const handleClose = () => setShow(false);
     
     // const handleShow = () => setShow(true);
@@ -75,6 +77,10 @@ const Inbox = () => {
         })}
 
 
+    }
+
+    const handleTog = (value) => {
+        setChatMail(value)
     }
 
     // Select User for Chat func
@@ -152,14 +158,14 @@ const Inbox = () => {
                                         console.log( notfi)
                                 return (
                                     <>
-                                        <div key={elm._id} className='inboxUserdetail  ' onClick={() => { handleSelect(elm._id) }} style={{ cursor: "pointer" }}>
+                                        <div key={elm._id} className={ chatMail == index ? "inboxUserdetail2" :  'inboxUserdetail  '} onClick={() => { handleSelect(elm._id); handleTog(index) }} style={{ cursor: "pointer" }}>
                                         
                                         <NotificationBadge count={notfi[0]?.length}
                                              effect={Effect.SCALE}
                                              />
                                             <div className="p-1" >
-                                            <h6 style={{ color: "black" }} className='p-0 m-0'>{result}</h6>
-                                                <p style={{ color: "black" }} className='p-0 m-0 emailofinbos'>{elm?.subUser.email}</p>
+                                            <h6 style={{color: "rgba(255, 255, 255, 0.678)"}} className='p-0 m-0 '>{result}</h6>
+                                                <p  className='p-0 m-0 emailofinbos'>{elm?.subUser.email}</p>
                                             </div>
                                         </div>
                                     </>
@@ -171,7 +177,8 @@ const Inbox = () => {
 
 
                 {/* Chat portion  */}
-                <div className='col-sm-12 col-md-9 inboxCahtsys d-flex'>
+                <div className='col-sm-12 col-md-9 inboxCahtsys '>
+                <DashboardHeader />
 
                     <ChatInbox
                     setHide={setHide}

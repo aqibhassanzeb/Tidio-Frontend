@@ -59,6 +59,9 @@
 .form-switch{
     width: 100%;
 }
+.dropdtacard{
+    display: flex;
+}
 .status_p{
     color: #080f1a;
     font-family: euclidcircularb,sans-serif;

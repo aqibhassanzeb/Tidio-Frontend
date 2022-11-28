@@ -104,19 +104,11 @@ export default function Widget() {
         }).catch(err => console.log(err))
     }, [loginUser, fetchControl])
 
-    // console.log("get Started :", getStarted)
 
     return (
         <>
             <ToastContainer />
-                <div className='d-flex justify-content-end mt-3' >
-                    <Form.Select aria-label="Default select example" value={cardDisplay} style={{ width: "300px"}}
-                        onChange={(e) => setCardDisplay(e.target.value)} className="select_device px-2 py-1">
-                        <option value="2">Widget Visibility</option>
-                        <option value="0">Get Started</option>
-                        <option value="1">Pre-chat Survey</option>
-                    </Form.Select>
-                </div>
+               
             <div className='container d-flex widget_div mt-4'>
                 <div className='col-sm-7'>
                     <div className="accordion mt-5">
@@ -330,9 +322,17 @@ export default function Widget() {
                 </div>
                 <div className='col-sm-3 offset-2 '>
 
-                    <div className='row mt-4'>
-                        <div className='col-sm-12 text-center'>
-                            <h3>Preview</h3>
+                    <div className='row '>
+                        <div className=' d-flex m-2'>
+                            <p className="d-flex align-items-center">Preview</p>
+                            <div className='dropdtacard '  >
+                            <Form.Select aria-label="Default select example" value={cardDisplay} style={{ width: "160px"}}
+                                onChange={(e) => setCardDisplay(e.target.value)} className="select_device px-2 py-1">
+                                <option value="2">Widget Visibility</option>
+                                <option value="0">Get Started</option>
+                                <option value="1">Pre-chat Survey</option>
+                            </Form.Select>
+                        </div>
                         </div>
                     </div>
                     <div className='backdivofacard'>

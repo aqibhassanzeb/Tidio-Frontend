@@ -21,10 +21,10 @@ function DashboardHeader() {
     console.log("online mode :", onlineMode)
     return (
         <>
-            <Navbar className='border'>
-                <Navbar.Brand className="backtohome" onClick={() => navigate("/")} title='Home page'>Logo</Navbar.Brand>
+            <Navbar className='' style={{borderBottom: "1px solid lightgray"}} >
+               
                 <Navbar.Brand href="#home" className=' d-flex justify-content-center align-items-center'>
-                    <HiHome className='dashbdicon' /> Dashboard </Navbar.Brand>
+                    <HiHome className='dashbdicon' onClick={() => navigate("/")} /> Dashboard </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end pr-4">
                     <Navbar.Text className='naviconbar '>
