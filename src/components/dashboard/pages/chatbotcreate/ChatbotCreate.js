@@ -77,7 +77,6 @@ function ChatbotCreate() {
         handlefetch()
     }, [fetchControl])
     var framlink = `<iframe src=${window.location.href}/chatbot/${loginUser._id} ></iframe>`
-    console.log(window.location.pathname)
     return (
         <>
             <ToastContainer />
