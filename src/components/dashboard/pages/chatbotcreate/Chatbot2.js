@@ -25,6 +25,7 @@ import { BiUser } from 'react-icons/bi';
 import { MdOutlineAddReaction } from 'react-icons/md';
 import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill, BsThreeDotsVertical, BsDot } from 'react-icons/bs'
 import Picker from 'emoji-picker-react';
+import WidgetOffline from '../widget/WidgetOffline';
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
 var chatbotControl
@@ -44,6 +45,10 @@ const Chatbot2 = () => {
     const [fetchemail, setFetchemail] = useState("")
     const fetchControl = useRef(false);
     const [socketConnected, setSocketConnected] = useState(false)
+    const [chatbotTiming, setChatbotTiming] = useState([])
+    const [today, setToday] = useState("")
+    const [OnlineTime, setOnlineTime] = useState("")
+
     // const [subUserData, setSubUserData] = useState("")
     const subUserData = JSON.parse(tidiochatUser)
     const [sendloading, setSendloading] = useState(false);
@@ -110,7 +115,9 @@ const Chatbot2 = () => {
     var createdby = "634543ff090124ecb0c39a6b"
     var email = "alikhan@gmail.com"
     var _id = localStorage.getItem("tidiochat")
-
+    var currentdate = new Date();
+    var currentTime = currentdate.toLocaleString('en-GB').slice(12)
+    // console.log("current date ",currentdate.getDay())
     // socket connection for chat 
     useEffect(() => {
         // socket.on("connected", () => setSocketConnected(true))
@@ -154,14 +161,14 @@ const Chatbot2 = () => {
     // }, [abc, showChatbot])
 
     var toExactMinute = 60000 - (new Date().getTime() % 60000);
-    
+
     const resetTimeOut = () => {
         setTimeout(() => {
             setAskIssueVisible(true)
         }, toExactMinute)
     }
-        
-        
+
+
     // const updateState= resetTimeOut()
 
     // 6360ffa27c91f7b5f10b7a3c
@@ -373,183 +380,236 @@ const Chatbot2 = () => {
     //     setSubUserData(JSON.parse(localStorage.getItem("tidiochatuser")))
     //     console.log("use Effect function :")
     // }, [handlefetchChatCreate])
-    
 
-    // // chatbot setting data fetch 
 
-    // useEffect(() => {
-    //     chatbotSettingfetch(createdby).then((res) => {
-    //         setgetStarted(res?.data[0])
-    //     }).catch(err => console.log(err))
-    // }, [])
+    // chatbot setting data fetch 
+
+    useEffect(() => {
+        chatbotSettingfetch(createdby).then((res) => {
+            setgetStarted(res?.data[0])
+            setChatbotTiming(res?.data[0]?.timeonline)
+        }).catch(err => console.log(err))
+    }, [])
+
+    useEffect(() => {
+        switch (new Date().getDay()) {
+            case 0:
+                setToday("Sunday")
+                break;
+            case 1:
+                setToday("Monday")
+                break;
+            case 2:
+                setToday("Tuesday")
+                break;
+            case 3:
+                setToday("Wednesday")
+                break;
+            case 4:
+                setToday("Thursday")
+                break;
+            case 5:
+                setToday("Friday")
+                break;
+            case 6:
+                setToday("Saturday")
+            default:
+                setToday("")
+        }
+    }, [])
+    useEffect(() => {
+        let chatbotTiming2 = getStarted && chatbotTiming[0]
+        let gettingDay = chatbotTiming2 && Object.entries(chatbotTiming2).map((item) => {
+            let res1 = item[0].charAt(0) + item[0].charAt(1)
+            let res2 = today.charAt(0) + today.charAt(1)
+            if (res1 === res2) {
+                return item[1]
+            }
+        })
+        let gettingDay2 = gettingDay && gettingDay.filter(item => {
+            return item !== undefined
+        })
+
+        gettingDay && setOnlineTime(gettingDay2)
+    }, [getStarted])
+    useEffect(() => {
+
+    }, [OnlineTime])
 
     return (
         <>
             {showChatbot ?
-                <div className='container-fluid' style={{ position: "absolute", top: "200px" }}>
-                    <div className='row mt-3'>
-                        <div className='col-sm-3 offset-9 '>
-                            <div className='col-sm-12  chatbot_header'>
-                                <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
-                                {chatId && chatId != undefined && <div className='pt-2 chatbottexthead2 text-light' style={{ cursor: "pointer" }} onClick={() => { handleCall() }}><IoMdCall /></div>}
-                                <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
-                            </div>
+
+                OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime
+                    ?
+                    <div className='container-fluid' style={{ position: "absolute", top: "200px" }}>
+                        <div className='row mt-3'>
+                            <div className='col-sm-3 offset-9 '>
+                                <div className='col-sm-12  chatbot_header'>
+                                    <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
+                                    {chatId && chatId != undefined && <div className='pt-2 chatbottexthead2 text-light' style={{ cursor: "pointer" }} onClick={() => { handleCall() }}><IoMdCall /></div>}
+                                    <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
+                                </div>
 
 
-                            {chatId && chatId != undefined ?
-                                <div className=' chatbotmessagediv' style={{ height: "350px" }}>
-                                    {
-                                        data && data.map((elm) => {
-                                            var setDate = new Date(elm.createdAt)
-                                            return (
-                                                <div key={elm._id}>
-                                                    {elm.sender != "subUser" ?
-                                                        elm.myFile ?
-                                                            <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
-                                                            :
-                                                            <div className='col-sm-12 p-2 ' key={elm?._id}>
-                                                                <div className='d-flex'>
-                                                                    <div className='col-sm-1'>
-                                                                        <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
-                                                                    </div>
-                                                                    <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box'>
-                                                                        <p className="mesegtetxher">{elm?.content}</p>
-                                                                        <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        :
-                                                        elm.myFile ?
-                                                            <>
-                                                                <div className="">
-                                                                    <div>
-                                                                        <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
-                                                                    </div>
-                                                                    <div>
-                                                                        <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
+                                {chatId && chatId != undefined ?
+                                    <div className=' chatbotmessagediv' style={{ height: "350px" }}>
+                                        {
+                                            data && data.map((elm) => {
+                                                var setDate = new Date(elm.createdAt)
+                                                return (
+                                                    <div key={elm._id}>
+                                                        {elm.sender != "subUser" ?
+                                                            elm.myFile ?
+                                                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                                                :
+                                                                <div className='col-sm-12 p-2 ' key={elm?._id}>
+                                                                    <div className='d-flex'>
+                                                                        <div className='col-sm-1'>
+                                                                            <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
+                                                                        </div>
+                                                                        <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box'>
+                                                                            <p className="mesegtetxher">{elm?.content}</p>
+                                                                            <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </>
                                                             :
-                                                            <div className='col-sm-12 '>
-                                                                <div className='d-flex custom_rtl'>
-                                                                    <div className='col-sm-1'>
-                                                                        <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
+                                                            elm.myFile ?
+                                                                <>
+                                                                    <div className="">
+                                                                        <div>
+                                                                            <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                                                        </div>
+                                                                        <div>
+                                                                            <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
+                                                                        </div>
                                                                     </div>
-                                                                    <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
+                                                                </>
+                                                                :
+                                                                <div className='col-sm-12 '>
+                                                                    <div className='d-flex custom_rtl'>
+                                                                        <div className='col-sm-1'>
+                                                                            <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
+                                                                        </div>
+                                                                        <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
 
-                                                                        <p className="mesegtetxher">{elm?.content}</p>
-                                                                        <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
+                                                                            <p className="mesegtetxher">{elm?.content}</p>
+                                                                            <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                    }
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                    {askIssueVisbile && data.length > 1 &&
-                                        <>
-                                            <div className='col-sm-12 '>
-                                                <div className='d-flex custom_rtl'>
-                                                    <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
-                                                        {issueResolved ?
-                                                            <p className="mesegtetxher">{"Thanks"}</p>
-                                                            :
-                                                            <p className="mesegtetxher">{"? Is your issue resolved "}</p>
-                                                        }
-                                                        {!issueResolved &&
-                                                            <>
-                                                                <div className='d-flex'>
-                                                                    <div className='m-1' style={{ cursor: "pointer", color: "blue" }} onClick={() => { resetTimeOut(); setAskIssueVisible(false) }}>No</div>
-                                                                    <div className='m-1' style={{ cursor: "pointer", color: "blue" }} onClick={() => { clearTimeout(); setIssueResolved(true) }}>Yes</div>
-                                                                </div>
-                                                            </>
                                                         }
                                                     </div>
+                                                )
+                                            })
+                                        }
+                                        {askIssueVisbile && data.length > 1 &&
+                                            <>
+                                                <div className='col-sm-12 '>
+                                                    <div className='d-flex custom_rtl'>
+                                                        <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box_user '>
+                                                            {issueResolved ?
+                                                                <p className="mesegtetxher">{"Thanks"}</p>
+                                                                :
+                                                                <p className="mesegtetxher">{"? Is your issue resolved "}</p>
+                                                            }
+                                                            {!issueResolved &&
+                                                                <>
+                                                                    <div className='d-flex'>
+                                                                        <div className='m-1' style={{ cursor: "pointer", color: "blue" }} onClick={() => { resetTimeOut(); setAskIssueVisible(false) }}>No</div>
+                                                                        <div className='m-1' style={{ cursor: "pointer", color: "blue" }} onClick={() => { clearTimeout(); setIssueResolved(true) }}>Yes</div>
+                                                                    </div>
+                                                                </>
+                                                            }
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </>
-                                    //     :
-                                    //    { updateState}
-                                    }
-                                </ div>
-                                :
-
-                                firstChatApp ?
-                                    <>
-                                        {/* make chatbot for first appereacne  */}
-                                        <div className='border'>
-                                            <div className='backgroundcolorcahtbot'>
-                                                <div className=' d-flex' style={{ borderBottom: "1px solid lightgray" }}>
-                                                    <span className=' w-100'>
-                                                        <h4 className='text-white'>Hello</h4>
-                                                        <p className='text-white'>This is the text Here</p>
-                                                    </span>
-                                                    <span className=' d-flex align-items-center'>
-                                                        <BsThreeDotsVertical className='treedoticon text-white' />
-                                                        <RiArrowDropDownLine className='treedoticon text-white' />
-                                                    </span>
-                                                </div>
-                                                <div className='d-flex  mt-1'>
-                                                    <BsDot className='treedoticon2 ' />
-                                                    <span className='text-white'>We reply immediately</span>
-                                                </div>
-                                            </div>
-                                        
-                                        <div className='messageareachatbot' style={{ height: "30vh"}}></div>
-                                        <div className='d-flex justify-content-end '>
-                                            <div className='divfornext' onClick={() => setfirstChatApp(false)}><AiOutlineSend className='treedoticon' /></div>
-                                        </div>
-                                        </div>
-                                    </>
+                                            </>
+                                            //     :
+                                            //    { updateState}
+                                        }
+                                    </ div>
                                     :
-                                    <>
-                                    <div className="backforemailsub">
-                                    <div className="text-center text-white"><BiUser className="userbiicon" /></div>
-                                        <h4 className="text-white text-center">Please introduce yourself</h4>
-                                        <div className=' divforcreatecahtbot'>
-                                        <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot mt-3' />
-                                        <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input mt-3 inputemailchatbot'
-                                            placeholder='Enter Your email here...'
-                                            onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
-                                        <button className='subbtndata mt-3' onClick={() => handleCreateChat()}>Submit</button>
-                                        </div>
-                                        </div>
-                                    </>
-                            }
-                            <div className='col-sm-12 border'>
-                                <div className="input-group">
-                                    {myFile ?
+
+                                    firstChatApp ?
                                         <>
-                                            <div className="imagetopcrossdiv2">
-                                                <img src={showFile} className='' />
-                                                <button className='btn btn-success btncrostop2' onClick={() => handleCanclePic()}>X</button>
+                                            {/* make chatbot for first appereacne  */}
+                                            <div className='border'>
+                                                <div className='backgroundcolorcahtbot'>
+                                                    <div className=' d-flex' style={{ borderBottom: "1px solid lightgray" }}>
+                                                        <span className=' w-100'>
+                                                            <h4 className='text-white'>Hello</h4>
+                                                            <p className='text-white'>This is the text Here</p>
+                                                        </span>
+                                                        <span className=' d-flex align-items-center'>
+                                                            <BsThreeDotsVertical className='treedoticon text-white' />
+                                                            <RiArrowDropDownLine className='treedoticon text-white' />
+                                                        </span>
+                                                    </div>
+                                                    <div className='d-flex  mt-1'>
+                                                        <BsDot className='treedoticon2 ' />
+                                                        <span className='text-white'>We reply immediately</span>
+                                                    </div>
+                                                </div>
+
+                                                <div className='messageareachatbot' style={{ height: "30vh" }}></div>
+                                                <div className='d-flex justify-content-end '>
+                                                    <div className='divfornext' onClick={() => setfirstChatApp(false)}><AiOutlineSend className='treedoticon' /></div>
+                                                </div>
                                             </div>
                                         </>
                                         :
-                                        <input type="text" className={`form-control ${contentError ? "borderred " : " messagechatbot"}`}
-                                            onChange={(e) => { setContent(e.target.value); setContentError(false) }} value={content}
-                                        ></input>}
-                                    {showEmoji ?
-                                        <Picker onEmojiClick={onEmojiClick} />
-                                        : null
-                                    }
-                                    <div className=' d-flex align-items-center attacth'>
-                                        <GrAttachment className='' />
-                                        <input type="file" className='filetype' style={{ cursor: "pointer" }} onChange={(e) => handleChangefile(e)} />
+                                        <>
+                                            <div className="backforemailsub">
+                                                <div className="text-center text-white"><BiUser className="userbiicon" /></div>
+                                                <h4 className="text-white text-center">Please introduce yourself</h4>
+                                                <div className=' divforcreatecahtbot'>
+                                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot mt-3' />
+                                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input mt-3 inputemailchatbot'
+                                                        placeholder='Enter Your email here...'
+                                                        onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
+                                                    <button className='subbtndata mt-3' onClick={() => handleCreateChat()}>Submit</button>
+                                                </div>
+                                            </div>
+                                        </>
+                                }
+                                <div className='col-sm-12 border'>
+                                    <div className="input-group">
+                                        {myFile ?
+                                            <>
+                                                <div className="imagetopcrossdiv2">
+                                                    <img src={showFile} className='' />
+                                                    <button className='btn btn-success btncrostop2' onClick={() => handleCanclePic()}>X</button>
+                                                </div>
+                                            </>
+                                            :
+                                            <input type="text" className={`form-control ${contentError ? "borderred " : " messagechatbot"}`}
+                                                onChange={(e) => { setContent(e.target.value); setContentError(false) }} value={content}
+                                            ></input>}
+                                        {showEmoji ?
+                                            <Picker onEmojiClick={onEmojiClick} />
+                                            : null
+                                        }
+                                        <div className=' d-flex align-items-center attacth'>
+                                            <GrAttachment className='' />
+                                            <input type="file" className='filetype' style={{ cursor: "pointer" }} onChange={(e) => handleChangefile(e)} />
+                                        </div>
+                                        <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div>
+                                        {chatId && chatId != undefined && <div className="input-group-prepend">
+                                            <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
+                                                {sendloading ? <p>Sending...</p> : <AiOutlineSend className='snd_icon' />}
+                                            </button></span>
+                                        </div>}
                                     </div>
-                                    <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div>
-                                    {chatId && chatId != undefined && <div className="input-group-prepend">
-                                        <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
-                                            {sendloading ? <p>Sending...</p> : <AiOutlineSend className='snd_icon' />}
-                                        </button></span>
-                                    </div>}
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
-                </div>
+                    :
+                    <WidgetOffline />
                 :
                 <div className='row'>
                     <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); resetTimeOut(); dispatch(setsubUserNotifClear()) }}>
