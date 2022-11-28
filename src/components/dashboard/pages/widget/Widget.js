@@ -46,6 +46,7 @@ export default function Widget() {
     const [preChatDisplay, setPreChatDisplay] = useState(false)
     const [cardDisplay, setCardDisplay] = useState("0")
     const [show, setShow] = useState(false);
+   
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -90,6 +91,10 @@ export default function Widget() {
             toast.success(res.data.message)
         }).catch(err => console.log(err))
     }
+    
+    const handlesubmitTime=()=>{
+
+    }
 
     // fetch save setting data 
 
@@ -99,7 +104,7 @@ export default function Widget() {
         }).catch(err => console.log(err))
     }, [loginUser, fetchControl])
 
-    console.log("get Started :", getStarted)
+    // console.log("get Started :", getStarted)
 
     return (
         <>
@@ -430,14 +435,18 @@ export default function Widget() {
           >
             
             <Modal.Body>
-             <OfflineTime />
+             <OfflineTime getStarted={getStarted} 
+             setgetStarted={setgetStarted}
+             handleClose={handleClose}
+             handleSubmit={handleSubmit}
+             />
             </Modal.Body>
-            <Modal.Footer>
+            {/* <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary">Understood</Button>
-            </Modal.Footer>
+              <Button variant="primary" onClick={()=>{handleSubmit();handleClose()}} >save</Button>
+            </Modal.Footer> */}
           </Modal>
         </>
     )
