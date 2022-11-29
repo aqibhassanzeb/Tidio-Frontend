@@ -13,9 +13,10 @@ import CopyToClipboard from 'react-copy-to-clipboard'
 import { IoMdCall } from 'react-icons/io'
 import { TbPhoneCall } from 'react-icons/tb'
 import EmojiPicker from 'emoji-picker-react'
-import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill } from 'react-icons/bs'
+import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill, BsWifi, BsDot } from 'react-icons/bs'
 import { AiFillCaretRight } from 'react-icons/ai'
 import { GrAttachment } from 'react-icons/gr'
+import { BiWifi, BiWifi0 } from 'react-icons/bi'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -316,16 +317,37 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                             return (
 
                                 elm.sender == "subUser" ?
-                                elm?.offlineMsg == false ? 
-                                    elm.myFile ?
-                                        <>
-                                            <div>
-                                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
-                                                <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                    elm?.offlineMsg == false ?
+                                        elm.myFile ?
+                                            <>
+                                                <div>
+                                                    <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                                    <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+                                                </div>
+                                            </>
+                                            :
+                                            <div className={`col-sm-12  bcakhover }`}>
+
+                                                <div className='icondivchat'>
+                                                    <p>{selectedUser.subUser?.email.charAt(0)}</p>
+                                                </div>
+                                                <div>
+                                                    <div className='chat_row'>
+                                                        <p className='p-0 m-0 boldemail'>{selectedUser.subUser?.email}</p>
+                                                        <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
+
+                                                    </div>
+                                                    <div>
+                                                        <div className='chat_text '>
+                                                            <p className='mesagecontext'>{elm.content}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </>
                                         :
+
                                         <div className={`col-sm-12  bcakhover }`}>
+                                            
                                             <div className='icondivchat'>
                                                 <p>{selectedUser.subUser?.email.charAt(0)}</p>
                                             </div>
@@ -341,29 +363,10 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div className="">
+                                            <p className="dottttedicon ">Offline Mode</p>
                                         </div>
-                                        :
-                                         <div className={`col-sm-12  bcakhover }`}>
-                                            
-                                        <div className='icondivchat'>
-                                            <p>{selectedUser.subUser?.email.charAt(0)}</p>
                                         </div>
-                                        <div>
-                                            <div className='chat_row'>
-                                                <p className='p-0 m-0 boldemail'>{selectedUser.subUser?.email}</p>
-                                                <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
-
-                                            </div>
-                                            <div>
-                                                <div className='chat_text '>
-                                                    <p className='mesagecontext'>{elm.content}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                                <p>offline mode </p>
-                                            </div>
-                                    </div>
                                     :
                                     elm.myFile ?
                                         <>
@@ -376,6 +379,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                         <div className='col-sm-12 bcakhover2'>
 
                                             <div className='d-flex justify-content-start '>
+
                                                 <div className='icondivchat'>
                                                     <p>Y</p>
                                                 </div>
