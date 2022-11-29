@@ -193,6 +193,16 @@
     background: rgb(30, 107, 121);
     color: white;
 }
+.secondwidgeetoffline{
+    border: 1px solid lightgray;
+    width: 350px;
+    height: 60vh;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+}
 .subbtndata:hover{
     background-color: rgb(0, 100, 38);
 }

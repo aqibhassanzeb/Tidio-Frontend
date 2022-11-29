@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { BsFillChatRightFill, BsFillInboxFill } from 'react-icons/bs';
 import { SiChatbot } from 'react-icons/si';
 import { MdMoveToInbox, MdSettings, MdContacts } from 'react-icons/md';
-import { HiHome, HiOutlineInboxIn } from 'react-icons/hi';
-import { FaBars } from 'react-icons/fa';
+import { HiHome, HiGlobeAmericas } from 'react-icons/hi';
+import { FaGlobeAmericas } from 'react-icons/fa';
 import { GrFormClose } from 'react-icons/gr';
 import { NavLink } from 'react-router-dom';
 import '../sidebar/Sidebar.css'
@@ -54,8 +54,15 @@ function Sidebar({ children }) {
             icon: <SiChatbot />,
 
 
-        }
+        },
+        {
+            path: '/billing',
+            name: 'Billing',
+            icon: <FaGlobeAmericas />,
 
+
+        },
+        
     ]
 
     const forceUpdate = useForceUpdate();

@@ -27,6 +27,7 @@ import TermsAndCondition from './../components/register/termsAndCondition/TermsA
 import PrivacyPolicy from './../components/register/privacyPolicy/PrivacyPolicy';
 import OfflineTime from './../components/dashboard/pages/widget/offlineTime/OfflineTime';
 import Home from '../components/home/Home';
+import Billing from './../components/dashboard/pages/billing/Billing';
 
 const Routespath = () => {
 
@@ -44,15 +45,15 @@ const Routespath = () => {
     <>
       <Routes>
          <Route element={<ProtectedRoute />}>
-         <Route path="/chat" element={ <> <DashboardHeader/> <Sidebar><Chat /></Sidebar> </>}  />
-         <Route path="/insidetidio" element={ <> <DashboardHeader/> <Sidebar><InsideTidio /></Sidebar> </>}  />
-         <Route path="/contact" element={ <> <DashboardHeader/> <Sidebar><Contact /></Sidebar> </>  } />
-         <Route path="/home" element={ <> <DashboardHeader/> <Sidebar><Home /></Sidebar> </>  } />
-         <Route path="/inbox" element={ <><DashboardHeader/> <Sidebar><Inbox/></Sidebar> </>  } />
-         <Route path="/ChatbotCreate" element={ <><DashboardHeader/> <Sidebar><ChatbotCreate /></Sidebar> </>  } />
-         <Route path="/acount" element={ <><DashboardHeader/> <Sidebar><Account /></Sidebar> </>  } />
-         <Route path="/widget" element={ <><DashboardHeader/> <Sidebar><Widget /></Sidebar> </>  } />
-         <Route path="/chatcard" element={ <><DashboardHeader/> <Sidebar><ChatCard /></Sidebar> </>  } />
+         <Route path="/chat" element={ <>  <Sidebar><DashboardHeader/><Chat /></Sidebar> </>}  />
+         <Route path="/insidetidio" element={ <>  <Sidebar><DashboardHeader/><InsideTidio /></Sidebar> </>}  />
+         <Route path="/contact" element={ <>  <Sidebar><DashboardHeader/><Contact /></Sidebar> </>  } />
+         <Route path="/home" element={ <>  <Sidebar><DashboardHeader/><Home /></Sidebar> </>  } />
+         <Route path="/inbox" element={ <> <Sidebar><Inbox/></Sidebar> </>  } />
+         <Route path="/ChatbotCreate" element={ <> <Sidebar><DashboardHeader/><ChatbotCreate /></Sidebar> </>  } />
+         <Route path="/acount" element={ <> <Sidebar><DashboardHeader/><Account /></Sidebar> </>  } />
+         <Route path="/widget" element={ <> <Sidebar><DashboardHeader/><Widget /></Sidebar> </>  } />
+         <Route path="/chatcard" element={ <> <Sidebar><DashboardHeader/><ChatCard /></Sidebar> </>  } />
          </Route>
         
         
@@ -66,6 +67,7 @@ const Routespath = () => {
         <Route path="/termsandcondition" element={<TermsAndCondition />} />
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/offtime" element={<OfflineTime />} />
+        <Route path="/billing" element={<Billing />} />
       </Routes>
 
 
