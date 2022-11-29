@@ -26,6 +26,7 @@ import Chatbot2 from '../components/dashboard/pages/chatbotcreate/Chatbot2';
 import TermsAndCondition from './../components/register/termsAndCondition/TermsAndCondition';
 import PrivacyPolicy from './../components/register/privacyPolicy/PrivacyPolicy';
 import OfflineTime from './../components/dashboard/pages/widget/offlineTime/OfflineTime';
+import Home from '../components/home/Home';
 
 const Routespath = () => {
 
@@ -45,6 +46,7 @@ const Routespath = () => {
          <Route path="/chat" element={ <> <DashboardHeader/> <Sidebar><Chat /></Sidebar> </>}  />
          <Route path="/insidetidio" element={ <> <DashboardHeader/> <Sidebar><InsideTidio /></Sidebar> </>}  />
          <Route path="/contact" element={ <> <DashboardHeader/> <Sidebar><Contact /></Sidebar> </>  } />
+         <Route path="/home" element={ <> <DashboardHeader/> <Sidebar><Home /></Sidebar> </>  } />
          <Route path="/inbox" element={ <><DashboardHeader/> <Sidebar><Inbox/></Sidebar> </>  } />
          <Route path="/ChatbotCreate" element={ <><DashboardHeader/> <Sidebar><ChatbotCreate /></Sidebar> </>  } />
          <Route path="/acount" element={ <><DashboardHeader/> <Sidebar><Account /></Sidebar> </>  } />
