@@ -140,9 +140,7 @@ margin-left: 0px !important;
     padding: 20px 10px;
 }
 .custom_fluid{
-    width: 100% !important;
-    transition: .7s;
-    padding: 0px !important;
+   padding: 0px !important;
 }
 .custom_text_area{
     width: 100%;
