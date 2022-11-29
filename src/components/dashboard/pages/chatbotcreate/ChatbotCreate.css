@@ -164,6 +164,35 @@
     border-radius: 5px;
     padding: 5px 10px;
 }
+.Cratebotbtn{
+    background:#1C2B45;
+    padding: 5px;
+    border-radius: 5px;
+    color: rgb(40, 59, 14);
+    color: white;
+    letter-spacing: 1px;
+    border: 2px solid rgb(43, 70, 43);
+    font-family: monospace;
+}
+.Cratebotbtn2{
+    background:#1C2B45;
+    padding: 5px;
+    border-radius: 5px;
+    color: rgb(40, 59, 14);
+    color: white;
+    letter-spacing: 1px;
+    border: 2px solid rgb(43, 70, 43);
+    font-family: monospace;
+    margin-left: 10px;
+}
+.Cratebotbtn:hover{ 
+    background: rgb(30, 107, 121);
+    color: white;
+}
+.Cratebotbtn2:hover{ 
+    background: rgb(30, 107, 121);
+    color: white;
+}
 .subbtndata:hover{
     background-color: rgb(0, 100, 38);
 }
@@ -176,6 +205,11 @@
 .treedoticon2{
     font-size: 30px;
     color: rgb(251, 255, 0);
+}
+.inputlinkchatbot{
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    outline: 1px solid lightgray;
 }
 .divfornext{
     padding: 5px;
