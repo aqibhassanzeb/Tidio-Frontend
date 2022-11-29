@@ -29,7 +29,7 @@ function Sidebar({ children }) {
         },
 
         {
-            path: '/contact',
+            path: '/home',
             name: 'Home',
             icon: <HiHome />,
 
