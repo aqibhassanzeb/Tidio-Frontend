@@ -14,6 +14,7 @@ import NotificationBadge from 'react-notification-badge/lib/components/Notificat
 import { Effect } from 'react-notification-badge';
 import useSound from 'use-sound';
 import boopSfx from "../../../../images/message.mp3"
+import boopSfx2 from "../../../../images/phoneringtone.mp3"
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import Peer from "simple-peer"
 import { Button, Modal } from 'react-bootstrap'
@@ -31,6 +32,7 @@ var socket = io()
 var chatbotControl
 const Chatbot2 = () => {
     const [play] = useSound(boopSfx);
+    const [play2,stopplay2] = useSound(boopSfx2);
     const [showEmoji, setshowEmoji] = useState(false);
     const [chosenEmoji, setChosenEmoji] = useState("");
     const [showChatbot, setshowChatbot] = useState(false);
@@ -136,6 +138,7 @@ const Chatbot2 = () => {
         })
 
         socket.on("callUser", (data) => {
+            
             handleCall()
             setReceivingCall(true)
             setCaller(data.from)
@@ -149,7 +152,16 @@ const Chatbot2 = () => {
         })
 
     }, [])
-
+    // const Ringing=()=>{
+    //    if( receivingCall && !callAccepted ){
+    //        play2()   
+    //    }else{
+    //     stopplay2().stop()
+    //    }
+    // }
+    // useEffect(() => {
+    // Ringing()
+    // }, [receivingCall,callAccepted])
     // useEffect(() => {
     //     console.log("useEffect render ")
     //     let result = abcNo + 1
@@ -671,7 +683,9 @@ const Chatbot2 = () => {
                             </button>
                         )}
 
-                        {receivingCall && !callAccepted ? (
+                        {receivingCall && !callAccepted ? 
+                       
+                        (
                             <div className="caller">
                                 <h3 >{name} is calling...</h3>
                                 <div className="d-flex">
