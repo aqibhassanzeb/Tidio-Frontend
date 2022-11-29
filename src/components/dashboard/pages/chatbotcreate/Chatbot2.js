@@ -459,6 +459,7 @@ const Chatbot2 = () => {
                                         {
                                             data && data.map((elm) => {
                                                 var setDate = new Date(elm.createdAt)
+                                                console.log("elm offline :",elm.offlineMsg)
                                                 return (
                                                     <div key={elm._id}>
                                                         {elm.sender != "subUser" ?
@@ -477,7 +478,8 @@ const Chatbot2 = () => {
                                                                     </div>
                                                                 </div>
                                                             :
-                                                            elm.myFile ?
+                                                            
+                                                            elm?.offlineMsg == false ?  elm.myFile ?
                                                                 <>
                                                                     <div className="">
                                                                         <div>
@@ -501,6 +503,7 @@ const Chatbot2 = () => {
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                :<></>
                                                         }
                                                     </div>
                                                 )
