@@ -45,10 +45,11 @@
     padding: 7px;
 }
 .conver2{
-    color: rgba(255, 255, 255, 0.651);
+    color: #dc3545;
     cursor: pointer;
     display: none;
 }
+
 .inputsearch{
     border: none;
     outline: none;

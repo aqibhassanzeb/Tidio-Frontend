@@ -46,7 +46,7 @@ export default function Widget() {
     const [preChatDisplay, setPreChatDisplay] = useState(false)
     const [cardDisplay, setCardDisplay] = useState("0")
     const [show, setShow] = useState(false);
-   
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -91,8 +91,8 @@ export default function Widget() {
             toast.success(res.data.message)
         }).catch(err => console.log(err))
     }
-    
-    const handlesubmitTime=()=>{
+
+    const handlesubmitTime = () => {
 
     }
 
@@ -108,7 +108,7 @@ export default function Widget() {
     return (
         <>
             <ToastContainer />
-               
+
             <div className='container d-flex widget_div mt-4'>
                 <div className='col-sm-7'>
                     <div className="accordion mt-5">
@@ -146,20 +146,20 @@ export default function Widget() {
                                         </div>
                                         {displayWidget2 &&
                                             <>
-                                            <div className='col-sm-12 d-flex p-3'>
-                                            <label className='display_chat'>Display the Chat<br />
-                                            <small className='color_small' onClick={handleShow}>(adjust online hour)</small>
-                                            </label>
-                                            <div className="form-check form-switch ">
-                                                <input className="form-control" />
-                                            </div>
-                                        </div>
-                                        <div className='col-sm-12 d-flex p-3'>
-                                            <label className='display_chat'>Offline message</label>
-                                            <div className="form-check form-switch ">
-                                                <textarea className="form-control" id="exampleFormControlTextarea1" value={getStarted?.offlineMessage} onChange={(e) => { inputEvent(e, "offlineMessage") }} rows="2"></textarea>
-                                            </div>
-                                        </div>
+                                                <div className='col-sm-12 d-flex p-3'>
+                                                    <label className='display_chat'>Display the Chat<br />
+                                                        <small className='color_small' onClick={handleShow}>(adjust online hour)</small>
+                                                    </label>
+                                                    <div className="form-check form-switch ">
+                                                        <input className="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div className='col-sm-12 d-flex p-3'>
+                                                    <label className='display_chat'>Offline message</label>
+                                                    <div className="form-check form-switch ">
+                                                        <textarea className="form-control" id="exampleFormControlTextarea1" value={getStarted?.offlineMessage} onChange={(e) => { inputEvent(e, "offlineMessage") }} rows="2"></textarea>
+                                                    </div>
+                                                </div>
                                             </>}
                                     </div>
                                 </Accordion.Body>
@@ -326,13 +326,13 @@ export default function Widget() {
                         <div className=' d-flex m-2'>
                             <p className="d-flex align-items-center">Preview</p>
                             <div className='dropdtacard '  >
-                            <Form.Select aria-label="Default select example" value={cardDisplay} style={{ width: "160px"}}
-                                onChange={(e) => setCardDisplay(e.target.value)} className="select_device px-2 py-1">
-                                <option value="2">Widget Visibility</option>
-                                <option value="0">Get Started</option>
-                                <option value="1">Pre-chat Survey</option>
-                            </Form.Select>
-                        </div>
+                                <Form.Select aria-label="Default select example" value={cardDisplay} style={{ width: "160px" }}
+                                    onChange={(e) => setCardDisplay(e.target.value)} className="select_device px-2 py-1">
+                                    <option value="2">Widget Visibility</option>
+                                    <option value="0">Get Started</option>
+                                    <option value="1">Pre-chat Survey</option>
+                                </Form.Select>
+                            </div>
                         </div>
                     </div>
                     <div className='backdivofacard'>
@@ -391,10 +391,21 @@ export default function Widget() {
                                                     <div className="input-group-prepend">
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
-
-                                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
+                                                   
+                                                        <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
+                                                   
 
                                                 </div>
+                                                <div className="input-group mt-2">
+                                                    <div className="input-group-prepend">
+                                                        <div className="input-group-text arrow"><FiArrowDownRight /></div>
+                                                    </div>
+                                                    
+                                                        <input type="text" className="form-control custom_control" placeholder="Phone number" aria-label="Input group example" />
+                                                    
+
+                                                </div>
+
                                                 <div className="mt-2 mb-5">
                                                     {newlettertoggle &&
                                                         <>
@@ -414,7 +425,7 @@ export default function Widget() {
                         }
                         {
                             cardDisplay == "2" &&
-                             <WidgetOffline  getStarted={getStarted}/>
+                            <WidgetOffline getStarted={getStarted} />
                         }
 
 
@@ -426,28 +437,28 @@ export default function Widget() {
                 </div>
             </div>
 
-            
-          <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            
-            <Modal.Body>
-             <OfflineTime getStarted={getStarted} 
-             setgetStarted={setgetStarted}
-             handleClose={handleClose}
-             handleSubmit={handleSubmit}
-             />
-            </Modal.Body>
-            {/* <Modal.Footer>
+
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+
+                <Modal.Body>
+                    <OfflineTime getStarted={getStarted}
+                        setgetStarted={setgetStarted}
+                        handleClose={handleClose}
+                        handleSubmit={handleSubmit}
+                    />
+                </Modal.Body>
+                {/* <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
               <Button variant="primary" onClick={()=>{handleSubmit();handleClose()}} >save</Button>
             </Modal.Footer> */}
-          </Modal>
+            </Modal>
         </>
     )
 }

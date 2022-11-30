@@ -27,9 +27,11 @@
     margin-right: 5px;
     cursor: pointer;
 }
+.indiviconarow{
+    display: flex;
+}
 .inputemailchatbot{
     padding: 5px;
-    border-radius: 5px;
     outline: none;
     margin-right: 5px;
 }
@@ -154,8 +156,13 @@
 .backforemailsub{
     background-color: rgb(0, 0, 255);
     padding: 5px;
-    height: 40vh;
+    height: 50vh;
     clip-path: ellipse(98% 95% at 42% 5%);
+}
+.fiarrowicon{
+    font-size: 20px;
+    color: blue;
+    
 }
 .subbtndata{
     background-color: black;
@@ -200,8 +207,9 @@
     border-radius: 10px;
     overflow: hidden;
     position: absolute;
-    bottom: 0%;
-    right: 0%;
+    bottom: 13%;
+    right: 1%;
+    transition: .6s;
 }
 .subbtndata:hover{
     background-color: rgb(0, 100, 38);

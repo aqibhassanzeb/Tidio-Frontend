@@ -3,7 +3,7 @@ import { useState } from 'react';
 import "./ChatbotCreate.css"
 import Profilepic from '../../../../images/profile.jpg'
 import { AiOutlineSend } from 'react-icons/ai';
-import { FiMessageSquare } from 'react-icons/fi';
+import { FiMessageSquare, FiArrowDownRight } from 'react-icons/fi';
 import { chatbotSettingfetch, createChat, fetchMessages2, sendMessage2 } from '../../../../apis/Chat-api';
 import { useEffect } from 'react';
 import io from 'socket.io-client'
@@ -442,7 +442,8 @@ const Chatbot2 = () => {
         <>
             {showChatbot ?
 
-                OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime
+                // OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime
+                true
                     ?
                     <div className='container-fluid' style={{ position: "absolute", top: "200px" }}>
                         <div className='row mt-3'>
@@ -459,7 +460,7 @@ const Chatbot2 = () => {
                                         {
                                             data && data.map((elm) => {
                                                 var setDate = new Date(elm.createdAt)
-                                                console.log("elm offline :",elm.offlineMsg)
+                                                console.log("elm offline :", elm.offlineMsg)
                                                 return (
                                                     <div key={elm._id}>
                                                         {elm.sender != "subUser" ?
@@ -478,8 +479,8 @@ const Chatbot2 = () => {
                                                                     </div>
                                                                 </div>
                                                             :
-                                                            
-                                                            elm?.offlineMsg == false ?  elm.myFile ?
+
+                                                            elm?.offlineMsg == false ? elm.myFile ?
                                                                 <>
                                                                     <div className="">
                                                                         <div>
@@ -503,7 +504,7 @@ const Chatbot2 = () => {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                :<></>
+                                                                : <></>
                                                         }
                                                     </div>
                                                 )
@@ -559,29 +560,43 @@ const Chatbot2 = () => {
                                                 </div>
 
                                                 <div className='messageareachatbot' style={{ height: "30vh" }}></div>
-                                                <div className='d-flex justify-content-end '>
-                                                    <div className='divfornext' onClick={() => setfirstChatApp(false)}><AiOutlineSend className='treedoticon' /></div>
-                                                </div>
+                                                
                                             </div>
                                         </>
                                         :
                                         <>
-                                            <div className="backforemailsub">
-                                                <div className="text-center text-white"><BiUser className="userbiicon" /></div>
-                                                <h4 className="text-white text-center">Please introduce yourself</h4>
-                                                <div className=' divforcreatecahtbot'>
-                                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot mt-3' />
-                                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input mt-3 inputemailchatbot'
-                                                        placeholder='Enter Your email here...'
-                                                        onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
-                                                    <button className='subbtndata mt-3' onClick={() => handleCreateChat()}>Submit</button>
+                                            <div style={{ borderLeft: "1px solid lightgray", borderRight: "1px solid lightgray" }}>
+                                                <div className="backforemailsub ">
+                                                    <div className="text-center text-white"><BiUser className="userbiicon" /></div>
+                                                    <h4 className="text-white text-center">Please introduce yourself</h4>
+                                                    <div className=' divforcreatecahtbot'>
+                                                        <div className='indiviconarow  mt-3'>
+                                                            <span className=' bg-light p-1 border d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
+                                                            <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot  ' /></span>
+                                                        </div>
+                                                        <div className='indiviconarow  mt-3'>
+                                                            <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
+                                                            <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="number" placeholder='Phone number' className='inputemailchatbot' />
+                                                            </span>
+                                                        </div>
+                                                        <div className='indiviconarow  mt-3'>
+                                                            <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
+                                                            <span> <input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" className='form-input  inputemailchatbot'
+                                                                placeholder='Enter Your email here...'
+                                                                onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
+                                                            </span>
+                                                        </div>
+
+                                                        <button className='subbtndata mt-3' onClick={() => handleCreateChat()}>Submit</button>
+                                                    </div>
                                                 </div>
+
                                             </div>
                                         </>
                                 }
                                 <div className='col-sm-12 border'>
                                     <div className="input-group">
-                                        {myFile ?
+                                        { myFile ?
                                             <>
                                                 <div className="imagetopcrossdiv2">
                                                     <img src={showFile} className='' />
@@ -596,12 +611,22 @@ const Chatbot2 = () => {
                                             <Picker onEmojiClick={onEmojiClick} />
                                             : null
                                         }
-                                        <div className=' d-flex align-items-center attacth'>
+                                        {
+                                            firstChatApp &&
+                                            <>   
+                                            
+                                            <div className=' d-flex align-items-center attacth'>
+                                            
                                             <GrAttachment className='' />
                                             <input type="file" className='filetype' style={{ cursor: "pointer" }} onChange={(e) => handleChangefile(e)} />
                                         </div>
                                         <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div>
-                                        {chatId && chatId != undefined && <div className="input-group-prepend">
+                                        <div className='d-flex justify-content-end '>
+                                        <div className='divfornext' onClick={() => setfirstChatApp(false)}><AiOutlineSend className='treedoticon' /></div>
+                                    </div>
+                                        </>
+                                        }
+                                       {chatId && chatId != undefined && <div className="input-group-prepend">
                                             <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
                                                 {sendloading ? <p>Sending...</p> : <AiOutlineSend className='snd_icon' />}
                                             </button></span>
@@ -615,11 +640,11 @@ const Chatbot2 = () => {
                     </div>
                     :
                     <div className="secondwidgeetoffline">
-                    <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true}
-                    setContent={setContent} setOfflineMsg={setOfflineMsg} handleSendMessages={handleSendMessages}
-                    contentError={contentError} setContentError={setContentError} sendloading={sendloading} sendMsg={sendMsg}
-                    content={content}
-                    />
+                        <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true}
+                            setContent={setContent} setOfflineMsg={setOfflineMsg} handleSendMessages={handleSendMessages}
+                            contentError={contentError} setContentError={setContentError} sendloading={sendloading} sendMsg={sendMsg}
+                            content={content}
+                        />
                     </div>
                 :
                 <div className='row'>

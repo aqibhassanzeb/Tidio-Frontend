@@ -40,7 +40,7 @@ const WidgetOffline = ({getStarted,setshowChatbot,chatBot,setOfflineMsg,
                 <input type="text" value={content} style={{border:contentError ?"2px solid red":""}} onChange={(e)=>{setContent(e.target.value);setOfflineMsg(true);setContentError(false)}} placeholder='Enter your email...' />
               
                   {chatBot ?   
-                   sendloading ? <h3>Loading...</h3> : <button className='btn btn-primary'onClick={()=>{handleSubmit()}} >Send</button>
+                   sendloading ? <button className='btn btn-primary'>Loading...</button> : <button className='btn btn-primary'onClick={()=>{handleSubmit()}} >Send</button>
                       :
                       <button className='btn btn-primary'>Send</button>
                   } 
