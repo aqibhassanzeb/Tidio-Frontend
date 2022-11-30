@@ -164,7 +164,7 @@ const Inbox = () => {
                                              effect={Effect.SCALE}
                                              />
                                             <div className="p-1" >
-                                            <h6 style={{color: "rgba(255, 255, 255, 0.678)"}} className='p-0 m-0 '>{result}</h6>
+                                            <h6 style={{color: "rgba(255, 255, 255, 0.678)"}} className='p-0 m-0 '>{elm.subUser.name ? elm.subUser.name : result}</h6>
                                                 <p  className='p-0 m-0 emailofinbos'>{elm?.subUser.email}</p>
                                             </div>
                                         </div>

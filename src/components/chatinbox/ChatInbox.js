@@ -146,7 +146,26 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
 
     const handleCall = () => {
         setShow(true);
-        navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+        navigator.mediaDevices.getUserMedia({ video: true, audio:{
+            echoCancellation: true,
+            echoCancellationType: { ideal: " system " },
+            channelCount: 1,
+            noiseSuppression: false,
+            autoGainControl: true,
+            googEchoCancellation: true,
+            googAutoGainControl: true,
+            googExperimentalAutoGainControl: true,
+            googNoiseSuppression: true,
+            googExperimentalNoiseSuppression: true,
+            googHighpassFilter: true,
+            googTypingNoiseDetection: true,
+            googBeamforming: false,
+            googArrayGeometry: false,
+            googAudioMirroring: true,
+            googNoiseReduction: true,
+            mozNoiseSuppression: true,
+            mozAutoGainControl: false,
+            latency: 0.01,} }).then((stream) => {
             setStream(stream)
             // let cur = myVideo.current;
             // myVideo.current?.srcObject = stream;

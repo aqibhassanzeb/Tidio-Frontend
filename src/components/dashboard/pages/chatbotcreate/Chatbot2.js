@@ -41,6 +41,7 @@ const Chatbot2 = () => {
     const [contentError, setContentError] = useState(false)
     const [emailInp, setEmailInp] = useState("")
     const [nameInp, setNameInp] = useState("")
+    const [phoneNo, setPhoneNo] = useState("")
     const [chatId, setChatId] = useState(localStorage.getItem("tidiochat"));
     const [tidiochatUser, setTidiochatUser] = useState(localStorage.getItem("tidiochatuser"))
     const [content, setContent] = useState("")
@@ -204,10 +205,10 @@ const Chatbot2 = () => {
     }
 
     const handleCreateChat = () => {
-        if (!emailInp || !nameInp) {
+        if (!emailInp || !nameInp || !phoneNo) {
             return setError(true)
         }
-        const paylaod = { createdby, email: emailInp,name:nameInp }
+        const paylaod = { createdby, email: emailInp,name:nameInp,phoneNo }
         createChat(paylaod).then(result => {
             localStorage.setItem("tidiochat", result.data.FullChat._id);
             setChatId(result.data.FullChat._id)
@@ -281,7 +282,26 @@ const Chatbot2 = () => {
 
     const handleCall = () => {
         setShow(true);
-        navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+        navigator.mediaDevices.getUserMedia({ video: true, audio:{
+            echoCancellation: true,
+            echoCancellationType: { ideal: " system " },
+            channelCount: 1,
+            noiseSuppression: false,
+            autoGainControl: true,
+            googEchoCancellation: true,
+            googAutoGainControl: true,
+            googExperimentalAutoGainControl: true,
+            googNoiseSuppression: true,
+            googExperimentalNoiseSuppression: true,
+            googHighpassFilter: true,
+            googTypingNoiseDetection: true,
+            googBeamforming: false,
+            googArrayGeometry: false,
+            googAudioMirroring: true,
+            googNoiseReduction: true,
+            mozNoiseSuppression: true,
+            mozAutoGainControl: false,
+            latency: 0.01,} }).then((stream) => {
             setStream(stream)
             myVideo.current.srcObject = stream;
             setForceUpdate(!forceUpdate)
@@ -603,7 +623,9 @@ const Chatbot2 = () => {
                                                         </div>
                                                         <div className='indiviconarow  mt-3'>
                                                             <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
-                                                            <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="number" placeholder='Phone number' className='inputemailchatbot' />
+                                                            <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="number" placeholder='Phone number' className='inputemailchatbot'
+                                                             onChange={(e) => { setPhoneNo(e.target.value); setError(false) }} value={phoneNo}
+                                                            />
                                                             </span>
                                                         </div>
                                                         <div className='indiviconarow  mt-3'>
