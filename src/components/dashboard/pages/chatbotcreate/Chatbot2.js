@@ -32,7 +32,7 @@ var socket = io()
 var chatbotControl
 const Chatbot2 = () => {
     const [play] = useSound(boopSfx);
-    const [play2,stopplay2] = useSound(boopSfx2);
+    const [play2,{ stop, isPlaying }] = useSound(boopSfx2);
     const [showEmoji, setshowEmoji] = useState(false);
     const [chosenEmoji, setChosenEmoji] = useState("");
     const [showChatbot, setshowChatbot] = useState(false);
@@ -40,6 +40,7 @@ const Chatbot2 = () => {
     const [Error, setError] = useState(false)
     const [contentError, setContentError] = useState(false)
     const [emailInp, setEmailInp] = useState("")
+    const [nameInp, setNameInp] = useState("")
     const [chatId, setChatId] = useState(localStorage.getItem("tidiochat"));
     const [tidiochatUser, setTidiochatUser] = useState(localStorage.getItem("tidiochatuser"))
     const [content, setContent] = useState("")
@@ -152,16 +153,17 @@ const Chatbot2 = () => {
         })
 
     }, [])
-    // const Ringing=()=>{
-    //    if( receivingCall && !callAccepted ){
-    //        play2()   
-    //    }else{
-    //     stopplay2().stop()
-    //    }
-    // }
-    // useEffect(() => {
-    // Ringing()
-    // }, [receivingCall,callAccepted])
+    const Ringing=()=>{
+       if( receivingCall && !callAccepted ){
+           play2()   
+       }else{
+        stop()
+       }
+    }
+   
+    useEffect(() => {
+    Ringing()
+    }, [receivingCall,callAccepted])
     // useEffect(() => {
     //     console.log("useEffect render ")
     //     let result = abcNo + 1
@@ -202,10 +204,10 @@ const Chatbot2 = () => {
     }
 
     const handleCreateChat = () => {
-        if (!emailInp) {
+        if (!emailInp || !nameInp) {
             return setError(true)
         }
-        const paylaod = { createdby, email: emailInp }
+        const paylaod = { createdby, email: emailInp,name:nameInp }
         createChat(paylaod).then(result => {
             localStorage.setItem("tidiochat", result.data.FullChat._id);
             setChatId(result.data.FullChat._id)
@@ -454,24 +456,26 @@ const Chatbot2 = () => {
         <>
             {showChatbot ?
 
-                OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime
-                    ?
+               
+                 
                     <div className='container-fluid' style={{ position: "absolute", top: "200px" }}>
                         <div className='row mt-3'>
                             <div className='col-sm-3 offset-9 '>
+                              
                                 <div className='col-sm-12  chatbot_header'>
                                     <div className='pt-2 chatbottexthead text-light'>Chatbot</div>
-                                    {chatId && chatId != undefined && <div className='pt-2 chatbottexthead2 text-light' style={{ cursor: "pointer" }} onClick={() => { handleCall() }}><IoMdCall /></div>}
+                                    {chatId && chatId != undefined && OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime &&
+                                     <div className='pt-2 chatbottexthead2 text-light' style={{ cursor: "pointer" }} onClick={() => { handleCall() }}><IoMdCall /></div>}
                                     <div className='clsoeicon' onClick={() => { setshowChatbot(false) }} ><RiArrowDropDownLine /></div>
                                 </div>
 
 
                                 {chatId && chatId != undefined ?
+                                 OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime ?
                                     <div className=' chatbotmessagediv' style={{ height: "350px" }}>
                                         {
                                             data && data.map((elm) => {
                                                 var setDate = new Date(elm.createdAt)
-                                                console.log("elm offline :",elm.offlineMsg)
                                                 return (
                                                     <div key={elm._id}>
                                                         {elm.sender != "subUser" ?
@@ -547,6 +551,14 @@ const Chatbot2 = () => {
                                             //    { updateState}
                                         }
                                     </ div>
+                                    : 
+                                    <div className="secondwidgeetoffline">
+                                    <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true}
+                                    setContent={setContent} setOfflineMsg={setOfflineMsg} handleSendMessages={handleSendMessages}
+                                    contentError={contentError} setContentError={setContentError} sendloading={sendloading} sendMsg={sendMsg}
+                                    content={content}
+                                    />
+                                    </div>
                                     :
 
                                     firstChatApp ?
@@ -582,7 +594,9 @@ const Chatbot2 = () => {
                                                 <div className="text-center text-white"><BiUser className="userbiicon" /></div>
                                                 <h4 className="text-white text-center">Please introduce yourself</h4>
                                                 <div className=' divforcreatecahtbot'>
-                                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot mt-3' />
+                                                    <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot mt-3'
+                                                      onChange={(e) => { setNameInp(e.target.value); setError(false) }} value={nameInp} />
+                                                    
                                                     <input style={{ border: Error ? "1px red solid" : "1px gray solid" }} type="text" className='form-input mt-3 inputemailchatbot'
                                                         placeholder='Enter Your email here...'
                                                         onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
@@ -591,7 +605,8 @@ const Chatbot2 = () => {
                                             </div>
                                         </>
                                 }
-                                <div className='col-sm-12 border'>
+                                {OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime &&
+                                    <div className='col-sm-12 border'>
                                     <div className="input-group">
                                         {myFile ?
                                             <>
@@ -613,26 +628,23 @@ const Chatbot2 = () => {
                                             <input type="file" className='filetype' style={{ cursor: "pointer" }} onChange={(e) => handleChangefile(e)} />
                                         </div>
                                         <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div>
-                                        {chatId && chatId != undefined && <div className="input-group-prepend">
+                                        {chatId && chatId != undefined && 
+                                        <div className="input-group-prepend">
                                             <span className="input-group-text text_send" ><button className='custom_send' onClick={() => handleSendMessages()}>
                                                 {sendloading ? <p>Sending...</p> : <AiOutlineSend className='snd_icon' />}
                                             </button></span>
-                                        </div>}
+                                        </div> 
+                                        
+                                        }
                                     </div>
-                                </div>
+                                </div>}
                             </div>
 
 
                         </div>
                     </div>
-                    :
-                    <div className="secondwidgeetoffline">
-                    <WidgetOffline getStarted={getStarted} setshowChatbot={setshowChatbot} chatBot={true}
-                    setContent={setContent} setOfflineMsg={setOfflineMsg} handleSendMessages={handleSendMessages}
-                    contentError={contentError} setContentError={setContentError} sendloading={sendloading} sendMsg={sendMsg}
-                    content={content}
-                    />
-                    </div>
+                    
+                   
                 :
                 <div className='row'>
                     <div className='sticky_bton'><button className='btn custom_position' onClick={() => { setshowChatbot(!showChatbot); resetTimeOut(); dispatch(setsubUserNotifClear()) }}>

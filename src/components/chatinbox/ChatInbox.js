@@ -17,6 +17,8 @@ import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFi
 import { AiFillCaretRight } from 'react-icons/ai'
 import { GrAttachment } from 'react-icons/gr'
 import { BiWifi, BiWifi0 } from 'react-icons/bi'
+import boopSfx2 from "../../images/phoneringtone.mp3"
+import useSound from 'use-sound'
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -35,6 +37,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
     const [myFile, setFileAttachment] = useState('')
     const [showFile, setShowFile] = useState('')
 
+    const [play2,{ stop, isPlaying }] = useSound(boopSfx2);
     const selectedUser = useSelector(state => state.SelectedUser.selectedUser)
     const loginUser = useSelector(state => state.User.activeUser)
     const notification = useSelector(state => state.SelectedUser.notification)
@@ -284,7 +287,17 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
         stream.getVideoTracks().forEach(track => track.enabled = !track.enabled);
         setVideoMuted(!videoMuted)
     }
-
+    const Ringing=()=>{
+        if( receivingCall && !callAccepted ){
+            play2()   
+        }else{
+         stop()
+        }
+     }
+    
+     useEffect(() => {
+     Ringing()
+     }, [receivingCall,callAccepted])
 
     return (
         <>
