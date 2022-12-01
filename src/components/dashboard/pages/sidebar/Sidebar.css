@@ -19,6 +19,8 @@ main{
     width: 300px;
     transition: .7s;
     z-index: 1;
+    position: sticky;
+    top: 0;
 }
 .top_section{
     display: flex;
