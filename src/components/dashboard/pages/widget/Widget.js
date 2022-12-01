@@ -275,8 +275,16 @@ export default function Widget() {
                                                         <div className='emailinputandtext'>
                                                             <div className='emailtext '>Name</div>
                                                             <div className='p-2 inpdivforwit'>
-                                                                <input type="text" className='inputsurvey' value={getStarted?.enter_phone} name='enter_phone' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
+                                                                <input type="text" className='inputsurvey' value={getStarted?.enter_name} name='enter_name' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_name") }} /><br />
 
+                                                            </div>
+                                                            {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
+                                                        </div>
+                                                        <div className='emailinputandtext'>
+                                                            <div className='emailtext '>Phone</div>
+                                                            <div className='p-2 inpdivforwit'>
+                                                                <input type="number" className='inputsurvey' value={getStarted?.enter_phone} name='enter_phone' placeholder='Enter your phone no' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
+                                                 
                                                             </div>
                                                             {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
                                                         </div>
@@ -290,14 +298,7 @@ export default function Widget() {
                                                             </div>
                                                             {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
                                                         </div>
-                                                        <div className='emailinputandtext'>
-                                                            <div className='emailtext '>GDPR</div>
-                                                            <div className='p-2 inpdivforwit '>
-                                                                <input type="text" className='inputsurvey ' value={getStarted?.gdpr} name='gdpr' placeholder='GDPR' onChange={(e) => { inputEvent(e, "gdpr") }} /><br />
-
-                                                            </div>
-                                                            {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
-                                                        </div>
+                                                        
                                                     </div>
                                                 </div>
                                             </>
@@ -387,7 +388,7 @@ export default function Widget() {
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
 
-                                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
+                                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_name} aria-label="Input group example" />
 
                                                 </div>
                                                 <div className="input-group mt-2">
@@ -395,7 +396,7 @@ export default function Widget() {
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
                                                    
-                                                        <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
+                                                        <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
                                                    
 
                                                 </div>
@@ -404,7 +405,7 @@ export default function Widget() {
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
                                                     
-                                                        <input type="text" className="form-control custom_control" placeholder="Phone number" aria-label="Input group example" />
+                                                        <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
                                                     
 
                                                 </div>

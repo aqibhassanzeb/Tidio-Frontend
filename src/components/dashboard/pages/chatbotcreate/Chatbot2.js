@@ -44,9 +44,10 @@ const Chatbot2 = () => {
     const [phoneNo, setPhoneNo] = useState("")
     const [chatId, setChatId] = useState(localStorage.getItem("tidiochat"));
     const [tidiochatUser, setTidiochatUser] = useState(localStorage.getItem("tidiochatuser"))
+    const [subUserData2, setSubUserData2] = useState("")
     const [content, setContent] = useState("")
     const [data, setData] = useState([])
-    const [fetchemail, setFetchemail] = useState("")
+    const [fetchemail, setFetchemail] = useState(false)
     const fetchControl = useRef(false);
     const [socketConnected, setSocketConnected] = useState(false)
     const [chatbotTiming, setChatbotTiming] = useState([])
@@ -56,7 +57,7 @@ const Chatbot2 = () => {
     const [sendMsg, setSendMsg] = useState(false)
 
     // const [subUserData, setSubUserData] = useState("")
-    const subUserData = JSON.parse(tidiochatUser)
+    const subUserData = subUserData2 ? subUserData2 : JSON.parse(tidiochatUser)
     const [sendloading, setSendloading] = useState(false);
     const [notficationControl, setNotficationControl] = useState(null)
     const [myFile, setFileAttachment] = useState('')
@@ -120,7 +121,7 @@ const Chatbot2 = () => {
 
     var createdby = "634543ff090124ecb0c39a6b"
     var email = "alikhan@gmail.com"
-    var _id = localStorage.getItem("tidiochat")
+    var _id =chatId ? chatId : localStorage.getItem("tidiochat")
     var currentdate = new Date();
     var currentTime = currentdate.toLocaleString('en-GB').slice(12)
     // console.log("current date ",currentdate.getDay())
@@ -153,7 +154,7 @@ const Chatbot2 = () => {
             window.location.reload();
         })
 
-    }, [])
+    }, [subUserData2])
     const Ringing = () => {
         if (receivingCall && !callAccepted) {
             play2()
@@ -192,12 +193,12 @@ const Chatbot2 = () => {
     // 6368a80a8841f2a317a1b37a
 
     const handlefetchChat = () => {
-        if (_id && _id != undefined) {
-            const paylaod = { createdby, _id }
+        if (chatId && chatId != undefined) {
+            const paylaod = { createdby, _id:chatId }
             createChat(paylaod).then(result => {
                 localStorage.setItem("tidiochat", result?.data.FullChat._id)
                 localStorage.setItem("tidiochatuser", JSON.stringify(result.data?.FullChat.subUser))
-                setFetchemail()
+                setSubUserData2(result.data?.FullChat.subUser)
             }).catch(err => {
                 console.log(err);
             })
@@ -208,7 +209,7 @@ const Chatbot2 = () => {
         if (!emailInp || !nameInp || !phoneNo) {
             return setError(true)
         }
-        const paylaod = { createdby, email: emailInp,name:nameInp,phoneNo }
+        const paylaod = { createdby, email: emailInp, name: nameInp, phoneNo }
         createChat(paylaod).then(result => {
             localStorage.setItem("tidiochat", result.data.FullChat._id);
             setChatId(result.data.FullChat._id)
@@ -265,11 +266,11 @@ const Chatbot2 = () => {
     }
 
     useEffect(() => {
-        if (fetchControl.current) return
-        fetchControl.current = true
+        // if (fetchControl.current) return
+        // fetchControl.current = true
         handlefetchChat()
         chatId && handleFetchMessages()
-    }, [])
+    }, [handlefetchChatCreate])
 
 
     const handlenoficationmessage = () => {
@@ -282,26 +283,29 @@ const Chatbot2 = () => {
 
     const handleCall = () => {
         setShow(true);
-        navigator.mediaDevices.getUserMedia({ video: true, audio:{
-            echoCancellation: true,
-            echoCancellationType: { ideal: " system " },
-            channelCount: 1,
-            noiseSuppression: false,
-            autoGainControl: true,
-            googEchoCancellation: true,
-            googAutoGainControl: true,
-            googExperimentalAutoGainControl: true,
-            googNoiseSuppression: true,
-            googExperimentalNoiseSuppression: true,
-            googHighpassFilter: true,
-            googTypingNoiseDetection: true,
-            googBeamforming: false,
-            googArrayGeometry: false,
-            googAudioMirroring: true,
-            googNoiseReduction: true,
-            mozNoiseSuppression: true,
-            mozAutoGainControl: false,
-            latency: 0.01,} }).then((stream) => {
+        navigator.mediaDevices.getUserMedia({
+            video: true, audio: {
+                echoCancellation: true,
+                echoCancellationType: { ideal: " system " },
+                channelCount: 1,
+                noiseSuppression: false,
+                autoGainControl: true,
+                googEchoCancellation: true,
+                googAutoGainControl: true,
+                googExperimentalAutoGainControl: true,
+                googNoiseSuppression: true,
+                googExperimentalNoiseSuppression: true,
+                googHighpassFilter: true,
+                googTypingNoiseDetection: true,
+                googBeamforming: false,
+                googArrayGeometry: false,
+                googAudioMirroring: true,
+                googNoiseReduction: true,
+                mozNoiseSuppression: true,
+                mozAutoGainControl: false,
+                latency: 0.01,
+            }
+        }).then((stream) => {
             setStream(stream)
             myVideo.current.srcObject = stream;
             setForceUpdate(!forceUpdate)
@@ -619,31 +623,30 @@ const Chatbot2 = () => {
                                                         <span className=' bg-light p-1 border d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
                                                         <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot  '
                                                             onChange={(e) => { setNameInp(e.target.value); setError(false) }} value={nameInp}
-                                                            /></span>
-                                                        </div>
-                                                        <div className='indiviconarow  mt-3'>
-                                                            <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
-                                                            <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="number" placeholder='Phone number' className='inputemailchatbot'
-                                                             onChange={(e) => { setPhoneNo(e.target.value); setError(false) }} value={phoneNo}
-                                                            />
-                                                            </span>
-                                                        </div>
-                                                        <div className='indiviconarow  mt-3'>
-                                                            <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
-                                                            <span> <input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" className='form-input  inputemailchatbot'
-                                                                placeholder='Enter Your email here...'
-                                                                onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
-                                                            </span>
-                                                        </div>
-
-                                                        <button className='subbtndata mt-3' onClick={() => handleCreateChat()}>Submit</button>
+                                                        /></span>
+                                                    </div>
+                                                    <div className='indiviconarow  mt-3'>
+                                                        <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
+                                                        <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="number" placeholder={getStarted?.enter_phone} className='inputemailchatbot'
+                                                            onChange={(e) => { setPhoneNo(e.target.value); setError(false) }} value={phoneNo}
+                                                        />
+                                                        </span>
+                                                    </div>
+                                                    <div className='indiviconarow  mt-3'>
+                                                        <span className=' bg-light border p-1 d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
+                                                        <span> <input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" className='form-input  inputemailchatbot'
+                                                            placeholder={getStarted?.enter_email}
+                                                            onChange={(e) => { setEmailInp(e.target.value); setError(false) }} value={emailInp} />
+                                                        </span>
                                                     </div>
 
                                                     <button className='subbtndata mt-3' onClick={() => handleCreateChat()}>Submit</button>
                                                 </div>
-                                            </div>
 
-                                       
+                                            </div>
+                                        </div>
+
+
                                     </>
                             }
                             {OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime &&
