@@ -67,8 +67,8 @@
     border-radius: 50%;
 }
 .custom_rebot_chat{
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    border-radius: 7px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.342);
+    border-radius: 4px;
     width: fit-content !important;
 }
 .custom_rtl{
@@ -77,6 +77,8 @@
 }
 .space_box{
     margin-left: 4px !important;
+    padding: 5px !important;
+    font-size: 14px !important;
 }
 .space_box_user{
     margin-right: 4px !important;

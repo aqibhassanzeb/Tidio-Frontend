@@ -322,7 +322,7 @@ export default function Widget() {
                         </Accordion>
                     </div>
 
-                    <button className='btn btn-primary' onClick={handleSubmit} >Save</button>
+                    <button className='btn btn-primary' style={{marginLeft: "20px"}} onClick={handleSubmit} >Save</button>
                 </div>
                 <div className='col-sm-3 offset-2 '>
 

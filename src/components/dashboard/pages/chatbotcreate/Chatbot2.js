@@ -482,7 +482,7 @@ const Chatbot2 = () => {
 
 
 
-                <div className='container-fluid' style={{ position: "absolute", top: "200px" }}>
+                <div className='container-fluid' style={{ position: "absolute", bottom: "80px" }}>
                     <div className='row mt-3'>
                         <div className='col-sm-3 offset-9 '>
 
@@ -511,9 +511,9 @@ const Chatbot2 = () => {
                                                                         <div className='col-sm-1'>
                                                                             <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
                                                                         </div>
-                                                                        <div className='col-sm-11 border border-top-0 p-2 custom_rebot_chat space_box'>
+                                                                        <div className='col-sm-11 border border-top-0  custom_rebot_chat space_box'>
                                                                             <p className="mesegtetxher">{elm?.content}</p>
-                                                                            <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
+                                                                            <time style={{ fontSize: "10px" }} className='p-0 m-0'>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -526,7 +526,7 @@ const Chatbot2 = () => {
                                                                             <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
                                                                         </div>
                                                                         <div>
-                                                                            <time style={{ fontSize: "10px" }} className=''>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
+                                                                            <time style={{ fontSize: "10px" }} className='p-0 m-0'>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
                                                                         </div>
                                                                     </div>
                                                                 </>
