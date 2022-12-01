@@ -126,8 +126,11 @@ export default function Widget() {
                                                 <input className="form-check-input" type="checkbox" value={displayWidget} id="flexSwitchCheckChecked" onClick={() => setDisplayWidget(!displayWidget)} />
                                             </div>
                                         </div>
-                                        {displayWidget && <div className='col-sm-12 d-flex p-3 pb-0'>
+                                        {displayWidget &&
+                                             <div className='col-sm-12 d-flex p-3 pb-0'>
+                                             <div className='col-3'>
                                             <label className='display_widget'>Devices</label>
+                                            </div>
                                             <Form.Select aria-label="Default select example" value={getStarted?.devices}
                                                 onChange={(e) => { inputEvent(e, "devices") }} className="select_device px-2 py-1">
                                                 <option value="Both on desktop and mobile devices">Both on desktop and mobile devices</option>
@@ -342,9 +345,9 @@ export default function Widget() {
                                 <div className=' background_img'>
                                     <div className='img_color'>
                                         <div className='d-flex justify-content-between'>
-                                            <div className='hitheretext mt-4'>
-                                                <h2 className='m-0 p-0'>{getStarted?.status}</h2>
-                                                <p className='text-light m-0 p-0 messagetextcard'>{getStarted?.message}</p>
+                                            <div className='hitheretext mt-2'>
+                                                <h5 className='m-0 p-0'>{getStarted?.status}</h5>
+                                                <p className=' messagetextcard'>{getStarted?.message}</p>
                                             </div>
                                             <div className='iconmainduv'>
                                                 <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
@@ -378,7 +381,7 @@ export default function Widget() {
                                         </div> */}
                                         <div className='col-sm-12 text-center mt-5'>
                                             <img className='chat_setting_profile' src={User_png} alt="user" />
-                                            <h4 className='mt-2'>{getStarted.user_message}</h4>
+                                            <h5 className='mt-2'>{getStarted.user_message}</h5>
                                             <div className='p-4'>
                                                 <div className="input-group">
                                                     <div className="input-group-prepend">

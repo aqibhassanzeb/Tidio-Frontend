@@ -18,6 +18,7 @@
 .widget_header{
     color: black !important;
     margin-bottom: 0px;
+    font-size: 16px;
 }
 .display_widget{
     color: #080f1a;
@@ -269,11 +270,12 @@
 }
 .hitheretext{
     padding: 15px;
+
 }
-.hitheretext h2{
+.hitheretext h5{
     font-weight: 400;
-    font-size: 20px;
     color: white;
+    font-size: 22px;
     line-height: 22px;
     overflow-wrap: break-word;
     white-space: pre-line;
@@ -282,11 +284,16 @@
     align-items: center;
 }
 .iconmainduv{
-    padding-left: 20px;
+    padding-left: 0px;
     color: white;
     display: flex;
-    font-size: 30px;
+    font-size: 25px;
     align-items: center;
+}
+.messagetextcard{
+    padding: 0px;
+    margin-top: 5px;
+    color: white;
 }
 .doticononline{
     width: 10px;
@@ -367,11 +374,13 @@
 }
 .block_btn{
     width: 100% !important;
-    background-color: #952080 !important;
+    background-color: #1c8681 !important;
     border: none !important;
-    border-radius: 0px !important;
+    border-radius: 5px !important;
     font-size: initial !important;
-
+}
+.block_btn:hover{
+   background-color: #10524e !important;
 }
 @media only screen and (min-width: 370px) and (max-width: 600px) {
     .display_display{
