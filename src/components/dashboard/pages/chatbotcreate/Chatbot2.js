@@ -27,6 +27,7 @@ import { MdOutlineAddReaction } from 'react-icons/md';
 import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFill, BsThreeDotsVertical, BsDot } from 'react-icons/bs'
 import Picker from 'emoji-picker-react';
 import WidgetOffline from '../widget/WidgetOffline';
+import ImagModal from '../../../modals/ImageModal/ImagModal';
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
 var chatbotControl
@@ -90,6 +91,8 @@ const Chatbot2 = () => {
     const [callloading, setCallloading] = useState(false)
     const [videoMuted, setVideoMuted] = useState(true)
     const [audioMuted, setAudioMuted] = useState(true)
+    const [imgd, setImgd] = useState(false);
+    const [sendi, setSendi] = useState();
     const myVideo = useRef()
     const userVideo = useRef()
     const connectionRef = useRef()
@@ -475,6 +478,10 @@ const Chatbot2 = () => {
         gettingDay && setOnlineTime(gettingDay2)
     }, [getStarted])
 
+    const handleImag = (elm) => {
+        setImgd(true)
+        setSendi(`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`)
+    }
     // console.log("get Started :",getStarted)
     return (
         <>
@@ -504,7 +511,9 @@ const Chatbot2 = () => {
                                                     <div key={elm._id}>
                                                         {elm.sender != "subUser" ?
                                                             elm.myFile ?
-                                                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                                            <div className='px-2'>
+                                                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px", cursor: "pointer" }}  onClick={() => handleImag(elm)}/>
+                                                                </div>
                                                                 :
                                                                 <div className='col-sm-12 p-2 ' key={elm?._id}>
                                                                     <div className='d-flex'>
@@ -521,9 +530,9 @@ const Chatbot2 = () => {
 
                                                             elm?.offlineMsg == false ? elm.myFile ?
                                                                 <>
-                                                                    <div className="">
+                                                                    <div className="px-2">
                                                                         <div>
-                                                                            <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                                                            <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px",  cursor: "pointer"  }} onClick={() => handleImag(elm)}/>
                                                                         </div>
                                                                         <div>
                                                                             <time style={{ fontSize: "10px" }} className='p-0 m-0'>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
@@ -662,6 +671,7 @@ const Chatbot2 = () => {
                                             :
                                             <input type="text" className={`form-control ${contentError ? "borderred " : " messagechatbot"}`}
                                                 onChange={(e) => { setContent(e.target.value); setContentError(false) }} value={content}
+                                                onKeyDown={(e) => {if(e.key === "Enter"){ handleSendMessages()} }} 
                                             ></input>}
                                         {showEmoji ?
                                             <Picker onEmojiClick={onEmojiClick} />
@@ -676,7 +686,7 @@ const Chatbot2 = () => {
                                                     <GrAttachment className='' />
                                                     <input type="file" className='filetype' style={{ cursor: "pointer" }} onChange={(e) => handleChangefile(e)} />
                                                 </div>
-                                                <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div>
+                                                <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon'  onClick={() => setshowEmoji(!showEmoji)} /></div>
                                             </>
                                         }
                                         {chatId && chatId != undefined &&
@@ -794,6 +804,11 @@ const Chatbot2 = () => {
                     </button>
                 </Modal.Footer>
             </Modal>
+            <ImagModal
+            imgd={imgd}
+            setImgd={setImgd}
+            sendi={sendi}
+            />
         </>
     )
 }

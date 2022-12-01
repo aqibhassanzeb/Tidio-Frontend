@@ -1,0 +1,23 @@
+.imageModalbackgrd{
+    background-color: rgba(0, 0, 0, 0.479);
+}
+.modal-content{
+   
+}
+.clsoebtn{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 30px;
+    color: black;
+    margin-bottom: 5px;
+}
+.ioclsoe{
+    cursor: pointer;
+}
+.ioclsoe:hover{
+ 
+   transition: .5s;
+   box-shadow: 1px 1px 5px rgb(254, 255, 255);
+   border-radius: 5px;
+}

@@ -24,7 +24,18 @@ margin-left: 0px !important;
     border-radius: 5px;
 }
 
-
+.imageuserfullsrc{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+.imageuserfullsrc2{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 550px;
+    height: 440px;
+}
 .chat_icon{
     width: 29px;
 }

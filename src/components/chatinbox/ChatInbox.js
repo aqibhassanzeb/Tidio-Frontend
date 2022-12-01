@@ -19,6 +19,7 @@ import { GrAttachment } from 'react-icons/gr'
 import { BiWifi, BiWifi0 } from 'react-icons/bi'
 import boopSfx2 from "../../images/phoneringtone.mp3"
 import useSound from 'use-sound'
+import ImagModal from './../modals/ImageModal/ImagModal';
 
 
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
@@ -62,6 +63,8 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
     const connectionRef = useRef()
     // video modal 
     const [show, setShow] = useState(false);
+    const [imgd, setImgd] = useState(false);
+    const [sendi, setSendi] = useState();
 
     const handleClose = () => {
         leaveCall()
@@ -317,7 +320,10 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
      useEffect(() => {
      Ringing()
      }, [receivingCall,callAccepted])
-
+const handleImag = (elm) => {
+    setImgd(true)
+    setSendi(`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`)
+}
     return (
         <>
             {/* <EmojiPicker/> */}
@@ -353,7 +359,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                         elm.myFile ?
                                             <>
                                                 <div>
-                                                    <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                                    <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} onClick={() => handleImag(elm)}/>
                                                     <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
                                                 </div>
                                             </>
@@ -406,7 +412,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                     elm.myFile ?
                                         <>
                                             <div>
-                                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px" }} />
+                                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} className="imageuserfullsrc" onClick={() => handleImag(elm)} />
                                                 <time className='chat_time'>{setDate ? setDate.toLocaleTimeString('en-US') : "N/A"}</time>
                                             </div>
                                         </>
@@ -464,9 +470,11 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                 </>
                                 :
                                 <div className=' text_area_padding'>
-                                    <input type="text" placeholder='Type your message here...' className=' custom_text_area' value={newmessage} onChange={(e) => { setNewmessage(e.target.value) }}>
+                                    <input type="text" placeholder='Type your message here...' className=' custom_text_area' value={newmessage} onChange={(e) => { setNewmessage(e.target.value) }} onKeyDown={(e) => {if(e.key === "Enter"){ sendMessageHandle()}}}>
                                     </input>
                                 </div>}
+
+                                
                             {/* {isTyping ?<p>Typing...</p>:""} */}
                             <div className='replyandatach'>
                                 {selectedUser &&
@@ -555,6 +563,11 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                 </Modal.Body>
 
             </Modal>
+                            <ImagModal
+                            imgd={imgd}
+                            setImgd={setImgd}
+                            sendi={sendi}
+                            />
         </>
     )
 }
