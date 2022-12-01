@@ -395,8 +395,11 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="">
-                                            <p className="dottttedicon ">Offline Mode</p>
+                                            <div className="maindottttedicon">
+                                            <p className="dottttedicon ">Offline Mode 😴</p>
+                                        </div>
+                                        <div className="smalldottttedicon">
+                                            <p className="dottttedicon2 ">Offline Mode 😴</p>
                                         </div>
                                         </div>
                                     :
@@ -424,7 +427,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                                                         </div>
                                                     </div>
                                                     <div className='chat_end_row '>
-                                                        <p className='p-0 m-0'>{elm.content}</p>
+                                                        <p className='mesagecontext p-0 m-0'>{elm.content}</p>
 
                                                     </div>
                                                 </div>
