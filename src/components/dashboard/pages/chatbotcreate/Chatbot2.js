@@ -617,11 +617,11 @@ const Chatbot2 = () => {
                                         <div style={{ borderLeft: "1px solid lightgray", borderRight: "1px solid lightgray" }}>
                                             <div className="backforemailsub ">
                                                 <div className="text-center text-white"><BiUser className="userbiicon" /></div>
-                                                <h4 className="text-white text-center">Please introduce yourself</h4>
+                                                <h4 className="text-white text-center">{getStarted?.user_message}</h4>
                                                 <div className=' divforcreatecahtbot'>
                                                     <div className='indiviconarow  mt-3'>
                                                         <span className=' bg-light p-1 border d-flex align-items-center'><FiArrowDownRight className='fiarrowicon' /></span>
-                                                        <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" placeholder='Name' className='inputemailchatbot  '
+                                                        <span><input style={{ border: Error ? "1px red solid" : "0px gray solid" }} type="text" placeholder={getStarted?.enter_name} className='inputemailchatbot  '
                                                             onChange={(e) => { setNameInp(e.target.value); setError(false) }} value={nameInp}
                                                         /></span>
                                                     </div>
