@@ -40,6 +40,7 @@ const Billing = () => {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <div className='fielddata'>
             <fieldset>
                 <input type="text" className='modalinputt' placeholder='Company Name'   />
                 <input type="text" className='modalinputt' placeholder='Street'   />
@@ -50,6 +51,7 @@ const Billing = () => {
                 <input type="text" className='modalinputt2' placeholder='Invoicing Email'   />
                <div className='d-flex justify-content-center'> <button className='btn btn-primary mt-2'>Save</button></div>
             </fieldset>
+            </div>
         </Modal.Body>
       </Modal>
     </>

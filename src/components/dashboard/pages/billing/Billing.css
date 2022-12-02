@@ -4,17 +4,20 @@
 }
 .modalinputt{
     border: 1px solid lightgray;
-    width: 100%;
+    width: 99%;
     border-radius: 0px;
     padding: 10px;
     margin: 5px 2px;
+    
+}
+.fielddata{
 }
 .modalinputt:focus{
-    outline: 2px solid rgb(20, 194, 252);
+    outline: 1px solid rgb(20, 194, 252);
     border: 0px solid black;
  }
  .modalinputt2:focus{
-    outline: 2px solid rgb(20, 194, 252);
+    outline: 1px solid rgb(20, 194, 252);
     border: 0px solid black;
  }
 .modalinputt2{
