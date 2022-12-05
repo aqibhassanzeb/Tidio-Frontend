@@ -4,13 +4,15 @@
     justify-content: center;
     align-items: center;
     background: rgb(239, 242, 246);
-    height: 90vh;
-
+    height: auto;
 }
 .row-hometop{
     width: 1024px;
 }
+.collectManDiv{
+    display: flex;
 
+}
 .row-hometop h5{
     font-size: 18px;
     line-height: 23px;
@@ -27,6 +29,7 @@
     border-radius: 8px;
     position: relative;
     box-shadow: rgb(0 27 71 / 16%) 0px 29px 32px -25px;
+    margin-top: 60px;
     z-index: 2;
 }
 
@@ -749,4 +752,38 @@
 .facebook-icon{
     width: 24px;
     height: 24px;
+}
+@media only screen and (max-width: 1024px) and (min-width: 768px)  {
+    .row-home{
+        width: 100%;
+        padding: 30px 0px;
+        margin-top: 40px;
+    } 
+    .collectManDiv{
+        display: flex;
+        flex-direction: column;
+    }
+    .sidearrow-btnbottom{
+        right: 0px;
+    }
+    .sidearrow-btntop{
+        right: 0px;
+    }
+    .colleft-home{
+        width: 46%;
+    }
+}
+@media only screen and (max-width: 768px) and (min-width: 370px)  {
+    .row-home{
+        width: 100%;
+        padding: 30px 0px;
+        margin-top: 40px;
+    } 
+    .collectManDiv{
+        display: flex;
+        flex-direction: column;
+    }
+    .sidearrow-btnbottom{
+        right: 0px;
+    }
 }

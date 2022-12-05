@@ -9,8 +9,8 @@ const Billing = () => {
     const [lgShow, setLgShow] = useState(false);
   return (
     <>
-        <div className='container-fluid'>
-            <div className='row'>
+        <div className='container-fluid' >
+            <div className='row billing-div'>
                 <div className='subbil'>
                 <h5> <MdSubtitles style={{fontSize: "30px" , color: "gray"}} /> Subscription & Billing</h5>
                 </div>

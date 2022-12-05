@@ -119,7 +119,7 @@ function Home() {
                     )
 
                 }
-
+                
                 {
                     activeTab == 2 && <>
                         <div className='colright-second'>
