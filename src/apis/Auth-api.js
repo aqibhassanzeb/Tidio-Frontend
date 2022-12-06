@@ -3,7 +3,11 @@ import { apiURL } from '../config/index'
 
 
 export const userRegister=async(reqParam) => {
-        const response  = await apiURL.post("user", reqParam);
+        const response  = await apiURL.post("userloginvalidemail", reqParam);
+        return response;
+      }
+export const verifyEmail=async(reqParam) => {
+        const response  = await apiURL.post(`/userlogintoken/${reqParam}`);
         return response;
       }
 
