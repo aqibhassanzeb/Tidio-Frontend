@@ -26,16 +26,19 @@
 }
 .upgradebtn{
     background-color: white;
-    border: 1px solid #dc3545;
-    border-radius: 7px;
-    padding: 4px;
+    border: 1px solid #ff5100;
+    border-radius: 5px;
+    color:  #ff5100;
+    padding: 6px;
+    font-weight: bold;
+    font-size: 14px;
  }
  .upgradebtn:hover{
-    background-color: #dc3545;
-    border: 1px solid #dc3545;
+    background-color:  #ff5100;
+    border: 1px solid  #ff5100;
     color: white;
-    border-radius: 7px;
-    padding: 4px;
+    border-radius: 5px;
+    padding: 6px;
  }
  .textvalue{
      font-size: 14px;
