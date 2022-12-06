@@ -26,11 +26,11 @@ function DashboardHeader() {
           href="#home"
           className=" d-flex justify-content-center align-items-center"
         >
-          <HiHome className="dashbdicon" onClick={() => navigate("/")} />{" "}
-          Dashboard{" "}
+          <HiHome className="dashbdicon" onClick={() => navigate("/")} />
+          Dashboard
         </Navbar.Brand>
         <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end pr-4">
+        <Navbar.Collapse className="d-flex justify-content-end ">
           <Navbar.Text className="naviconbar ">
             {/*  <MdOutlineContactSupport className='statsicon' />
                         <RiContactsBook2Line className='statsicon' />
