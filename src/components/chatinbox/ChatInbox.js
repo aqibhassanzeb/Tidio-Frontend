@@ -392,6 +392,9 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                     elm.myFile ? (
                       <>
                         <div>
+                          <p className="p-0 m-0 boldemail">
+                            {selectedUser.subUser?.email}
+                          </p>
                           <img
                             src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`}
                             style={{ width: "100px", height: "100px" }}
@@ -428,7 +431,10 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                         </div>
                       </div>
                     )
-                  ) : (
+                  ) 
+                  
+                  : 
+                  (
                     <div className={`col-sm-12  bcakhover }`}>
                       <div className="icondivchat">
                         <p>{selectedUser.subUser?.email.charAt(0)}</p>
@@ -460,15 +466,26 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                   )
                 ) : elm.myFile ? (
                   <>
-                    <div>
-                      <img
-                        src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`}
-                        className="imageuserfullsrc"
-                        onClick={() => handleImag(elm)}
-                      />
-                      <time className="chat_time">
-                        {setDate ? setDate.toLocaleTimeString("en-US") : "N/A"}
-                      </time>
+                    <div className="d-flex">
+                      <div className="icondivchat">
+                        <p>{selectedUser.subUser?.email.charAt(0)}</p>
+                      </div>
+                      <div>
+                        <p className="p-0 m-0 boldemail">
+                          You
+                        </p>
+
+                        <img
+                          src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`}
+                          className="imageuserfullsrc"
+                          onClick={() => handleImag(elm)}
+                        />
+                        <time className="chat_time">
+                          {setDate
+                            ? setDate.toLocaleTimeString("en-US")
+                            : "N/A"}
+                        </time>
+                      </div>
                     </div>
                   </>
                 ) : (
@@ -523,7 +540,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                       className=" btncrostop"
                       onClick={() => handleCanclePic()}
                     >
-                      <IoIosClose  />
+                      <IoIosClose />
                     </div>
                   </div>
                 </>
@@ -560,20 +577,18 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                     </div>
                   </>
                 )}
-                 
+
                 <div className="replybtn ">
                   {loading ? (
                     <p>Sending..</p>
                   ) : (
-                    selectedUser && !showFile && newmessage.length == 0 || (
+                    (selectedUser && !showFile && newmessage.length == 0) || (
                       <button
                         className="btn btn-primary"
-                       
                         onClick={() => {
                           sendMessageHandle();
                         }}
                       >
-                     
                         Reply
                       </button>
                     )
