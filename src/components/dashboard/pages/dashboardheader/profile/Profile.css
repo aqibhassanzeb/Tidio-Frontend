@@ -31,8 +31,8 @@
 
 }
 .profileimage{
-    width:150px;
-    height: 150px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     margin: auto;
     display: block;
@@ -45,6 +45,7 @@
     display: flex;
     margin: auto;
     color: white;
+    font-size: 14px;
     background-color: rgba(8, 8, 78, 0.144);
 }
 .selectedata2{
@@ -52,9 +53,9 @@
     height: 35px;
     padding: 5px;
     border-radius: 5px;
-    
+    font-size: 14px;
     color: white;
-    background-color: rgba(8, 8, 78, 0.144);
+    background-color: rgb(23, 23, 61);
 }
 .usericonTExt{
     display: flex;
@@ -69,7 +70,7 @@
     
 }
 .usericon2{
-    font-size: 30px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-self: center;
@@ -81,6 +82,9 @@
     justify-content: center;
    
     width: 80px;
+}
+.userProfiletext p{
+    font-size: 14px;
 }
 .logprosupbtn{
     margin: 40px 20px;

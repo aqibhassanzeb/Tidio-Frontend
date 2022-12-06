@@ -126,7 +126,7 @@ function ChatbotCreate() {
                 setError(false);
               }}
             ></input>
-            {Error && <p style={{ color: "red" }}>please fill the name</p>}
+            {Error && <p style={{ color: "red" }}>Please fill the name</p>}
           </Modal.Body>
           <Modal.Footer>
             <button className="btn btn-danger" onClick={handleClose}>

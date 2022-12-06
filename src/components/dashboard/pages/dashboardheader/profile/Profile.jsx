@@ -6,6 +6,7 @@ import { BsPlus } from 'react-icons/bs';
 import { MdLogout, MdSupport } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ProjectModal from './../../../../modals/ProjectModal/ProjectModal';
 
 const Profile = ({setToggle,setValue,value}) => {
 
@@ -15,7 +16,12 @@ const Profile = ({setToggle,setValue,value}) => {
         localStorage.clear();
         navigate('/userlogin')
       }
+      const [project , setProject] = useState(false)
 
+      const handleProj = () =>{
+          setProject(true)
+         
+      }
     return (
         <>
             <div className='profile-maindiv'>
@@ -36,9 +42,9 @@ const Profile = ({setToggle,setValue,value}) => {
                     </select>
                     <select name="cars" className="selectedata mt-2" >
                         <option value="volvo" className="selectedata2">Website</option>
-                        <option value="saab" className="selectedata2">Saab</option>
-                        <option value="opel" className="selectedata2">Opel</option>
-                        <option value="audi" className="selectedata2">Audi</option>
+                        <option value="saab" className="selectedata2">Brainspk.com</option>
+                        <option value="opel" className="selectedata2">AntarticalCorps.com</option>
+                        <option value="audi" className="selectedata2" onClick={handleProj}>Add Project</option>
                     </select>
                 </div>
                 <div className='my-4'>
@@ -66,6 +72,8 @@ const Profile = ({setToggle,setValue,value}) => {
                     </div>
                 </div>
             </div>
+            <ProjectModal project={project}
+            setProject={setProject} />
         </>
     )
 }
