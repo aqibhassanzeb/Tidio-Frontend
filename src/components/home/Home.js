@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import "./Home.css"
 import { BiCode, BiDownArrowAlt, BiUpArrowAlt } from "react-icons/bi";
 // import { BiDownArrowAlt } from "react-icons/fi";
-import { FaWordpress, FaShopify } from "react-icons/fa";
+import { FaWordpress, FaShopify, FaApple } from "react-icons/fa";
 import { SiBigcommerce } from "react-icons/si";
 import PrestaShop from "../../images/PrestaShop.png"
 import chatimages from "../../images/chatss.png"
 import chatsvg from "../../images/chatbot.svg"
 import facebook from "../../images/Facebook.png"
+import insta from "../../images/insta.png"
+import instaimage from "../../images/instaimage.png"
+import android from "../../images/android.png"
 
 function Home() {
     const [activeTab, setActiveTab] = useState(1);
@@ -76,8 +79,8 @@ function Home() {
                         </div>
                     </div>
 
-                    <div className='line5-home'></div>
-                    <div className='fivth-line'>
+                    <div className='line5-home' ></div>
+                    <div className='fivth-line' onClick={() => handleActive(5)}>
                         <div className='circle'></div>
                         <div>
                             <h2>5. Don’t miss any conversations</h2>
@@ -154,11 +157,40 @@ function Home() {
                         <div className='right-fourth1'>
                             <h3>Stay in touch with your customers and followers</h3>
                             <p>Connect your Messenger and Instagram to communicate via direct messages and Stories.</p>
+                           <div className='messager-btnsmain'>
                             <button type='button' className='messager-btnss'>
                             <img className='facebook-icon' src= {facebook} />
                              Messenger
                              </button>
-                            
+
+                             <button type='button' className='messagerinsta-btnss'>
+                            <img className='insta-icon' src= {insta} />
+                             Instagram
+                             </button>
+                             </div>
+                            <img className='insta-img' src= {instaimage} />
+                        </div>
+                        </div>
+                    </>
+                }
+
+                {
+                    activeTab == 5 && 
+                    <>
+                        <div className='colright-fiveth'>
+                        <div className='right-fiveth1'>
+                           <div className='devices-btns'>
+                            <button type='button' className='apple-btnss'>
+                            <FaApple className='apple-icon' />
+                             Download for iOS
+                             </button>
+
+                             <button type='button' className='andriod-btnss'>
+                             <img className='android-icon' src= {android} />
+                             Download for Android
+                             </button>
+                             </div>
+                            <div className='image-android'></div>
                         </div>
                         </div>
                     </>
