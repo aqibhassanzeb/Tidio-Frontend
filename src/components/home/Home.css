@@ -2495,10 +2495,10 @@
     }
     .chatbots-img {
         position: absolute;
-        bottom: -99px;
+        bottom: -77px;
         right: -21px;
         z-index: -1;
-        height: 234px;
+        height: 165px;
     }
     .right-fourth1 h3 {
         margin-top: -33px;
@@ -2553,10 +2553,13 @@
 
     .insta-img {
         position: absolute;
-        bottom: -113px;
-        right: -11px;
+        bottom: -37px;
+        right: -31px;
         z-index: -1;
-        height: 252px;
+        height: 168px;
+    }
+    .right-fourth1 {
+        margin-top: 45px;
     }
 
     .right-fiveth1 {
@@ -2564,6 +2567,9 @@
         height: 26vh;
     }
 
+    .right-third1 {
+        margin-top: 13px;
+    }
     .image-android {
         position: absolute;
         width: 329px;
@@ -3063,5 +3069,13 @@
         cursor: default;
         right: 163px;
         top: 217px;
+    }
+
+    .chatbots-img {
+        position: absolute;
+        bottom: -124px;
+        right: -21px;
+        z-index: -1;
+        height: 158px;
     }
 }
