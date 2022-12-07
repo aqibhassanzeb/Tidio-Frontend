@@ -302,9 +302,10 @@
   justify-content: space-around;
 }
 .both {
-  position: absolute;
-  top: 46%;
-  left: 42%;
+  position: relative;
+  top: 10%;
+  left: 35%;
+  width: 30%;
 }
 #firstContainer {
   height: 40vh;
@@ -377,6 +378,7 @@
   }
   .both{
     left: 24%;
+    width: 54%;
   }
   .card-1 {
     padding: 45px;

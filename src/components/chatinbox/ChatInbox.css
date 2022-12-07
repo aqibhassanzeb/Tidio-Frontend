@@ -24,7 +24,18 @@ margin-left: 0px !important;
     border-radius: 5px;
 }
 
-
+.imageuserfullsrc{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+.imageuserfullsrc2{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 550px;
+    height: 440px;
+}
 .chat_icon{
     width: 29px;
 }
@@ -146,9 +157,28 @@ margin-left: 0px !important;
    
 }
 .dottttedicon{
-   margin-left: 20px;
-   text-decoration: line-through;
-}
+   color: rgba(128, 128, 128, 0.849);
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+ }
+ .dottttedicon::before{
+    content: "----------------------------------------------------  ";
+    color: rgba(128, 128, 128, 0.534);
+
+   letter-spacing: -3px;
+   margin: 0px 3px;
+ }
+ .dottttedicon::after{
+    content: " ----------------------------------------------------  ";
+   color: rgba(128, 128, 128, 0.479);
+   letter-spacing: -3px;
+   margin: 0px 3px;
+
+ }
+ .mesagecontext{
+     font-size: 14px;
+ }
 .custom_text_area{
     width: 100%;
     padding: 27px;
@@ -162,7 +192,7 @@ margin-left: 0px !important;
     display: flex;
     justify-content: space-between;
     margin-left: 10px;
-    width: 99%;
+    width: 99% !important;
 }
 .openprofinfo{
     padding: 0px 20px;
@@ -330,6 +360,15 @@ margin-left: 0px !important;
     position: absolute;
     top: 10px;
     right: 2%;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(24, 185, 9);
+    border-radius: 5px;
 }
 .replyandatach{
     display: flex;
@@ -377,6 +416,12 @@ margin-left: 0px !important;
 .videofulldiv{
     margin: auto;
 }
+.maindottttedicon{
+    display: block;
+}
+.smalldottttedicon{
+    display: none;
+}
 @media only screen and (max-width: 800px) and (min-width: 400px)  {
     .chat_end_text{
         margin-right: 10px;
@@ -398,5 +443,14 @@ margin-left: 0px !important;
         font-weight: bold;
         font-style: italic;
         height: 60vh;
+    }
+    .smalldottttedicon{
+        display: block;
+        font-size: 12px;
+color: gray;
+margin-left: 5px;
+    }
+    .maindottttedicon{
+        display: none;
     }
 }

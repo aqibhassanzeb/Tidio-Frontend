@@ -19,7 +19,7 @@ const WidgetOffline = ({getStarted,setshowChatbot,chatBot,setOfflineMsg,
         <>
             <div className=' bg-light'>
               {chatBot &&  <div className='d-flex justify-content-end'>
-                    <div className='' onClick={()=>{setshowChatbot(false)}}><IoIosClose style={{fontSize: 25}}/></div>
+                    <div className='' onClick={()=>{setshowChatbot(false)}}></div>
                 </div>}
             <div className='d-flex justify-content-end'> </div>
                 <div className='d-flex justify-content-center'>
@@ -27,7 +27,7 @@ const WidgetOffline = ({getStarted,setshowChatbot,chatBot,setOfflineMsg,
                    
                 </div> 
                 { sendMsg && <div>
-                    <p>Your email has been send</p>
+                    <p className='sendedemail'>Your email has been send</p>
                 </div>}
                 <div>
                     <p className='apraforofline'>

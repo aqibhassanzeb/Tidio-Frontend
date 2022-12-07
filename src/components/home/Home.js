@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import "./Home.css"
+import React, { useState } from "react";
+import "./Home.css";
 import { BiCode, BiDownArrowAlt, BiUpArrowAlt } from "react-icons/bi";
 // import { BiDownArrowAlt } from "react-icons/fi";
 import { FaWordpress, FaShopify, FaApple } from "react-icons/fa";
@@ -13,16 +13,40 @@ import instaimage from "../../images/instaimage.png"
 import android from "../../images/android.png"
 
 function Home() {
-    const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(1);
 
-    const handleActive = (ind) => {
-        setActiveTab(ind);
-    }
+  const handleActive = (ind) => {
+    setActiveTab(ind);
+  };
 
-    return (
-        <div className='container-home'>
-            <div className='row-hometop'>
-                <h5>Hi Ihtesham2773</h5>
+  return (
+    <div className="container-home">
+      <div className="row-hometop">{/* <h5>Hi Ihtesham2773</h5> */}</div>
+      <div className="row-home">
+        <div>
+          <div className="sidearrow-btntop">
+            <BiUpArrowAlt className="downarrow-icon" />
+          </div>
+          <div className="sidearrow-btnbottom">
+            <BiDownArrowAlt className="toparrow-icon" />
+          </div>
+        </div>
+        <div className="bgrow "></div>
+        <div className="bgrow1 "></div>
+        <div className="line1-home "></div>
+        <div className="line2-home "></div>
+        <div className="line3-home "></div>
+        <div className="line4-home "></div>
+        <div className="homedivmain ">
+          <div className="colleft-home">
+            <h3>Feel the value Tidio brings to your business</h3>
+
+            <div className="first-line" onClick={() => handleActive(1)}>
+              <div className="circle"></div>
+              <div>
+                <h2>1. Add widget to your website</h2>
+                <p>That’s how the customers will see your messages.</p>
+              </div>
             </div>
             <div className='row-home'>
                 <div>
@@ -195,22 +219,24 @@ function Home() {
                         </div>
                     </>
                 }
-
-
-
-
-
-            </div>
-
-            <div className='rowsecond-home'>
-                <p>These steps are foundation that will help you get on track with the product.
-                    After completing all of them you will gain access to all necessary metrics & information on how Tidio helps your bussiness grow.</p>
-                <button type='button' className='skip-btns'>
-                    Skip now & go to main dashboard
-                </button>
-            </div>
+          </div>
         </div>
-    )
+      </div>
+
+      <div className="rowsecond-home">
+        <p>
+          These steps are foundation that will help you get on track with the
+          product. After completing all of them you will gain access to all
+          necessary metrics & information on how Tidio helps your bussiness
+          grow.
+        </p>
+        <button type="button" className="skip-btns">
+          Skip now & go to main dashboard
+        </button>
+      </div>
+    </div>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

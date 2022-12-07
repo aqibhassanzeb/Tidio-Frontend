@@ -18,6 +18,7 @@
 .widget_header{
     color: black !important;
     margin-bottom: 0px;
+    font-size: 16px;
 }
 .display_widget{
     color: #080f1a;
@@ -43,7 +44,6 @@
     line-height: 1.28571429;
 }
 .select_device{
-    margin-left: 109px !important;
     border-radius: 0px !important;
 }
 .hide_screen{
@@ -59,8 +59,39 @@
 .form-switch{
     width: 100%;
 }
+.sendedemail{
+    padding: 0px;
+    margin: 10px 0px 0px 0px;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    font-family: serif;
+    border-bottom: 2px solid lightgray;
+    border-top: 2px solid lightgray;
+    animation: messagesend 2s linear ;
+   
+}
+
+@keyframes messagesend {
+    from{
+        position: relative;
+        right: -100%;
+    }
+    to{
+        position: relative;
+        right: 0%;
+    }
+}
 .dropdtacard{
     display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.prewithdrop{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: space-between;
 }
 .status_p{
     color: #080f1a;
@@ -202,8 +233,9 @@
 }
 .apraforofline{
     font-size: 18px;
-    margin: 5px 0px;
+    margin: 0px 0px;
     padding: 10px;
+    text-align: center;
 }
 .transdata{
     display: flex;
@@ -223,7 +255,7 @@
     margin: auto;
 }
  .img_color{
-    background-color: rgba(150, 33, 128, 0.664);
+    background-color: rgba(33, 113, 150, 0.664);
     width: 100%;
     height: 100%;
    display: flex;
@@ -236,11 +268,15 @@
     border-radius: 10px;
     overflow: hidden;
 }
-.hitheretext h2{
+.hitheretext{
+    padding: 15px;
+
+}
+.hitheretext h5{
     font-weight: 400;
-    font-size: 22px;
     color: white;
-    line-height: 30px;
+    font-size: 22px;
+    line-height: 22px;
     overflow-wrap: break-word;
     white-space: pre-line;
     -webkit-text-stroke: 0.4px;
@@ -248,11 +284,16 @@
     align-items: center;
 }
 .iconmainduv{
-    padding-left: 20px;
+    padding-left: 0px;
     color: white;
     display: flex;
-    font-size: 30px;
+    font-size: 25px;
     align-items: center;
+}
+.messagetextcard{
+    padding: 0px;
+    margin-top: 5px;
+    color: white;
 }
 .doticononline{
     width: 10px;
@@ -333,11 +374,13 @@
 }
 .block_btn{
     width: 100% !important;
-    background-color: #952080 !important;
+    background-color: #1c8681 !important;
     border: none !important;
-    border-radius: 0px !important;
+    border-radius: 5px !important;
     font-size: initial !important;
-
+}
+.block_btn:hover{
+   background-color: #10524e !important;
 }
 @media only screen and (min-width: 370px) and (max-width: 600px) {
     .display_display{
@@ -365,9 +408,7 @@
     .width_add{
         width: 100% !important;
     }
-    .select_device{
-        margin-left: 30px !important;
-    }
+  
 }
 .back_image{
     width: 76px !important;

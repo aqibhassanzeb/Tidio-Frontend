@@ -6,6 +6,16 @@
         animation: animationonsidebar .7s linear;
         transition: .7s;
 }
+.inbox-maindiv::-webkit-scrollbar{
+    width: 7px;
+    background-color: lightgray;
+    
+}
+.inbox-maindiv::-webkit-scrollbar-thumb{
+    background: rgb(28, 43, 69);
+    border-radius: 0px;
+}
+
 .chatdivin{
     width: 100%;
 }

@@ -8,8 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const OfflineTime = ({ getStarted, setgetStarted,handleClose,handleSubmit }) => {
     const [toggleTime, setToggleTime] = useState(false)
-    const [timeonline, settimeonline] = useState(getStarted.timeonline[0])
-
+    
+    const [timeonline, settimeonline] = useState(getStarted.timeonline[0] ? getStarted.timeonline[0]:getStarted.timeonline)
     const handleChange = (e, name) => {
         settimeonline({ ...timeonline, [name]: e.target.value })
     }
@@ -17,7 +17,6 @@ const OfflineTime = ({ getStarted, setgetStarted,handleClose,handleSubmit }) => 
     useEffect(() => {
         setgetStarted({ ...getStarted,timeonline})
     }, [timeonline])
-
     const handlesubmitTime=()=>{
     if(timeonline?.Sunday$start > timeonline?.Sunday$end){
       return  toast.error("End time is invalid for Sunday")
@@ -95,7 +94,7 @@ const OfflineTime = ({ getStarted, setgetStarted,handleClose,handleSubmit }) => 
                                             <tr>
                                                 <th>Friday</th>
                                                 <td><input type="time" value={timeonline?.Friday$start} onChange={(e) => { handleChange(e, "Friday$start") }} /></td>
-                                                <td><input type="time" value={timeonline?.Friday$end} onChange={(e) => { handleChange(e, "Thursday$end") }} /></td>
+                                                <td><input type="time" value={timeonline?.Friday$end} onChange={(e) => { handleChange(e, "Friday$end") }} /></td>
                                             </tr>
                                             <tr>
                                                 <th>Saturday</th>
@@ -109,8 +108,8 @@ const OfflineTime = ({ getStarted, setgetStarted,handleClose,handleSubmit }) => 
                                 </div>
                             </>}
                             <div className='d-flex justify-content-center'>
-                            <button className='btn btn-danger' onClick={handleClose}>Close</button>
-                            <button className='btn btn-primary' onClick={handlesubmitTime}>Save</button>
+                            <div className='btncloose' onClick={handleClose}>Close</div>
+                            <div className='btnsaave' onClick={handlesubmitTime}>Save</div>
                             </div>
                     </div>
                 </div>

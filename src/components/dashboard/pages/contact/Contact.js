@@ -53,7 +53,7 @@ useEffect(() => {
        <ToastContainer />
       <div className='container'>
         <h1 className='col contatchead'>Acquired Contact List</h1>
-        <div className='row'>
+        <div className='row rowfortable'>
           <div className='col '>
           <div className='tablemaindivofcol'>
           <Table striped bordered hover >

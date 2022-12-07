@@ -54,10 +54,11 @@ gap: 1rem;
     color: white !important;
 }
 .navLinkdiv{
-
+    position: relative;
     width: 100%;
     display:  flex;
     justify-content: space-between;
+    background-color: white;
 }
 .go_to_app{
     width: 190px  !important;

@@ -126,8 +126,11 @@ export default function Widget() {
                                                 <input className="form-check-input" type="checkbox" value={displayWidget} id="flexSwitchCheckChecked" onClick={() => setDisplayWidget(!displayWidget)} />
                                             </div>
                                         </div>
-                                        {displayWidget && <div className='col-sm-12 d-flex p-3 pb-0'>
+                                        {displayWidget &&
+                                             <div className='col-sm-12 d-flex p-3 pb-0'>
+                                             <div className='col-3'>
                                             <label className='display_widget'>Devices</label>
+                                            </div>
                                             <Form.Select aria-label="Default select example" value={getStarted?.devices}
                                                 onChange={(e) => { inputEvent(e, "devices") }} className="select_device px-2 py-1">
                                                 <option value="Both on desktop and mobile devices">Both on desktop and mobile devices</option>
@@ -272,8 +275,16 @@ export default function Widget() {
                                                         <div className='emailinputandtext'>
                                                             <div className='emailtext '>Name</div>
                                                             <div className='p-2 inpdivforwit'>
-                                                                <input type="text" className='inputsurvey' value={getStarted?.enter_phone} name='enter_phone' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
+                                                                <input type="text" className='inputsurvey' value={getStarted?.enter_name} name='enter_name' placeholder='Enter your name' onChange={(e) => { inputEvent(e, "enter_name") }} /><br />
 
+                                                            </div>
+                                                            {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
+                                                        </div>
+                                                        <div className='emailinputandtext'>
+                                                            <div className='emailtext '>Phone</div>
+                                                            <div className='p-2 inpdivforwit'>
+                                                                <input type="number" className='inputsurvey' value={getStarted?.enter_phone} name='enter_phone' placeholder='Enter your phone no' onChange={(e) => { inputEvent(e, "enter_phone") }} /><br />
+                                                 
                                                             </div>
                                                             {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
                                                         </div>
@@ -287,14 +298,7 @@ export default function Widget() {
                                                             </div>
                                                             {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
                                                         </div>
-                                                        <div className='emailinputandtext'>
-                                                            <div className='emailtext '>GDPR</div>
-                                                            <div className='p-2 inpdivforwit '>
-                                                                <input type="text" className='inputsurvey ' value={getStarted?.gdpr} name='gdpr' placeholder='GDPR' onChange={(e) => { inputEvent(e, "gdpr") }} /><br />
-
-                                                            </div>
-                                                            {/* <div className='d-flex align-items-center p-3'> <AiFillDelete className='deleicon' /> </div> */}
-                                                        </div>
+                                                        
                                                     </div>
                                                 </div>
                                             </>
@@ -318,16 +322,16 @@ export default function Widget() {
                         </Accordion>
                     </div>
 
-                    <button className='btn btn-primary' onClick={handleSubmit} >Save</button>
+                    <button className='btn btn-primary' style={{marginLeft: "20px"}} onClick={handleSubmit} >Save</button>
                 </div>
                 <div className='col-sm-3 offset-2 '>
 
                     <div className='row '>
-                        <div className=' d-flex m-2'>
+                        <div className='prewithdrop'>
                             <p className="d-flex align-items-center">Preview</p>
                             <div className='dropdtacard '  >
-                                <Form.Select aria-label="Default select example" value={cardDisplay} style={{ width: "160px" }}
-                                    onChange={(e) => setCardDisplay(e.target.value)} className="select_device px-2 py-1">
+                                <Form.Select aria-label="Default select example" value={cardDisplay} 
+                                    onChange={(e) => setCardDisplay(e.target.value)} className="select_device ">
                                     <option value="2">Widget Visibility</option>
                                     <option value="0">Get Started</option>
                                     <option value="1">Pre-chat Survey</option>
@@ -341,9 +345,9 @@ export default function Widget() {
                                 <div className=' background_img'>
                                     <div className='img_color'>
                                         <div className='d-flex justify-content-between'>
-                                            <div className='hitheretext p-4 mt-4'>
-                                                <h2>{getStarted?.status}</h2>
-                                                <p className='text-light messagetextcard'>{getStarted?.message}</p>
+                                            <div className='hitheretext mt-2'>
+                                                <h5 className='m-0 p-0'>{getStarted?.status}</h5>
+                                                <p className=' messagetextcard'>{getStarted?.message}</p>
                                             </div>
                                             <div className='iconmainduv'>
                                                 <span className='threedoticoon'> <BsThreeDotsVertical /> </span> &nbsp;
@@ -377,14 +381,14 @@ export default function Widget() {
                                         </div> */}
                                         <div className='col-sm-12 text-center mt-5'>
                                             <img className='chat_setting_profile' src={User_png} alt="user" />
-                                            <h4 className='mt-2'>{getStarted.user_message}</h4>
+                                            <h5 className='mt-2'>{getStarted.user_message}</h5>
                                             <div className='p-4'>
                                                 <div className="input-group">
                                                     <div className="input-group-prepend">
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
 
-                                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
+                                                    <input type="text" className="form-control custom_control" placeholder={getStarted.enter_name} aria-label="Input group example" />
 
                                                 </div>
                                                 <div className="input-group mt-2">
@@ -392,7 +396,7 @@ export default function Widget() {
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
                                                    
-                                                        <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
+                                                        <input type="text" className="form-control custom_control" placeholder={getStarted.enter_phone} aria-label="Input group example" />
                                                    
 
                                                 </div>
@@ -401,7 +405,7 @@ export default function Widget() {
                                                         <div className="input-group-text arrow"><FiArrowDownRight /></div>
                                                     </div>
                                                     
-                                                        <input type="text" className="form-control custom_control" placeholder="Phone number" aria-label="Input group example" />
+                                                        <input type="text" className="form-control custom_control" placeholder={getStarted.enter_email} aria-label="Input group example" />
                                                     
 
                                                 </div>

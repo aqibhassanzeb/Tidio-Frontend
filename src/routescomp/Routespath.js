@@ -28,6 +28,7 @@ import PrivacyPolicy from './../components/register/privacyPolicy/PrivacyPolicy'
 import OfflineTime from './../components/dashboard/pages/widget/offlineTime/OfflineTime';
 import Home from '../components/home/Home';
 import Billing from './../components/dashboard/pages/billing/Billing';
+import VerifyEmail from '../components/verifyemail/VerifyEmail';
 
 const Routespath = () => {
 
@@ -60,6 +61,7 @@ const Routespath = () => {
         
         <Route path="/" exact element={<>   <Header />  <CustomerServices />  <Footer /> </>} />
         <Route path="/userlogin" element={<>    <Login />  </>} />
+        <Route path="/token/:token" exact element={<>    <VerifyEmail />  </>} />
         <Route path="/register" element={<>    <Register /> </>} />
         <Route path="/pricing" element={<> <Header /> <Pricing /> <Footer /> </>} />
         <Route path="/chatbot/id" element={<Chatbot2 />} />

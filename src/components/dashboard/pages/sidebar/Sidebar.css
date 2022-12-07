@@ -19,6 +19,8 @@ main{
     width: 300px;
     transition: .7s;
     z-index: 1;
+    position: sticky;
+    top: 0;
 }
 .top_section{
     display: flex;
@@ -104,6 +106,7 @@ main{
     border-radius: 5px;
     font-size: 12px;
     text-transform: uppercase;
+    z-index: 5;
 }
 .iconsid{
     font-size: 25px;

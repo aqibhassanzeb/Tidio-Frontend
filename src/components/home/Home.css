@@ -9,7 +9,9 @@
 .row-hometop {
     width: 1024px;
 }
-
+.collectManDiv{
+    display: flex;
+}
 .row-hometop h5 {
     font-size: 18px;
     line-height: 23px;
@@ -26,6 +28,7 @@
     border-radius: 8px;
     position: relative;
     box-shadow: rgb(0 27 71 / 16%) 0px 29px 32px -25px;
+    margin-top: 60px;
     z-index: 2;
 }
 
