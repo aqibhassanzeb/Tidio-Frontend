@@ -183,10 +183,7 @@ const SocailLogin = () => {
       </button>}
           </>
       )
-  
-    
-  
-  
+ 
 }
 
 export default SocailLogin

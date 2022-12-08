@@ -155,7 +155,6 @@ const Inbox = () => {
                             chatUser.map((elm, index) => {
                             const notfi=  totalnotifi && totalnotifi.filter((elem)=>elem[0]==elm._id)
                             const result = elm?.subUser.email.split('@')[0];
-                                        console.log( notfi)
                                 return (
                                     <>
                                         <div key={elm._id} className={ chatMail == index ? "inboxUserdetail2" :  'inboxUserdetail  '} onClick={() => { handleSelect(elm._id); handleTog(index) }} style={{ cursor: "pointer" }}>

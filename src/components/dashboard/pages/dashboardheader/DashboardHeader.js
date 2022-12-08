@@ -15,10 +15,9 @@ import { useNavigate } from "react-router-dom";
 function DashboardHeader() {
   const loginUser = useSelector((state) => state.User.activeUser);
   const [toggle, setToggle] = useState(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("ONLINE");
   const [onlineMode, setOnlineMode] = useState(true);
   const navigate = useNavigate();
-  console.log("online mode :", onlineMode);
   return (
     <>
       <Navbar className="" style={{ borderBottom: "1px solid lightgray" }}>
@@ -40,11 +39,11 @@ function DashboardHeader() {
             <img
               className="user_img"
               alt="user"
-              src={loginUser?.imageUrl}
+              src={loginUser?.imageUrl ? process.env.REACT_APP_API_URL_IMG+loginUser?.imageUrl: UserImage}
               onClick={() => setToggle(!toggle)}
             />
             <span className="textvalue ">
-              <GoPrimitiveDot />
+            {value=="ONLINE" ?  <GoPrimitiveDot /> : <p>{value}</p>}
             </span>
             </div>
             {toggle && (
