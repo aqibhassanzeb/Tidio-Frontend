@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProjectModal from './../../../../modals/ProjectModal/ProjectModal';
 
-const Profile = ({setToggle,setValue,value}) => {
+const Profile = ({setToggle,setValue,value,toggle}) => {
 
     const loginUser = useSelector(state => state.User.activeUser)
     const navigate=useNavigate()
@@ -18,9 +18,11 @@ const Profile = ({setToggle,setValue,value}) => {
       }
       const [project , setProject] = useState(false)
 
-      const handleProj = () =>{
-          setProject(true)
-         
+      const handleProj = (e) =>{
+          const value = e.target.value
+          if(value === "audi"){
+              setProject(true)
+          }
       }
     return (
         <>
@@ -40,11 +42,11 @@ const Profile = ({setToggle,setValue,value}) => {
                         <option value="ONLINE" className="selectedata2">Online</option>
                         <option value="OFFLINE"  className="selectedata2">Offline</option>
                     </select>
-                    <select name="cars" className="selectedata mt-2" >
+                    <select name="cars" className="selectedata mt-2"  onChange={handleProj} >
                         <option value="volvo" className="selectedata2">Website</option>
                         <option value="saab" className="selectedata2">Brainspk.com</option>
                         <option value="opel" className="selectedata2">AntarticalCorps.com</option>
-                        <option value="audi" className="selectedata2" onClick={handleProj}>Add Project</option>
+                        <option value="audi" className="selectedata2" >Add Project</option>
                     </select>
                 </div>
                 <div className='my-4'>
@@ -54,7 +56,7 @@ const Profile = ({setToggle,setValue,value}) => {
                     </div>
                     <div className='usericonTExt mt-1'>
                         <BsPlus className='usericon' />
-                        <p href='' className='text-white text-decoration-none'>Add an operator</p>
+                        <p href='' className='text-white text-decoration-none' >Add an operator</p>
                     </div>
                 </div>
                 <div className='logprosupbtn d-flex justify-content-around '>
@@ -72,8 +74,9 @@ const Profile = ({setToggle,setValue,value}) => {
                     </div>
                 </div>
             </div>
-            <ProjectModal project={project}
-            setProject={setProject} />
+          
+                    <ProjectModal project={project}
+                    setProject={setProject} /> 
         </>
     )
 }

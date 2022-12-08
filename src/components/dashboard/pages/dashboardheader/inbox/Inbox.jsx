@@ -138,6 +138,7 @@ const Inbox = () => {
 
     return (
         <>
+        <div className='container-fluid  p-0'>
             <div className='row chatdivin p-0'>
                 {
                     hide && (<div className='inbox-maindiv col-3' style={{overflowY:"scroll", padding: 0}}  >
@@ -232,7 +233,7 @@ const Inbox = () => {
                     </Button>
                 </Modal.Footer>
             </Modal> */}
-
+            </div>
 
         </>
     )

@@ -1,6 +1,15 @@
 .proinpt{
-    padding: 3px;
+    padding: 5px;
     border: 1px solid lightgray;
-    border-radius: 5px;
-    
+    width: 100%;
+    outline: none;
+    height: 45px;
+    border-radius: 3px;
+}
+.proinpt:focus{
+    outline: 2px solid rgb(68, 183, 221);
+    border: 1px solid white;
+}
+.indat{
+    margin: auto;
 }

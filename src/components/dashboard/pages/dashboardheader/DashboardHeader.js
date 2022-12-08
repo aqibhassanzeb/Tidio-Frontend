@@ -52,6 +52,7 @@ function DashboardHeader() {
                 setToggle={setToggle}
                 value={value}
                 setValue={setValue}
+                toggle={toggle}
               />
             )}
           </Navbar.Text>

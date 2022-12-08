@@ -1,22 +1,25 @@
 .profile-maindiv{
-    width: 300px;
-    height: 90vh;
+    width: 280px;
+    height: 88vh;
     background-color: #1C2B45;
     position: absolute;
     right: 0%;
     top: 100%;
     z-index: 10;
+    transition: 1s !important;
     border-radius: 5px;
-    animation: profilemai .5s linear;
+    animation: profilemai .7s linear;
 }
+
 @keyframes profilemai {
     from{
-        opacity: 0;
+       right: -30%;
     }
     to{
-        opacity: 1;
+        right: -1%;
     }
 }
+
 .crossicon{
     color: white;
     font-size: 25px;
