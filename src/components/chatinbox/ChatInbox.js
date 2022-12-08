@@ -394,7 +394,12 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                   elm?.offlineMsg == false ? (
                     elm.myFile ? (
                       <>
-                        <div>
+                      
+                        <div className="d-flex">
+                        <div className="icondivchat">
+                            <p>{selectedUser.subUser?.email.charAt(0)}</p>
+                          </div>
+                          <div>
                           <p className="p-0 m-0 boldemail">
                             {selectedUser.subUser?.email}
                           </p>
@@ -408,6 +413,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                               ? setDate.toLocaleTimeString("en-US")
                               : "N/A"}
                           </time>
+                        </div>
                         </div>
                       </>
                     ) : (

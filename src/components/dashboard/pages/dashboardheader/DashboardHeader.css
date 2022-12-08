@@ -41,9 +41,15 @@
     padding: 6px;
  }
  .textvalue{
-     font-size: 14px;
-     color: green;
- }
+    font-size: 14px;
+    color: rgb(11, 241, 11);
+    cursor: pointer;
+}
+.textvalue2{
+    font-size: 14px;
+    color: rgb(152, 153, 152);
+    cursor: pointer;
+}
  .dashbdicon{
      margin-right: 5px;
      font-size: 25px;

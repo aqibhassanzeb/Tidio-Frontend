@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../profile/Profile.css"
-import { AiOutlineClose, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineGlobal, AiOutlineUser } from 'react-icons/ai';
 import userimag from '../../../../../images/horse.jpg'
 import { BsPlus } from 'react-icons/bs';
 import { MdLogout, MdSupport } from 'react-icons/md';
@@ -25,10 +25,19 @@ const Profile = ({setToggle,setValue,value,toggle}) => {
               setProject(true)
           }
       }
+      
     return (
         <>
-            <div className='profile-maindiv'>
-                <div className=' p-2 d-flex justify-content-end'>
+            <div className={toggle ? 'profile-maindiv': 'profile-maindiv2'}>
+                <div className=' p-2 d-flex justify-content-between'>
+                <div className='dataslectdiv'>
+                <AiOutlineGlobal />
+                <select className='selectlangua'>
+                <option value="0" className='slecttetx'>English</option>
+                <option value="1" className='slecttetx'>Urdu</option>
+                <option value="2" className='slecttetx'>Pashto</option>
+              </select>
+              </div>
                     <AiOutlineClose className=' crossicon'  onClick={()=>setToggle(false)}/>
                 </div>
                 <div className='my-4'>

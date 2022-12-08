@@ -43,17 +43,17 @@ function DashboardHeader() {
               onClick={() => setToggle(!toggle)}
             />
             <span className="textvalue ">
-            {value=="ONLINE" ?  <GoPrimitiveDot /> : <p>{value}</p>}
+            {value=="ONLINE" ?  <GoPrimitiveDot /> : <GoPrimitiveDot className="textvalue2" />}
             </span>
             </div>
-            {toggle && (
+           
               <Profile
                 setToggle={setToggle}
                 value={value}
                 setValue={setValue}
                 toggle={toggle}
               />
-            )}
+           
           </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
