@@ -124,10 +124,10 @@ const Chatbot2 = () => {
 
     var createdby = "634543ff090124ecb0c39a6b"
     var email = "alikhan@gmail.com"
-    var _id =chatId ? chatId : localStorage.getItem("tidiochat")
+    var _id = chatId ? chatId : localStorage.getItem("tidiochat")
     var currentdate = new Date();
     var currentTime = currentdate.toLocaleString('en-GB').slice(12)
-    // console.log("current date ",currentdate.getDay())
+
     // socket connection for chat 
     useEffect(() => {
         // socket.on("connected", () => setSocketConnected(true))
@@ -197,7 +197,7 @@ const Chatbot2 = () => {
 
     const handlefetchChat = () => {
         if (chatId && chatId != undefined) {
-            const paylaod = { createdby, _id:chatId }
+            const paylaod = { createdby, _id: chatId }
             createChat(paylaod).then(result => {
                 localStorage.setItem("tidiochat", result?.data.FullChat._id)
                 localStorage.setItem("tidiochatuser", JSON.stringify(result.data?.FullChat.subUser))
@@ -382,7 +382,6 @@ const Chatbot2 = () => {
             socket.emit("answerCall", { signal: data, to: createdby })
         })
         peer.on("stream", (stream) => {
-            // console.log("my video :",stream)
             userVideo.current.srcObject = stream
 
         })
@@ -511,8 +510,8 @@ const Chatbot2 = () => {
                                                     <div key={elm._id}>
                                                         {elm.sender != "subUser" ?
                                                             elm.myFile ?
-                                                            <div className='px-2'>
-                                                                <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px", cursor: "pointer" }}  onClick={() => handleImag(elm)}/>
+                                                                <div className='px-2'>
+                                                                    <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px", cursor: "pointer" }} onClick={() => handleImag(elm)} />
                                                                 </div>
                                                                 :
                                                                 <div className='col-sm-12 p-2 ' key={elm?._id}>
@@ -532,7 +531,7 @@ const Chatbot2 = () => {
                                                                 <>
                                                                     <div className="px-2">
                                                                         <div>
-                                                                            <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px",  cursor: "pointer"  }} onClick={() => handleImag(elm)}/>
+                                                                            <img src={`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`} style={{ width: "100px", height: "100px", cursor: "pointer" }} onClick={() => handleImag(elm)} />
                                                                         </div>
                                                                         <div>
                                                                             <time style={{ fontSize: "10px" }} className='p-0 m-0'>{setDate ? setDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
@@ -671,7 +670,7 @@ const Chatbot2 = () => {
                                             :
                                             <input type="text" className={`form-control ${contentError ? "borderred " : " messagechatbot"}`}
                                                 onChange={(e) => { setContent(e.target.value); setContentError(false) }} value={content}
-                                                onKeyDown={(e) => {if(e.key === "Enter"){ handleSendMessages()} }} 
+                                                onKeyDown={(e) => { if (e.key === "Enter") { handleSendMessages() } }}
                                             ></input>}
                                         {showEmoji ?
                                             <Picker onEmojiClick={onEmojiClick} />
@@ -686,7 +685,7 @@ const Chatbot2 = () => {
                                                     <GrAttachment className='' />
                                                     <input type="file" className='filetype' style={{ cursor: "pointer" }} onChange={(e) => handleChangefile(e)} />
                                                 </div>
-                                                <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon'  onClick={() => setshowEmoji(!showEmoji)} /></div>
+                                                <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div>
                                             </>
                                         }
                                         {chatId && chatId != undefined &&
@@ -750,11 +749,11 @@ const Chatbot2 = () => {
 
                             </>
                         ) : (
-                            !receivingCall &&
-                            <button className="callbtn" onClick={() => callUser(createdby)}>
-                                {callloading ? "Calling" : <TbPhoneCall />}
-                            </button>
-                        )}
+                                !receivingCall &&
+                                <button className="callbtn" onClick={() => callUser(createdby)}>
+                                    {callloading ? "Calling" : <TbPhoneCall />}
+                                </button>
+                            )}
 
                         {receivingCall && !callAccepted ?
 
@@ -779,23 +778,23 @@ const Chatbot2 = () => {
                             </div>
 
                         ) : (
-                            <div className="mutedbtn" onClick={() => muteCam()}>
+                                <div className="mutedbtn" onClick={() => muteCam()}>
 
-                                <BsCameraVideoOffFill />
-                            </div>
+                                    <BsCameraVideoOffFill />
+                                </div>
 
-                        )}
+                            )}
                         {audioMuted ? (
                             <div className="mutedbtn" onClick={() => muteMic()}>
                                 <BsFillMicFill />
                             </div>
 
                         ) : (
-                            <div className="mutedbtn" onClick={() => muteMic()}>
-                                <BsFillMicMuteFill />
-                            </div>
+                                <div className="mutedbtn" onClick={() => muteMic()}>
+                                    <BsFillMicMuteFill />
+                                </div>
 
-                        )}
+                            )}
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="headback">
@@ -805,9 +804,9 @@ const Chatbot2 = () => {
                 </Modal.Footer>
             </Modal>
             <ImagModal
-            imgd={imgd}
-            setImgd={setImgd}
-            sendi={sendi}
+                imgd={imgd}
+                setImgd={setImgd}
+                sendi={sendi}
             />
         </>
     )

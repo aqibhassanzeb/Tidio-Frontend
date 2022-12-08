@@ -3,12 +3,25 @@ import { apiURL } from '../config/index'
 
 
 export const userRegister=async(reqParam) => {
-        const response  = await apiURL.post("user", reqParam);
+        const response  = await apiURL.post("userloginvalidemail", reqParam);
+        return response;
+      }
+export const verifyEmail=async(reqParam) => {
+        const response  = await apiURL.post(`/userlogintoken/${reqParam}`);
         return response;
       }
 
 export const userLogin=async(reqParam) => {
         const response  = await apiURL.post("userlogin", reqParam);
+        return response;
+      }
+
+export const userUpdate=async(reqParam,_id) => {
+        const response  = await apiURL.put(`userUpdate/${_id}`, reqParam);
+        return response;
+      }
+export const userPassUpdate=async(reqParam) => {
+        const response  = await apiURL.put(`userpassupdate`, reqParam);
         return response;
       }
 

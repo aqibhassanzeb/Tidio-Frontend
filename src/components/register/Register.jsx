@@ -44,10 +44,11 @@ const Register = () => {
         setLoader(true)
         const payload = { name, surName, email, password, websiteName }
         userRegister(payload).then((res) => {
-            localStorage.setItem("token", res.data.token)
-            localStorage.setItem("user", JSON.stringify(res.data.user))
-            navigate('/userlogin')
-
+            // localStorage.setItem("token", res.data.token)
+            // localStorage.setItem("user", JSON.stringify(res.data.user))
+            // navigate('/userlogin')
+            toast.success("Please verify your email")
+            setLoader(false)
         }).catch(err => {
             if (err.response.data.message) {
                 toast.error(err.response.data.message);
