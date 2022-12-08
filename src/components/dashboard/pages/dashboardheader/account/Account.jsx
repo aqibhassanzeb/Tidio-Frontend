@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { userUpdate } from '../../../../../apis/Auth-api';
+import { userPassUpdate, userUpdate } from '../../../../../apis/Auth-api';
 import { setActiveUser } from '../../../../../redux/features/UserSlice';
 
 const Account = () => {
@@ -24,6 +24,10 @@ const Account = () => {
     const [picture, setPicture] = useState("")
     const [imageshow, setImageshow] = useState("")
     const [loading, setLoading] = useState(false)
+    const [oldPass, setOldPass] = useState("")
+    const [newPass, setNewPass] = useState("")
+    const [conformPass, setConformPass] = useState("")
+    const [passLoading, setPassLoading] = useState(false)
 
     useEffect(() => {
     setName(loginUser?.name)
@@ -46,7 +50,6 @@ const Account = () => {
         formdata.append("name",name)
         formdata.append("region",region)
         formdata.append("language",language)
-        // const paylaod={name,picture,region,language}
         let _id=loginUser._id
         setLoading(true)
         userUpdate(formdata,_id).then(res=>{
@@ -61,6 +64,33 @@ const Account = () => {
             setLoading(false)
         })
     }
+
+    // update password func 
+    const updataPassHandle=()=>{
+        if(!oldPass || !newPass || !conformPass){
+            return toast.error("please fill all the feilds")
+        }
+        if(newPass != conformPass){
+            return toast.error("new password and conform should be match")
+        }
+        if(newPass.length < 5){
+            return toast.error("please provide strong password")
+        }
+        let _id=loginUser._id
+        const paylaod={oldPass,newPass,_id}
+        setPassLoading(true)
+        userPassUpdate(paylaod).then(res=>{
+            toast.success(res.data?.message)
+            handleClose()
+            setPassLoading(false)
+        }).catch(err=>{
+            console.log(err)
+            toast.error(err.response?.data?.error)
+            setPassLoading(false)
+        })
+
+    }
+
     return (
         <>
             <div className=''>
@@ -142,17 +172,17 @@ const Account = () => {
                 <Modal.Body>
                     <div className='row'>
                         <div className='col-sm-12 mt-3'>
-                            <input type="password" className='form-control' placeholder='Current password'></input>
+                            <input type="password" className='form-control' placeholder='Current password' onChange={(e)=>setOldPass(e.target.value)} />
                             <div className='small_change'>
                                 <small>If you forgot your current password please use <Link to='/reset-pass' className='forgot_pass'>Forget Password</Link> option on the login page.
                                 </small>
                             </div>
                         </div>
                         <div className='col-sm-12 mt-3'>
-                            <input type="password" className='form-control' placeholder='New password'></input>
+                            <input type="password" className='form-control' placeholder='New password' onChange={(e)=>setNewPass(e.target.value)} />
                         </div>
                         <div className='col-sm-12 mt-3'>
-                            <input type="password" className='form-control' placeholder='Repat New password'></input>
+                            <input type="password" className='form-control' placeholder='Conform New password' onChange={(e)=>setConformPass(e.target.value)} />
                         </div>
                     </div>
                 </Modal.Body>
@@ -160,8 +190,8 @@ const Account = () => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
+                    <Button variant="primary" disabled={passLoading} onClick={updataPassHandle}>
+                        Update
                     </Button>
                 </Modal.Footer>
             </Modal>

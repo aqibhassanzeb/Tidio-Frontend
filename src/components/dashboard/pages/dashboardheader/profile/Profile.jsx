@@ -12,7 +12,8 @@ const Profile = ({setToggle,setValue,value}) => {
     const loginUser = useSelector(state => state.User.activeUser)
     const navigate=useNavigate()
     const handleLogout = () => {
-        localStorage.clear();
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
         navigate('/userlogin')
       }
 
