@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../profile/Profile.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AiOutlineClose, AiOutlineUser } from 'react-icons/ai';
 import userimag from '../../../../../images/horse.jpg'
 import { BsPlus } from 'react-icons/bs';
@@ -7,9 +9,15 @@ import { MdLogout, MdSupport } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProjectModal from './../../../../modals/ProjectModal/ProjectModal';
+import { projectAdd, projectShow } from '../../../../../apis/Auth-api';
 
 const Profile = ({setToggle,setValue,value,toggle}) => {
-
+    const [project , setProject] = useState(false)
+    const [projectName, setProjectName] = useState("")
+    const [handleFetch, setHandleFetch] = useState(false)
+    const [projectData, setProjectData] = useState([])
+    const [loading, setLoading] = useState(false)
+    
     const loginUser = useSelector(state => state.User.activeUser)
     const navigate=useNavigate()
     const handleLogout = () => {
@@ -17,16 +25,45 @@ const Profile = ({setToggle,setValue,value,toggle}) => {
         localStorage.removeItem("token");
         navigate('/userlogin')
       }
-      const [project , setProject] = useState(false)
-
+    //   handle show modal 
       const handleProj = (e) =>{
+        console.log("handle click :",e.target.value)
           const value = e.target.value
           if(value === "audi"){
               setProject(true)
           }
       }
+    //   handle add website 
+    const handleSumbit=()=>{
+        let createdBy=loginUser._id
+        let paylaod={createdBy,name:projectName}
+        setLoading(true)
+        projectAdd(paylaod).then(res=>{
+            setHandleFetch(!handleFetch)
+            toast.success(res.data?.message)
+            setProject(false)
+            setLoading(false)
+        }).catch(err=>{
+            setLoading(false)
+            console.log(err)
+        })
+    }
+    
+    // handle show project 
+    const handleShow=()=>{
+        projectShow().then(res=>{
+            setProjectData(res?.data)
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+
+    useEffect(() => {
+        handleShow()
+    }, [handleFetch])
     return (
         <>
+        <ToastContainer />
             <div className='profile-maindiv'>
                 <div className=' p-2 d-flex justify-content-end'>
                     <AiOutlineClose className=' crossicon'  onClick={()=>setToggle(false)}/>
@@ -44,10 +81,21 @@ const Profile = ({setToggle,setValue,value,toggle}) => {
                         <option value="OFFLINE"  className="selectedata2">Offline</option>
                     </select>
                     <select name="cars" className="selectedata mt-2"  onChange={handleProj} >
-                        <option value="volvo" className="selectedata2">Website</option>
-                        <option value="saab" className="selectedata2">Brainspk.com</option>
-                        <option value="opel" className="selectedata2">AntarticalCorps.com</option>
-                        <option value="audi" className="selectedata2" >Add Project</option>
+                       {projectData && projectData.map(element => {
+                        return(
+                            <>
+                            <option value={element._id} className="selectedata2">{element.name}</option>
+                            </>
+                        )
+                       })
+                       }
+                        <option value="audi" className="selectedata2" >
+                            
+                            Add Project
+                            </option>
+                        
+                        {/* <option value="saab" className="selectedata2">Brainspk.com</option>
+                        <option value="opel" className="selectedata2">AntarticalCorps.com</option> */}
                     </select>
                 </div>
                 <div className='my-4'>
@@ -76,7 +124,12 @@ const Profile = ({setToggle,setValue,value,toggle}) => {
                 </div>
             </div>
           
-                    <ProjectModal project={project}
+                    <ProjectModal 
+                    loading={loading}
+                    setProjectName={setProjectName}
+                    projectName={projectName}
+                    handleSumbit={handleSumbit}
+                    project={project}
                     setProject={setProject} /> 
         </>
     )

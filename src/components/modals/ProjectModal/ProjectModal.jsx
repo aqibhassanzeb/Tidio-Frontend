@@ -2,9 +2,12 @@ import React from "react";
 import "./ProjectModal.css";
 import { Button, Modal } from "react-bootstrap";
 
-const ProjectModal = ({ project, setProject }) => {
+const ProjectModal = ({ project, setProject,projectName,setProjectName,handleSumbit,loading }) => {
+
   const handleClose = () => setProject(false);
   const handleShow = () => setProject(true);
+  
+
   return (
     <>
       <Modal className="" show={project} onHide={handleClose}>
@@ -15,7 +18,9 @@ const ProjectModal = ({ project, setProject }) => {
             <div className="  m-4">
             <div className="w-75 indat ">
               <input
-                type="url"
+              value={projectName}
+              onChange={(e)=>{setProjectName(e.target.value)}}
+                type="text"
                 className="proinpt"
                 placeholder="Enter your website url..."
               />
@@ -24,7 +29,7 @@ const ProjectModal = ({ project, setProject }) => {
             </div>
           </div>
           <div className="d-flex justify-content-center">
-            <button className="btn btn-primary">Add</button>
+            <button  disabled={loading} className="btn btn-primary" onClick={handleSumbit} >Add</button>
           </div>
         </Modal.Body>
       </Modal>
