@@ -10,7 +10,7 @@
     width: 100%;
 }
 .chatbot_header{
-    background: linear-gradient(3deg, rgba(16,2,222,1) 0%, rgba(0,0,0,1) 99%);
+    background-color: rgb(39, 95, 117);
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
     padding: 4px !important;
@@ -142,7 +142,7 @@
     top: -480%;
 }
 .backgroundcolorcahtbot{
-    background: rgb(0, 60, 255);
+    background: rgb(39, 95, 117);
     padding: 10px;
     
    clip-path: ellipse(98% 95% at 42% 5%);
@@ -159,23 +159,25 @@
     
 }
 .backforemailsub{
-    background-color: rgb(0, 0, 255);
+    background-color: rgba(39, 95, 117, 0.849);
     padding: 5px;
     height: 50vh;
-    clip-path: ellipse(98% 95% at 42% 5%);
 }
 .fiarrowicon{
     font-size: 20px;
-    color: blue;
+    color: rgba(39, 95, 117, 0.603);
     
 }
 .subbtndata{
-    background-color: black;
+    background-color: rgb(52, 85, 128);
     border: none;
     color: white;
     border-radius: 5px;
     padding: 5px 10px;
+    position: relative;
+    overflow: hidden;
 }
+
 .Cratebotbtn{
     background:#1C2B45;
     padding: 5px;
@@ -217,7 +219,7 @@
     transition: .6s;
 }
 .subbtndata:hover{
-    background-color: rgb(0, 100, 38);
+    background-color: rgb(17, 49, 90);
 }
 .divforcreatecahtbot{
     display: flex;

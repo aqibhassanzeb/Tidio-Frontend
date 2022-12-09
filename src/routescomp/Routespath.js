@@ -29,6 +29,7 @@ import OfflineTime from './../components/dashboard/pages/widget/offlineTime/Offl
 import Home from '../components/home/Home';
 import Billing from './../components/dashboard/pages/billing/Billing';
 import VerifyEmail from '../components/verifyemail/VerifyEmail';
+import ChatbotTest from './../components/dashboard/pages/chatbotcreate/chatbotTest/ChatbotTest';
 
 const Routespath = () => {
 
@@ -71,6 +72,7 @@ const Routespath = () => {
         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
         <Route path="/offtime" element={<OfflineTime />} />
         <Route path="/billing" element={<Billing />} />
+        <Route path="/chatbottest" element={<ChatbotTest />} />
       </Routes>
 
 
