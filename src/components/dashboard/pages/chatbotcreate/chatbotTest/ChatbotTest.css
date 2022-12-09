@@ -32,7 +32,6 @@
     padding: 4px;
 }
 .datain2{
- 
     background-color: rgb(255, 255, 255);
     display: flex;
     width: 240px;
@@ -48,4 +47,18 @@
 }
 .suericon{
     font-size: 80px;
+}
+.subbton{
+    border: 1px solid rgba(211, 211, 211, 0.274);
+    border-radius: 5px;
+    padding: 5px;
+    width: 90px;
+    background-color: rgb(61, 88, 117);
+    color: white;
+}
+.subbton:hover{
+    background-color: rgb(40, 58, 78);
+}
+.drodn{
+    font-size: 25px;
 }

@@ -10,13 +10,13 @@ const ChatbotTest = () => {
       <div className="testchat">
         <div className="chattesthead p-2">
           <p className="p-0 m-0">ChatBot</p>
-          <RiArrowDropDownLine />
+          <RiArrowDropDownLine  className="drodn"/>
         </div>
         <div className="inputcahttest p-2">
           <div className="introdiv">
             <ImUser className="suericon" />
-            <h5 className="text-center">Please Introduce yourself</h5>
-            <div className="mt-4">
+            <h5 className="text-center mt-2">Please Introduce yourself</h5>
+            <div className="mt-2">
               <div className="datain2">
               <div className="righticonin" >
                 <FiArrowDownRight className="" />
@@ -30,7 +30,8 @@ const ChatbotTest = () => {
                 <input
                   type="Number"
                   placeholder="Phone"
-                  className="indataput"
+                  className="indataput" 
+                  
                 />
               </div>
               <div className="datain2">
@@ -41,7 +42,7 @@ const ChatbotTest = () => {
               </div>
               
               <div className="d-flex justify-content-center">
-                <button className="btn btn-primary">Submit</button>
+                <button className="subbton">Submit</button>
               </div>
               
             </div>
