@@ -6,9 +6,26 @@
     right: 0%;
     top: 100%;
     z-index: 10;
-    transition: 1s !important;
     border-radius: 5px;
     animation: profilemai .7s linear;
+    transition: .5s !important;
+    overflow: hidden;
+}
+
+.profile-maindiv2{
+    width: 0px;
+    height: 88vh;
+    overflow: hidden;
+    background-color: #1C2B45;
+    position: absolute;
+    right: 0%;
+    top: 100%;
+    z-index: 10;
+    border-radius: 5px;
+    white-space: nowrap;
+    word-wrap: normal;
+    animation: profilemai .7s linear;
+    transition: .5s !important;
 }
 
 @keyframes profilemai {
@@ -19,7 +36,22 @@
         right: -1%;
     }
 }
-
+.selectlangua{
+    background-color: #1C2B45;
+    font-size: 12px;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+}
+.dataslectdiv{
+    border: 1px solid rgba(211, 211, 211, 0.603);
+    color: white;
+    border-radius: 4px;
+    padding: 3px;
+    white-space: nowrap;
+}
 .crossicon{
     color: white;
     font-size: 25px;
@@ -31,7 +63,7 @@
 .profileimagediv{
     display: block;
     margin: auto;
-
+    white-space: nowrap;
 }
 .profileimage{
     width: 80px;
@@ -94,6 +126,7 @@
 }
 .textdata{
     color: rgba(255, 255, 255, 0.884);
+    white-space: nowrap;
 }
 .userProfiletext:hover{
     cursor: pointer;
