@@ -76,8 +76,16 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
     leaveCall();
     setShow(false);
   };
-  const handleShow = () => setShow(true);
 
+  const handleShow = () => setShow(true);
+  
+    // auto message scroller 
+  const messagesEndRef = useRef(null)
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  } 
+
+  useEffect(scrollToBottom, [messages]);
   // file onchange
   const handleChangefile = (e) => {
     setFileAttachment(e.target.files[0]);
@@ -522,7 +530,8 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                       </div>
                     );
               })}
-          </div>
+              <div ref={messagesEndRef} />
+          </ div >
         ) : (
             <>
               <div className="d-flex">
