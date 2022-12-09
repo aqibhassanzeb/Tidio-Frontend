@@ -1,0 +1,49 @@
+.testchat{
+    width: auto;
+    height: 100vh;
+    border: 1px solid rgba(0, 0, 0, 0.267);
+    margin: 0px auto;
+    border-radius: 0px;
+    overflow: hidden;
+}
+.chattesthead{
+    background-color: lightslategray;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.inputcahttest{
+    background-color: rgb(25, 67, 109);
+    color: white;
+    height: 70vh;
+    /* border-radius: 0% 0% 100% 100% / 80% 69% 29% 20% ; */
+}
+.indataput{
+    border: none;
+    padding: 5px;
+   width: 100%;
+   outline: none;
+}
+.righticonin{
+    font-size: 20px;
+    color: blue;
+}
+.datain2{
+ 
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    width: 240px;
+    align-items: center;
+    margin: 15px auto;
+}
+.introdiv{
+    
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+}
+.suericon{
+    font-size: 80px;
+}
