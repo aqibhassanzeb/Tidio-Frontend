@@ -28,6 +28,8 @@
 .righticonin{
     font-size: 20px;
     color: blue;
+    border-right: 1px solid lightgray;
+    padding: 4px;
 }
 .datain2{
  

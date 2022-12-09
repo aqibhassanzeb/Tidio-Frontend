@@ -1,7 +1,7 @@
 import React from "react";
 import "./ChatbotTest.css";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { BsArrowDownRight, FaUserTie } from "react-icons/bs";
+import { FiArrowDownRight } from "react-icons/fi";
 import { ImUser } from "react-icons/im";
 
 const ChatbotTest = () => {
@@ -18,12 +18,15 @@ const ChatbotTest = () => {
             <h5 className="text-center">Please Introduce yourself</h5>
             <div className="mt-4">
               <div className="datain2">
-                <BsArrowDownRight className="righticonin" />
+              <div className="righticonin" >
+                <FiArrowDownRight className="" />
+                </div>
                 <input type="text" placeholder="Name" className="indataput" />
               </div>
               <div className="datain2">
-                <BsArrowDownRight className="righticonin" />
-
+              <div className="righticonin" >
+                <FiArrowDownRight />
+                </div>
                 <input
                   type="Number"
                   placeholder="Phone"
@@ -31,9 +34,10 @@ const ChatbotTest = () => {
                 />
               </div>
               <div className="datain2">
-                <BsArrowDownRight className="righticonin" />
-
-                <input type="email" placeholder="email" className="indataput" />
+              <div className="righticonin" >
+                <FiArrowDownRight className="" />
+                </div>
+                <input type="email" placeholder="Email" className="indataput" />
               </div>
               
               <div className="d-flex justify-content-center">
