@@ -10,8 +10,6 @@ const WidgetOffline = ({getStarted,setshowChatbot,chatBot,setOfflineMsg,
     setContentError,sendloading,sendMsg,content}) => {
 
     const handleSubmit=()=>{
-        console.log("handle submit")
-        
         handleSendMessages()
     }
 

@@ -65,7 +65,7 @@ const Routespath = () => {
         <Route path="/token/:token" exact element={<>    <VerifyEmail />  </>} />
         <Route path="/register" element={<>    <Register /> </>} />
         <Route path="/pricing" element={<> <Header /> <Pricing /> <Footer /> </>} />
-        <Route path="/chatbot/id" element={<Chatbot2 />} />
+        <Route path="/chatbot/:createdby" element={<Chatbot2 />} />
         <Route path="/reset-pass" element={<> <Header /> <ResetPass /> <Footer /> </>} />
         <Route path="/reset-pass/:token" element={<NewPassword />} />
         <Route path="/termsandcondition" element={<TermsAndCondition />} />

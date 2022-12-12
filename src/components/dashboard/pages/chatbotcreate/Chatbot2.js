@@ -28,6 +28,10 @@ import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFi
 import Picker from 'emoji-picker-react';
 import WidgetOffline from '../widget/WidgetOffline';
 import ImagModal from '../../../modals/ImageModal/ImagModal';
+import { useParams} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
 var chatbotControl
@@ -119,17 +123,18 @@ const Chatbot2 = () => {
     }
 
     const subUserNotify = useSelector(state => state.SelectedUser.subUsernotif)
+    
 
     //    static data for temp
-
-    var createdby = "634543ff090124ecb0c39a6b"
+    let {createdby}=useParams()
+    // var createdby = "634543ff090124ecb0c39a6b"
     var email = "alikhan@gmail.com"
     var _id = chatId ? chatId : localStorage.getItem("tidiochat")
     var currentdate = new Date();
     var currentTime = currentdate.toLocaleString('en-GB').slice(12)
 
     // pre chat message time 
-    var setDateForPremessages = new Date(subUserData.createdAt)
+    var setDateForPremessages = new Date(subUserData?.createdAt)
 
     // socket connection for chat 
     useEffect(() => {
@@ -206,6 +211,7 @@ const Chatbot2 = () => {
                 localStorage.setItem("tidiochatuser", JSON.stringify(result.data?.FullChat.subUser))
                 setSubUserData2(result.data?.FullChat.subUser)
             }).catch(err => {
+                toast.error("something went wrong !")
                 console.log(err);
             })
         }
@@ -495,6 +501,7 @@ const Chatbot2 = () => {
     // console.log("get Started :",getStarted)
     return (
         <>
+       < ToastContainer />
             {showChatbot ?
 
 

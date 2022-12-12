@@ -80,7 +80,6 @@ export const subUserchatDelete = async (reqParam) => {
     return response
 }
 export const chatbotSetting = async (reqParam) => {
-   console.log("req param :",reqParam)
     const response = await apiURL.post(`/chatbotsetting/`,reqParam, config);
     return response
 }
