@@ -87,8 +87,7 @@ function ChatbotCreate() {
   useEffect(() => {
     handlefetch();
   }, [fetchControl]);
-  console.log("chat bot link :",window.location.host)
-  var framlink = `${window.location.host}/chatbot/${loginUser._id} `;
+  var framlink = `${window.location.origin}/chatbot/${loginUser._id} `;
   return (
     <>
       <ToastContainer />
