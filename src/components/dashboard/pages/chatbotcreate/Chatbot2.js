@@ -525,7 +525,7 @@ const Chatbot2 = () => {
                                         {/* pre chat messages  */}
                                     
                                           <div className='col-sm-12 p-2 ' >
-                                            <div className='d-flex'>
+                                            <div className='d-flex' >
                                                 <div className='col-sm-1'>
                                                     <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
                                                 </div>
@@ -538,7 +538,7 @@ const Chatbot2 = () => {
                                         </div>
 
                                           <div className='col-sm-12 p-2 ' >
-                                            <div className='d-flex'>
+                                            <div className='d-flex' >
                                                 <div className='col-sm-1'>
                                                     <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
                                                 </div>

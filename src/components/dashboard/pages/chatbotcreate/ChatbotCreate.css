@@ -22,6 +22,11 @@
     background-color: rgba(117, 117, 117, 0.473);
     
 }
+.cahtbto2{
+    position: absolute;
+    top: -70%;
+    bottom: 0%;
+}
 .emojiicon{
     font-size: 25px;
     margin-right: 5px;
