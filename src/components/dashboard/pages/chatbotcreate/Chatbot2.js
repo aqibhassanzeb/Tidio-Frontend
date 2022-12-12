@@ -782,7 +782,7 @@ const Chatbot2 = () => {
                 </Modal.Header>
                 <Modal.Body className="headback">
                     <div className='row videofulldiv'>
-                        <div className="d-flex justify-content-center">
+                        <div className="fixedvideocall">
                         <div className='videodivforcall'>
                             {<video ref={myVideo} src={myVideo.current} autoPlay className="videodivforcall" />}
                         </div>
@@ -813,7 +813,7 @@ const Chatbot2 = () => {
 
                             (
                                 <div className="caller">
-                                    <h3 >{name} is calling...</h3>
+                                    <h3 >{name} is calling... </h3>
                                     <div className="d-flex">
                                         <div className="answerbtn" onClick={answerCall}>
                                             Answer

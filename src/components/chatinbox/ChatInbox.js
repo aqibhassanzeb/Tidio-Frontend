@@ -628,7 +628,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
         </Modal.Header>
         <Modal.Body className="headback">
           <div className="row  videofulldiv">
-          <div className="d-flex justify-content-center">
+          <div className="fixedvideocall">
             <div className=" videodivforcall">
               {
                 <video

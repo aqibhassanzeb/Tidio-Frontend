@@ -27,6 +27,10 @@
     top: -70%;
     bottom: 0%;
 }
+.caller{
+    display: flex;
+    margin-right: 5px;
+}
 .emojiicon{
     font-size: 25px;
     margin-right: 5px;
