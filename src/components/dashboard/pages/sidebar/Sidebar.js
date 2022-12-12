@@ -68,7 +68,6 @@ function Sidebar({ children }) {
     const forceUpdate = useForceUpdate();
 
     const handleClick = (value) => {
-        console.log("handle click :", value)
         setIconActive(value);
         forceUpdate();
         // setForceUpdate(!forceUpdate)
