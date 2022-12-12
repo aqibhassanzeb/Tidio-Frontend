@@ -1,6 +1,13 @@
 import { apiURL } from '../config/index'
 
 
+let usertoken = localStorage.getItem("token")
+const config = {
+    headers: {
+
+        Authorization: `Bearer ${usertoken}`
+    }
+}
 
 export const userRegister=async(reqParam) => {
         const response  = await apiURL.post("userloginvalidemail", reqParam);
@@ -35,6 +42,14 @@ export const resetPassword=async(reqParam) => {
       }
 export const newPassword=async(reqParam) => {
         const response  = await apiURL.post("new-password", reqParam);
+        return response;
+      }
+export const projectShow=async(_id) => {
+        const response  = await apiURL.get(`projectshow`,config);
+        return response;
+      }
+export const projectAdd=async(reqParam) => {
+        const response  = await apiURL.post(`addproject`,reqParam, config);
         return response;
       }
 

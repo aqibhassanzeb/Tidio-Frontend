@@ -28,6 +28,10 @@ import { BsCameraVideoOffFill, BsCameraVideoFill, BsFillMicMuteFill, BsFillMicFi
 import Picker from 'emoji-picker-react';
 import WidgetOffline from '../widget/WidgetOffline';
 import ImagModal from '../../../modals/ImageModal/ImagModal';
+import { useParams} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 var ENDPOINT = process.env.REACT_APP_SOCKET_LINK
 var socket = io()
 var chatbotControl
@@ -119,14 +123,18 @@ const Chatbot2 = () => {
     }
 
     const subUserNotify = useSelector(state => state.SelectedUser.subUsernotif)
+    
 
     //    static data for temp
-
-    var createdby = "634543ff090124ecb0c39a6b"
+    let {createdby}=useParams()
+    // var createdby = "634543ff090124ecb0c39a6b"
     var email = "alikhan@gmail.com"
     var _id = chatId ? chatId : localStorage.getItem("tidiochat")
     var currentdate = new Date();
     var currentTime = currentdate.toLocaleString('en-GB').slice(12)
+
+    // pre chat message time 
+    var setDateForPremessages = new Date(subUserData?.createdAt)
 
     // socket connection for chat 
     useEffect(() => {
@@ -203,6 +211,7 @@ const Chatbot2 = () => {
                 localStorage.setItem("tidiochatuser", JSON.stringify(result.data?.FullChat.subUser))
                 setSubUserData2(result.data?.FullChat.subUser)
             }).catch(err => {
+                toast.error("something went wrong !")
                 console.log(err);
             })
         }
@@ -283,6 +292,12 @@ const Chatbot2 = () => {
 
         }
     }
+    // auto scroller 
+    const messagesEndRef = useRef(null)
+    const scrollToBottom = () => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    } 
+    useEffect(scrollToBottom, [data]);
 
     const handleCall = () => {
         setShow(true);
@@ -481,9 +496,12 @@ const Chatbot2 = () => {
         setImgd(true)
         setSendi(`${process.env.REACT_APP_API_URL_IMG}${elm.myFile}`)
     }
+    
+    
     // console.log("get Started :",getStarted)
     return (
         <>
+       < ToastContainer />
             {showChatbot ?
 
 
@@ -503,6 +521,36 @@ const Chatbot2 = () => {
                             {chatId && chatId != undefined ?
                                 OnlineTime[0] <= currentTime && OnlineTime[1] >= currentTime ?
                                     <div className=' chatbotmessagediv' style={{ height: "350px" }}>
+                                        
+                                        {/* pre chat messages  */}
+                                    
+                                          <div className='col-sm-12 p-2 ' >
+                                            <div className='d-flex'>
+                                                <div className='col-sm-1'>
+                                                    <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
+                                                </div>
+                                                <div className='col-sm-11 border border-top-0  custom_rebot_chat space_box'>
+                                                    <p className="mesegtetxher">{getStarted?.status}</p>
+                                                    <time style={{ fontSize: "10px" }} className='p-0 m-0'>{setDateForPremessages ?
+                                                setDateForPremessages.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}</time>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                          <div className='col-sm-12 p-2 ' >
+                                            <div className='d-flex'>
+                                                <div className='col-sm-1'>
+                                                    <img src={Profilepic} className="img img-fluid img_profile" alt="profile" />
+                                                </div>
+                                                <div className='col-sm-11 border border-top-0  custom_rebot_chat space_box'>
+                                                    <p className="mesegtetxher">{getStarted?.message}</p>
+                                                    <time style={{ fontSize: "10px" }} className='p-0 m-0'>{setDateForPremessages ?
+                                                setDateForPremessages.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "N/A"}    
+                                                </time>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         {
                                             data && data.map((elm) => {
                                                 var setDate = new Date(elm.createdAt)
@@ -582,6 +630,7 @@ const Chatbot2 = () => {
                                             //     :
                                             //    { updateState}
                                         }
+                                        <div ref={messagesEndRef} />
                                     </ div>
                                     :
                                     <div className="secondwidgeetoffline">
@@ -685,7 +734,7 @@ const Chatbot2 = () => {
                                                     <GrAttachment className='' />
                                                     <input type="file" className='filetype' style={{ cursor: "pointer" }} onChange={(e) => handleChangefile(e)} />
                                                 </div>
-                                                <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div>
+                                                {/* <div className='d-flex align-items-center'><MdOutlineAddReaction className='emojiicon' onClick={() => setshowEmoji(!showEmoji)} /></div> */}
                                             </>
                                         }
                                         {chatId && chatId != undefined &&
