@@ -260,13 +260,12 @@ margin-left: 0px !important;
 }
 .videocalldiv{
     border-radius: 5px;
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: auto;
 }
 .videodivforcall{
-    width: 300px;
-    height: 300px;
-   
+    width: 550px;
+    height: auto;
 }
 .headerofmodal{
     background: linear-gradient(313deg, rgba(58,180,80,1) 0%, rgba(0,0,0,0.4150035014005602) 0%, rgba(195,2,2,0.4150035014005602) 82%);
@@ -281,11 +280,13 @@ margin-left: 0px !important;
     border-radius: 5px;
     border: none;
     width: 80px;
+    height: 40px;
     font-family: sans-serif;
     font-size: 20px;
     outline: none;
     padding: 5px;
     transition: .5s;
+    margin-right: 5px;
 }
 .answerbtn{
     background-color: rgb(17, 141, 6);
@@ -348,6 +349,11 @@ margin-left: 0px !important;
 
     }
 }
+.videoCallbtnandimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .imagetopcrossdiv{
     position: absolute;
     top: 10%;
@@ -405,16 +411,20 @@ margin-left: 0px !important;
     transition: .5s;
 }
 .headback{
-    background: linear-gradient(90deg, rgba(53, 96, 180, 0.678) 0%, rgba(255, 253, 253, 0.623) 64%);
+    background: #97b0e4 !important;
     color: white;
     font-style: italic;
     text-shadow: 1px 1px 5px black;
+}
+.modalcall{
+ 
 }
 .rowofvideo{
     background: linear-gradient(90deg, rgba(53, 96, 180, 0.678) 0%, rgba(255, 253, 253, 0.623) 64%);
 }
 .videofulldiv{
     margin: auto;
+    display: flex;
 }
 .maindottttedicon{
     display: block;

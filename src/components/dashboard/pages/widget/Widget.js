@@ -150,7 +150,7 @@ export default function Widget() {
                                         {displayWidget2 &&
                                             <>
                                                 <div className='col-sm-12 d-flex p-3'>
-                                                    <label className='display_chat'>Display the Chat<br />
+                                                    <label className='display_chat'>Offline Status<br />
                                                         <small className='color_small' onClick={handleShow}>(adjust online hour)</small>
                                                     </label>
                                                     <div className="form-check form-switch ">

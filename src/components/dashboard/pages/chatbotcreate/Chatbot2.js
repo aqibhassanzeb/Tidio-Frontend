@@ -724,23 +724,28 @@ const Chatbot2 = () => {
                 </div>
             }
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal
+            size="xl"
+            dialogClassName="modal-90w"
+              aria-labelledby="example-custom-modal-styling-title" show={show} onHide={handleClose}>
                 <Modal.Header closeButton className="headback">
                     <Modal.Title className="">Video Call</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="headback">
                     <div className='row videofulldiv'>
-
-                        <div className='col-12 videodivforcall'>
+                        <div className="d-flex justify-content-center">
+                        <div className='videodivforcall'>
                             {<video ref={myVideo} src={myVideo.current} autoPlay className="videodivforcall" />}
                         </div>
-                        <div className='col-12 videodivforcall'>
+                        <div className=' videodivforcall'>
                             {
                                 callAccepted && !callEnded ? <video className="videodivforcall" ref={userVideo} src={userVideo.current} autoPlay /> : <></>
                             }
                         </div>
+                        </div>
                     </div>
-                    <div className="d-flex">
+                    <div className="d-flex justify-content-center align-items-center">
+                    <div className="d-flex ">
                         {callAccepted && !callEnded ? (
                             <>
                                 <Button variant="danger" onClick={() => handleClose()}>
@@ -770,7 +775,7 @@ const Chatbot2 = () => {
                             ) : null}
 
                     </div>
-                    <div className='d-flex'>
+                    <div className='d-flex '>
                         {videoMuted ? (
                             <div className="mutedbtn" onClick={() => muteCam()}>
                                 <BsCameraVideoFill />
@@ -795,6 +800,7 @@ const Chatbot2 = () => {
                                 </div>
 
                             )}
+                    </div>
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="headback">

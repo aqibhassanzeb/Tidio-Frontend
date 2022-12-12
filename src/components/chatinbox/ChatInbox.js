@@ -609,13 +609,18 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
         )}
       </div>
 
-      <Modal show={show} onHide={handleClose} className="modalcall">
+      <Modal
+      size="xl"
+      dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
+       show={show} onHide={handleClose} className="">
         <Modal.Header closeButton className="headback">
           <Modal.Title>Video Call</Modal.Title>
         </Modal.Header>
         <Modal.Body className="headback">
           <div className="row  videofulldiv">
-            <div className="col-12 videodivforcall">
+          <div className="d-flex justify-content-center">
+            <div className=" videodivforcall">
               {
                 <video
                   ref={myVideo}
@@ -625,7 +630,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                 />
               }
             </div>
-            <div className="col-12 videodivforcall">
+            <div className=" videodivforcall">
               {callAccepted && !callEnded ? (
                 <video
                   ref={userVideo}
@@ -638,6 +643,8 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                 )}
             </div>
           </div>
+          </div>
+          <div  className="videoCallbtnandimg">
           <div className="">
             {callAccepted && !callEnded ? (
               <Button variant="danger" onClick={() => handleClose()}>
@@ -665,7 +672,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
               </div>
             ) : null}
           </div>
-          <div className="d-flex">
+          <div className="d-flex justify-content-center">
             {videoMuted ? (
               <div className="mutedbtn" onClick={() => muteCam()}>
                 <BsCameraVideoFill />
@@ -684,6 +691,7 @@ function ChatInbox({ senderUser, showProfInfo, setShowProfInfo, setHide }) {
                   <BsFillMicMuteFill />
                 </div>
               )}
+          </div>
           </div>
         </Modal.Body>
       </Modal>
